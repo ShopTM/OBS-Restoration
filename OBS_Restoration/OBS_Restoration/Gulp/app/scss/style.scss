@@ -145,7 +145,6 @@ header {
     a {
         @extend %slide-text-style;
         @extend %btn;
-      
         text-transform: uppercase;
 
 
@@ -251,7 +250,7 @@ span.about-advantages-icon {
   width: 100%;
   height: 500px;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url(../Images/banner-home-page.png) no-repeat;
+    url(../Images/banner-home-page.jpg) no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -297,59 +296,28 @@ span.about-advantages-icon {
 }
 
 
-///////////////////////// OFFERING
-.offers {
-  padding: 0;
-  img {
-    width: 100%;
-    height: 300px;
-    position: relative;
-    z-index: 1;
-  }
-}
+/////////////////////////BANNERg OFFERING
 
-.bg-offers {
-  position: absolute;
-  padding: 10px;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 300px;
-  background: $bg-mask;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  h3 {
-    color: #ffffff;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 20px;
-    font-size: $fz;
-    
-  }
-}
-.offer-advantage {
+.services-offers-banner {
+    margin: 0 0 100px 0;
     width: 100%;
-    height: 400px;
+    height: 500px;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/offer-banner.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 100px;
 
     h2 {
         color: #ffffff;
-        line-height: 36px;
-        font-size: 1.1em;
+        font-size: 2em;
+        font-weight: 600;
+        text-transform: uppercase;
     }
 
     a {
-
         @extend %btn;
-        margin-top: 20px;
         text-transform: uppercase;
 
         &:hover {

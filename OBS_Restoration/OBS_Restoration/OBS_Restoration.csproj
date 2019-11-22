@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Css\bootstrap.min.css" />
+    <Content Include="Content\Css\Images.css" />
     <Content Include="Content\Css\style.min.css" />
     <Content Include="Content\Icons\craftsmans.svg" />
     <Content Include="Content\Icons\develop.svg" />
@@ -139,6 +140,7 @@
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Gulp\app\css\bootstrap.min.css" />
+    <Content Include="Gulp\app\css\images-style.css" />
     <Content Include="Gulp\app\css\style.min.css" />
     <Content Include="Gulp\app\icons\craftsmans.svg" />
     <Content Include="Gulp\app\icons\develop.svg" />
@@ -156,20 +158,19 @@
     <Content Include="Gulp\app\icons\telephone.svg" />
     <Content Include="Gulp\app\icons\value.svg" />
     <Content Include="Gulp\app\Images\banner-home-page.jpg" />
-    <Content Include="Gulp\app\Images\banner-home-page.png" />
+    <Content Include="Gulp\app\Images\commertcial-buildings.jpg" />
     <Content Include="Gulp\app\Images\Engineering.jpg" />
+    <Content Include="Gulp\app\Images\historical-buildings.jpg" />
     <Content Include="Gulp\app\Images\img-slide-0.jpg" />
     <Content Include="Gulp\app\Images\img-slide-1.jpg" />
     <Content Include="Gulp\app\Images\img-slide-2.jpg" />
+    <Content Include="Gulp\app\Images\Industrial-building.jpg" />
     <Content Include="Gulp\app\Images\logo.png" />
     <Content Include="Gulp\app\Images\offer-advantages.jpg" />
     <Content Include="Gulp\app\Images\offer-banner.jpg" />
     <Content Include="Gulp\app\Images\owners.jpg" />
     <Content Include="Gulp\app\Images\property.jpg" />
-    <Content Include="Gulp\app\Images\restoration -cuture.jpg" />
-    <Content Include="Gulp\app\Images\restoration-commertcial.jpg" />
-    <Content Include="Gulp\app\Images\restoration-enclosing.jpg" />
-    <Content Include="Gulp\app\Images\restoration-healthcare.jpg" />
+    <Content Include="Gulp\app\Images\public-buildings.jpg" />
     <Content Include="Gulp\app\js\bootstrap.min.js" />
     <Content Include="Gulp\app\js\jquery-3.4.1.slim.min.js" />
     <Content Include="Gulp\app\js\libs.min.js" />
