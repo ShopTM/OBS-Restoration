@@ -1,0 +1,47 @@
+/***************** MEDIA *****************/
+@media screen and (max-width: 768px) {
+    .slide-text h2,
+    .banner-craftsman h3 {
+        font-size: 3em;
+        margin-left: 0;
+    }
+    .logo img,
+    h1.logo {
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    span.about-advantages-icon,
+    .navbar button {
+        display: block;
+        margin: 0 auto;
+        top: 0;
+    }
+
+    .about-us-advantages h3,
+    .about-us-advantages p{
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+    }
+    .navbar a {
+        font-size: 1.2em;
+    }
+    footer p {
+        padding-right:0;
+    }
+   }
+
+@media screen and (max-width: 520px) {
+    .slide-text h2,
+    .banner-craftsman h3 {
+        font-size: 1.9em;
+    }
+
+    .slide-text p {
+        font-size: 0.7em;
+    }
+  
+
+  
+}
