@@ -5,9 +5,9 @@ using Microsoft.AspNet.Identity;
 using DAL;
 using OBS_Restoration.Manager;
 
+[assembly: OwinStartup(typeof(OBS_Restoration.App_Start.Startup))]
 namespace OBS_Restoration.App_Start
 {
-    //[assembly: OwinStartup(typeof(AspNetIdentityApp.Startup))]
     public class Startup
     {
         public void Configuration(IAppBuilder app)
