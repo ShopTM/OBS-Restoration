@@ -5,7 +5,11 @@ let gulp = require('gulp'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
     del = require('del'),
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'),
+	svgSprite = require('gulp-svg-sprite'),
+	svgmin = require('gulp-svgmin'),
+	cheerio = require('gulp-cheerio'),
+	replace = require('gulp-replace');
 
 
 gulp.task('clean', async function(){
@@ -25,8 +29,7 @@ gulp.task('scss', function(){
 
 gulp.task('css', function(){
   return gulp.src([
-    'node_modules/normalize.css/normalize.css',
-    'node_modules/slick-carousel/slick/slick.css',
+    'node_modules/normalize.css/normalize.css'  
   ])
     .pipe(concat('_libs.scss'))
     .pipe(gulp.dest('app/scss'))
@@ -61,6 +64,44 @@ gulp.task('browser-sync', function() {
   });
 });
 
+//SVG TASK
+gulp.task('svg', function(){
+	return gulp.src('Gulp/app/svg/*.svg')
+        .pipe(svgmin({
+            js2svg: {
+                pretty: true
+            }
+        }))
+	.pipe(cheerio({
+			run: function ($) {
+				$('[fill]').removeAttr('fill');
+				$('[stroke]').removeAttr('stroke');
+				$('[style]').removeAttr('style');
+			},
+			parserOptions: {xmlMode: true}
+		}))
+		// cheerio plugin create unnecessary string '&gt;', so replace it.
+		.pipe(replace('&gt;', '>'))
+		// build svg sprite
+		.pipe(svgSprite({
+			mode: {
+				symbol: {
+                    sprite: "sprite.svg",
+                    render: {
+                        scss: {
+                            dest: '../../../sass/_sprite.scss',
+                            
+                        }
+                    }
+					
+				}
+			}
+		}))
+        .pipe(gulp.dest('Gulp/app/svg/spites'));
+
+});
+
+
 gulp.task('export', async function(){
   let buildHtml = gulp.src('Gulp/app/**/*.cshtml')
     .pipe(gulp.dest('Content'));
@@ -72,7 +113,13 @@ gulp.task('export', async function(){
     .pipe(gulp.dest('Content/Js'));
     
   let BuildFonts = gulp.src('Gulp/app/fonts/**/*.*')
-    .pipe(gulp.dest('Content/Fonts'));
+        .pipe(gulp.dest('Content/Fonts'));
+
+    let BuildSvg = gulp.src('Gulp/app/svg/spites/symbol/**/*.*')
+        .pipe(gulp.dest('Content/Svg'));
+
+    let BuildSass = gulp.src('Gulp/app/sass/**/*.*')
+        .pipe(gulp.dest('Content/sass'));
 
   let BuildImg = gulp.src('Gulp/app/Images/**/*.*')
     .pipe(gulp.dest('Content/Images'));   
@@ -81,9 +128,14 @@ gulp.task('export', async function(){
 gulp.task('watch', function(){
   gulp.watch('Gulp/app/scss/**/*.scss', gulp.parallel('scss'));
   gulp.watch('Gulp/app/*.cshtml', gulp.parallel('cshtml'))
-  gulp.watch('Gulp/app/js/*.js', gulp.parallel('script'))
+    gulp.watch('Gulp/app/js/*.js', gulp.parallel('script'))
+   
+
 });
+
+
+
 
 gulp.task('build', gulp.series('clean', 'export'))
 
-gulp.task('default', gulp.parallel('css' ,'scss', 'js', 'browser-sync', 'watch'));
+gulp.task('default', gulp.parallel('svg', 'css' ,'scss', 'js', 'browser-sync', 'watch'));

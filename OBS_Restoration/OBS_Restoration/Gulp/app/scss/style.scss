@@ -1,6 +1,7 @@
-@import "vars";
 @import "libs";
 @import "fonts";
+
+
 
 
 $bg-mask: rgba(0, 0, 0, 0.8);
@@ -18,10 +19,7 @@ $fz: 1.2em;
     color: #ffffff;
     font-size: 0.75rem;
 }
-%size-block {
-    width: 100%;
-    height: 100vh;
-}
+
 %hr-heading {
     height: 1px;
     text-align: center;
@@ -31,17 +29,23 @@ $fz: 1.2em;
     margin: 30px auto;
     border-top: 4px solid $base-color;
 }
-
+%size-block {
+    width: 100%;
+    height: 100vh;
+}
 body {
   font-family: "Roboto", Arial, sans-serif;
-  background: #797676;
+   
 }
-
+header {
+    width: 100%;
+ }
 ///////////////////// NAVBAR
 .navbar {
-    background: $bg-mask;
     padding: 0;
     z-index: 101;
+    background: $bg-mask;
+
 
     ul {
         margin: 20px 40px 20px 40px;
@@ -105,19 +109,17 @@ h1.logo {
     color: #ffffff;
     text-transform: uppercase;
     text-align: center;
-    z-index: 100;
     animation: slideUp 2s ease-in-out;
+    
 }
-
 .slider-container {
-    z-index: -1;
-   @extend  %size-block;
-}
-header {
+    position: relative;
+     background: gray;
     @extend %size-block;
-    z-index: -100;
-}
+    overflow: hidden;
+    z-index: 1;
 
+}
 .slider {
     position: absolute;
     top: 0;
@@ -133,7 +135,6 @@ header {
     z-index: -1;
     @extend %size-block;
 }
-
 .slide-text {
     z-index: 1;
     display: flex;
@@ -142,308 +143,381 @@ header {
     justify-content: center;
     @extend %size-block;
 
+    h2 {
+        font-weight: 400;
+        font-size: 4em;
+        letter-spacing: 0.25ch;
+        @extend %slide-text-style;
+    }
+
     a {
         @extend %slide-text-style;
         @extend %btn;
         text-transform: uppercase;
 
-
         &:hover {
             background: #065670;
         }
-    }
-
-    h2 {
-        @extend %slide-text-style;
-        font-weight: 400;
-        font-size: 4em;
-        letter-spacing: 0.25ch;
     }
 
     p {
         @extend %slide-text-style;
         font-size: 1.5em;
     }
-
-    span {
-        color: $base-color;
-    }
-}
-.text-slide a {
-    margin-top: 40px;
 }
 .curry {
     display: block;
 }
-/////////////////BG SLIDER
-#slide-0 {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/img-slide-0.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-#slide-1 {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(../Images/img-slide-1.jpg) no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-#slide-2 {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/img-slide-2.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-/////////////////////// MAIN
-
-.main {
-    background: #ffffff;
-    height: 100%;
-    overflow: hidden;
-
-    h2 {
-        text-align: center;
-        margin: 100px 0 20px 0;
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-}
-.hr-heading {
-  @extend %hr-heading;
-}
-// Advantages about us
-span.about-advantages-icon {
-    position: relative;
-    top: 100px;
-    width: 100px;
-    height: 100px;
-    background: $base-color;
-    display: block;
-    border-radius: 50px;
-    margin-left: 80px;
-
-
-    &:hover {
-        background: #000;
-        transition: 0.5s ease-in-out;
-    }
-}
-.about-advantages-icon svg {
-  width: 50px;
-  height: 50px;
-  fill: #ffffff;
-  position: absolute;
-  left: 25px;
-  top: 25px;
-}
-.about-us-advantages h3 {
-    font-size: 1.1em;
-    margin: 0 150px 15px 200px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-.about-us-advantages p {
-   margin: 0 20px 0 200px;
-}
-/************ Banner craftsmen************** */
-.banner-craftsman {
-  margin-top: 100px;
-  width: 100%;
-  height: 500px;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url(../Images/banner-home-page.jpg) no-repeat;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  span {
-    display: block;
-    color: $base-color;
-  }
-  h3 {
-    color: #ffffff;
-    font-size: 4em;
-    font-weight: 600;
-    margin-left: 100px;
-    text-transform: uppercase;
-  }
-}
-
-///////////////// CLINTS
-.home-page-clint-description p {
-  margin-bottom: 100px;
-}
-.home-page-clint-card img {
-  width: 100%;
-  height: 250px;
-
-}
-.home-page-clint-card {
-    margin-bottom: 30px;
-     h3 {
-        padding: 20px;
-        font-size: 1.3em;
-        font-weight: 700;
+    /////////////////BG SLIDER
+    #slide-0 {
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/img-slide-0.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 
-     a {
-        @extend %btn;
-        width: 130px;
-         &:hover {
-            background: #065670;
+    #slide-1 {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/img-slide-1.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    #slide-2 {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/img-slide-2.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    /////////////////////// MAIN
+    .main,
+    .container-fluid {
+        overflow: hidden;
+        padding: 0;
+        margin-top: -168.8px;
+     
+        h2 {
+            text-align: center;
+            margin: 100px 0 20px 0;
+            font-weight: 700;
+            text-transform: uppercase;
         }
     }
-}
+
+    .hr-heading {
+        @extend %hr-heading;
+    }
+    // Advantages about us
+    span.about-advantages-icon {
+        position: relative;
+        top: 100px;
+        width: 100px;
+        height: 100px;
+        background: $base-color;
+        display: block;
+        border-radius: 50px;
+        margin-left: 80px;
 
 
-/////////////////////////BANNERg OFFERING
+        &:hover {
+            background: #000;
+            transition: 0.5s ease-in-out;
+        }
+    }
 
-.services-offers-banner {
-    margin: 0 0 100px 0;
-    width: 100%;
-    height: 500px;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/offer-banner.jpg) no-repeat;
+    .about-advantages-icon svg {
+        width: 50px;
+        height: 50px;
+        fill: #ffffff;
+        position: absolute;
+        left: 25px;
+        top: 25px;
+    }
+
+    .about-us-advantages h3 {
+        font-size: 1.1em;
+        margin: 0 150px 15px 200px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .about-us-advantages p {
+        margin: 0 20px 0 200px;
+    }
+    /************ Banner craftsmen************** */
+    .banner-craftsman {
+        margin-top: 100px;
+        width: 100%;
+        height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/banner-home-page.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        span {
+            display: block;
+            color: $base-color;
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 4em;
+            font-weight: 600;
+            margin-left: 100px;
+            text-transform: uppercase;
+        }
+    }
+    ///////////////// CLINTS
+    .home-page-clint-description p {
+        margin-bottom: 100px;
+    }
+
+    .home-page-clint-card img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .home-page-clint-card {
+        margin-bottom: 30px;
+
+        h3 {
+            padding: 20px;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        a {
+            @extend %btn;
+            width: 130px;
+
+            &:hover {
+                background: #065670;
+            }
+        }
+    }
+    /////////////////////////BANNER OFFERING
+    .services-offers-banner {
+        margin: 0 0 100px 0;
+        width: 100%;
+        height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/offer-banner.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2 {
+            color: #ffffff;
+            font-size: 2em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        a {
+            @extend %btn;
+            text-transform: uppercase;
+
+            &:hover {
+                background: #065670;
+            }
+        }
+    }
+    //////////////////FOOTER
+    footer {
+        background: #222121;
+        overflow: hidden;
+        width: 100%;
+
+        p {
+            color: #fff;
+            line-height: 26px;
+            padding-right: 50px;
+        }
+
+        h6 {
+            color: $base-color;
+            margin: 50px 0 0 0;
+            text-transform: uppercase;
+        }
+    }
+
+    .footer-social {
+        background: $base-color;
+
+        p {
+            text-transform: uppercase;
+        }
+    }
+    /* social icon */
+    .icons-social svg,
+    .footer-contact svg {
+        width: 16px;
+        height: 16px;
+        fill: #fff;
+    }
+
+    .icons-social svg:hover {
+        fill: #0e76a8;
+    }
+
+    .footer-link {
+        ul {
+            padding: 0;
+        }
+
+        li {
+            padding: 5px 0 5px 0;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            text-align: left;
+            line-height: 25px;
+            padding-bottom: 5px;
+
+            &:hover {
+                border-bottom: 1px solid $base-color;
+            }
+        }
+    }
+
+    span.footer-contact {
+        color: #ffffff;
+        display: block;
+        line-height: 35px;
+    }
+
+    .text-span {
+        margin-left: 10px;
+    }
+
+    .hr-heading-footer {
+        height: 1px;
+        background: #797676;
+        width: 50px;
+        margin: 12px 0 20px 0;
+        padding: 0;
+        display: inline-block;
+    }
+    /////////////COPYRAIT
+    .footer-copyright {
+        background: #171717;
+        margin-top: 30px;
+    }
+    /* ******************ANIMATE****************** */
+    @keyframes anime-slider {
+        from {
+            opacity: 0;
+            transform: translateY(0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes anime {
+        from {
+            opacity: 0;
+            transform: translateY(0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translateY(35%);
+        }
+
+        50% {
+            transform: translateY(-8%);
+        }
+
+        65% {
+            transform: translateY(2%);
+        }
+    }
+
+    .servisce-container {
+        background: #ffffff;
+        height: 100%;
+        overflow: hidden;
+    }
+///PAGE SERVICES
+
+//BG-SERVISECWS
+.services-bg {
+    @extend %size-block;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/best-services.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
 
     h2 {
-        color: #ffffff;
-        font-size: 2em;
-        font-weight: 600;
-        text-transform: uppercase;
+        @extend %slide-text-style;
+        font-size: 3.8em;
     }
 
-    a {
-        @extend %btn;
-        text-transform: uppercase;
-
-        &:hover {
-            background: #065670;
-        }
-    }
-}
-
- //////////////////FOOTER
-footer {
-    background: #222121;
-    overflow: hidden;
-    width: 100%;
-
-    p {
-        color: #fff;
-        line-height: 26px;
-        padding-right: 50px;
-       }
-
-    h6 {
+    span {
         color: $base-color;
-        margin: 50px 0 0 0;
-        text-transform: uppercase;
     }
-}
-.footer-social {
-    background: $base-color;
 
     p {
-        text-transform: uppercase;
+        @extend %slide-text-style;
+        width: 40%;
+        margin: 0 auto;
+      
     }
 }
-/* social icon */
-.icons-social svg,
-.footer-contact svg {
-    width: 16px;
-    height: 16px;
-    fill: #fff;
-}
-.icons-social svg:hover{
-    fill: #0e76a8;
-}
-.footer-link {
-    ul {
-        padding: 0;
+// Advantages servises
+.container-services {
+    margin: 100px;
+    h2 {
+        margin: 0;
     }
-
-    li {
-        padding: 5px 0 5px 0;
-    }
-
-    a {
-        color: #ffffff;
-        text-decoration: none;
-        text-align: left;
-        line-height: 25px;
-        padding-bottom: 5px;
-
-        &:hover {
-            border-bottom: 1px solid $base-color;
-        }
-    }
+ }
+.container-services-description p{
+    margin: 0  50px 50px 50px;
+    
 }
-
-span.footer-contact {
-    color: #ffffff;
-    display: block;
-    line-height: 35px;
-}
-.text-span {
-    margin-left: 10px;
-}
-.hr-heading-footer {
-    height: 1px;
-    background: #797676;
-    width: 50px;
-    margin: 12px 0 20px 0;
-    padding: 0;
-    display: inline-block;
-}
-
-/////////////COPYRAIT
-.footer-copyright {
-    background: #171717;
+.servisce-container-row {
     margin-top: 30px;
 }
+.servisce-container-advantages {
+    position: relative;
 
-
-/* ******************ANIMATE****************** */
-@keyframes anime-slider {
-    from {
-        opacity: 0;
-        transform: translateY(0);
+    svg {
+        position: absolute;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+        fill: $base-color;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes anime {
-    from {
-        opacity: 0;
-        transform: translateY(0);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    p {
+        padding-left: 65px;
+        font-weight: bold;
     }
 }
-
-@keyframes slideUp {
-    0% {
-        transform: translateY(35%);
-    }
-
-    50% {
-        transform: translateY(-8%);
-    }
-
-    65% {
-        transform: translateY(2%);
-    }
+.servisce-container-advantages:hover {
+    background: $base-color;
 }
+
+
+
+
+
+
+
+
 
 @import "media";

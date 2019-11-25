@@ -104,7 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Css\bootstrap.min.css" />
-    <Content Include="Content\Css\Images.css" />
+    <Content Include="Content\Css\Images-style.css" />
     <Content Include="Content\Css\style.min.css" />
     <Content Include="Content\Icons\craftsmans.svg" />
     <Content Include="Content\Icons\develop.svg" />
@@ -119,15 +119,20 @@
     <Content Include="Content\Icons\value.svg" />
     <Content Include="Content\Images\banner-home-page.jpg" />
     <Content Include="Content\Images\banner-home-page.png" />
+    <Content Include="Content\Images\best-services.jpg" />
+    <Content Include="Content\Images\commertcial-buildings.jpg" />
     <Content Include="Content\Images\Engineering.jpg" />
+    <Content Include="Content\Images\historical-buildings.jpg" />
     <Content Include="Content\Images\img-slide-0.jpg" />
     <Content Include="Content\Images\img-slide-1.jpg" />
     <Content Include="Content\Images\img-slide-2.jpg" />
+    <Content Include="Content\Images\Industrial-building.jpg" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\offer-advantages.jpg" />
     <Content Include="Content\Images\offer-banner.jpg" />
     <Content Include="Content\Images\owners.jpg" />
     <Content Include="Content\Images\property.jpg" />
+    <Content Include="Content\Images\public-buildings.jpg" />
     <Content Include="Content\Images\restoration -cuture.jpg" />
     <Content Include="Content\Images\restoration-commertcial.jpg" />
     <Content Include="Content\Images\restoration-enclosing.jpg" />
@@ -137,10 +142,11 @@
     <Content Include="Content\Js\libs.min.js" />
     <Content Include="Content\Js\main.js" />
     <Content Include="Content\Js\popper.min.js" />
+    <Content Include="Content\Svg\spites\symbol\sprite.svg" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Gulp\app\css\bootstrap.min.css" />
-    <Content Include="Gulp\app\css\images-style.css" />
+    <Content Include="Gulp\app\css\Images-style.css" />
     <Content Include="Gulp\app\css\style.min.css" />
     <Content Include="Gulp\app\icons\craftsmans.svg" />
     <Content Include="Gulp\app\icons\develop.svg" />
@@ -158,6 +164,7 @@
     <Content Include="Gulp\app\icons\telephone.svg" />
     <Content Include="Gulp\app\icons\value.svg" />
     <Content Include="Gulp\app\Images\banner-home-page.jpg" />
+    <Content Include="Gulp\app\Images\best-services.jpg" />
     <Content Include="Gulp\app\Images\commertcial-buildings.jpg" />
     <Content Include="Gulp\app\Images\Engineering.jpg" />
     <Content Include="Gulp\app\Images\historical-buildings.jpg" />
@@ -176,6 +183,22 @@
     <Content Include="Gulp\app\js\libs.min.js" />
     <Content Include="Gulp\app\js\main.js" />
     <Content Include="Gulp\app\js\popper.min.js" />
+    <Content Include="Gulp\app\svg\construction-worker.svg" />
+    <Content Include="Gulp\app\svg\develop.svg" />
+    <Content Include="Gulp\app\svg\email.svg" />
+    <Content Include="Gulp\app\svg\growth.svg" />
+    <Content Include="Gulp\app\svg\linkedin.svg" />
+    <Content Include="Gulp\app\svg\money-bag.svg" />
+    <Content Include="Gulp\app\svg\placeholder.svg" />
+    <Content Include="Gulp\app\svg\planning.svg" />
+    <Content Include="Gulp\app\svg\protection.svg" />
+    <Content Include="Gulp\app\svg\quality.svg" />
+    <Content Include="Gulp\app\svg\respect.svg" />
+    <Content Include="Gulp\app\svg\spites\symbol\sprite.svg" />
+    <Content Include="Gulp\app\svg\team.svg" />
+    <Content Include="Gulp\app\svg\telephone.svg" />
+    <Content Include="Gulp\app\svg\tick-inside-circle.svg" />
+    <Content Include="Gulp\app\svg\value.svg" />
     <Content Include="node_modules\%40nodelib\fs.scandir\out\adapters\fs.js" />
     <Content Include="node_modules\%40nodelib\fs.scandir\out\constants.js" />
     <Content Include="node_modules\%40nodelib\fs.scandir\out\index.js" />
@@ -7149,7 +7172,6 @@
     <Content Include="Gulp\app\scss\_fonts.scss" />
     <Content Include="Gulp\app\scss\_libs.scss" />
     <Content Include="Gulp\app\scss\_media.scss" />
-    <Content Include="Gulp\app\scss\_vars.scss" />
     <Content Include="node_modules\%40nodelib\fs.scandir\LICENSE" />
     <Content Include="node_modules\%40nodelib\fs.scandir\package.json" />
     <Content Include="node_modules\%40nodelib\fs.scandir\README.md" />
@@ -9036,6 +9058,9 @@
     <Content Include="node_modules\node-gyp\gyp\AUTHORS" />
     <Content Include="Content\Index.cshtml" />
     <Content Include="Content\Services.cshtml" />
+    <Content Include="Gulp\app\sass\_sprite.scss" />
+    <Content Include="Content\sass\_sprite.scss" />
+    <Content Include="Gulp\app\scss\services.scss" />
     <None Include="node_modules\node-gyp\gyp\codereview.settings" />
     <Content Include="node_modules\node-gyp\gyp\DEPS" />
     <Content Include="node_modules\node-gyp\gyp\gyp" />
