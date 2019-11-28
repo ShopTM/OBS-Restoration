@@ -16,6 +16,22 @@ namespace OBS_Restoration.Controllers
             return View();
         }
 
+        public ActionResult Suppliers()
+        {
+            return View();
+        }
+
+        public ActionResult Projects()
+        {
+            return View();
+        }
+
+        public ActionResult Careers()
+        {
+            return View();
+        }
+
+
         public JsonResult GetServices()
         {
             var services = new List<Service>// test data

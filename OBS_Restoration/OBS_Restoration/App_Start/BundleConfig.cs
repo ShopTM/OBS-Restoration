@@ -6,6 +6,7 @@ namespace OBS_Restoration
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+
         }
     }
 }

@@ -1,4 +1,11 @@
 /***************** MEDIA *****************/
+
+@media screen and (max-width: 1024px ) {
+    .border-suplier-name {
+        left: 15%;
+        right: 15%;
+    }
+}
 @media screen and (max-width: 768px) {
     .slide-text h2,
     .banner-craftsman h3 {
@@ -27,9 +34,13 @@
     .navbar a {
         font-size: 1.2em;
     }
-    footer p {
-        padding-right:0;
+    .container-hiring-process {
+        height: 100%;
     }
+    footer p {
+        padding-right: 0;
+    }
+ 
    }
 
 @media screen and (max-width: 520px) {

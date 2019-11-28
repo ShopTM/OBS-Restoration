@@ -7,6 +7,32 @@
 $bg-mask: rgba(0, 0, 0, 0.8);
 $base-color: #188cb1;
 $fz: 1.2em;
+.container {
+    margin-bottom: 100px;
+}
+
+%slide-text-style {
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    animation: slideUp 2s ease-in-out;
+}
+
+%base-setting-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: anime 1.3s ease-in-out;
+
+    span {
+        color: $base-color;
+    }
+
+    h2 {
+        font-size: 3.8em;
+        @extend %slide-text-style;
+    }
+}
 
 %btn {
     background: $base-color;
@@ -35,6 +61,7 @@ $fz: 1.2em;
 }
 body {
   font-family: "Roboto", Arial, sans-serif;
+  box-sizing: border-box;
    
 }
 header {
@@ -105,13 +132,6 @@ h1.logo {
  }
 //////////////////////Slider
 
-%slide-text-style {
-    color: #ffffff;
-    text-transform: uppercase;
-    text-align: center;
-    animation: slideUp 2s ease-in-out;
-    
-}
 .slider-container {
     position: relative;
      background: gray;
@@ -242,30 +262,29 @@ h1.logo {
         margin: 0 20px 0 200px;
     }
     /************ Banner craftsmen************** */
-    .banner-craftsman {
-        margin-top: 100px;
-        width: 100%;
-        height: 500px;
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/banner-home-page.jpg) no-repeat;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+.banner-craftsman {
+    margin-top: 100px;
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/banner-home-page.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    @extend %base-setting-bg;
 
-        span {
-            display: block;
-            color: $base-color;
-        }
 
-        h3 {
-            color: #ffffff;
-            font-size: 4em;
-            font-weight: 600;
-            margin-left: 100px;
-            text-transform: uppercase;
-        }
+    span {
+        display: block;
+        color: $base-color;
     }
+
+    h3 {
+        color: #ffffff;
+        font-size: 4em;
+        font-weight: 600;
+        margin-left: 100px;
+        text-transform: uppercase;
+    }
+}
     ///////////////// CLINTS
     .home-page-clint-description p {
         margin-bottom: 100px;
@@ -294,7 +313,7 @@ h1.logo {
             }
         }
     }
-    /////////////////////////BANNER OFFERING
+    /////////////////////////////////////////////////////////////BANNER OFFERING
     .services-offers-banner {
         margin: 0 0 100px 0;
         width: 100%;
@@ -322,175 +341,46 @@ h1.logo {
             }
         }
     }
-    //////////////////FOOTER
-    footer {
-        background: #222121;
-        overflow: hidden;
-        width: 100%;
-
-        p {
-            color: #fff;
-            line-height: 26px;
-            padding-right: 50px;
-        }
-
-        h6 {
-            color: $base-color;
-            margin: 50px 0 0 0;
-            text-transform: uppercase;
-        }
-    }
-
-    .footer-social {
-        background: $base-color;
-
-        p {
-            text-transform: uppercase;
-        }
-    }
-    /* social icon */
-    .icons-social svg,
-    .footer-contact svg {
-        width: 16px;
-        height: 16px;
-        fill: #fff;
-    }
-
-    .icons-social svg:hover {
-        fill: #0e76a8;
-    }
-
-    .footer-link {
-        ul {
-            padding: 0;
-        }
-
-        li {
-            padding: 5px 0 5px 0;
-        }
-
-        a {
-            color: #ffffff;
-            text-decoration: none;
-            text-align: left;
-            line-height: 25px;
-            padding-bottom: 5px;
-
-            &:hover {
-                border-bottom: 1px solid $base-color;
-            }
-        }
-    }
-
-    span.footer-contact {
-        color: #ffffff;
-        display: block;
-        line-height: 35px;
-    }
-
-    .text-span {
-        margin-left: 10px;
-    }
-
-    .hr-heading-footer {
-        height: 1px;
-        background: #797676;
-        width: 50px;
-        margin: 12px 0 20px 0;
-        padding: 0;
-        display: inline-block;
-    }
-    /////////////COPYRAIT
-    .footer-copyright {
-        background: #171717;
-        margin-top: 30px;
-    }
-    /* ******************ANIMATE****************** */
-    @keyframes anime-slider {
-        from {
-            opacity: 0;
-            transform: translateY(0);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes anime {
-        from {
-            opacity: 0;
-            transform: translateY(0);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes slideUp {
-        0% {
-            transform: translateY(35%);
-        }
-
-        50% {
-            transform: translateY(-8%);
-        }
-
-        65% {
-            transform: translateY(2%);
-        }
-    }
+   
 
     .servisce-container {
         background: #ffffff;
         height: 100%;
         overflow: hidden;
     }
-///PAGE SERVICES
+/////////////////////////////////////////////////////PAGE SERVICES
 
-//BG-SERVISECWS
+//////////////////////////////////////////////////////////BG-SERVISECWS
 .services-bg {
     @extend %size-block;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/best-services.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-
-    h2 {
-        @extend %slide-text-style;
-        font-size: 3.8em;
-    }
-
-    span {
-        color: $base-color;
-    }
+    @extend %base-setting-bg;
+    
 
     p {
         @extend %slide-text-style;
         width: 40%;
         margin: 0 auto;
-      
     }
 }
-// Advantages servises
+
+ /////////////////////////////////////////// Advantages servises
 .container-services {
-    margin: 100px;
+    margin: 100px 100px 0 100px;
+
     h2 {
         margin: 0;
     }
- }
+}
 .container-services-description p{
     margin: 0  50px 50px 50px;
     
 }
 .servisce-container-row {
-    margin-top: 30px;
+    margin-top: 50px;
 }
 .servisce-container-advantages {
     position: relative;
@@ -508,16 +398,296 @@ h1.logo {
         font-weight: bold;
     }
 }
-.servisce-container-advantages:hover {
+
+//FOR JS efect
+.servisce-efect-advantages {
+    color: #ffff;
+    fill: #ffffff;
     background: $base-color;
+}
+
+
+////////////////////////////////////////////SUPPLIERS
+
+.suppliers-bg {
+    @extend %size-block;
+    animation: anime 1.3s ease-in-out;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/suppliers.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    @extend %base-setting-bg;
+
+ }
+
+//////////////////////////////LIST SUPPLIERS
+
+
+.border-suppliers {
+    display: inline-block;
+    position: relative;
+    border: 10px solid #188cb1;
+    border-radius: 5px;
+    padding: 10px 50px;
+    margin: 50px;
+
+    p {
+        padding: 40px 0 0 30px;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+        margin-top: 50px;
+        padding: 20px;
+    }
+}
+
+.border-suplier-name {
+    font-size: 1.4em;
+    color: #000;
+    background-color: #fff;
+    position: absolute;
+    text-align: center;
+    top: -30px;
+    right: 27%;
+    left: 27%;
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.other-supliers {
+    margin-bottom: 50px;
+}
+/////////////////////////////////////////PROJECTS
+.project-bg {
+    @extend %size-block;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/project.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    @extend %base-setting-bg;
+ 
+
+
+ }
+
+
+///////////////////////////////////////////////////CAREERS
+
+.career-bg {
+    @extend %size-block;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/careers.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    @extend %base-setting-bg;
+
+  }
+.career-descption p {
+    text-align: center;
+}
+
+.container-hiring-process {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../Images/hiring-banner.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 100px;
+    h2{
+        color: #ffffff;
+        padding-bottom: 50px;
+    }
+       
+  }
+%display-block {
+    display: block;
+    margin: 0 auto;
+}
+.hiring-icon svg {
+    width: 50px;
+    height: 50px;
+    fill: $base-color;
+    @extend %display-block;
+}
+.hiring-icon {
+    position: relative;
+    top: 0;
+    left: 0;
+    @extend %display-block;
+    height: 120px;
+    padding: 36px;
+    margin-bottom: 20px;
+    width: 120px;
+}
+.hiring-icon::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    @extend %display-block
+}
+
+
+.hiring-text-span {
+    @extend %display-block;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+.container-form-career {
+    background: #f2f2f2;
+    overflow: hidden;
+
+    h5 {
+        text-transform: uppercase;
+        text-align: center;
+        padding: 40px;
+        font-weight: 600;
+    }
+
+    button {
+        @extend %btn;
+        @extend %display-block;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        width: 240px;
+        text-align: center;
+       }
 }
 
 
 
 
+//////////////////////////////////////////////////////////FOOTER
+footer {
+    background: #222121;
+    overflow: hidden;
+    width: 100%;
 
+    p {
+        color: #fff;
+        line-height: 26px;
+        padding-right: 50px;
+    }
 
+    h6 {
+        color: $base-color;
+        margin: 50px 0 0 0;
+        text-transform: uppercase;
+    }
+}
 
+.footer-social {
+    background: $base-color;
 
+    p {
+        text-transform: uppercase;
+        margin: 0;
+    }
+}
+/* social icon */
+.icons-social svg,
+.footer-contact svg {
+    width: 16px;
+    height: 16px;
+    fill: #fff;
+}
 
+.icons-social svg:hover {
+    fill: #0e76a8;
+}
+
+.footer-link {
+    ul {
+        padding: 0;
+    }
+
+    li {
+        padding: 5px 0 5px 0;
+    }
+
+    a {
+        color: #ffffff;
+        text-decoration: none;
+        text-align: left;
+        line-height: 25px;
+        padding-bottom: 5px;
+
+        &:hover {
+            border-bottom: 1px solid $base-color;
+        }
+    }
+}
+
+span.footer-contact {
+    color: #ffffff;
+    display: block;
+    line-height: 35px;
+}
+
+.text-span {
+    margin-left: 10px;
+}
+
+.hr-heading-footer {
+    height: 1px;
+    background: #797676;
+    width: 50px;
+    margin: 12px 0 20px 0;
+    padding: 0;
+    display: inline-block;
+}
+/////////////////////////////////////////////////////COPYRAIT
+.footer-copyright {
+    background: #171717;
+    margin-top: 30px;
+    p{
+        margin: 0;
+    }
+}
+/* ******************************************************ANIMATE****************** */
+@keyframes anime-slider {
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes anime {
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(35%);
+    }
+
+    50% {
+        transform: translateY(-8%);
+    }
+
+    65% {
+        transform: translateY(2%);
+    }
+}
 @import "media";
