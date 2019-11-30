@@ -43,16 +43,39 @@ $(function(){
         }
     );
 
-
-
-
-
-
+          /////////////////////CAREERSR
 // Name of the file appear on select
 $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 });
 
+
+    /////////////////////PROJECT ISOTOP
+    var $container = $(".project-container");
+    $container.isotope({
+        filter: "*",
+        animationOptions: {
+            duration: 750,
+            easing: "linear",
+            queue: false
+        }
+    });
+
+    $(".project-filter a").click(function () {
+        $(".project-filter .current").removeClass("current");
+        $(this).addClass("current");
+
+        var selector = $(this).attr("data-filter");
+        $container.isotope({
+            filter: selector,
+            animationOptions: {
+                duration: 750,
+                easing: "linear",
+                queue: false
+            }
+        });
+        return false;
+    });
   
 });
