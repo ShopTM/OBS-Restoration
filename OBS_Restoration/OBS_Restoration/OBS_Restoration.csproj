@@ -161,6 +161,7 @@
     <Content Include="Content\Images\cds.png" />
     <Content Include="Content\Images\commertcial-buildings.jpg" />
     <Content Include="Content\Images\concrete-repairs.jpg" />
+    <Content Include="Content\Images\contact.jpg" />
     <Content Include="Content\Images\Darcle_0.jpg" />
     <Content Include="Content\Images\Darcle_1.jpg" />
     <Content Include="Content\Images\Darcle_2.jpg" />
@@ -207,6 +208,15 @@
     <Content Include="Content\Images\RoeHampton_5.jpg" />
     <Content Include="Content\Images\RoeHampton_6.jpg" />
     <Content Include="Content\Images\scafom.png" />
+    <Content Include="Content\Images\Services\building-envelop.jpg" />
+    <Content Include="Content\Images\Services\concrete-repairs.jpg" />
+    <Content Include="Content\Images\Services\glazing.jpg" />
+    <Content Include="Content\Images\Services\insulation.jpg" />
+    <Content Include="Content\Images\Services\masonry-repairs.jpg" />
+    <Content Include="Content\Images\Services\metal-railing.jpg" />
+    <Content Include="Content\Images\Services\wall-coating.jpg" />
+    <Content Include="Content\Images\Services\washing.jpg" />
+    <Content Include="Content\Images\Services\waterproofing.jpg" />
     <Content Include="Content\Images\StCatherine_0.jpg" />
     <Content Include="Content\Images\StClair_0.jpg" />
     <Content Include="Content\Images\StClair_1.jpg" />
@@ -218,7 +228,9 @@
     <Content Include="Content\Images\walmer_2.jpg" />
     <Content Include="Content\Images\walmer_3.jpg" />
     <Content Include="Content\Images\walmer_4.jpg" />
+    <Content Include="Content\Js\ajax.js" />
     <Content Include="Content\Js\bootstrap.min.js" />
+    <Content Include="Content\Js\google-map.js" />
     <Content Include="Content\Js\isotope-docs.min.js" />
     <Content Include="Content\Js\jquery.min.js" />
     <Content Include="Content\Js\libs.min.js" />
@@ -276,6 +288,7 @@
     <Content Include="Gulp\app\Images\cds.png" />
     <Content Include="Gulp\app\Images\commertcial-buildings.jpg" />
     <Content Include="Gulp\app\Images\concrete-repairs.jpg" />
+    <Content Include="Gulp\app\Images\contact.jpg" />
     <Content Include="Gulp\app\Images\Darcle_0.jpg" />
     <Content Include="Gulp\app\Images\Darcle_1.jpg" />
     <Content Include="Gulp\app\Images\Darcle_2.jpg" />
@@ -328,7 +341,9 @@
     <Content Include="Gulp\app\Images\walmer_2.jpg" />
     <Content Include="Gulp\app\Images\walmer_3.jpg" />
     <Content Include="Gulp\app\Images\walmer_4.jpg" />
+    <Content Include="Gulp\app\js\ajax.js" />
     <Content Include="Gulp\app\js\bootstrap.min.js" />
+    <Content Include="Gulp\app\js\google-map.js" />
     <Content Include="Gulp\app\js\isotope-docs.min.js" />
     <Content Include="Gulp\app\js\jquery.min.js" />
     <Content Include="Gulp\app\js\libs.min.js" />
@@ -12020,6 +12035,7 @@
     <Content Include="Views\Home\Suppliers.cshtml" />
     <Content Include="Views\Home\Projects.cshtml" />
     <Content Include="Views\Home\Careers.cshtml" />
+    <Content Include="Views\Home\Contacts.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

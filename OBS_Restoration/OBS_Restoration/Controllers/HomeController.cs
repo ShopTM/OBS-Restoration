@@ -31,37 +31,114 @@ namespace OBS_Restoration.Controllers
             return View();
         }
 
+        public ActionResult Contacts()
+        {
+            return View();
+        }
+
 
         public JsonResult GetServices()
         {
-            var services = new List<Service>// test data
+            var buildingEnvelop = new List<Service>// test data
             {
                 new Service
                 {
                     Id = 1,
-                    Name = "Service 1",
-                    Description = "Service Description 1",
-                    ImgUrl = "Service1.png",
+                    Name = "Building envelop restoration",
+                    Description = " Including balcony slab repairs",
+                    ImgUrl = "../../Content/Images/Services/building-envelop.jpg",
+                    Order = 1
+                },
+
+                new Service
+                {
+                    Id = 2,
+                    Name = "Masonry repairs",
+                    Description = "Brick replacement, block, glass block, stone, tuck pointing...",
+                    ImgUrl = "../../Content/Images/Services/masonry-repairs.jpg",
                     Order = 2
                 },
                 new Service
                 {
-                    Id = 2,
-                    Name = "Service 2",
-                    Description = "Service Description 2",
-                    ImgUrl = "Service2.png",
-                    Order = 1
-                },
-                new Service
-                {
                     Id = 3,
-                    Name = "Service 3",
-                    Description = "Service Description 3",
-                    ImgUrl = "Service3.png",
+                    Name = "Concrete repairs",
+                    Description = " Precast panel, underground garage slab, ramps, columns, canopies, patching...",
+                    ImgUrl = "../../Content/Images/Services/concrete-repairs.jpg",
                     Order = 3
-                }
-            };
-            return Json(services,JsonRequestBehavior.AllowGet);
+                },
+
+                 new Service
+                {
+                    Id = 4,
+                    Name = "Caulking, glazing, sealants",
+                    Description = " ",
+                    ImgUrl = "../../Content/Images/Services/glazing.jpg",
+                    Order = 4
+                },
+                 
+                 new Service
+                {
+                    Id = 5,
+                    Name = "Waterproofing",
+                    Description = "Cold applied, penetrating sealers, hot robber application",
+                    ImgUrl = "../../Content/Images/Services/waterproofing.jpg",
+                    Order = 5
+                },
+                   new Service
+                {
+                    Id = 6,
+                    Name = "Metal railing replacement",
+                    Description = " ",
+                    ImgUrl = "../../Content/Images/Services/metal-railing.jpg",
+                    Order = 6
+                },
+                   new Service
+                {
+                    Id = 7,
+                    Name = "Wall coating",
+                    Description = " ",
+                    ImgUrl = "../../Content/Images/Services/wall-coating.jpg",
+                    Order = 7
+                },
+                   new Service
+                {
+                    Id = 8,
+                    Name = "Pressure washing",
+                    Description = " ",
+                    ImgUrl = "../../Content/Images/Services/washing.jpg",
+                    Order = 8
+                },
+                   new Service
+                {
+                    Id = 9,
+                    Name = "Flashing installation and replacement",
+                    Description = " ",
+                    ImgUrl = "../../Content/Images/Services/flashing.jpg",
+                    Order = 9
+                },
+                   new Service
+                {
+                    Id = 10,
+                    Name = "Insulation installation",
+                    Description = " ",
+                    ImgUrl = "../../Content/Images/Services/insulation.jpg",
+                    Order = 10
+                },
+                   new Service
+                {
+                    Id = 11,
+                    Name = "Insulation installation",
+                    Description = " ",
+                    ImgUrl = "../../Content/Images/Services/metal-siding.jpg",
+                    Order = 11
+                },
+
+
+
+
+                  };
+
+            return Json(buildingEnvelop, JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetProjects()
         {
