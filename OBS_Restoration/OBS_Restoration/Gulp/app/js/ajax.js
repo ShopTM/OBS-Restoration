@@ -1,12 +1,22 @@
 
-window.addEventListener("load", function (event) {
-    function getImg(url, jsonData) {
-        let xhttp = new XMLHttpRequest();
-        xhttp.open("GET", "/home/Services");
-        xhttp.send(null);
+$(document).ready(function () {
+    $("#but1").click(function (url) {
+        $.ajax({
+            url: '/home/getServices',
+            type: 'GET',
+            success: function (data) {
+                $.each(data, function (index, service) {
+                    addService(service);
 
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status == 200) callback(xhttp);
-        };
-    }
+                });
+            }
+        });
+
+        function addService(service) {
+            var serviceName = '<img src="' + service.ImgUrl + '"/>';
+            console.log(serviceName)
+        }
+
+    })
+
 });
