@@ -49,7 +49,7 @@ namespace OBS_Restoration.Controllers
                     ImgUrl = "../../Content/Images/Services/building-envelop.jpg",
                     Order = 1
                 },
-
+           
                 new Service
                 {
                     Id = 2,
@@ -66,7 +66,7 @@ namespace OBS_Restoration.Controllers
                     ImgUrl = "../../Content/Images/Services/concrete-repairs.jpg",
                     Order = 3
                 },
-
+                
                  new Service
                 {
                     Id = 4,
@@ -147,8 +147,8 @@ namespace OBS_Restoration.Controllers
                 new Project
                 {
                     Id = 1,
-                    Name = "Project 1",
-                    Description = "Project Description 1",
+                    Name = "All projects",
+                    Description = " ",
                     ImgUrl = "Project1.png",
                     Order = 2
                 },

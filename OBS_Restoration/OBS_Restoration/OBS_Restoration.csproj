@@ -228,7 +228,8 @@
     <Content Include="Content\Images\walmer_2.jpg" />
     <Content Include="Content\Images\walmer_3.jpg" />
     <Content Include="Content\Images\walmer_4.jpg" />
-    <Content Include="Content\Js\ajax.js" />
+    <Content Include="Content\Js\projects.js" />
+    <Content Include="Content\Js\services.js" />
     <Content Include="Content\Js\bootstrap.min.js" />
     <Content Include="Content\Js\google-map.js" />
     <Content Include="Content\Js\isotope-docs.min.js" />
@@ -341,7 +342,7 @@
     <Content Include="Gulp\app\Images\walmer_2.jpg" />
     <Content Include="Gulp\app\Images\walmer_3.jpg" />
     <Content Include="Gulp\app\Images\walmer_4.jpg" />
-    <Content Include="Gulp\app\js\ajax.js" />
+    <Content Include="Gulp\app\js\services.js" />
     <Content Include="Gulp\app\js\bootstrap.min.js" />
     <Content Include="Gulp\app\js\google-map.js" />
     <Content Include="Gulp\app\js\isotope-docs.min.js" />
