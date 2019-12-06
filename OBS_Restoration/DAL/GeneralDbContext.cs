@@ -15,5 +15,7 @@ namespace DAL
         }
 
         public DbSet<Service> Services { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<ProjectImage> ProjectImages { get; set; }
     }
 }

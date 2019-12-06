@@ -147,26 +147,86 @@ namespace OBS_Restoration.Controllers
                 new Project
                 {
                     Id = 1,
-                    Name = "All projects",
-                    Description = " ",
-                    ImgUrl = "Project1.png",
-                    Order = 2
+                    Name = "Project 1",
+                    Description = "Project Description 1",
+                    Order = 2,
+                    Images = new List<ProjectImage>
+                    {
+                        new ProjectImage {
+                            Id = 1,
+                            ProjectId = 1,
+                            Ordrer = 1,
+                            Url = "Project1_1.png"
+                        },
+                        new ProjectImage {
+                            Id = 2,
+                            ProjectId = 1,
+                            Ordrer = 3,
+                            Url = "Project1_2.png"
+                        },
+                        new ProjectImage {
+                            Id = 3,
+                            ProjectId = 2,
+                            Ordrer = 1,
+                            Url = "Project1_3.png"
+                        },
+                    }
                 },
                 new Project
                 {
                     Id = 2,
                     Name = "Project 2",
                     Description = "Project Description 2",
-                    ImgUrl = "Project2.png",
-                    Order = 1
+                    Order = 1,
+                     Images = new List<ProjectImage>
+                    {
+                        new ProjectImage {
+                            Id = 1,
+                            ProjectId = 2,
+                            Ordrer = 1,
+                            Url = "Project2_1.png"
+                        },
+                        new ProjectImage {
+                            Id = 2,
+                            ProjectId = 2,
+                            Ordrer = 3,
+                            Url = "Project2_2.png"
+                        },
+                        new ProjectImage {
+                            Id = 3,
+                            ProjectId = 2,
+                            Ordrer = 1,
+                            Url = "Project2_3.png"
+                        },
+                    }
                 },
                 new Project
                 {
                     Id = 3,
                     Name = "Project 3",
                     Description = "Project Description 3",
-                    ImgUrl = "Project3.png",
-                    Order = 3
+                    Order = 3,
+                     Images = new List<ProjectImage>
+                    {
+                        new ProjectImage {
+                            Id = 1,
+                            ProjectId = 3,
+                            Ordrer = 1,
+                            Url = "Project3_1.png"
+                        },
+                        new ProjectImage {
+                            Id = 2,
+                            ProjectId = 3,
+                            Ordrer = 3,
+                            Url = "Project3_2.png"
+                        },
+                        new ProjectImage {
+                            Id = 3,
+                            ProjectId = 3,
+                            Ordrer = 1,
+                            Url = "Project3_3.png"
+                        },
+                    }
                 }
             };
             return Json(projects, JsonRequestBehavior.AllowGet);
