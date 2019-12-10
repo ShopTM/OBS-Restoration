@@ -3,19 +3,66 @@
   ViewBag.Title = "Contact";
 }
 
-<section class="container-fluid">
-  <section class="row">
-    <section class="col-lg-12 contacts-bg">
-      <h2>Contact</h2>
-    </section> <!-- contacts-bg -->
-  </section> <!--row-->
+  <section class="container-fluid">
+    <section class="row">
+      <section class="col-lg-12 contacts-bg">
+        <h2>Contact</h2>
+      </section> <!-- contacts-bg -->
+    </section> <!--row-->
+    <section class="container ">
+      
+        <section class="row">
+            <section class="col-lg-4 contact-datail">
+              <h2>Contact details</h2>
+              <p><span>Adress:</span> 15, Jordan Hofer way, Woodbridge, Ontario</p>
+              <p> <span>Phone:</span> 416.558.6691</p>
+              <a target="_blank" href=" https://www.linkedin.com/in/oleg-slepenyuk-8b0406119">
+                <svg class="linkedin-contact">
+                  <use xlink:href="../../Gulp/app/svg/spites/symbol/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </section>
+          </section>
+
+          <section class="row">
+            <section class="col-lg-8 contact-datail">
+              <h2>Get in Touch</h2>
+             </section>
+         
+            <section class="col-sm-12">
+              <form class="form-contact">
+                <section class=" col-sm-6 form-group">
+                  <label for="fiirst name">First name</label>
+                  <input type="text" class="form-control" id="first-name" />
+                </section>
+                <section class=" col-sm-6 form-group">
+                  <label for="fiirst name">Last name</label>
+                  <input type="text" class="form-control" id="last-name" />
+                </section>
 
 
-</section>
-<section id="map"></section>
+                <section class=" col-sm-6 form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" />
+                </section>
+                <section class=" col-sm-6 form-group">
+                  <label for="phone">Phone number</label>
+                  <input type="tel" class="form-control" id="phone" />
+                </section>
 
+                <section class=" col-sm-12 form-group">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" rows="5" id="message"></textarea>
+                </section>
 
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDb_k68FIUtrS8eHxWVkAmOe77vjnnxeSM&callback=initMap">
-</script>
+                <button type="submit" class="btn align-self-center ">Submit</button>
+
+              </form>
+            </section>
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+
 

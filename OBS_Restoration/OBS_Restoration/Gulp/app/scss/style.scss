@@ -457,69 +457,6 @@ h1.logo {
 .other-supliers {
     margin-bottom: 50px;
 }
-/////////////////////////////////////////PROJECTS
-.project-bg {
-    @extend %size-block;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/project.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    @extend %base-setting-bg;
- 
- }
-.project-filter {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 50px;
-}
-.project-filter-links a {
-    color: $base-color;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 20px;
-
-    &:hover {
-        border-bottom: 2px solid $base-color;
-    }
-}
-.project-container {
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-}
-
-.project-container > section {
-     margin: 0 auto;
-    padding: 10px;
-}
-
-.isotope-item {
-    z-index: 2;
-}
-.isotope-hidden.isotope-item {
-    pointer-events: none;
-    z-index: 1;
-}
-
-.isotope,
-.isotope .isotope-item {
-       transition-duration: 0.8s;
-}
-
-.isotope {
-      transition-property: height, width;
-}
-
-.isotope .isotope-item {
-    transition-property: transform, opacity;
-}
 
 
 ///////////////////////////////////////////////////CAREERS
@@ -626,9 +563,30 @@ h1.logo {
         @extend %slide-text-style;
     }
 }
-#map {
-    width: 100%;
-    height: 600px;
+.contact-datail {
+    h2 {
+        text-align: left;
+        font-size: 1.8em;
+    }
+
+    p {
+        span {
+            font-weight: 700;
+        }
+    }
+}
+
+.form-contact {
+    background: #f2f2f2;
+    padding: 30px;
+    
+}
+
+svg.linkedin-contact {
+    width: 20px;
+    height: 20px;
+    fill: $base-color;
+    text-align: center;
 }
 //////////////////////////////////////////////////////////FOOTER
 footer {
@@ -649,110 +607,112 @@ footer {
     }
 }
 
-.footer-social {
-    background: $base-color;
+    .footer-social {
+        background: $base-color;
 
-    p {
-        text-transform: uppercase;
-        margin: 0;
-    }
-}
-/* social icon */
-.icons-social svg,
-.footer-contact svg {
-    width: 16px;
-    height: 16px;
-    fill: #fff;
-}
-
-.icons-social svg:hover {
-    fill: #0e76a8;
-}
-
-.footer-link {
-    ul {
-        padding: 0;
-    }
-
-    li {
-        padding: 5px 0 5px 0;
-    }
-
-    a {
-        color: #ffffff;
-        text-decoration: none;
-        text-align: left;
-        line-height: 25px;
-        padding-bottom: 5px;
-
-        &:hover {
-            border-bottom: 1px solid $base-color;
+        p {
+            text-transform: uppercase;
+            margin: 0;
         }
     }
-}
-
-span.footer-contact {
-    color: #ffffff;
-    display: block;
-    line-height: 35px;
-}
-
-.text-span {
-    margin-left: 10px;
-}
-
-.hr-heading-footer {
-    height: 1px;
-    background: #797676;
-    width: 50px;
-    margin: 12px 0 20px 0;
-    padding: 0;
-    display: inline-block;
-}
-/////////////////////////////////////////////////////COPYRAIT
-.footer-copyright {
-    background: #171717;
-    margin-top: 30px;
-    p{
-        margin: 0;
-    }
-}
-/* ******************************************************ANIMATE****************** */
-@keyframes anime-slider {
-    from {
-        opacity: 0;
-        transform: translateY(0);
+    /* social icon */
+    .icons-social svg,
+    .footer-contact svg {
+        width: 16px;
+        height: 16px;
+        fill: #fff;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes anime {
-    from {
-        opacity: 0;
-        transform: translateY(0);
+    .icons-social svg:hover {
+        fill: #0e76a8;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+    .footer-link {
+        ul {
+            padding: 0;
+        }
 
-@keyframes slideUp {
-    0% {
-        transform: translateY(35%);
+        li {
+            padding: 5px 0 5px 0;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            text-align: left;
+            line-height: 25px;
+            padding-bottom: 5px;
+
+            &:hover {
+                border-bottom: 1px solid $base-color;
+            }
+        }
     }
 
-    50% {
-        transform: translateY(-8%);
+    span.footer-contact {
+        color: #ffffff;
+        display: block;
+        line-height: 35px;
     }
 
-    65% {
-        transform: translateY(2%);
+    .text-span {
+        margin-left: 10px;
     }
-}
-@import "media";
+
+    .hr-heading-footer {
+        height: 1px;
+        background: #797676;
+        width: 50px;
+        margin: 12px 0 20px 0;
+        padding: 0;
+        display: inline-block;
+    }
+    /////////////////////////////////////////////////////COPYRAIT
+    .footer-copyright {
+        background: #171717;
+        margin-top: 30px;
+
+        p {
+            margin: 0;
+        }
+    }
+    /* ******************************************************ANIMATE****************** */
+    @keyframes anime-slider {
+        from {
+            opacity: 0;
+            transform: translateY(0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes anime {
+        from {
+            opacity: 0;
+            transform: translateY(0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translateY(35%);
+        }
+
+        50% {
+            transform: translateY(-8%);
+        }
+
+        65% {
+            transform: translateY(2%);
+        }
+    }
+
+    @import "media";

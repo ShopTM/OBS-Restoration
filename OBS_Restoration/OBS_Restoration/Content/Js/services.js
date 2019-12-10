@@ -1,19 +1,17 @@
 $(document).ready(function () {
-         $.ajax({
-            url: '/home/getServices',
-            type: 'GET',
-            success: function (data) {
-                data.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
+    $.ajax({
+        url: '/home/getServices',
+        type: 'GET',
+        success: function (data) {
+            data.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
 
-                $.each(data, function (i, item) {
-                    populateService(item)
+            $.each(data, function (i, item) {
+                populateService(item)
 
-
-                });
-            }
-        });
+            });
+        }
+    });
 });
-
 function populateService(item) {
     var temp, col, row;
     temp = document.getElementsByTagName("template")[0];

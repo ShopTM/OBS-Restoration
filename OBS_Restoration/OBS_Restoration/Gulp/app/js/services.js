@@ -8,12 +8,10 @@ $(document).ready(function () {
             $.each(data, function (i, item) {
                 populateService(item)
 
-
             });
         }
     });
 });
-
 function populateService(item) {
     var temp, col, row;
     temp = document.getElementsByTagName("template")[0];

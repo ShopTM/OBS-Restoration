@@ -1,0 +1,69 @@
+project-bg {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/project.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: anime 1.3s ease-in-out;
+}
+
+.project-filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+
+.project-filter-links a {
+    color: #188cb1;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 20px;
+}
+
+    .project-filter-links a:hover {
+        border-bottom: 2px solid #188cb1;
+    }
+
+.project-container {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+    .project-container > section {
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+.isotope-item {
+    z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+}
+
+.isotope,
+.isotope .isotope-item {
+    transition-duration: 0.8s;
+}
+
+.isotope {
+    transition-property: height, width;
+}
+
+    .isotope .isotope-item {
+        transition-property: transform, opacity;
+    }

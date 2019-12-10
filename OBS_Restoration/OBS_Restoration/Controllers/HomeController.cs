@@ -147,64 +147,70 @@ namespace OBS_Restoration.Controllers
                 new Project
                 {
                     Id = 1,
-                    Name = "Project 1",
-                    Description = "Project Description 1",
-                    Order = 2,
+                    Name = "St. Chair",
+                    Description = "",
+                    Order = 1,
                     Images = new List<ProjectImage>
                     {
                         new ProjectImage {
                             Id = 1,
                             ProjectId = 1,
                             Ordrer = 1,
-                            Url = "Project1_1.png"
+                            Url = "../../Content/Images/Projects/StClair_0.jpg",
                         },
                         new ProjectImage {
-                            Id = 2,
+                            Id = 1,
+                            ProjectId = 1,
+                            Ordrer = 2,
+                            Url = "../../Content/Images/Projects/StClair_1.jpg",
+                        },
+                        new ProjectImage {
+                            Id = 1,
                             ProjectId = 1,
                             Ordrer = 3,
-                            Url = "Project1_2.png"
-                        },
-                        new ProjectImage {
-                            Id = 3,
-                            ProjectId = 2,
-                            Ordrer = 1,
-                            Url = "Project1_3.png"
+                            Url = "../../Content/Images/Projects/StClair_2.jpg",
                         },
                     }
                 },
                 new Project
                 {
                     Id = 2,
-                    Name = "Project 2",
-                    Description = "Project Description 2",
-                    Order = 1,
+                    Name = "Darcel",
+                    Description = "",
+                    Order = 2,
                      Images = new List<ProjectImage>
                     {
                         new ProjectImage {
                             Id = 1,
                             ProjectId = 2,
                             Ordrer = 1,
-                            Url = "Project2_1.png"
+                            Url = "../../Content/Images/Projects/Darcle_0.jpg",
                         },
                         new ProjectImage {
                             Id = 2,
                             ProjectId = 2,
-                            Ordrer = 3,
-                            Url = "Project2_2.png"
+                            Ordrer = 2,
+                            Url = "../../Content/Images/Projects/Darcle_1.jpg",
                         },
                         new ProjectImage {
                             Id = 3,
                             ProjectId = 2,
-                            Ordrer = 1,
-                            Url = "Project2_3.png"
+                            Ordrer = 3,
+                            Url = "../../Content/Images/Projects/Darcle_2.jpg",
+                        },
+                        new ProjectImage {
+                            Id = 4,
+                            ProjectId = 2,
+                            Ordrer = 4,
+                            Url = "../../Content/Images/Projects/Darcle_3.jpg",
                         },
                     }
                 },
                 new Project
                 {
                     Id = 3,
-                    Name = "Project 3",
-                    Description = "Project Description 3",
+                    Name = "Roe hampton",
+                    Description = "",
                     Order = 3,
                      Images = new List<ProjectImage>
                     {
@@ -212,22 +218,213 @@ namespace OBS_Restoration.Controllers
                             Id = 1,
                             ProjectId = 3,
                             Ordrer = 1,
-                            Url = "Project3_1.png"
+                            Url = "../../Content/Images/Projects/RoeHampton_0.jpg",
                         },
                         new ProjectImage {
                             Id = 2,
                             ProjectId = 3,
-                            Ordrer = 3,
-                            Url = "Project3_2.png"
+                            Ordrer = 2,
+                            Url = "../../Content/Images/Projects/RoeHampton_1.jpg",
                         },
                         new ProjectImage {
                             Id = 3,
                             ProjectId = 3,
-                            Ordrer = 1,
-                            Url = "Project3_3.png"
+                            Ordrer = 3,
+                            Url = "../../Content/Images/Projects/RoeHampton_2.jpg",
+                        },
+                         new ProjectImage {
+                            Id = 4,
+                            ProjectId = 3,
+                            Ordrer = 4,
+                            Url = "../../Content/Images/Projects/RoeHampton_3.jpg",
+                        },
+                         new ProjectImage {
+                            Id = 5,
+                            ProjectId = 3,
+                            Ordrer = 5,
+                            Url = "../../Content/Images/Projects/RoeHampton_4.jpg",
+                        },
+                         new ProjectImage {
+                            Id = 6,
+                            ProjectId = 3,
+                            Ordrer = 6,
+                            Url = "../../Content/Images/Projects/RoeHampton_5.jpg",
+                        },
+                         new ProjectImage {
+                            Id = 7,
+                            ProjectId = 3,
+                            Ordrer = 7,
+                            Url = "../../Content/Images/Projects/RoeHampton_6.jpg",
                         },
                     }
-                }
+
+                },
+
+                 new Project
+                {
+                    Id = 4,
+                    Name = "Cambridge",
+                    Description = "",
+                    Order = 4,
+                     Images = new List<ProjectImage>
+                    {
+                        new ProjectImage {
+                            Id = 1,
+                            ProjectId = 4,
+                            Ordrer = 1,
+                            Url = "../../Content/Images/Projects/Cambridge_0.jpg",
+                        },
+                        new ProjectImage {
+                            Id = 2,
+                            ProjectId = 4,
+                            Ordrer = 2,
+                            Url = "../../Content/Images/Projects/Cambridge_1.jpg",
+                        },
+                       
+                    }
+
+                },
+                     new Project
+                {
+                    Id = 5,
+                    Name = "St. Catherine",
+                    Description = "",
+                    Order = 5,
+                     Images = new List<ProjectImage>
+                    {
+                        new ProjectImage {
+                            Id = 1,
+                            ProjectId = 5,
+                            Ordrer = 1,
+                            Url = "../../Content/Images/Projects/StCatherine_0.jpg",
+                        },
+                     
+                    }
+
+                },
+
+                    new Project
+                {
+                    Id = 6,
+                    Name = "Fowler",
+                    Description = "",
+                    Order = 6,
+                     Images = new List<ProjectImage>
+                    {
+                        new ProjectImage {
+                            Id = 1,
+                            ProjectId = 6,
+                            Ordrer = 1,
+                            Url = "../../Content/Images/Projects/fowler_0.jpg",
+                        },
+                          new ProjectImage {
+                            Id = 2,
+                            ProjectId = 5,
+                            Ordrer = 2,
+                            Url = "../../Content/Images/Projects/fowler_1.jpg",
+                        },
+                          new ProjectImage {
+                            Id = 3,
+                            ProjectId = 6,
+                            Ordrer = 3,
+                            Url = "../../Content/Images/Projects/fowler_2.jpg",
+                        },
+                           new ProjectImage {
+                            Id = 3,
+                            ProjectId = 6,
+                            Ordrer = 4,
+                            Url = "../../Content/Images/Projects/fowler_3.jpg",
+                        },
+                           new ProjectImage {
+                            Id = 3,
+                            ProjectId = 6,
+                            Ordrer = 5,
+                            Url = "../../Content/Images/Projects/fowler_4.jpg",
+                        },
+                           new ProjectImage {
+                            Id = 3,
+                            ProjectId = 6,
+                            Ordrer = 6,
+                            Url = "../../Content/Images/Projects/fowler_5.jpg",
+                        },
+
+                    }
+
+                },
+                    new Project
+                {
+                    Id = 7,
+                    Name = "Kennedy",
+                    Description = "",
+                    Order = 7,
+                     Images = new List<ProjectImage>
+                    {
+                        new ProjectImage {
+                            Id = 1,
+                            ProjectId = 7,
+                            Ordrer = 1,
+                            Url = "../../Content/Images/Projects/kannedy_0.jpg",
+                        },
+                        new ProjectImage {
+                            Id = 2,
+                            ProjectId = 7,
+                            Ordrer = 2,
+                            Url = "../../Content/Images/Projects/kannedy_1.jpg",
+                        },
+                        new ProjectImage {
+                            Id = 3,
+                            ProjectId = 7,
+                            Ordrer = 3,
+                            Url = "../../Content/Images/Projects/kannedy_2.jpg",
+                        },
+                        new ProjectImage {
+                            Id = 4,
+                            ProjectId = 7,
+                            Ordrer = 4,
+                            Url = "../../Content/Images/Projects/kannedy_3.jpg",
+                        },
+                     }
+                    },
+                    new Project
+                {
+                    Id = 8,
+                    Name = "Walmer",
+                    Description = "",
+                    Order = 8,
+                     Images = new List<ProjectImage>
+                    {
+                        new ProjectImage {
+                            Id = 1,
+                            ProjectId = 8,
+                            Ordrer = 1,
+                            Url = "../../Content/Images/Projects/walmer_0.jpg",
+                        },
+                         new ProjectImage {
+                            Id = 2,
+                            ProjectId = 5,
+                            Ordrer = 2,
+                            Url = "../../Content/Images/Projects/walmer_1.jpg",
+                        },
+                         new ProjectImage {
+                            Id = 3,
+                            ProjectId = 8,
+                            Ordrer = 3,
+                            Url = "../../Content/Images/Projects/walmer_2.jpg",
+                        },
+                         new ProjectImage {
+                            Id = 4,
+                            ProjectId = 8,
+                            Ordrer = 4,
+                            Url = "../../Content/Images/Projects/walmer_3.jpg",
+                        },
+                         new ProjectImage {
+                            Id = 5,
+                            ProjectId = 8,
+                            Ordrer = 5,
+                            Url = "../../Content/Images/Projects/walmer_4.jpg",
+                        },
+                     }
+                    }
             };
             return Json(projects, JsonRequestBehavior.AllowGet);
         }
