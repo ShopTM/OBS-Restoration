@@ -188,19 +188,19 @@ h1.logo {
 }
     /////////////////BG SLIDER
     #slide-0 {
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/img-slide-0.jpg) no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/Slider/img-slide-0.jpg) no-repeat;
         background-size: cover;
         background-position: center;
     }
 
     #slide-1 {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/img-slide-1.jpg) no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/Slider/img-slide-1.jpg) no-repeat;
         background-size: cover;
         background-position: center;
     }
 
     #slide-2 {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/img-slide-2.jpg) no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/Slider/img-slide-2.jpg) no-repeat;
         background-size: cover;
         background-position: center;
     }
@@ -223,7 +223,7 @@ h1.logo {
         @extend %hr-heading;
     }
     // Advantages about us
-    span.about-advantages-icon {
+    span.advantages-icon {
         position: relative;
         top: 100px;
         width: 100px;
@@ -240,7 +240,7 @@ h1.logo {
         }
     }
 
-    .about-advantages-icon svg {
+    .advantages-icon svg {
         width: 50px;
         height: 50px;
         fill: #ffffff;
@@ -249,14 +249,14 @@ h1.logo {
         top: 25px;
     }
 
-    .about-us-advantages h3 {
+    .about-advantages h3 {
         font-size: 1.1em;
         margin: 0 150px 15px 200px;
         font-weight: 600;
         text-transform: uppercase;
     }
 
-    .about-us-advantages p {
+    .about-advantages p {
         margin: 0 20px 0 200px;
     }
     /************ Banner craftsmen************** */
@@ -264,7 +264,7 @@ h1.logo {
     margin-top: 100px;
     width: 100%;
     height: 500px;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/banner-home-page.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/Banner/banner-home-page.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     @extend %base-setting-bg;
@@ -283,40 +283,41 @@ h1.logo {
         text-transform: uppercase;
     }
 }
-    ///////////////// CLINTS
-    .home-page-clint-description p {
-        margin-bottom: 100px;
+
+///////////////// CLINTS
+.clint-description p {
+    margin-bottom: 100px;
+}
+
+.clint-card img {
+    width: 100%;
+    height: 250px;
+}
+
+.clint-card {
+    margin-bottom: 30px;
+
+    h3 {
+        padding: 20px;
+        font-size: 1.3em;
+        font-weight: 700;
     }
 
-    .home-page-clint-card img {
-        width: 100%;
-        height: 250px;
-    }
+    a {
+        @extend %btn;
+        width: 130px;
 
-    .home-page-clint-card {
-        margin-bottom: 30px;
-
-        h3 {
-            padding: 20px;
-            font-size: 1.3em;
-            font-weight: 700;
+        &:hover {
+            background: #065670;
         }
-
-        a {
-            @extend %btn;
-            width: 130px;
-
-            &:hover {
-                background: #065670;
-            }
-        }
     }
+}
     /////////////////////////////////////////////////////////////BANNER OFFERING
-    .services-offers-banner {
+    .services-offer-banner {
         margin: 0 0 100px 0;
         width: 100%;
         height: 500px;
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/offer-banner.jpg) no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/Banner/offer-banner.jpg) no-repeat;
         background-size: cover;
         background-position: center;
         display: flex;
@@ -351,7 +352,7 @@ h1.logo {
 //////////////////////////////////////////////////////////BG-SERVISECWS
 .services-bg {
     @extend %size-block;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/best-services.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/Bg/best-services.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -367,20 +368,22 @@ h1.logo {
 
  /////////////////////////////////////////// Advantages servises
 .container-services {
-    margin: 100px 100px 0 100px;
+    margin: 50px 100px 50px 100px;
 
     h2 {
-        margin: 0;
+        padding: 0px;
+        text-align: center;
+        
     }
 }
-.container-services-description p{
-    margin: 0  50px 50px 50px;
+.services-description p{
+    margin: 0  65px 50px 65px;
     
 }
-.servisce-container-row {
+.advantages-mt {
     margin-top: 50px;
 }
-.servisce-container-advantages {
+.servisce-advantages {
     position: relative;
 
     svg {
@@ -391,12 +394,15 @@ h1.logo {
         fill: $base-color;
     }
 
-    p {
+     p {
         padding-left: 65px;
         font-weight: bold;
     }
 }
-
+h2.text-center {
+    text-align: center;
+    text-transform: uppercase;
+}
 //FOR JS efect
 .servisce-efect-advantages {
     color: #ffff;
@@ -410,17 +416,14 @@ h1.logo {
 .suppliers-bg {
     @extend %size-block;
     animation: anime 1.3s ease-in-out;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/suppliers.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../Images/Bg/suppliers.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     @extend %base-setting-bg;
 
  }
 
-//////////////////////////////LIST SUPPLIERS
-
-
-.border-suppliers {
+.border-supplier {
     display: inline-block;
     position: relative;
     border: 10px solid #188cb1;
@@ -438,55 +441,53 @@ h1.logo {
         margin-top: 50px;
         padding: 20px;
     }
-}
 
-.border-suplier-name {
-    font-size: 1.4em;
-    color: #000;
-    background-color: #fff;
-    position: absolute;
-    text-align: center;
-    top: -30px;
-    right: 27%;
-    left: 27%;
-    padding: 10px 20px;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 700;
+    span {
+        font-size: 1.4em;
+        color: #000;
+        background-color: #fff;
+        position: absolute;
+        text-align: center;
+        top: -30px;
+        right: 27%;
+        left: 27%;
+        padding: 10px 20px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
 }
 .other-supliers {
     margin-bottom: 50px;
 }
 
-
 ///////////////////////////////////////////////////CAREERS
 
 .career-bg {
     @extend %size-block;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/careers.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../Content/Images/Bg/careers.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     @extend %base-setting-bg;
-
-  }
+}
 .career-descption p {
     text-align: center;
 }
 
-.container-hiring-process {
+.hiring-process {
     width: 100%;
     height: 500px;
     overflow: hidden;
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../Images/hiring-banner.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(Content\Css\Images\Bg\careers.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     margin-bottom: 100px;
-    h2{
+
+    h2 {
         color: #ffffff;
         padding-bottom: 50px;
     }
-       
-  }
+}
 %display-block {
     display: block;
     margin: 0 auto;
@@ -553,7 +554,7 @@ h1.logo {
 .contacts-bg {
     width: 100%;
     height: 600px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../Images/contact.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../Images/Bg/contact.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     margin-bottom: 100px;
