@@ -103,26 +103,27 @@ gulp.task('svg', function(){
 
 
 gulp.task('export', async function(){
-  let buildHtml = gulp.src('Gulp/app/**/*.cshtml')
-    .pipe(gulp.dest('Content'));
+///  let buildHtml = gulp.src('Gulp/app/**/*.cshtml')
+ ///   .pipe(gulp.dest('Content'));
 
   let BuildCss = gulp.src('Gulp/app/css/**/*.css')
-    .pipe(gulp.dest('Content/Css'));
+    .pipe(gulp.dest('Content/Css/Custom'));
 
-  let BuildJs = gulp.src('Gulp/app/js/**/*.js')
-    .pipe(gulp.dest('Content/Js'));
+ /// let BuildJs = gulp.src('Gulp/app/js/**/*.js')
+ ///   .pipe(gulp.dest('Content/Js/Custom'));
     
-  let BuildFonts = gulp.src('Gulp/app/fonts/**/*.*')
-        .pipe(gulp.dest('Content/Fonts'));
+  ///let BuildFonts = gulp.src('Gulp/app/fonts/**/*.*')
+   ///     .pipe(gulp.dest('Content/Fonts'));
 
-    let BuildSvg = gulp.src('Gulp/app/svg/spites/symbol/**/*.*')
-        .pipe(gulp.dest('Content/Svg'));
+   ///let BuildSvg = gulp.src('Gulp/app/svg/spites/symbol/**/*.*')
+    ///    .pipe(gulp.dest('Content/Svg/spites/symbol'));
 
     let BuildSass = gulp.src('Gulp/app/sass/**/*.*')
         .pipe(gulp.dest('Content/sass'));
 
-  let BuildImg = gulp.src('Gulp/app/Images/**/*.*')
-    .pipe(gulp.dest('Content/Images'));   
+ /// let BuildImg = gulp.src('Gulp/app/Images/**/*.*')
+ ///   .pipe(gulp.dest('Content/Images'));   
+
 });
 
 gulp.task('watch', function(){

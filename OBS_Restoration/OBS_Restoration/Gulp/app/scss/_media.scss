@@ -1,9 +1,8 @@
 /***************** MEDIA *****************/
 
 @media screen and (max-width: 1024px ) {
-    .border-suplier-name {
-        left: 15%;
-        right: 15%;
+    .other-supliers img {
+        width: 180px;
     }
 }
 @media screen and (max-width: 768px) {
@@ -18,15 +17,15 @@
         margin: 0 auto;
         padding: 10px;
     }
-    span.about-advantages-icon,
+    .about-advantages span,
     .navbar button {
         display: block;
         margin: 0 auto;
         top: 0;
     }
 
-    .about-us-advantages h3,
-    .about-us-advantages p{
+    .about-advantages h3,
+    .about-advantages p{
         text-align: center;
         padding: 20px;
         margin: 0;
@@ -34,11 +33,14 @@
     .navbar a {
         font-size: 1.2em;
     }
-    .container-hiring-process {
+    .hiring-process {
         height: 100%;
     }
     footer p {
         padding-right: 0;
+    }
+    .other-supliers img {
+        width: 100%;
     }
  
    }
@@ -52,6 +54,7 @@
     .slide-text p {
         font-size: 0.7em;
     }
+   
   
 
   
