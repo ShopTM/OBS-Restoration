@@ -2,22 +2,26 @@
 @{
     ViewBag.Title = "Clints";
 }
-  <section class="container-fluid">
+
+
+<section class="container-fluid">
     <section class="row">
-      <section class="col-lg-12 clints-bg">
-        <h2>Our clints</h2>
-      </section> <!-- contacts-bg -->
+        <section class="col-lg-12 clints-bg">
+            <h2>Our clints</h2>
+        </section> <!-- contacts-bg -->
     </section> <!--row-->
 
     <section class="container">
-      <h2>Engineers & architects</h2>
-      <p>
-        OBS Restoration ltd is a specialized restoration contractor with expertise in a wide range of quality concrete
-        restoration, stone, masonry restoration, caulking, glazing replacement, balcony railings replacement and waterproofing services.
-        We are a team of professional, restorations individuals with  experienced managers and craftsmans available 
-        to guide our clients through the flawless and timely execution of any, restoration works. 
-        Since day one, we have been delivering creative and technically thought out ideas to our clients.
-      </p>
+        <h2>Engineers & architects</h2>
+        <p>
+            OBS Restoration ltd is a specialized restoration contractor with expertise in a wide range of quality concrete
+            restoration, stone, masonry restoration, caulking, glazing replacement, balcony railings replacement and waterproofing services.
+            We are a team of professional, restorations individuals with  experienced managers and craftsmans available
+            to guide our clients through the flawless and timely execution of any, restoration works.
+            Since day one, we have been delivering creative and technically thought out ideas to our clients.
+        </p>
     </section>
-  </section>
-
+</section>
+<form>
+    @Html.Hidden("ClientType", (int)ViewBag.ClientType)
+</form>
