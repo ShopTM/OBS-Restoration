@@ -2,7 +2,7 @@
 
 namespace OBS_Restoration.Models
 {
-    public class ContactFormModel
+    public class ContactFormVM
     {
         [Required]
         public string FirstName { get; set; }

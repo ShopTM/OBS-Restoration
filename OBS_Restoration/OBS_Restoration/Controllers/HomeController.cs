@@ -26,8 +26,9 @@ namespace OBS_Restoration.Controllers
             return View();
         }
 
-        public ActionResult Careers()
+        public ActionResult Careers(ClientType type)
         {
+            ViewBag.CareerType = type;
             return View();
         }
 
@@ -232,7 +233,7 @@ namespace OBS_Restoration.Controllers
             return Json(projects, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
-        public ActionResult ContactUs(ContactFormModel model)
+        public ActionResult ContactUs(ContactFormVM model)
         {
             if (ModelState.IsValid)
             {
