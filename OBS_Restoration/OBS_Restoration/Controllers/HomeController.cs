@@ -35,6 +35,14 @@ namespace OBS_Restoration.Controllers
         {
             return View();
         }
+        public ActionResult Clints()
+        {
+            return View();
+        }
+        public ActionResult Gallery()
+        {
+            return View();
+        }
 
 
         public JsonResult GetServices()

@@ -19,9 +19,9 @@ function populateService(item) {
     temp.content.querySelector('img').alt = (item.Name);
     temp.content.querySelector('h2').innerHTML = (item.Name);
     temp.content.querySelector('p').innerHTML = (item.Description);
-    col = temp.content.querySelector(".col-sm-4");
+    col = temp.content.querySelector(".col-lg-4");
     row = temp.content.querySelectorAll(".row");
     row = document.importNode(col, true);
-    document.querySelectorAll('.row')[5].append(row);
+    document.querySelectorAll('.row')[6].append(row);
 
 }

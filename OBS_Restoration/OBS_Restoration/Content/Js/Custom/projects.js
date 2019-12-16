@@ -43,25 +43,22 @@ $(document).ready(function () {
 function populateProjectsTab(value) {
     let templ;
     templ = document.getElementById('templateTab');
-    templ.content.querySelector('.tab').innerHTML = (value.Name);
-    templ.content.querySelector(".tab").setAttribute("data-filter", '#' + value.Id);
+    templ.content.querySelector(".tab").innerHTML = (value.Name);
+    templ.content.querySelector(".tab").setAttribute("data-filter", 'section' + '[project=' + '"' + value.Name + '"' + ']');
     templ.content.querySelector("a.tab").setAttribute("href", value.Name);
     var clon = templ.content.cloneNode(true);
-    document.querySelector('.project-filter-links').append(clon);
+    document.querySelector(".project-filter-links").append(clon);
 }
 
 
 function populateProjectsImg(value) {
     let temp;
-    temp = document.getElementById('templateImg');
-    temp.content.querySelector(".project-container-img").setAttribute("id", value.Id);
+    temp = document.getElementById("templateImg");
+    temp.content.querySelector(".project-container-img").setAttribute("project", value.Name);
     for (let i = 0, l = value.Images.length; i < l; i++) {
         let obj = value.Images[i];
         temp.content.querySelector('img').src = (obj.Url);
-
         var clon = temp.content.cloneNode(true);
-        document.querySelector('.project-container').append(clon);
+        document.querySelector(".project-container").append(clon);
     }
 }
-
-LINK
