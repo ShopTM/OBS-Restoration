@@ -223,6 +223,7 @@
     <Content Include="Content\Images\Suppliers\quick-fence.png" />
     <Content Include="Content\Images\Suppliers\scafom.png" />
     <Content Include="Content\Images\Suppliers\tremco.png" />
+    <Content Include="Content\Js\Custom\clints.js" />
     <Content Include="Content\Js\Custom\index.js" />
     <Content Include="Content\Js\Custom\projects.js" />
     <Content Include="Content\Js\Custom\services.js" />

@@ -212,7 +212,11 @@ h1.logo {
     background-position: center;
 }
     /////////////////////// MAIN
-    .main,
+    .main {
+        h2 {
+            margin: 50px 0 20px 0;
+        }
+    }
     .container-fluid {
         overflow: hidden;
         padding: 0;
@@ -220,9 +224,9 @@ h1.logo {
      
         h2 {
             text-align: center;
-            margin: 50px 0 20px 0;
             font-weight: 700;
             text-transform: uppercase;
+
         }
     }
 
@@ -317,17 +321,16 @@ h1.logo {
         @extend %btn;
         width: 130px;
 
-        &:hover {
             background: #065670;
         }
     }
-}
+
     /////////////////////////////////////////////////////////////BANNER OFFERING
 .services-banner {
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../../../Content/Images/Banner/offer-banner.jpg') no-repeat;
     background-size: cover;
     background-position: center;
-    margin: 0 0 100px 0;
+    margin-bottom: 50px;
     width: 100%;
     height: 500px;
     display: flex;
@@ -350,8 +353,6 @@ h1.logo {
         }
     }
 }
-   
-
     .servisce-container {
         background: #ffffff;
         height: 100%;
@@ -368,39 +369,53 @@ h1.logo {
     background-size: cover;
     background-position: center;
     @extend %base-setting-bg;
-} 
-    /////////////////////////////////////////////////////PAGE SERVICES
-    //////////////////////////////////////////////////////////BG-SERVISECWS
-    .services-bg {
-        @extend %size-block;
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/best-services.jpg) no-repeat;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        @extend %base-setting-bg;
-
-
-        p {
-            @extend %slide-text-style;
-            width: 40%;
-            margin: 0 auto;
-        }
+    margin-bottom: 50px;
+}
+.estimate {
+         text-transform: uppercase;
+        font-weight: 600;
+   
+    span {
+        color: #ec1515;
     }
+}
+.custom-file {
+    padding-bottom: 10px;
+}
+/////////////////////////////////////////////////////PAGE SERVICES
+//////////////////////////////////////////////////////////BG-SERVISECWS
+.services-bg {
+    @extend %size-block;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/best-services.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    @extend %base-setting-bg;
+    margin-bottom: 50px;
+
+
+    p {
+        @extend %slide-text-style;
+        width: 40%;
+        margin: 0 auto;
+    }
+}
     /////////////////////////////////////////// Advantages servises
     .container-services {
-        margin: 50px 0 50px 15px;
+        margin: 0 15px 50px 15px;
 
         h2 {
             padding: 0px;
             text-align: center;
         }
 
-        .row {
+        .row:not(.h2) {
             padding: 20px;
         }
 
         section + p {
             padding: 0 50px 0 50px;
+            font-size: 0.7em;
         }
     }
 
@@ -431,22 +446,24 @@ h1.logo {
         text-transform: uppercase;
     }
     ////PROJECT
-    .project-bg {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/project.jpg) no-repeat;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        @extend %base-setting-bg;
-        @extend %size-block;
-    }
+.project-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/project.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    @extend %base-setting-bg;
+    @extend %size-block;
+    margin-bottom: 50px;
+}
     ////////////////////////////////////////////SUPPLIERS
-    .suppliers-bg {
-        @extend %size-block;
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/suppliers.jpg) no-repeat;
-        background-size: cover;
-        background-position: center;
-        @extend %base-setting-bg;
-    }
+.suppliers-bg {
+    @extend %size-block;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/suppliers.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    @extend %base-setting-bg;
+    margin-bottom: 50px;
+}
 
     .border-supplier {
         display: inline-block;
@@ -491,32 +508,34 @@ h1.logo {
         margin-bottom: 50px;
     }
     ///////////////////////////////////////////////////CAREERS
-    .career-bg {
-        @extend %size-block;
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/careers.jpg) no-repeat;
-        background-size: cover;
-        background-position: center;
-        @extend %base-setting-bg;
-    }
+.career-bg {
+    @extend %size-block;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/careers.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    @extend %base-setting-bg;
+    margin-bottom: 50px;
+}
 
     .career-descption p {
         text-align: center;
     }
 
-    .hiring-process {
-        width: 100%;
-        height: 500px;
-        overflow: hidden;
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../../../Content/Images/Banner/hiring-banner.jpg) no-repeat;
-        background-size: cover;
-        background-position: center;
-        margin-bottom: 100px;
+.hiring-process {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../../../Content/Images/Banner/hiring-banner.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 100px;
 
-        h2 {
-            color: #ffffff;
-            padding-bottom: 50px;
-        }
+    h2 {
+        color: #ffffff;
+        padding-bottom: 50px;
+        margin: 50px 0 20px 0;
     }
+}
 
     %display-block {
         display: block;
@@ -589,19 +608,19 @@ h1.logo {
         }
     }
     ////////////////////////////////////////////////////////CONTACTS
-    .contacts-bg {
-        width: 100%;
-        height: 600px;
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../../Content/Images/Bg/contact.jpg) no-repeat;
-        background-size: cover;
-        background-position: center;
-        margin-bottom: 100px;
-        @extend %base-setting-bg;
+.contacts-bg {
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../../Content/Images/Bg/contact.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 50px;
+    @extend %base-setting-bg;
 
-        h2 {
-            @extend %slide-text-style;
-        }
+    h2 {
+        @extend %slide-text-style;
     }
+}
 
     .detail {
         margin: 40px 0 50px 0;
@@ -625,7 +644,6 @@ h1.logo {
 
     .contact svg {
         fill: #ff8c00;
-        ;
         width: 20px;
         height: 20px;
     }
