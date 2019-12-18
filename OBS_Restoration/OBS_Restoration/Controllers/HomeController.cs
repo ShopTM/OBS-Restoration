@@ -28,7 +28,7 @@ namespace OBS_Restoration.Controllers
 
         public ActionResult Careers()
         {
-            
+
             return View();
         }
 
@@ -36,6 +36,7 @@ namespace OBS_Restoration.Controllers
         {
             return View();
         }
+        [HttpGet]
         public ActionResult Clints(ClientType type)
         {
             ViewBag.ClientType = type;
