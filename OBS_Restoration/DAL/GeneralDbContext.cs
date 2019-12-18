@@ -4,7 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace DAL
 {
-    public class GeneralDbContext: IdentityDbContext<User>
+    public class GeneralDbContext : IdentityDbContext<User>
     {
         public GeneralDbContext()
             : base("GeneralDbContext")
@@ -14,7 +14,7 @@ namespace DAL
             return new GeneralDbContext();
         }
 
-        public DbSet<Service> Services { get; set; }
+    public DbSet<Service> Services { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<ProjectImage> ProjectImages { get; set; }
     }
