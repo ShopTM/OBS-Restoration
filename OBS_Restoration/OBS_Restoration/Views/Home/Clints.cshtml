@@ -22,8 +22,7 @@
     <p class="estimate">Please fill out the form below to request a <span>free</span> estimate. </p>
   </section> <!--container-->
 
-
-  <section class="container form-touch">
+   <section class="container form-touch">
     <h5>Request an Estimate</h5>
     <form>
       <section class="form-group">
@@ -42,7 +41,7 @@
           <option>Metal siding installation</option>
           <option>Other</option>
         </select>
-      </section>
+      </section> <!--form-group-->
       <section class="form-group">
         <select class="form-control">
           <option>Building type</option>
@@ -52,47 +51,47 @@
           <option>Industrial</option>
           <option>Other</option>
         </select>
-      </section>
+      </section><!--form-group-->
       <section class="row">
         <section class="col-lg-12  form-group">
           <label for="message">Please provide a summary of your restoration project</label>
           <textarea class="form-control" rows="5" id="message"></textarea>
-        </section>
-      </section>
+        </section> <!--form-group-->
+      </section> <!--row-->
       <section class="custom-file">
         <input type="file" class="custom-file-input" id="customFile">
         <label class="custom-file-label" for="customFile">Choose your file</label>
-      </section>
+      </section> <!--custom-file-->
       <section class="row">
         <section class="col-sm-6 form-group">
           <label for="fiirst name">First name</label>
           <input type="text" class="form-control" id="first-name" />
-        </section>
+        </section> <!--row-->
         <section class="col-lg-6 form-group">
           <label for="fiirst name">Last name</label>
           <input type="text" class="form-control" id="last-name" />
-        </section>
-      </section>
+        </section> <!--form-group-->
+      </section><!--row-->
       <section class="row">
         <section class="col-lg-6 form-group">
           <label for="email">Email</label>
           <input type="email" class="form-control" id="email" />
-        </section>
+        </section> <!--form-group-->
         <section class="col-lg-6 form-group">
           <label for="phone">Phone number</label>
           <input type="tel" class="form-control" id="phone" />
-        </section>
-      </section>
+        </section> <!--form-group-->
+      </section> <!--row-->
       <section class="row">
         <section class="col-lg-6 form-group">
           <label for="adress">Adress</label>
           <input type="text" class="form-control" id="adress" />
-        </section>
+        </section><!--form-group-->
         <section class="col-lg-6 form-group">
           <label for="Pastalcode">Pastal Code</label>
           <input type="text" class="form-control" id="Pastalcode" />
-        </section>
-      </section>
+        </section> <!--form-group-->
+      </section> <!--row-->
       <button type="submit" class="btn  align-self-center ">Request an estimate</button>
 
       @Html.Hidden("ClientType", (int)ViewBag.ClientType)
