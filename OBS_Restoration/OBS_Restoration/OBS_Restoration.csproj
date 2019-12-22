@@ -156,6 +156,7 @@
     <Content Include="Content\Images\Banner\hiring-banner.jpg" />
     <Content Include="Content\Images\Banner\offer-banner.jpg" />
     <Content Include="Content\Images\Bg\best-services.jpg" />
+    <Content Include="Content\Images\Bg\bg-gallery.jpg" />
     <Content Include="Content\Images\Bg\careers.jpg" />
     <Content Include="Content\Images\Bg\clints.jpg" />
     <Content Include="Content\Images\Bg\contact.jpg" />
@@ -385,6 +386,7 @@
     <Content Include="Gulp\app\svg\growth.svg" />
     <Content Include="Gulp\app\svg\hiring.svg" />
     <Content Include="Gulp\app\svg\interview.svg" />
+    <Content Include="Gulp\app\svg\left-arrow.svg" />
     <Content Include="Gulp\app\svg\linkedin.svg" />
     <Content Include="Gulp\app\svg\money-bag.svg" />
     <Content Include="Gulp\app\svg\placeholder.svg" />
@@ -392,6 +394,7 @@
     <Content Include="Gulp\app\svg\respect.svg" />
     <Content Include="Gulp\app\svg\resume.svg" />
     <Content Include="Gulp\app\svg\review.svg" />
+    <Content Include="Gulp\app\svg\right-arrow.svg" />
     <Content Include="Gulp\app\svg\spites\symbol\sprite.svg" />
     <Content Include="Gulp\app\svg\teamwork.svg" />
     <Content Include="Gulp\app\svg\telephone.svg" />

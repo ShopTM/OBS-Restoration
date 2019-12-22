@@ -69,13 +69,21 @@ body {
 }
 header {
     width: 100%;
+    height: 170px;
  }
 ///////////////////// NAVBAR
-
+.navbar-collapse {
+    height: 170px;
+}
 .navbar {
     padding: 0;
     z-index: 101;
     background: $bg-mask;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 170px;
 
 
     ul {
@@ -119,6 +127,7 @@ header {
   padding: 0;
   a {
     color: #ffffff;
+    padding: 10px;
     &:hover {
       background: $base-color;
       color: #ffffff;
@@ -142,8 +151,7 @@ h1.logo {
     @extend %size-block;
     overflow: hidden;
     z-index: 1;
-
-}
+ }
 .slider {
     position: absolute;
     top: 0;
@@ -220,8 +228,7 @@ h1.logo {
     .container-fluid {
         overflow: hidden;
         padding: 0;
-        margin-top: - 168.8px;
-     
+          
         h2 {
             text-align: center;
             font-weight: 700;
@@ -298,7 +305,7 @@ h1.logo {
     }
 }
 
-///////////////// CLINTS
+///////////////// CLINTS HOME
 .clint-description p {
     margin-bottom: 100px;
 }
@@ -318,12 +325,15 @@ h1.logo {
     }
 
     a {
+     
         @extend %btn;
-        width: 130px;
+       width: 130px;
 
+        &:hover {
             background: #065670;
         }
     }
+}
 
     /////////////////////////////////////////////////////////////BANNER OFFERING
 .services-banner {
@@ -370,6 +380,7 @@ h1.logo {
     background-position: center;
     @extend %base-setting-bg;
     margin-bottom: 50px;
+
 }
 .estimate {
          text-transform: uppercase;
@@ -684,24 +695,46 @@ h1.logo {
             }
         }
     }
-    //////////////////////////////////////////////////////////FOOTER
-    footer {
-        background: #222121;
-        overflow: hidden;
-        width: 100%;
+////////////////////////////////////////GALLERY
+.bg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/bg-gallery.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.gallery {
+    margin-top: 220px;
 
-        p {
-            color: #fff;
-            line-height: 26px;
-            padding-right: 50px;
-        }
-
-        h6 {
-            color: $base-color;
-            margin: 50px 0 0 0;
-            text-transform: uppercase;
-        }
+    h3 {
+        @extend %slide-text-style;
+        
     }
+
+    .hr-heading {
+        margin-bottom: 50px;
+    }
+}
+
+
+//////////////////////////////////////////////////////////FOOTER
+footer {
+    background: #222121;
+    overflow: hidden;
+    width: 100%;
+
+    p {
+        color: #fff;
+        line-height: 26px;
+        padding-right: 50px;
+    }
+
+    h6 {
+        color: $base-color;
+        margin: 50px 0 0 0;
+        text-transform: uppercase;
+    }
+}
 
     .footer-social {
         background: $base-color;

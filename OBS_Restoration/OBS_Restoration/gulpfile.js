@@ -115,8 +115,8 @@ gulp.task('export', async function(){
   ///let BuildFonts = gulp.src('Gulp/app/fonts/**/*.*')
    ///     .pipe(gulp.dest('Content/Fonts'));
 
-   ///let BuildSvg = gulp.src('Gulp/app/svg/spites/symbol/**/*.*')
-    ///    .pipe(gulp.dest('Content/Svg/spites/symbol'));
+   let BuildSvg = gulp.src('Gulp/app/svg/spites/symbol/**/*.*')
+       .pipe(gulp.dest('Content/Svg/spites/symbol'));
 
     let BuildSass = gulp.src('Gulp/app/sass/**/*.*')
         .pipe(gulp.dest('Content/sass'));

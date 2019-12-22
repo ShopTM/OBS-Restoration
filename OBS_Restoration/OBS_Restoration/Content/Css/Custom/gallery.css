@@ -1,42 +1,4 @@
-/*jssor slider loading skin spin css*/
-img {
-    width: 100%;
-    height: 100%;
-}
-.jssorl-009-spin {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
-}
 
-    .jssorl-009-spin img {
-        margin-top: -19px;
-        position: relative;
-        top: 50%;
-        width: 38px;
-        height: 38px;
-    }
-
-    .jssorl-009-spin img {
-        animation-name: jssorl-009-spin;
-        animation-duration: 1.6s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
-
-@keyframes jssorl-009-spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
 
 /*jssor slider arrow skin 073 css*/
 .jssora073 {
@@ -49,7 +11,7 @@ img {
         fill: #ddd;
         fill-opacity: 0.7;
         stroke: #000;
-        stroke-width: 160;
+        stroke-width: 60;
         stroke-miterlimit: 10;
         stroke-opacity: 0.7;
     }
@@ -87,17 +49,33 @@ div[data-u="slides"] {
     height: 500px;
     overflow: hidden;
 }
-
 div[data-u="arrowleft"] {
     width: 40px;
     height: 50px;
     top: 0px;
     left: 30px;
 }
+svg.arrowleft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
-div[data-u="arrowright"] {
+div[ data-u="arrowright"] {
     width: 40px;
     height: 50px;
     top: 0px;
     right: 30px;
+}
+
+
+svg.arrowright {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
 }

@@ -4,6 +4,18 @@
     .other-supliers img {
         width: 180px;
     }
+    .dropdown-menu {
+        background: rgba(0, 0, 0, 0);
+        border-top: none;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .dropdown-menu a:hover {
+        background: none;
+        color: #188cb1;
+    }
+
 }
 @media screen and (max-width: 768px) {
     .slide-text h2,
@@ -42,8 +54,20 @@
     .other-supliers img {
         width: 100%;
     }
+
+    .services-offer figure p {
+        font-size: 40%;
+       
+    }
+    .services-offer figure h2 {
+        font-size: 1.3rem;
+    }
+    .navbar-collapse {
+       background: #000;
+    }
  
    }
+
 
 @media screen and (max-width: 520px) {
     .slide-text h2,
@@ -53,6 +77,14 @@
 
     .slide-text p {
         font-size: 0.7em;
+    }
+
+    .services-offer figure p {
+          font-size: 68.5%;
+     
+    }
+    .services-offer figure h2 {
+        font-size: 2rem;
     }
    
   
