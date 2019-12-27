@@ -12,7 +12,7 @@ namespace OBS_Restoration.App_Start
     {
         public void Configuration(IAppBuilder app)
         {
-            app.CreatePerOwinContext(GeneralDbContext.Create);
+            app.CreatePerOwinContext(()=> { return new GeneralDbContext(); });
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {

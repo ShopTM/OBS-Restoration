@@ -7,9 +7,9 @@ using Microsoft.Owin;
 
 namespace OBS_Restoration.Manager
 {
-    public class ApplicationUserManager : UserManager<User>
+    public class ApplicationUserManager : UserManager<User,long>
     {
-        public ApplicationUserManager(IUserStore<User> store)
+        public ApplicationUserManager(IUserStore<User, long> store)
                 : base(store)
         {
         }
@@ -17,7 +17,7 @@ namespace OBS_Restoration.Manager
                                                 IOwinContext context)
         {
             GeneralDbContext db = context.Get<GeneralDbContext>();
-            ApplicationUserManager manager = new ApplicationUserManager(new UserStore<User>(db));
+            ApplicationUserManager manager = new ApplicationUserManager(new UserStore<User, Role, long, UserLogin, UserRole, UserClaim>(db));
             return manager;
         }
     }
