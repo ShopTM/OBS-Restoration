@@ -56,7 +56,7 @@ namespace DAL.Migrations
                 var password = new PasswordHasher<User>();
                 var hashed = password.HashPassword(adminUser, "123456");
                 adminUser.PasswordHash = hashed;
-                context.Set<User>().AddOrUpdate(adminUser);
+                context.Set<User>().AddOrUpdate(adminUser); 
 
                 context.SaveChanges();
                 var roleId = context.Set<Role>().FirstOrDefault(x => x.Name == UserType.Admin.ToString()).Id;
