@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using Models;
+using Models.Entities;
 using OBS_Restoration.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
