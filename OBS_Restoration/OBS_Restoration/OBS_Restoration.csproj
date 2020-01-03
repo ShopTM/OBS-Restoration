@@ -7337,6 +7337,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TemporaryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -12087,6 +12088,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Temporary\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="node_modules\%40nodelib\fs.scandir\out\adapters\fs.d.ts" />
