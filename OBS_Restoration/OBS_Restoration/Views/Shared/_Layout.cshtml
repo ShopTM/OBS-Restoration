@@ -1,38 +1,38 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@ViewBag.Title</title>
-  <link rel="icon" href="Content/Img/logo.png" />
-  <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
-  <link href="~/Content/Css/Custom/style.min.css" rel="stylesheet" />
-  <link href="~/Content/Css/Custom/services.css" rel="stylesheet" />
-  <link href="~/Content/Css/Custom/project.css" rel="stylesheet" />
-  <link href="~/Content/Css/Custom/gallery.css" rel="stylesheet" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="Content/Img/logo.png" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+    <link href="~/Content/Css/Custom/style.min.css" rel="stylesheet" />
+    <link href="~/Content/Css/Custom/services.css" rel="stylesheet" />
+    <link href="~/Content/Css/Custom/project.css" rel="stylesheet" />
+    <link href="~/Content/Css/Custom/gallery.css" rel="stylesheet" />
+    @RenderSection("Styles",required:false)
 </head>
 <body>
-  <header>
-    @Html.Partial("_Header")
-  </header>
-  <main>
-    @RenderBody()
-  </main>
-  <footer>
-    @Html.Partial("_Footer")
-  </footer>
+    <header>
+        @Html.Partial("_Header")
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        @Html.Partial("_Footer")
+    </footer>
 
-  <script src="~/Content/Js/jquery.min.js"></script>
-  <script src="~/Content/Js/popper.min.js"></script>
-  <script src="~/Content/Js/bootstrap.min.js"></script>
-  <script src="~/Content/Js/isotope-docs.min.js"></script>
-  <script src="~/Content/Js/Custom/index.js"></script>
-  <script src="~/Content/Js/Custom/clints.js"></script>
-  <script src="~/Content/Js/Custom/projects.js"></script>
-  <script src="~/Content/Js/Custom/services.js"></script>
-  <script src="~/Content/Js/Custom/gallery.js"></script>
-  <script src="~/Content/Js/Custom/jssor.slider-28.0.0.min.js"></script>
+    <script src="~/Content/Js/jquery.min.js"></script>
+    <script src="~/Content/Js/popper.min.js"></script>
+    <script src="~/Content/Js/bootstrap.min.js"></script>
+    <script src="~/Content/Js/isotope-docs.min.js"></script>
 
+    <script src="~/Content/Js/Custom/clints.js"></script>
+    <script src="~/Content/Js/Custom/projects.js"></script>
+    <script src="~/Content/Js/Custom/services.js"></script>
+    <script src="~/Content/Js/Custom/gallery.js"></script>
+    <script src="~/Content/Js/Custom/jssor.slider-28.0.0.min.js"></script>
+    @RenderSection("Scripts",required:false)
 </body>
 </html>

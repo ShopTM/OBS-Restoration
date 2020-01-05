@@ -1,12 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Models.VM;
 using BAL.Managers;
-using Common.Log;
 
 namespace OBS_Restoration.Controllers
 {
@@ -37,7 +35,6 @@ namespace OBS_Restoration.Controllers
             var model = new IndexViewModel
             {
                 HasPassword = true,
-                Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId.ToString())
             };
             return View(model);
@@ -71,29 +68,6 @@ namespace OBS_Restoration.Controllers
             }
             AddErrors(result);
             return View(model);
-        }
-
-
-        [HttpPost]
-        public ActionResult EditUserInformation(string firstName, string lastName)
-        {
-            var user = UserManager.FindById(User.Identity.GetUserId<long>());
-            var model = new IndexViewModel
-            {
-                HasPassword = true
-            };
-            try
-            {
-                if (user == null || (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName)))
-                {
-                    return RedirectToAction("Index", "Manage", model);
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.LogErrorException("Cant edit user",ex);
-            }
-            return RedirectToAction("Index", "Manage", model);
         }
 
         #region Helpers
