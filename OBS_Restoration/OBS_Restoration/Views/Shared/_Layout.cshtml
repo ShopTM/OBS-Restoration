@@ -12,20 +12,21 @@
   <script src="~/Content/Js/bootstrap.min.js"></script>
   <script src="~/Content/Js/Custom/index.js"></script>
   <script src="~/Content/Js/Custom/valid.js"></script>
+  @RenderSection("Styles",required:false)
 </head>
 
 <body>
-  <header>
-    @Html.Partial("_Header")
-  </header>
-  <main>
-    @RenderBody()
-  </main>
-  <footer>
-    @Html.Partial("_Footer")
-  </footer>
+    <header>
+        @Html.Partial("_Header")
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        @Html.Partial("_Footer")
+    </footer>
 
 
-  <link href="~/Gulp/app/css/style.min.css" rel="stylesheet" />
+     @RenderSection("Scripts",required:false)
 </body>
 </html>

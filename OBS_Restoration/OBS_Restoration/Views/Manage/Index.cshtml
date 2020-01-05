@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Profile Settings";
+}
+
+<div>
+    <h2>@ViewBag.Title</h2>
+    <p class="text-success">@ViewBag.StatusMessage</p>
+    <div>
+        <h4>Change your account settings</h4>
+        <div>
+            <div><b>Password:</b></div>
+            <div>
+                [@Html.ActionLink("Change your password", "ChangePassword")]
+            </div>
+        </div>
+    </div>
+</div>

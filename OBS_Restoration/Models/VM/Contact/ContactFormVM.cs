@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OBS_Restoration.Models
+namespace OBS_Restoration.Models.VM.Contact
 {
     public class ContactFormVM
     {

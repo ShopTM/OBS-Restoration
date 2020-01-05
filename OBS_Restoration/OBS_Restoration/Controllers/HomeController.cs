@@ -1,5 +1,6 @@
-﻿using DAL.Models;
-using OBS_Restoration.Models;
+﻿using Models;
+using Models.Entities;
+using OBS_Restoration.Models.VM.Contact;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
