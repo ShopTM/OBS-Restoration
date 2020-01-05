@@ -1,27 +1,19 @@
 $(document).ready(function () {
-    let input = document.querySelector("#ClientType");
-    let h2 = document.querySelector("h2#clints");
-    let val = input.value;
-    if (val == 1) {
-        h2.innerHTML = "Enginners / Architecs";
-    } else if (val == 2) {
-        h2.innerHTML = "Propperty / Managers";
-    } else {
-        h2.innerHTML = "Owner";
+    const input = document.querySelector("#ClientType");
+    const h3 = document.querySelector("h3#clints");
+    const val = input.value;
+    switch (val) {
+        case "1":
+            h3.innerHTML = "Enginners / Architecs";
+            break;
+        case "2":
+            h3.innerHTML = "Propperty / Managers";
+            break;
+        case "3":
+            h3.innerHTML = "Owner";
+            break;
     }
-})
-
-
-
-
-
-
-
-   
-
-
-
-
+});
 
 
 

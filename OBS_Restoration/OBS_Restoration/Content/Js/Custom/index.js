@@ -1,6 +1,4 @@
-$(function(){
-
-    // SLIDER HOME PAGE
+$(function () {
     var nextSlider = function () {
         var currentSlide = $(".curry");
         var nextSlide = currentSlide.next();
@@ -23,7 +21,9 @@ $(function(){
         currentSlide.fadeOut(200).removeClass("curry");
         prevSlide.fadeIn(200).addClass("curry");
     };
+
     setInterval(nextSlider, 5000);
+});
 
     // ACTIVE DROPDOWN_MENU
     $(".navbar .dropdown").hover(
@@ -48,7 +48,7 @@ $(function(){
 $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-});
+
 
 
    

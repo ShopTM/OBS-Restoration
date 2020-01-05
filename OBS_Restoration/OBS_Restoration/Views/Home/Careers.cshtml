@@ -14,7 +14,7 @@
   <section class="container">
     <section class="row">
       <section class="col-lg-12 career-descption ">
-        <h2>Join our team</h2>
+        <h3>Join our team</h3>
         <section class="hr-heading "></section>
         <p>
           We seek out people who are smart, creative, up for any challenge and like about what they do.
@@ -70,25 +70,25 @@
   <section class="container form-touch">
     <h5>Apply for job</h5>
 
-    <form>
+    <form class="needs-validation" novalidate>
       <section class="row">
-        <section class="col-sm-6 form-group">
+        <section class="col-sm-6 form-group required">
           <label for="fiirst name">First name</label>
-          <input type="text" class="form-control" id="first-name" />
+          <input type="text" class="form-control" id="first-name" required/>
         </section>
-        <section class="col-lg-6 form-group">
+        <section class="col-lg-6 form-group required">
           <label for="fiirst name">Last name</label>
-          <input type="text" class="form-control" id="last-name" />
+          <input type="text" class="form-control" id="last-name" required />
         </section>
       </section>
       <section class="row">
-        <section class="col-lg-6 form-group">
+        <section class="col-lg-6 form-group required">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" />
+          <input type="email" class="form-control" id="email" required/>
         </section>
-        <section class="col-lg-6 form-group">
+        <section class="col-lg-6 form-group required">
           <label for="phone">Phone number</label>
-          <input type="tel" class="form-control" id="phone" />
+          <input type="tel" class="form-control" id="phone" required />
         </section>
       </section>
       <section class="row">
@@ -98,7 +98,7 @@
         </section>
       </section>
       <section class="custom-file">
-        <input type="file" class="custom-file-input" id="customFile">
+        <input type="file" class="custom-file-input" id="customFile " required>
         <label class="custom-file-label" for="customFile">Choose your resume</label>
       </section>
       <button type="submit" class="btn  align-self-center ">Submit</button>

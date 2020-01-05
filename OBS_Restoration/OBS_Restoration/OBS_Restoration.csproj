@@ -279,6 +279,7 @@
     <Content Include="Content\Js\Custom\projects.js" />
     <Content Include="Content\Js\Custom\services.js" />
     <Content Include="Content\Js\bootstrap.min.js" />
+    <Content Include="Content\Js\Custom\valid.js" />
     <Content Include="Content\Js\isotope-docs.min.js" />
     <Content Include="Content\Js\jquery.min.js" />
     <Content Include="Content\Js\popper.min.js" />

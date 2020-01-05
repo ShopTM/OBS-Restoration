@@ -1,93 +1,129 @@
 /***************** MEDIA *****************/
 
-@media screen and (max-width: 1024px ) {
-    .other-supliers img {
-        width: 180px;
-    }
-    .dropdown-menu {
-        background: rgba(0, 0, 0, 0);
-        border-top: none;
-        margin-top: 0;
-        text-align: center;
+
+    @media screen and (max-width: 1024px ) {
+          .other-supliers img {
+            width: 180px;
+        }
+
+        .navbar {
+            background: #000;
+        }
+                
+        .dropdown-menu {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .dropdown-menu a:hover {
+            background: none;
+            color: #188cb1;
+        }
+
+        .navbar-collapse {
+            background: #000;
+        }
+
+        .container-fluid h2 {
+            font-size: 2.5em;
+        }
+
+        .services-offer h2 {
+            font-size: 1.4em;
+        }
+     }
+
+    @media (max-width: 992px) {
+
+        .dropdown-menu a {
+            font-size: .5em;
+        }
     }
 
-    .dropdown-menu a:hover {
-        background: none;
-        color: #188cb1;
-    }
+    @media screen and (max-width: 768px) {
+        .slide-text h2 {
+            margin-left: 0;
+        }
 
-}
-@media screen and (max-width: 768px) {
-    .slide-text h2,
-    .banner-craftsman h3 {
-        font-size: 3em;
-        margin-left: 0;
-    }
-    .logo img,
-    h1.logo {
-        display: block;
-        margin: 0 auto;
-        padding: 10px;
-    }
-    .about-advantages span,
-    .navbar button {
-        display: block;
-        margin: 0 auto;
-        top: 0;
-    }
-
-    .about-advantages h3,
-    .about-advantages p{
-        text-align: center;
-        padding: 20px;
-        margin: 0;
-    }
-    .navbar a {
-        font-size: 1.2em;
-    }
-    .hiring-process {
-        height: 100%;
-    }
-    footer p {
-        padding-right: 0;
-    }
-    .other-supliers img {
-        width: 100%;
-    }
-
-    .services-offer figure p {
-        font-size: 40%;
-       
-    }
-    .services-offer figure h2 {
-        font-size: 1.3rem;
-    }
-    .navbar-collapse {
-       background: #000;
-    }
- 
-   }
+        .banner-craftsman h3 {
+            margin-left: 30px;
+        }
 
 
-@media screen and (max-width: 520px) {
-    .slide-text h2,
-    .banner-craftsman h3 {
-        font-size: 1.9em;
+        .logo img,
+        h1.logo {
+            display: block;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .about-advantages span,
+        .navbar button {
+            display: block;
+            margin: 0 auto;
+            top: 0;
+        }
+
+        .about-advantages h4,
+        .about-advantages p {
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .navbar a {
+            font-size: 1.2em;
+        }
+
+        .hiring-process {
+            height: 100%;
+        }
+
+        footer p {
+            padding-right: 0;
+        }
+
+        .other-supliers img {
+            width: 100%;
+        }
+
+        .services-offer figure p {
+            font-size: 40%;
+        }
+
+        .services-offer figure h2 {
+            font-size: 1.3em;
+        }
+
+        .services-bg p {
+            width: 80%;
+            font-size: .7em;
+        }
+
+        .dropdown-menu a {
+            font-size: .5rem;
+        }
+
+        .services-banner h4 {
+            font-size: 1em;
+        }
     }
 
-    .slide-text p {
-        font-size: 0.7em;
-    }
+    @media screen and (max-width: 520px) {
 
-    .services-offer figure p {
-          font-size: 68.5%;
-     
-    }
-    .services-offer figure h2 {
-        font-size: 2rem;
-    }
-   
-  
+        .banner-craftsman h3 {
+            font-size: 1.9em;
+        }
 
-  
-}
+        .slide-text p {
+            font-size: 0.7em;
+        }
+
+        .services-offer figure p {
+            font-size: 68.5%;
+        }
+
+        .services-offer figure h2 {
+            font-size: 2rem;
+        }
+    }
