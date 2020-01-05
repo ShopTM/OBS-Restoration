@@ -21,7 +21,7 @@ namespace OBS_Restoration.Controllers
         }
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult> CreateAdmin(string Email, string Password)
+        public async Task<ActionResult> CreateAdmin(string Email, string Password) // http://localhost:49195/Temporary/CreateAdmin?Email=email@email.com&Password=123456
         {
             try
             {
