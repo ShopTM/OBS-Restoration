@@ -23,21 +23,14 @@ namespace OBS_Restoration.Controllers
 
         //
         // GET: /Manage/Index
-        public async Task<ActionResult> Index(ManageMessageId? message)
+        public ActionResult Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : "";
 
-            var userId = User.Identity.GetUserId<long>();
-            var user = await UserManager.FindByIdAsync(userId);
-            var model = new IndexViewModel
-            {
-                HasPassword = true,
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId.ToString())
-            };
-            return View(model);
+            return View();
         }
         //
         // GET: /Manage/ChangePassword
@@ -50,7 +43,7 @@ namespace OBS_Restoration.Controllers
         // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
+        public async Task<ActionResult> ChangePassword(ChangePasswordVM model)
         {
             if (!ModelState.IsValid)
             {

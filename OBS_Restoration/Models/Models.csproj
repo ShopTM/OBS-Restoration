@@ -98,9 +98,9 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VM\AccountViewModels.cs" />
+    <Compile Include="VM\LoginVM.cs" />
     <Compile Include="VM\ContactFormVM.cs" />
-    <Compile Include="VM\ManageViewModels.cs" />
+    <Compile Include="VM\ChangePasswordVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

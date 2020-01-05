@@ -1,12 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace Models.VM
 {
-    public class IndexViewModel
-    {
-        public bool HasPassword { get; set; }
-        public bool BrowserRemembered { get; set; }
-    }
-    public class ChangePasswordViewModel
+    public class ChangePasswordVM
     {
         [Required]
         [DataType(DataType.Password)]

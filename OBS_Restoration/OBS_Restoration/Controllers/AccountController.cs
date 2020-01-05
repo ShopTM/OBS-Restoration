@@ -40,7 +40,7 @@ namespace OBS_Restoration.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model)
+        public async Task<ActionResult> Login(LoginVM model)
         {
             if (!ModelState.IsValid)
             {

@@ -1,5 +1,5 @@
 ﻿@using Models.VM
-@model LoginViewModel
+@model LoginVM
 @{
     ViewBag.Title = "Log in";
     Layout =null;
@@ -10,8 +10,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/base")
     <link rel="shortcut icon" type="image/png" href="~/Content/images/fav-icon.png" />
     <link rel="stylesheet" href="~/fonts/fontawesome/css/font-awesome.min.css">
     <script>
@@ -53,7 +51,5 @@
             </div>
         }
     </div>
-
-    @Scripts.Render("~/bundles/login")
 </body>
 </html>
