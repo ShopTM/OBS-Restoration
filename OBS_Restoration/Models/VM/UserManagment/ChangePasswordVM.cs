@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-namespace Models.VM
+namespace Models.VM.UserManagment
 {
     public class ChangePasswordVM
     {

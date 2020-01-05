@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Models.VM
+namespace Models.VM.Account
 {
     public class LoginVM
     {
