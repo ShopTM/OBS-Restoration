@@ -1,14 +1,15 @@
 ﻿
 @{
   ViewBag.Title = "Gallery";
-  }
-
-  
-<link href="~/Content/Css/Custom/gallery.css" rel="stylesheet" />
-
+}
+@section Scripts {
+  <script src="~/Content/Js/Custom/jssor.slider-28.0.0.min.js"></script>
+  <script src="~/Content/Js/Custom/gallery.js"></script>
+}
+@section Styles {
+  <link href="~/Content/Css/Custom/gallery.css" rel="stylesheet" />
+}
 <section class="container-fluid bg">
-
-
   <section class="container gallery ">
     <section class="row">
       <section class="col-sm-12 ">
@@ -19,7 +20,7 @@
         <section class="hr-heading "></section>
       </section>
     </section>
-  <h3>portfolio</h3>
+    <h3>portfolio</h3>
     <div id="jssor_1">
       <div data-u="slides">
         <div>
@@ -161,9 +162,6 @@
           <img data-u="image" src="../../Content/Images/Gallery/46.jpg" alt="img" />
         </div>
       </div>
-
-
-
       <div data-u="arrowleft"
            class="jssora073"
            data-autocenter="2"
@@ -173,9 +171,6 @@
           <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#left-arrow" class="a"></use>
         </svg>
       </div>
-
-
-
       <div data-u="arrowright"
            class="jssora073"
            data-autocenter="2"
@@ -191,12 +186,10 @@
   </section>
 </section>
 
-
-
-<script src="~/Content/Js/Custom/jssor.slider-28.0.0.min.js"></script>
-<script src="~/Content/Js/Custom/gallery.js"></script>
-
 <script type="text/javascript">
-  jssor_1_slider_init();
+  $(function () {
+    jssor_1_slider_init();
+  })
+
 </script>
 <!-- #endregion Jssor Slider End -->

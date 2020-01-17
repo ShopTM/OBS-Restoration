@@ -5,6 +5,9 @@
           .other-supliers img {
             width: 180px;
         }
+        .admin-nav ul {
+             justify-content: center;
+        }
 
         .navbar {
             background: #000;
@@ -33,17 +36,48 @@
         }
      }
 
-    @media (max-width: 992px) {
-
+    @media (min-width: 320px) and (max-width: 992px){
+        .dropdown-menu{
+            border-top: none;
+        }
         .dropdown-menu a {
             font-size: .5em;
         }
+        .admin-nav  {
+            background: none;
+        }
+        .admin-nav a {
+            font-size: .7em;
+        }
+        .border-supplier img {
+            margin: 0 20px 0 0;
+            display: none;
+        }
+      
     }
 
-    @media screen and (max-width: 768px) {
-        .slide-text h2 {
-            margin-left: 0;
-        }
+@media screen and (max-width: 768px) {
+
+    .border-supplier {
+        border: none;
+        padding: 20px;
+        margin: 0;
+    }
+    .border-supplier p {
+        padding: 0;
+       
+    }
+   
+    .border-supplier span {
+        top: -30px;
+       left: 0;
+       right: 0;
+
+
+    }
+    .slide-text h2 {
+        margin-left: 0;
+    }
 
         .banner-craftsman h3 {
             margin-left: 30px;
@@ -54,7 +88,7 @@
         h1.logo {
             display: block;
             margin: 0 auto;
-            padding: 10px;
+            padding: 20px;
         }
 
         .about-advantages span,
@@ -84,7 +118,7 @@
         }
 
         .other-supliers img {
-            width: 100%;
+            width: 70%;
         }
 
         .services-offer figure p {
@@ -107,6 +141,10 @@
         .services-banner h4 {
             font-size: 1em;
         }
+
+        .admin-nav a {
+            font-size: .7em;
+        }
     }
 
     @media screen and (max-width: 520px) {
@@ -126,4 +164,8 @@
         .services-offer figure h2 {
             font-size: 2rem;
         }
+        .other-supliers img {
+            width: 50%;
+        }
+      
     }

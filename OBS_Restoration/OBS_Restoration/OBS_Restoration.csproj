@@ -152,6 +152,7 @@
     <Content Include="Content\Images\Banner\offer-banner.jpg" />
     <Content Include="Content\Images\Bg\best-services.jpg" />
     <Content Include="Content\Images\Bg\bg-gallery.jpg" />
+    <Content Include="Content\Images\Bg\bg-login.jpg" />
     <Content Include="Content\Images\Bg\careers.jpg" />
     <Content Include="Content\Images\Bg\clints.jpg" />
     <Content Include="Content\Images\Bg\contact.jpg" />
@@ -259,17 +260,19 @@
     <Content Include="Content\Images\Slider\img-slide-0.jpg" />
     <Content Include="Content\Images\Slider\img-slide-1.jpg" />
     <Content Include="Content\Images\Slider\img-slide-2.jpg" />
-    <Content Include="Content\Images\Suppliers\battlefield.png" />
+    <Content Include="Content\Images\Suppliers\battlefield.jpg" />
     <Content Include="Content\Images\Suppliers\cds.png" />
     <Content Include="Content\Images\Suppliers\JamacSales.png" />
     <Content Include="Content\Images\Suppliers\k.winter.png" />
-    <Content Include="Content\Images\Suppliers\masons.png" />
+    <Content Include="Content\Images\Suppliers\masons.jpg" />
     <Content Include="Content\Images\Suppliers\quick-fence.png" />
-    <Content Include="Content\Images\Suppliers\scafom.png" />
+    <Content Include="Content\Images\Suppliers\scafom.jpg" />
     <Content Include="Content\Images\Suppliers\tremco.png" />
     <Content Include="Content\Js\Custom\clints.js" />
     <Content Include="Content\Js\Custom\gallery.js" />
     <Content Include="Content\Js\Custom\index.js" />
+    <Content Include="Content\Js\Custom\dropdown-menu.js" />
+    <Content Include="Content\Js\Custom\form-file.js" />
     <Content Include="Content\Js\Custom\jssor.slider-28.0.0.min.js" />
     <Content Include="Content\Js\Custom\projects.js" />
     <Content Include="Content\Js\Custom\services.js" />
@@ -13485,7 +13488,7 @@
     </ItemGroup>
     <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
     <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
-</Target>
+  </Target>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>

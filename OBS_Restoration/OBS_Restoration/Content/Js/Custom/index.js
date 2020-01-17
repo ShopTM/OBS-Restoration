@@ -25,32 +25,3 @@ $(function () {
     setInterval(nextSlider, 5000);
 });
 
-    // ACTIVE DROPDOWN_MENU
-    $(".navbar .dropdown").hover(
-        function () {
-            $(this)
-                .find(".dropdown-menu")
-                .stop(true, true)
-                .delay(300)
-                .fadeIn(-2000);
-        },
-        function () {
-            $(this)
-                .find(".dropdown-menu")
-                .stop(true, true)
-                .delay(300)
-                .fadeOut(-2000);
-        }
-    );
-
-          /////////////////////CAREERSR
-// Name of the file appear on select
-$(".custom-file-input").on("change", function() {
-  var fileName = $(this).val().split("\\").pop();
-  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-
-
-
-   
-  
-});

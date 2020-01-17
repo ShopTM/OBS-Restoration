@@ -2,6 +2,9 @@
 @{
   ViewBag.Title = "Clints";
 }
+@section Scripts {
+  <script src="~/Content/Js/Custom/clints.js"></script>
+}
 <section class="container-fluid">
   <section class="row">
     <section class="col-lg-12 clints-bg">
@@ -22,12 +25,12 @@
     <p class="estimate">Please fill out the form below to request a <span>free</span> estimate. </p>
   </section> <!--container-->
 
-   <section class="container form-touch">
+  <section class="container form-touch">
     <h5>Request an Estimate</h5>
-    <form  class="needs-validation" novalidate>
+    <form class="needs-validation" novalidate>
       <section class="form-group required">
         <label for="ProjectType">Type of project</label>
-        <select required class="form-control" id="ProjectType" >
+        <select required class="form-control" id="ProjectType">
           <option></option>
           <option>Building envelop restoration, including balcony slab repairs</option>
           <option>Masonry repairs (brick replacement, block, glass block, stone, tuck pointing)</option>
@@ -55,9 +58,9 @@
         </select>
       </section><!--form-group-->
       <section class="row">
-        <section class="col-lg-12  form-group">
+        <section class="col-lg-12  form-group required "  >
           <label for="message">Please provide a summary of your restoration project</label>
-          <textarea class="form-control" rows="5" id="message"></textarea>
+          <textarea class="form-control" rows="5" id="message" required></textarea>
         </section> <!--form-group-->
       </section> <!--row-->
       <section class="custom-file">
@@ -67,11 +70,11 @@
       <section class="row">
         <section class="col-sm-6 form-group required">
           <label for="fiirst name">First name</label>
-          <input type="text" class="form-control " id="first-name" required/>
+          <input type="text" class="form-control " id="first-name" required />
         </section> <!--row-->
         <section class="col-lg-6 form-group required">
           <label for="fiirst name">Last name</label>
-          <input type="text" class="form-control" id="last-name" required/>
+          <input type="text" class="form-control" id="last-name" required />
         </section> <!--form-group-->
       </section><!--row-->
       <section class="row">
@@ -81,17 +84,17 @@
         </section> <!--form-group-->
         <section class="col-lg-6 form-group required">
           <label for="phone">Phone number</label>
-          <input type="tel" class="form-control" id="phone" required/>
+          <input type="tel" class="form-control" id="phone" required />
         </section> <!--form-group-->
       </section> <!--row-->
       <section class="row">
-        <section class="col-lg-6 form-group required">
+        <section class="col-lg-6 form-group">
           <label for="adress">Adress</label>
-          <input type="text" class="form-control" id="adress"/>
+          <input type="text" class="form-control" id="adress" />
         </section><!--form-group-->
-        <section class="col-lg-6 form-group required">
+        <section class="col-lg-6 form-group">
           <label for="Pastalcode">Pastal Code</label>
-          <input type="text" class="form-control" id="Pastalcode"/>
+          <input type="text" class="form-control" id="Pastalcode" />
         </section> <!--form-group-->
       </section> <!--row-->
       <button type="submit" class="btn  align-self-center ">Request an estimate</button>
@@ -100,4 +103,3 @@
     </form>
   </section> <!--form-touch-->
 </section> <!--container-fluid-->
-<script src="~/Content/Js/Custom/clints.js"></script>

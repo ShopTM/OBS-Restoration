@@ -2,13 +2,13 @@
     ViewBag.Title = "Profile Settings";
 }
 
-<div>
-    <h2>@ViewBag.Title</h2>
+<div class="container-fluid login-bg">
+    <h4>@ViewBag.Title</h4>
     <p class="text-success">@ViewBag.StatusMessage</p>
-    <div>
-        <h4>Change your account settings</h4>
+    <div class="login-form manage">
+        <h5>Change your account settings</h5>
         <div>
-            <div><b>Password:</b></div>
+            <p>Password:</p>
             <div>
                 [@Html.ActionLink("Change your password", "ChangePassword")]
             </div>

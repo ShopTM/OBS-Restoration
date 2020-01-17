@@ -85,7 +85,6 @@ section.required label:after {
     left: 0;
     width: 100%;
   
-
     li {
         padding: 0 5px 0 5px;
     }
@@ -137,7 +136,7 @@ section.required label:after {
 ////////////////////////// LOGO
 .logo img {
    max-width: 80%;
-   margin: 15px 0 15px 30px;
+   margin: 35px 0 15px 35px;
 }
 h1.logo {
 margin: 0;
@@ -278,8 +277,6 @@ padding: 0;
         margin: 0 20px 0 200px;
     }
 }
-
-
     /************ Banner craftsmen************** */
 .banner-craftsman {
     margin-top: 100px;
@@ -341,7 +338,6 @@ padding: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../../../Content/Images/Banner/offer-banner.jpg') no-repeat;
     background-size: cover;
     background-position: center;
-    margin-bottom: 50px;
     width: 100%;
     height: 500px;
     display: flex;
@@ -415,6 +411,9 @@ padding: 0;
     }
 }
     /////////////////////////////////////////// Advantages servises
+  main{
+      height: 100%;
+  }
     .container-services {
         margin: 0 15px 50px 15px;
 
@@ -486,16 +485,16 @@ padding: 0;
         border-radius: 5px;
         padding: 10px 50px;
         margin: 50px;
-
-        p {
-            padding: 40px 0 0 30px;
+         p {
+            padding-top: 40px;
         }
 
         img {
             display: block;
             margin: 0 auto;
             margin-top: 50px;
-            padding: 30px;
+            padding: 20px;
+            width: 200px;
         }
 
         span {
@@ -520,8 +519,25 @@ padding: 0;
 
     .other-supliers {
         margin-bottom: 50px;
+        img{
+             width: 200px;
+             display: block;
+             margin: 0 auto;
+        }
     }
-    ///////////////////////////////////////////////////CAREERS
+.cds{
+    img{
+        width: 300px;
+
+    }
+}
+.other{
+    h2{
+        text-align: center;
+        padding: 20px;
+    }
+}
+///////////////////////////////////////////////////CAREERS
 .career-bg {
     @extend %size-block;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/careers.jpg) no-repeat;
@@ -544,7 +560,7 @@ padding: 0;
     background-position: center;
     margin-bottom: 100px;
 
-    h2 {
+    h3 {
         color: #ffffff;
         padding-bottom: 50px;
         margin: 50px 0 20px 0;
@@ -754,31 +770,33 @@ footer {
         fill: #fff;
     }
 
-    .icons-social svg:hover {
-        fill: #0e76a8;
+.icons-social svg:hover {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-link {
+    ul {
+        padding: 0;
+        list-style: none;
     }
 
-    .footer-link {
-        ul {
-            padding: 0;
-        }
+    li {
+        padding: 5px 0 5px 0;
+    }
 
-        li {
-            padding: 5px 0 5px 0;
-        }
+    a {
+        color: #ffffff;
+        text-decoration: none;
+        text-align: left;
+        line-height: 25px;
+        padding-bottom: 5px;
 
-        a {
-            color: #ffffff;
-            text-decoration: none;
-            text-align: left;
-            line-height: 25px;
-            padding-bottom: 5px;
-
-            &:hover {
-                border-bottom: 1px solid $base-color;
-            }
+        &:hover {
+            border-bottom: 1px solid $base-color;
         }
     }
+}
 
     span.footer-contact {
         color: #ffffff;
@@ -812,6 +830,7 @@ footer {
     left: -10px;
     top: 0;
     }
+
     /* ******************************************************ANIMATE****************** */
     @keyframes anime-slider {
         from {
@@ -850,5 +869,112 @@ footer {
             transform: translateY(2%);
         }
     }
+    //////ADMIN
+    .admin svg {
+        fill: #ffffff;
+        width: 16px;
+        height: 16px;
+    }
+.admin-text {
+    text-transform: uppercase;
+}
+.admin-nav {
+    background: none;
+    z-index: 102;
+    
+    ul{
+        width: 100%;
+        padding: 0;
+        margin: 5px 25px 5px 25px;
+    }
+}
+.nav-admin {
+    display: flex;
+    justify-content: flex-end;
+    background: none;
+    padding-top: 5px;
 
-    @import "media";
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: .7em;
+    }
+
+    li {
+        list-style: none;
+      }
+}
+
+a.bord:after {
+    content: "|";
+    color: #fff;
+    padding-left: 5px;
+}
+.login-bg {
+    width: 100%;
+    height: 750px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../../Content/Images/Bg/bg-login.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @extend %base-setting-bg;
+
+    .login-form {
+        background: rgba(0,0,0, 0.4);
+        margin: 50% auto;
+        width: 350px;
+        height: 200px;
+        padding: 20px;
+
+
+        h5 {
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+        }
+    }
+
+    input.login-input {
+        border: none;
+        height: 40px;
+        width: 300px;
+        margin-bottom: 5px;
+    }
+
+    button.btn-login {
+        display: block;
+        margin: 10px auto;
+        width: 100px;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        background: $base-color;
+        color: #fff;
+    }
+}
+input[type="text"] {
+    padding: 10px;
+}
+input[type="password"] {
+    padding: 10px;
+}
+//////////////////////MANAGE ACCOUNT
+.manage {
+   h5{
+       font-size: 1.1em;
+   }
+   p{
+       color: #fff;
+   }
+   a{
+       text-decoration: none;
+       color: $base-color;
+       &:hover{
+           border-bottom: 1px solid $base-color;
+       }
+   }
+}
+
+
+@import "media";
+     

@@ -1,53 +1,52 @@
 ﻿<!-- -----------------HEADER ----------------->
+<!-- ----------------------------NAVBAR ------------------------------>
+@Html.Partial("_LoginPartial")
+<nav class="navbar navbar-expand-lg ">
+  <h1 class="navbar-brand logo "><img src="../../Content/Images/logo.png" alt="img-logotype" /></h1>
+  <button class="navbar-toggler navbar-dark "
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbartoggler"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon "></span>
+  </button>
+  <section class="collapse navbar-collapse justify-content-end text-center"
+           id="navbartoggler">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link " href="/home/index">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="services" href="/home/Services">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/home/Projects">Eatured Projects</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"
+           id="aciveLink"
+           href="#"
+           id="navbardrop"
+           data-toggle="dropdown">
+          Our clints
+        </a><!------------DROPDOWN--------------------------->
+        <section class="dropdown-menu dropdownMenu">
+          <a class="dropdown-item" href="/Home/Clints?type=1" id="eng">Enginners / Architecs</a>
+          <a class="dropdown-item" href="/Home/Clints?type=2" id="manager">Propperty / Managers</a>
+          <a class="dropdown-item" href="/Home/Clints?type=3" id="owner">Owners</a>
+        </section> <!--Dropdown-menu -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/home/Suppliers" id="eng">Suppliers</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="/home/Careers">Careers</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="/home/Contacts">Contacts</a>
+      </li>
+    </ul>
 
+  </section><!--collapse navbar-collapse -->
+</nav>
 
-    <!-- ----------------------------NAVBAR ------------------------------>
-  <nav class="navbar navbar-expand-lg">
-    <h1 class="navbar-brand logo "><img src="../../Content/Images/logo.png" alt="img-logotype" /></h1>
-    <button class="navbar-toggler navbar-dark "
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbartoggler"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon "></span>
-    </button>
-    <section class="collapse navbar-collapse justify-content-end text-center"
-             id="navbartoggler">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link " href="/home/index">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="services" href="/home/Services">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="/home/Projects">Eatured Projects</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"
-             id="aciveLink"
-             href="#"
-             id="navbardrop"
-             data-toggle="dropdown">
-            Our clints
-          </a><!------------DROPDOWN--------------------------->
-          <section class="dropdown-menu dropdownMenu">
-            <a class="dropdown-item" href="/Home/Clints?type=1" id="eng">Enginners / Architecs</a>
-            <a class="dropdown-item" href="/Home/Clints?type=2" id="manager">Propperty / Managers</a>
-            <a class="dropdown-item" href="/Home/Clints?type=3" id="owner">Owners</a>
-          </section> <!--Dropdown-menu -->
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/home/Suppliers" id="eng">Suppliers</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="/home/Careers">Careers</a></li>
-        <li class="nav-item">
-          <a class="nav-link" href="/home/Contacts">Contacts</a>
-        </li>
-      </ul>
-        @Html.Partial("_LoginPartial")
-    </section><!--collapse navbar-collapse -->
-  </nav>
-  

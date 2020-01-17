@@ -1,18 +1,27 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
+  using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+  {
     @Html.AntiForgeryToken()
+    <nav class="navbar navbar-expand-lg align-items-center justify-content-end admin-nav">
+        <ul class="text-center nav-admin ">
+          <li>
+            <a href="/Admin/Index" class="bord">
+              <span class="admin">
+                <svg>
+                  <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#icon"></use>
+                </svg>
+                <span class="text-span admin-text">Admin page</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="/Manage/Index" class="bord">Manage account </a>
+          </li>
+          <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+        </ul>
+      </nav>
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Admin Page", "Index", "Admin")
-        </li>
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
-    }
-}
+      }
+      }
