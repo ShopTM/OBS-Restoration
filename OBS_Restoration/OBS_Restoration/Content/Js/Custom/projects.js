@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
     $.ajax({
         url: '/home/getProjects',
         type: 'GET',

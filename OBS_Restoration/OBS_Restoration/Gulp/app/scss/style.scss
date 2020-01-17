@@ -156,8 +156,8 @@ padding: 0;
     top: 0;
     left: 0;
     display: none;
-    animation: anime 1.3s ease-in-out;
     @extend %size-block;
+    @extend %base-setting-bg
 }
 .slide {
     position: absolute;
