@@ -7,11 +7,8 @@ namespace OBS_Restoration.Models.VM.Contact
         [Required]
         public string FirstName { get; set; }
         [Required]
-        public string LastName { get; set; }
-        [Required]
         public string Email { get; set; }
-        [Required]
-        public string Subject { get; set; }
+        public string PhoneNumber { get; set; }
         [Required]
         public string Message { get; set; }
     }

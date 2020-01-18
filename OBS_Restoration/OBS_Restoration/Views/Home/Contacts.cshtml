@@ -61,25 +61,25 @@
       </section> <!--roe detail-->
       <section class="form-touch">
         <h5>Get in touch with us</h5>
-        <form class="needs-validation" novalidate>
+        <form class="needs-validation" novalidate action="/home/ContactUs" method="post">
           <section class="row">
             <section class="col-lg-4 form-group required">
               <label for="fiirst name">First name</label>
-              <input type="text" class="form-control" id="first-name" required />
+              <input type="text" class="form-control" name="FirstName" required />
             </section> <!--form-group-->
             <section class="col-lg-4 form-group " required>
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" required/>
+              <input type="email" class="form-control" name="Email" required/>
             </section><!--form-group-->
             <section class="col-lg-4 form-group ">
                <label for="phone">Phone number</label>
-              <input type="tel" class="form-control" id="phone" />
+              <input type="tel" class="form-control" name="PhoneNumber" />
             </section><!--form-group-->
           </section> <!--row-->
           <section class="row">
             <section class="col-lg-12  form-group ">
               <label for="message">Message</label>
-              <textarea class="form-control" rows="5" id="message" required></textarea>
+              <textarea class="form-control" rows="5" name="Message" required></textarea>
             </section> <!--form-group-->
           </section> <!--row-->
           <button type="submit" class="btn button align-self-center ">Submit</button>

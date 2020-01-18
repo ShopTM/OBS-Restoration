@@ -1,4 +1,6 @@
-﻿using Models;
+﻿using BAL.Managers;
+using Common;
+using Models;
 using Models.Entities;
 using OBS_Restoration.Models.VM.Contact;
 using System.Collections.Generic;
@@ -8,6 +10,11 @@ namespace OBS_Restoration.Controllers
 {
     public class HomeController : Controller
     {
+        private EmailManager _emailManager;
+        public HomeController()
+        {
+            _emailManager = new EmailManager();
+        }
         public ActionResult Index()
         {
             return View();
@@ -445,6 +452,7 @@ namespace OBS_Restoration.Controllers
         {
             if (ModelState.IsValid)
             {
+                _emailManager.SendContactUsEmail(model);
                 return Json("Message was send successfuly", JsonRequestBehavior.AllowGet);
             }
             return Json(model, JsonRequestBehavior.AllowGet);

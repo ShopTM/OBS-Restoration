@@ -1,21 +1,27 @@
 ﻿using System;
 using System.Configuration;
-using System.Net.Configuration;
 
 namespace Common
 {
     public class ConfigHelper
     {
-        //private const string SmtpSectionPath = "system.net/mailSettings/smtp";
+        private const string SEND_TO_EMAIL = "SendToEmail";
+        private const string SMTP_API_KEY = "SmtpApiKey";
 
-
-        //public static string RedisHostName
-        //{
-        //    get
-        //    {
-        //        return GetString(RedisHost);
-        //    }
-        //}
+        public static string SmtpApiKey
+        {
+            get
+            {
+                return GetString(SMTP_API_KEY);
+            }
+        }
+        public static string SendToEmail
+        {
+            get
+            {
+                return GetString(SEND_TO_EMAIL);
+            }
+        }
 
         private static int? GetInteger(string key)
         {

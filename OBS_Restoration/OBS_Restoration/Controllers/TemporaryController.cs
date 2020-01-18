@@ -21,17 +21,17 @@ namespace OBS_Restoration.Controllers
         }
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult> CreateAdmin(string Email, string Password) // http://localhost:49195/Temporary/CreateAdmin?Email=email@email.com&Password=123456
+        public async Task<ActionResult> CreateAdmin(string email, string password) // http://localhost:49195/Temporary/CreateAdmin?Email=email@email.com&Password=123456
         {
             try
             {
                 var user = new User
                 {
-                    UserName = Email,
-                    Email = Email,
+                    UserName = email,
+                    Email = email,
                     UserType = UserType.Admin,
                 };
-                var us = UserManager.CreateUserWithRole(user, Password);
+                var us = UserManager.CreateUserWithRole(user, password);
                 if (us != false)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
