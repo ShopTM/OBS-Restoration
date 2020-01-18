@@ -2,93 +2,92 @@
 @{
   ViewBag.Title = "Contact";
 }
-  <section class="container-fluid">
-    <section class="row">
-      <section class="col-lg-12 contacts-bg">
-        <h2>Contact</h2>
-      </section> <!-- contacts-bg -->
+@section Scripts {
+  <script src="~/Content/Js/Custom/contact.js"></script>
+
+}
+<section class="container-fluid">
+  <section class="row">
+    <section class="col-lg-12 contacts-bg">
+      <h2>Contact</h2>
+    </section> <!-- contacts-bg -->
+  </section> <!--row-->
+  <section class="container">
+    <section class="row ">
+      <section class="col-sm-12 ">
+        <h3>Contact us</h3>
+        <section class="hr-heading"></section>
+        <p>
+          Please feel free to call us to discuss your upcoming project! For inquiries about employment,
+          subcontracting for us, or information about our current project,
+          please use the form below so we can connect you to the best person to help you.
+        </p>
+      </section> <!--col-sm-12 -->
     </section> <!--row-->
-    <section class="container">
-      <section class="row ">
-        <section class="col-sm-12 ">
-          <h3>Contact us</h3>
-          <section class="hr-heading"></section>
-          <p>
-            Please feel free to call us to discuss your upcoming project! For inquiries about employment,
-            subcontracting for us, or information about our current project,
-            please use the form below so we can connect you to the best person to help you.
-          </p>
-        </section> <!--col-sm-12 -->
-      </section> <!--row-->
-      <section class="row detail">
-        <section class="col-lg-5 col-md-12 ">
-          <h3>Contact details</h3>
-          <!-- ADRESS -->
-          <span class="contact">
-            <svg>
-              <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#placeholder"></use>
+    <section class="row detail">
+      <section class="col-lg-5 col-md-12 ">
+        <h3>Contact details</h3>
+        <!-- ADRESS -->
+        <span class="contact">
+          <svg>
+            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#placeholder"></use>
+          </svg>
+          <span class="text-span"> 15, Jordan Hofer way, Woodbridge, Ontario</span>
+        </span>
+        <!-- PHONE -->
+        <span class="contact">
+          <svg>
+            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#email"></use>
+          </svg>
+          <span class="text-span"> 416.558.6691</span>
+        </span>
+        <!-- EMAIL -->
+        <span class="contact">
+          <svg>
+            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#telephone"></use>
+          </svg>
+          <span class="text-span"> info@obsrestorationltd.com</span>
+        </span>
+        <!-- LINKDIN -->
+        <span class="linkedin">
+          <a target="_blank" href=" https://www.linkedin.com/in/oleg-slepenyuk-8b0406119">
+            <svg class="linkedin-contact">
+              <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#linkedin"></use>
             </svg>
-            <span class="text-span"> 15, Jordan Hofer way, Woodbridge, Ontario</span>
-          </span>
-          <!-- PHONE -->
-          <span class="contact">
-            <svg>
-              <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#email"></use>
-            </svg>
-            <span class="text-span"> 416.558.6691</span>
-          </span>
-          <!-- EMAIL -->
-          <span class="contact">
-            <svg>
-              <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#telephone"></use>
-            </svg>
-            <span class="text-span"> info@obsrestorationltd.com</span>
-          </span>
-          <!-- LINKDIN -->
-          <span class="linkedin">
-            <a target="_blank" href=" https://www.linkedin.com/in/oleg-slepenyuk-8b0406119">
-              <svg class="linkedin-contact">
-                <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#linkedin"></use>
-              </svg>
-            </a>
-          </span>
-        </section> <!--col-lg-5 col-sm-12-->
-        <section class="col-lg-7 col-md-12">
-          <a target="_blank" href="https://www.google.com/maps/place/15+Jordan+Hofer+Way">
-            <img src="../../Content/Images/map.png" />
           </a>
-        </section> <!--col-lg-7 col-sm-12-->
-      </section> <!--roe detail-->
-      <section class="form-touch">
-        <h5>Get in touch with us</h5>
-        <form class="needs-validation" novalidate>
-          <section class="row">
-            <section class="col-lg-4 form-group required">
-              <label for="fiirst name">First name</label>
-              <input type="text" class="form-control" id="first-name" required />
-            </section> <!--form-group-->
-            <section class="col-lg-4 form-group " required>
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" required/>
-            </section><!--form-group-->
-            <section class="col-lg-4 form-group ">
-               <label for="phone">Phone number</label>
-              <input type="tel" class="form-control" id="phone" />
-            </section><!--form-group-->
-          </section> <!--row-->
-          <section class="row">
-            <section class="col-lg-12  form-group ">
-              <label for="message">Message</label>
-              <textarea class="form-control" rows="5" id="message" required></textarea>
-            </section> <!--form-group-->
-          </section> <!--row-->
-          <button type="submit" class="btn button align-self-center ">Submit</button>
-        </form>
-      </section> <!--form-touch-->
-    </section><!--container-->
-  </section><!--container-fluid-->
-
-
-
-
-
+        </span>
+      </section> <!--col-lg-5 col-sm-12-->
+      <section class="col-lg-7 col-md-12">
+        <a target="_blank" href="https://www.google.com/maps/place/15+Jordan+Hofer+Way">
+          <img src="../../Content/Images/map.png" />
+        </a>
+      </section> <!--col-lg-7 col-sm-12-->
+    </section> <!--roe detail-->
+    <section class="form-touch">
+      <h5>Get in touch with us</h5>
+      <form class="needs-validation" id="contact" novalidate>
+        <section class="row">
+          <section class="col-lg-4 form-group required">
+            <label for="fiirst name">First name</label>
+            <input type="text" class="form-control" id="first-name" required />
+          </section> <!--form-group-->
+          <section class="col-lg-4 form-group " required>
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" required />
+          </section><!--form-group-->
+          <section class="col-lg-4 form-group ">
+            <label for="phone">Phone number</label>
+            <input type="tel" class="form-control" id="phone" />
+          </section><!--form-group-->
+        </section> <!--row-->
+        <section class="row">
+          <section class="col-lg-12  form-group ">
+            <label for="message">Message</label>
+            <textarea class="form-control" rows="5" id="message" required></textarea>
+          </section> <!--form-group-->
+        </section> <!--row-->
+        <button type="submit" class="btn button align-self-center ">Submit</button>
+      </form>
+    </section> <!--form-touch-->
+  </section><!--container-->
+</section><!--container-fluid-->

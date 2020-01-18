@@ -269,6 +269,7 @@
     <Content Include="Content\Images\Suppliers\scafom.jpg" />
     <Content Include="Content\Images\Suppliers\tremco.png" />
     <Content Include="Content\Js\Custom\clints.js" />
+    <Content Include="Content\Js\Custom\contact.js" />
     <Content Include="Content\Js\Custom\gallery.js" />
     <Content Include="Content\Js\Custom\index.js" />
     <Content Include="Content\Js\Custom\dropdown-menu.js" />
