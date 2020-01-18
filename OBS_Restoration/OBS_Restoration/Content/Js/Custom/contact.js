@@ -1,13 +1,16 @@
 ﻿$(function () {
-    $("#contact").submit(function (event) {
-        ///event.preventDefault();
+    $("form.contact-form").submit(function (event) {
+        event.preventDefault();
+        let formData = $(this).serialize();
+  
         $.ajax({
             method: "POST",
-            url: "",
-            processData: false,
-            success: function () {
-               alert("thanks")
+            url: "/home/ContactUs",
+            data: formData ,
+            success: function (response) {
+                $('.popup-link').magnificPopup();
             },
         })
     })
+
 })

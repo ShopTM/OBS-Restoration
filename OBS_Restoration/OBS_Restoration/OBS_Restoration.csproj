@@ -136,6 +136,7 @@
     <Content Include="Content\Css\Custom\project.css" />
     <Content Include="Content\Css\Custom\services.css" />
     <Content Include="Content\Css\Custom\style.min.css" />
+    <Content Include="Content\Css\magnific-popup.css" />
     <Content Include="Content\Icons\craftsmans.svg" />
     <Content Include="Content\Icons\develop.svg" />
     <Content Include="Content\Icons\pace.svg" />
@@ -280,6 +281,7 @@
     <Content Include="Content\Js\bootstrap.min.js" />
     <Content Include="Content\Js\Custom\valid.js" />
     <Content Include="Content\Js\isotope-docs.min.js" />
+    <Content Include="Content\Js\jquery.magnific-popup.min.js" />
     <Content Include="Content\Js\jquery.min.js" />
     <Content Include="Content\Js\popper.min.js" />
     <Content Include="Content\Svg\spites\symbol\sprite.svg" />
