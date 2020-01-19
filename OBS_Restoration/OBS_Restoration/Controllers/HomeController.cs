@@ -448,6 +448,7 @@ namespace OBS_Restoration.Controllers
             return Json(projects, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult ContactUs(ContactFormVM model)
         {
             if (ModelState.IsValid)

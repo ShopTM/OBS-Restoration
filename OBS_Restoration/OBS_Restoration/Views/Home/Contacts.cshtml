@@ -70,6 +70,7 @@
     <section class="form-touch">
       <h5>Get in touch with us</h5>
       <form class="needs-validation contact-form" novalidate>
+          @Html.AntiForgeryToken()
         <section class="row">
           <section class="col-lg-4 form-group required">
             <label for="fiirst name">First name</label>
