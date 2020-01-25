@@ -26,7 +26,6 @@ namespace BAL.Managers
             }
             catch (Exception e)
             {
-                throw e;
             }
         }
     }
