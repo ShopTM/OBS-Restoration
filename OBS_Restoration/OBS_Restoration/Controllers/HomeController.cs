@@ -456,7 +456,7 @@ namespace OBS_Restoration.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ContactUs(ContactRequestFormVM model)
+        public JsonResult ContactUs(ContactRequestFormVM model)
         {
             var responce = new AjaxResponse<List<string>>();
             if (ModelState.IsValid)
@@ -480,7 +480,7 @@ namespace OBS_Restoration.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Careers(CareerRequestFormVM model)
+        public JsonResult Careers(CareerRequestFormVM model)
         {
             var responce = new AjaxResponse<List<string>>();
             if (ModelState.IsValid)
@@ -504,7 +504,7 @@ namespace OBS_Restoration.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult JobEstimation(JobEstimationRequestFormVM model)
+        public JsonResult JobEstimation(JobEstimationRequestFormVM model)
         {
             var responce = new AjaxResponse<List<string>>();
             if (ModelState.IsValid)
