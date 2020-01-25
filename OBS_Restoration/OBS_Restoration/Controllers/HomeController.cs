@@ -1,8 +1,10 @@
 ﻿using BAL.Managers;
-using Common;
+using Common.Log;
 using Models;
 using Models.Entities;
-using OBS_Restoration.Models.VM.Contact;
+using Models.VM.RequestForm;
+using OBS_Restoration.Models;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -10,6 +12,9 @@ namespace OBS_Restoration.Controllers
 {
     public class HomeController : Controller
     {
+        private const string SUCCESS_SENT_EMAIL_MESSAGE = "Email was send successfuly";
+        private const string GENERAL_ERROR_MESSAGE = "An error has occurred during the processing of your request, please try again later.";
+
         private EmailManager _emailManager;
         public HomeController()
         {
@@ -45,9 +50,9 @@ namespace OBS_Restoration.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult Clints(ClientType type)
+        public ActionResult Clients(ClientType type)
         {
-            ViewBag.ClientType = type;
+            ViewBag.ClientType = type.ToString();
             return View();
         }
         public ActionResult Gallery()
@@ -449,12 +454,73 @@ namespace OBS_Restoration.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ContactUs(ContactFormVM model)
+        public ActionResult ContactUs(ContactRequestFormVM model)
         {
             if (ModelState.IsValid)
             {
-                _emailManager.SendContactUsEmail(model);
-                return Json("Message was send successfuly", JsonRequestBehavior.AllowGet);
+                try
+                {
+                    _emailManager.SendContactUsEmail(model);
+                    return Json(SUCCESS_SENT_EMAIL_MESSAGE, JsonRequestBehavior.AllowGet);
+                }
+                catch(Exception e)
+                {
+                    Logger.LogError("Contact Us form" + e.Message);
+
+                    return Json(new AjaxResponse<string>
+                    {
+                        Success = false,
+                        ErrorMessage = GENERAL_ERROR_MESSAGE
+                    }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Careers(CareerRequestFormVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _emailManager.SendCareerEmail(model);
+                    return Json(SUCCESS_SENT_EMAIL_MESSAGE, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception e)
+                {
+                    Logger.LogError("Careers form" + e.Message);
+
+                    return Json(new AjaxResponse<string>
+                    {
+                        Success = false,
+                        ErrorMessage = GENERAL_ERROR_MESSAGE
+                    }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult JobEstimation(JobEstimationRequestFormVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _emailManager.SendJobEstimationEmail(model);
+                    return Json(SUCCESS_SENT_EMAIL_MESSAGE, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception e)
+                {
+                    Logger.LogError("Job Estimation form" + e.Message);
+
+                    return Json(new AjaxResponse<string>
+                    {
+                        Success = false,
+                        ErrorMessage = GENERAL_ERROR_MESSAGE
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
             return Json(model, JsonRequestBehavior.AllowGet);
         }

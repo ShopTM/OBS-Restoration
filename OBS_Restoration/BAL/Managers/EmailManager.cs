@@ -1,32 +1,69 @@
-﻿using System;
+﻿using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using Common;
-using OBS_Restoration.Models.VM.Contact;
-using sib_api_v3_sdk.Api;
-using sib_api_v3_sdk.Client;
-using sib_api_v3_sdk.Model;
+using System.ComponentModel.DataAnnotations;
+using Models.VM.RequestForm;
 
 namespace BAL.Managers
 {
     public class EmailManager
     {
-        static EmailManager()
-        {
-            Configuration.Default.ApiKey.Add("api-key", ConfigHelper.SmtpApiKey);
-        }
-        public void SendContactUsEmail(ContactFormVM model)
-        {
-            var apiInstance = new AccountApi();
+        private const string CONTACT_US_REQUEST_EMAIL_SUBJECT = "OBS contact request";
+        private const string CAREER_REQUEST_EMAIL_SUBJECT = "OBS career request";
+        private const string JOB_ESTIMATION_EMAIL_SUBJECT = "OBS job estimation request";
 
-            try
+        public void SendJobEstimationEmail(JobEstimationRequestFormVM model)
+        {
+            Attachment attachment = null;
+            if (model.File!=null)
+                attachment = new Attachment(model.File.InputStream, model.File.FileName);
+            SendEmail(model, JOB_ESTIMATION_EMAIL_SUBJECT, attachment);
+        }
+        public void SendCareerEmail(CareerRequestFormVM model)
+        {
+            Attachment attachment = null;
+            if (model.Resume != null)
+                attachment = new Attachment(model.Resume.InputStream, model.Resume.FileName);
+            SendEmail(model, CAREER_REQUEST_EMAIL_SUBJECT, attachment);
+        }
+        public void SendContactUsEmail(ContactRequestFormVM model)
+        {
+            SendEmail(model, CONTACT_US_REQUEST_EMAIL_SUBJECT);
+        }
+        private void SendEmail(object model,string subject, Attachment attachment = null)
+        {
+            var from = new MailAddress(ConfigHelper.SmtpFromEmail, subject);
+            var to = new MailAddress(ConfigHelper.SmtpToEmail);
+            var message = new MailMessage(from, to)
             {
-                // Get your account informations, plans and credits details
-                
-                //GetAccount result = apiInstance.GetAccount();
-                //var a = result.Plan.Capacity;
-            }
-            catch (Exception e)
+                Subject = subject,
+                Body = ToBodyMessage(model),
+                IsBodyHtml = false,
+            };
+            if(attachment!=null)
+                message.Attachments.Add(attachment);
+
+            var smtpClient = new SmtpClient(ConfigHelper.SmtpHost, ConfigHelper.SmtpPort ?? 25);
+            smtpClient.Credentials = new NetworkCredential(ConfigHelper.SmtpFromEmail, ConfigHelper.SmtpPassword);
+            smtpClient.Send(message);
+        }
+        private string ToBodyMessage(object obj)
+        {
+            var message = "";
+            var type = obj.GetType();
+            var props = type.GetProperties();
+            foreach (var prop in props)
             {
+                var attrName = (prop.GetCustomAttributes(typeof(DisplayAttribute), false).FirstOrDefault() as DisplayAttribute)?.GetName();
+                if (string.IsNullOrWhiteSpace(attrName))
+                {
+                    continue;
+                    //attrName += prop.Name;
+                }
+                message += $"{attrName}: {prop.GetValue(obj)}\r\n";
             }
+            return message;
         }
     }
 }

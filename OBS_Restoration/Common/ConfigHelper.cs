@@ -5,24 +5,47 @@ namespace Common
 {
     public class ConfigHelper
     {
-        private const string SEND_TO_EMAIL = "SendToEmail";
-        private const string SMTP_API_KEY = "SmtpApiKey";
+        private const string SMTP_TO_EMAIL = "SmtpToEmail";
+        private const string SMTP_FROM_EMAIL = "SmtpFromEmail";
+        private const string SMTP_PASSWORD = "SmtpPassword";
+        private const string SMTP_HOST = "SmtpHost";
+        private const string SMTP_PORT = "SmtpPort";
 
-        public static string SmtpApiKey
+        public static string SmtpToEmail
         {
             get
             {
-                return GetString(SMTP_API_KEY);
+                return GetString(SMTP_TO_EMAIL);
             }
         }
-        public static string SendToEmail
+        public static string SmtpFromEmail
         {
             get
             {
-                return GetString(SEND_TO_EMAIL);
+                return GetString(SMTP_FROM_EMAIL);
             }
         }
-
+        public static string SmtpPassword
+        {
+            get
+            {
+                return GetString(SMTP_PASSWORD);
+            }
+        }
+        public static string SmtpHost
+        {
+            get
+            {
+                return GetString(SMTP_HOST);
+            }
+        }
+        public static int? SmtpPort
+        {
+            get
+            {
+                return GetInteger(SMTP_PORT);
+            }
+        }
         private static int? GetInteger(string key)
         {
             string value = ConfigurationManager.AppSettings[key];
