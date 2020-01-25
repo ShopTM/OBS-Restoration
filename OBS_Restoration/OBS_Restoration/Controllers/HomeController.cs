@@ -6,6 +6,7 @@ using Models.VM.RequestForm;
 using OBS_Restoration.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace OBS_Restoration.Controllers
@@ -14,6 +15,7 @@ namespace OBS_Restoration.Controllers
     {
         private const string SUCCESS_SENT_EMAIL_MESSAGE = "Email was send successfuly";
         private const string GENERAL_ERROR_MESSAGE = "An error has occurred during the processing of your request, please try again later.";
+        private const string FAILED_VALIDATION_ERROR_MESSAGE = "Form validation is failed";
 
         private EmailManager _emailManager;
         public HomeController()
@@ -456,72 +458,72 @@ namespace OBS_Restoration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ContactUs(ContactRequestFormVM model)
         {
+            var responce = new AjaxResponse<List<string>>();
             if (ModelState.IsValid)
             {
                 try
                 {
                     _emailManager.SendContactUsEmail(model);
-                    return Json(SUCCESS_SENT_EMAIL_MESSAGE, JsonRequestBehavior.AllowGet);
+                    responce.Success = true;
+                    responce.Data.Add(SUCCESS_SENT_EMAIL_MESSAGE);
                 }
                 catch(Exception e)
                 {
-                    Logger.LogError("Contact Us form" + e.Message);
-
-                    return Json(new AjaxResponse<string>
-                    {
-                        Success = false,
-                        ErrorMessage = GENERAL_ERROR_MESSAGE
-                    }, JsonRequestBehavior.AllowGet);
+                    Logger.LogError("Contact Us email sending" + e.Message);
+                    responce.ErrorMessage = GENERAL_ERROR_MESSAGE;
                 }
             }
+            responce.ErrorMessage = FAILED_VALIDATION_ERROR_MESSAGE;
+            responce.Data.AddRange(ModelState.Values.SelectMany(v => v.Errors.Select(x=>x.ErrorMessage)).ToList());
+
             return Json(model, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Careers(CareerRequestFormVM model)
         {
+            var responce = new AjaxResponse<List<string>>();
             if (ModelState.IsValid)
             {
                 try
                 {
                     _emailManager.SendCareerEmail(model);
-                    return Json(SUCCESS_SENT_EMAIL_MESSAGE, JsonRequestBehavior.AllowGet);
+                    responce.Success = true;
+                    responce.Data.Add(SUCCESS_SENT_EMAIL_MESSAGE);
                 }
                 catch (Exception e)
                 {
-                    Logger.LogError("Careers form" + e.Message);
-
-                    return Json(new AjaxResponse<string>
-                    {
-                        Success = false,
-                        ErrorMessage = GENERAL_ERROR_MESSAGE
-                    }, JsonRequestBehavior.AllowGet);
+                    Logger.LogError("Career request email sending" + e.Message);
+                    responce.ErrorMessage = GENERAL_ERROR_MESSAGE;
                 }
             }
+            responce.ErrorMessage = FAILED_VALIDATION_ERROR_MESSAGE;
+            responce.Data.AddRange(ModelState.Values.SelectMany(v => v.Errors.Select(x => x.ErrorMessage)).ToList());
+
             return Json(model, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult JobEstimation(JobEstimationRequestFormVM model)
         {
+            var responce = new AjaxResponse<List<string>>();
             if (ModelState.IsValid)
             {
                 try
                 {
                     _emailManager.SendJobEstimationEmail(model);
-                    return Json(SUCCESS_SENT_EMAIL_MESSAGE, JsonRequestBehavior.AllowGet);
+                    responce.Success = true;
+                    responce.Data.Add(SUCCESS_SENT_EMAIL_MESSAGE);
                 }
                 catch (Exception e)
                 {
-                    Logger.LogError("Job Estimation form" + e.Message);
-
-                    return Json(new AjaxResponse<string>
-                    {
-                        Success = false,
-                        ErrorMessage = GENERAL_ERROR_MESSAGE
-                    }, JsonRequestBehavior.AllowGet);
+                    Logger.LogError("Job estimation request email sending" + e.Message);
+                    responce.ErrorMessage = GENERAL_ERROR_MESSAGE;
                 }
             }
+            responce.ErrorMessage = FAILED_VALIDATION_ERROR_MESSAGE;
+            responce.Data.AddRange(ModelState.Values.SelectMany(v => v.Errors.Select(x => x.ErrorMessage)).ToList());
+
             return Json(model, JsonRequestBehavior.AllowGet);
         }
     }
