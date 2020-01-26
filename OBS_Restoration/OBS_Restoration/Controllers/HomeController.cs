@@ -4,6 +4,7 @@ using Common.Log;
 using Models;
 using Models.Entities;
 using Models.VM.RequestForm;
+using OBS_Restoration.Helpers;
 using OBS_Restoration.Models;
 using System;
 using System.Collections.Generic;
@@ -66,34 +67,13 @@ namespace OBS_Restoration.Controllers
         #region Ajax methods
         public JsonResult GetServices()
         {
-            var responce = new AjaxResponse<List<Service>>();
-            try
-            {
-                responce.Data = _serviceManager.All(true);
-                responce.Success = true;
-            }
-            catch (Exception e)
-            {
-                Logger.LogError("Get services" + e.Message);
-                responce.ErrorMessage = ErrorMessages.GENERAL_ERROR_MESSAGE;
-            }
+            var responce = AjaxResponseHelper.AjaxMethodWrapper(() => { return _serviceManager.All(true); });
             return Json(responce, JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetProjects()
         {
-            var responce = new AjaxResponse<List<Project>>();
-            try
-            {
-                responce.Data = _projectManager.All(true);
-                responce.Success = true;
-            }
-            catch (Exception e)
-            {
-                Logger.LogError("Get projects" + e.Message);
-                responce.ErrorMessage = ErrorMessages.GENERAL_ERROR_MESSAGE;
-            }
+            var responce = AjaxResponseHelper.AjaxMethodWrapper(() => { return _projectManager.All(true); });
             return Json(responce, JsonRequestBehavior.AllowGet);
-
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

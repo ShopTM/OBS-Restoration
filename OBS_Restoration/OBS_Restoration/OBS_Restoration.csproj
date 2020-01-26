@@ -7352,6 +7352,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AjaxResponseHelper.cs" />
     <Compile Include="Models\AjaxResponse.cs" />
     <Compile Include="node_modules\node-gyp\lib\Find-VS2017.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
