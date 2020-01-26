@@ -7,10 +7,10 @@
             method: "POST",
             url: "/home/ContactUs",
             data: formData ,
-            success: function (response) {
-                $('.popup-link').magnificPopup();
+            success: function () {
             },
         })
-    })
-
+     })
+  
 })
+
