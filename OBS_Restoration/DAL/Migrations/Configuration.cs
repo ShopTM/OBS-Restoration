@@ -16,8 +16,8 @@ namespace DAL.Migrations
         protected override void Seed(DbContext context)
         {
             SeedRoles(context);
-            SeedServices(context);
-            SeedProjects(context);
+            //SeedServices(context);
+            //SeedProjects(context);
         }
         private static void SeedRoles(DbContext context)
         {
