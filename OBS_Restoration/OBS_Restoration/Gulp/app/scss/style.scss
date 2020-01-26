@@ -1,6 +1,13 @@
 @import "libs";
 @import "fonts";
-
+.white-popup {
+    position: relative;
+    background: #FFF;
+    padding: 20px;
+    width: auto;
+    max-width: 500px;
+    margin: 20px auto;
+}
 
 $bg-mask: rgba(0, 0, 0, 0.8);
 $base-color: #188cb1;
