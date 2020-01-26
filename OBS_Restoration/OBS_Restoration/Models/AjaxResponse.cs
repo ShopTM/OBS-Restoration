@@ -10,14 +10,6 @@ namespace OBS_Restoration.Models
         public T Data { get; set; }
         public bool Success { get; set; }
         public string ErrorMessage { get; set; }
-        public AjaxResponse()
-        {
-
-        }
-        public AjaxResponse(T data)
-        {
-            Success = true;
-            Data = data;
-        }
+        public Dictionary<string,string[]> ValidationMessages { get; set; }
     }
 }

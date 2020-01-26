@@ -1,7 +1,9 @@
 ﻿using DAL;
 using Models.Entities;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Web;
 
 namespace BAL.Managers
 {
@@ -32,6 +34,26 @@ namespace BAL.Managers
             using (var db = DbFactory.GetNotTrackingInstance())
             {
                 db.ServiceRepository.Update(source);
+            }
+        }
+        public void UploadServiceImage(int id, HttpPostedFileBase img)
+        {
+            using (var db = DbFactory.GetInstance())
+            {
+                var service = db.ServiceRepository.Get(id);
+                service.ImgUrl = img.FileName;
+                img.SaveAs(IMAGE_FULL_URL + img.FileName);
+                db.Save();
+            }
+        }
+        public void DeleteServiceImage(int id)
+        {
+            using (var db = DbFactory.GetNotTrackingInstance())
+            {
+                var service = db.ServiceRepository.Get(id);
+                File.Delete(IMAGE_FULL_URL + service.ImgUrl);
+                service.ImgUrl = "";
+                db.Save();
             }
         }
     }
