@@ -17,7 +17,6 @@ namespace OBS_Restoration.Controllers
         private readonly ProjectManager _projectManager;
         public AdminController()
         {
-            _emailManager = new EmailManager();
             _serviceManager = new ServiceManager();
             _projectManager = new ProjectManager();
         }
