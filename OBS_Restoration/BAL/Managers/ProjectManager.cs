@@ -19,5 +19,21 @@ namespace BAL.Managers
                 return services;
             }
         }
+        public Project GetProject(int id)
+        {
+            using (var db = DbFactory.GetNotTrackingInstance())
+            {
+                var proj = db.ProjectRepository.Get(id);
+                proj.Images.ForEach(y => y.Url = IMAGE_FULL_URL + y.Url);
+                return proj;
+            }
+        }
+        public void UpdateProject(Project source)
+        {
+            using (var db = DbFactory.GetNotTrackingInstance())
+            {
+                db.ProjectRepository.Update(source);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BAL.Managers;
+using Common;
 using Common.Log;
 using Models;
 using Models.Entities;
@@ -11,12 +12,9 @@ using System.Web.Mvc;
 
 namespace OBS_Restoration.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
-        private const string SUCCESS_SENT_EMAIL_MESSAGE = "Email was send successfuly";
-        private const string GENERAL_ERROR_MESSAGE = "An error has occurred during the processing of your request, please try again later.";
-        private const string FAILED_VALIDATION_ERROR_MESSAGE = "Form validation is failed";
-
         private readonly EmailManager _emailManager;
         private readonly ServiceManager _serviceManager;
         private readonly ProjectManager _projectManager;
@@ -77,7 +75,7 @@ namespace OBS_Restoration.Controllers
             catch (Exception e)
             {
                 Logger.LogError("Get services" + e.Message);
-                responce.ErrorMessage = GENERAL_ERROR_MESSAGE;
+                responce.ErrorMessage = ErrorMessages.GENERAL_ERROR_MESSAGE;
             }
             return Json(responce, JsonRequestBehavior.AllowGet);
         }
@@ -92,7 +90,7 @@ namespace OBS_Restoration.Controllers
             catch (Exception e)
             {
                 Logger.LogError("Get projects" + e.Message);
-                responce.ErrorMessage = GENERAL_ERROR_MESSAGE;
+                responce.ErrorMessage = ErrorMessages.GENERAL_ERROR_MESSAGE;
             }
             return Json(responce, JsonRequestBehavior.AllowGet);
 
@@ -108,15 +106,15 @@ namespace OBS_Restoration.Controllers
                 {
                     _emailManager.SendContactUsEmail(model);
                     responce.Success = true;
-                    responce.Data.Add(SUCCESS_SENT_EMAIL_MESSAGE);
+                    responce.Data.Add(ErrorMessages.SUCCESS_SENT_EMAIL_MESSAGE);
                 }
                 catch (Exception e)
                 {
                     Logger.LogError("Contact Us email sending" + e.Message);
-                    responce.ErrorMessage = GENERAL_ERROR_MESSAGE;
+                    responce.ErrorMessage = ErrorMessages.GENERAL_ERROR_MESSAGE;
                 }
             }
-            responce.ErrorMessage = FAILED_VALIDATION_ERROR_MESSAGE;
+            responce.ErrorMessage = ErrorMessages.FAILED_VALIDATION_ERROR_MESSAGE;
             responce.Data.AddRange(ModelState.Values.SelectMany(v => v.Errors.Select(x => x.ErrorMessage)).ToList());
 
             return Json(model, JsonRequestBehavior.AllowGet);
@@ -132,15 +130,15 @@ namespace OBS_Restoration.Controllers
                 {
                     _emailManager.SendCareerEmail(model);
                     responce.Success = true;
-                    responce.Data.Add(SUCCESS_SENT_EMAIL_MESSAGE);
+                    responce.Data.Add(ErrorMessages.SUCCESS_SENT_EMAIL_MESSAGE);
                 }
                 catch (Exception e)
                 {
                     Logger.LogError("Career request email sending" + e.Message);
-                    responce.ErrorMessage = GENERAL_ERROR_MESSAGE;
+                    responce.ErrorMessage = ErrorMessages.GENERAL_ERROR_MESSAGE;
                 }
             }
-            responce.ErrorMessage = FAILED_VALIDATION_ERROR_MESSAGE;
+            responce.ErrorMessage = ErrorMessages.FAILED_VALIDATION_ERROR_MESSAGE;
             responce.Data.AddRange(ModelState.Values.SelectMany(v => v.Errors.Select(x => x.ErrorMessage)).ToList());
 
             return Json(model, JsonRequestBehavior.AllowGet);
@@ -156,15 +154,15 @@ namespace OBS_Restoration.Controllers
                 {
                     _emailManager.SendJobEstimationEmail(model);
                     responce.Success = true;
-                    responce.Data.Add(SUCCESS_SENT_EMAIL_MESSAGE);
+                    responce.Data.Add(ErrorMessages.SUCCESS_SENT_EMAIL_MESSAGE);
                 }
                 catch (Exception e)
                 {
                     Logger.LogError("Job estimation request email sending" + e.Message);
-                    responce.ErrorMessage = GENERAL_ERROR_MESSAGE;
+                    responce.ErrorMessage = ErrorMessages.GENERAL_ERROR_MESSAGE;
                 }
             }
-            responce.ErrorMessage = FAILED_VALIDATION_ERROR_MESSAGE;
+            responce.ErrorMessage = ErrorMessages.FAILED_VALIDATION_ERROR_MESSAGE;
             responce.Data.AddRange(ModelState.Values.SelectMany(v => v.Errors.Select(x => x.ErrorMessage)).ToList());
 
             return Json(model, JsonRequestBehavior.AllowGet);

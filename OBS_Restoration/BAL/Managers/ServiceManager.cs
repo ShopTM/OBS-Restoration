@@ -18,5 +18,21 @@ namespace BAL.Managers
                 return services;
             }
         }
+        public Service GetService(int id)
+        {
+            using (var db = DbFactory.GetNotTrackingInstance())
+            {
+                var serv = db.ServiceRepository.Get(id);
+                serv.ImgUrl = IMAGE_FULL_URL + serv.ImgUrl;
+                return serv;
+            }
+        }
+        public void UpdateService(Service source)
+        {
+            using (var db = DbFactory.GetNotTrackingInstance())
+            {
+                db.ServiceRepository.Update(source);
+            }
+        }
     }
 }
