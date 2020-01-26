@@ -1,10 +1,6 @@
 ﻿using DAL.Repositories.Interfaces;
 using Models.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -14,6 +10,9 @@ namespace DAL
 
         IRepository<Role> RoleRepository { get; }
         IRepository<UserRole> UserRoleRepository { get; }
+        IRepository<Service> ServiceRepository { get; }
+        IRepository<Project> ProjectRepository { get; }
+        IRepository<ProjectImage> ProjectImageRepository { get; }
 
         void ExecuteSqlCommand(string sql, params object[] parameters);
         void Commit();

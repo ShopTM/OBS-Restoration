@@ -97,6 +97,8 @@
     <Compile Include="Identity\SignInService.cs" />
     <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\EmailManager.cs" />
+    <Compile Include="Managers\ProjectManager.cs" />
+    <Compile Include="Managers\ServiceManager.cs" />
     <Compile Include="Managers\SignInManager.cs" />
     <Compile Include="Managers\UsersManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
