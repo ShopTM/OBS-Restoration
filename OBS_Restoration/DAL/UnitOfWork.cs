@@ -10,6 +10,9 @@ namespace DAL
         public IRepository<User> UsersRepository => new GenericRepository<User>(context);
         public IRepository<Role> RoleRepository => new GenericRepository<Role>(context);
         public IRepository<UserRole> UserRoleRepository => new GenericRepository<UserRole>(context);
+        public IRepository<Service> ServiceRepository => new GenericRepository<Service>(context);
+        public IRepository<Project> ProjectRepository => new GenericRepository<Project>(context);
+        public IRepository<ProjectImage> ProjectImageRepository => new GenericRepository<ProjectImage>(context);
 
         public UnitOfWork(bool detectChanges)
         {

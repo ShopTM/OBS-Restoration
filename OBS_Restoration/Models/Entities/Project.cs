@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Models.Entities
 {
@@ -13,6 +9,6 @@ namespace Models.Entities
         public string Description { get; set; }
         public int Order { get; set; }
 
-        public virtual ICollection<ProjectImage> Images { get; set; }
+        public virtual List<ProjectImage> Images { get; set; }
     }
 }
