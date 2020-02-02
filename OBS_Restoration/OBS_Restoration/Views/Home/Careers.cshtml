@@ -71,38 +71,40 @@
         <h5>Apply for job</h5>
 
         <form class="needs-validation" novalidate>
-            @Html.AntiForgeryToken()
-            <section class="row">
-                <section class="col-sm-6 form-group required">
-                    <label for="fiirst name">First name</label>
-                    <input type="text" class="form-control" id="first-name" required />
-                </section>
-                <section class="col-lg-6 form-group required">
-                    <label for="fiirst name">Last name</label>
-                    <input type="text" class="form-control" id="last-name" required />
-                </section>
+          @Html.AntiForgeryToken()
+          <section class="row">
+            <section class="col-sm-6 form-group required">
+              <label for="fiirst name">First name</label>
+              <input type="text" class="form-control" name="FirstName" required />
             </section>
-            <section class="row">
-                <section class="col-lg-6 form-group required">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" required />
-                </section>
-                <section class="col-lg-6 form-group required">
-                    <label for="phone">Phone number</label>
-                    <input type="tel" class="form-control" id="phone" required />
-                </section>
+            <section class="col-lg-6 form-group required">
+              <label for="LastName">Last name</label>
+              <input type="text" class="form-control" name="LastName" required />
             </section>
-            <section class="row">
-                <section class="col-lg-12  form-group">
-                    <label for="message">Message</label>
-                    <textarea class="form-control" rows="5" id="message"></textarea>
-                </section>
+          </section>
+          <section class="row">
+            <section class="col-lg-6 form-group required">
+              <label for="Email">Email</label>
+              <input type="email" class="form-control" name="Email" required />
+              <p class="Email"></p>
             </section>
-            <section class="custom-file required ">
-                <input type="file" class="custom-file-input" id="customFile " required>
-                <label class="custom-file-label" for="customFile">Choose your resume</label>
+            <section class="col-lg-6 form-group required">
+              <label for="PhoneNumber">Phone number</label>
+              <input type="tel" class="form-control" name="PhoneNumber" required />
+              <p class="PhoneNumber"></p>
             </section>
-            <button type="submit" class="btn  align-self-center ">Submit</button>
+          </section>
+          <section class="row">
+            <section class="col-lg-12  form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control" rows="5" name="Message"></textarea>
+            </section>
+          </section>
+          <section class="custom-file required ">
+            <input type="file" class="custom-file-input" name="Resume">
+            <label class="custom-file-label" for="Resume">Choose your resume</label>
+          </section> <!--custom-file-->
+          <button type="submit" class="btn  align-self-center ">Submit</button>
         </form>
     </section>
 </section>

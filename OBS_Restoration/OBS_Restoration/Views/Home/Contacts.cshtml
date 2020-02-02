@@ -2,12 +2,11 @@
 @{
   ViewBag.Title = "Contact";
 }
-@section Styles {
-  <link href="~/Content/Css/magnific-popup.css" rel="stylesheet" />
-}
+
 @section Scripts {
   <script src="~/Content/Js/Custom/contact.js"></script>
-  <script src="~/Content/Js/jquery.magnific-popup.min.js"></script>
+  <script src="~/Content/Js/Custom/validation.js"></script>
+  <script src="~/Content/Js/Custom/valid.js"></script>
 }
 
 <section class="container-fluid">
@@ -69,7 +68,7 @@
     </section> <!--roe detail-->
     <section class="form-touch">
       <h5>Get in touch with us</h5>
-      <form class="needs-validation contact-form" novalidate>
+      <form class="needs-validation contact-form" novalidate id="registration">
           @Html.AntiForgeryToken()
         <section class="row">
           <section class="col-lg-4 form-group required">
@@ -77,12 +76,14 @@
             <input type="text" class="form-control" name="FirstName" required />
           </section> <!--form-group-->
           <section class="col-lg-4 form-group required" required>
-            <label for="email">Email</label>
+            <label for="Email">Email</label>
             <input type="email" class="form-control" name="Email" required />
+            <p class="Email"></p>
           </section><!--form-group-->
           <section class="col-lg-4 form-group ">
             <label for="phone">Phone number</label>
             <input type="tel" class="form-control" name="PhoneNumber" />
+            <p class="PhoneNumber"></p>
           </section><!--form-group-->
         </section> <!--row-->
         <section class="row">
