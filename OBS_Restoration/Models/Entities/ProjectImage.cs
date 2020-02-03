@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Script.Serialization;
 
 namespace Models.Entities
 {
@@ -15,6 +11,8 @@ namespace Models.Entities
 
         [ForeignKey("Project")]
         public int ProjectId { get; set; }
-        public Project Project { get; set; }
+
+        [ScriptIgnore]
+        public virtual Project Project { get; set; }
     }
 }

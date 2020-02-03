@@ -1,6 +1,7 @@
 ﻿using DAL;
 using Models.Entities;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -14,11 +15,11 @@ namespace BAL.Managers
         {
             using (var db = DbFactory.GetNotTrackingInstance())
             {
-                var services = db.ProjectRepository.All().ToList();
+                var projects = db.ProjectRepository.All().Include(x => x.Images).ToList();
                 if (isFullImgUrl)
-                    services.ForEach(x => x.Images.ForEach(y => y.Url = IMAGE_FULL_URL + y.Url));
+                    projects.ForEach(x => x.Images.ForEach(y => y.Url = IMAGE_FULL_URL + y.Url));
 
-                return services;
+                return projects;
             }
         }
         public Project GetProject(int id)
