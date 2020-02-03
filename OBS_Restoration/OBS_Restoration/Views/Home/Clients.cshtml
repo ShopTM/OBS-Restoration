@@ -16,11 +16,12 @@
         <h3 id="clints"></h3>
         <section class="hr-heading "></section>
         <p>
-            OBS Restoration ltd is a specialized restoration contractor with expertise in a wide range of quality concrete
-            restoration, stone, masonry restoration, caulking, glazing replacement, balcony railings replacement and waterproofing services.
-            We are a team of professional, restorations individuals with  experienced managers and craftsmans available
-            to guide our clients through the flawless and timely execution of any, restoration works.
-            Since day one, we have been delivering creative and technically thought out ideas to our clients.
+          OBS Restoration ltd is a specialized restoration contractor with expertise in a wide range of quality concrete restoration, 
+          stone, masonry restoration, caulking, glazing replacement, balcony railings replacement and waterproofing services.
+          We are a team of professional, restorations individuals with  experienced managers and craftsmans available to guide our 
+          clients through the flawless and timely execution of any, restoration works. Since day one, we have been delivering creative
+          and technically thought out ideas to our clients.
+
         </p>
         <p class="estimate">Please fill out the form below to request a <span>free</span> estimate. </p>
     </section> <!--container-->
@@ -28,79 +29,89 @@
     <section class="container form-touch">
         <h5>Request an Estimate</h5>
         <form class="needs-validation" novalidate>
-            @Html.AntiForgeryToken()
-            <section class="form-group required">
-                <label for="ProjectType">Type of project</label>
-                <select required class="form-control" id="ProjectType">
-                    <option></option>
-                    <option>Building envelop restoration, including balcony slab repairs</option>
-                    <option>Masonry repairs (brick replacement, block, glass block, stone, tuck pointing)</option>
-                    <option>Concrete repairs (precast panel, underground garage slab, ramps, columns, canopies, patching)</option>
-                    <option>Caulking, glazing, sealants</option>
-                    <option>Waterproofing (cold applied, penetrating sealers, hot robber application)</option>
-                    <option>Metal railing replacement</option>
-                    <option>Wall coating</option>
-                    <option>Pressure washing</option>
-                    <option>Flashing installation and replacement</option>
-                    <option>Insulation installation</option>
-                    <option>Metal siding installation</option>
-                    <option>Other</option>
-                </select>
+          @Html.AntiForgeryToken()
+          <section class="form-group required">
+            <label for="ProjectType">Type of project</label>
+            <select required class="form-control" name="TypeOfProject">
+              <option></option>
+              <option>Building envelop restoration, including balcony slab repairs</option>
+              <option>Masonry repairs (brick replacement, block, glass block, stone, tuck pointing)</option>
+              <option>Concrete repairs (precast panel, underground garage slab, ramps, columns, canopies, patching)</option>
+              <option>Caulking, glazing, sealants</option>
+              <option>Waterproofing (cold applied, penetrating sealers, hot robber application)</option>
+              <option>Metal railing replacement</option>
+              <option>Wall coating</option>
+              <option>Pressure washing</option>
+              <option>Flashing installation and replacement</option>
+              <option>Insulation installation</option>
+              <option>Metal siding installation</option>
+              <option>Other</option>
+            </select>
+          </section> <!--form-group-->
+          <section class="form-group  required">
+            <label for="BuildingType">Building type</label>
+            <select class="form-control " name="BuildingType" required>
+              <option></option>
+              <option>Commertcial</option>
+              <option>Historical</option>
+              <option>Public</option>
+              <option>Industrial</option>
+              <option>Other</option>
+            </select>
+          </section><!--form-group-->
+          <section class="row">
+            <section class="col-lg-12  form-group required ">
+              <label for="ProjectSummary">Please provide a summary of your restoration project</label>
+              <textarea class="form-control" rows="5" name="ProjectSummary" required></textarea>
             </section> <!--form-group-->
-            <section class="form-group  required">
-                <label for="BuildingType">Building type</label>
-                <select class="form-control " id="BuildingType" required>
-                    <option></option>
-                    <option>Commertcial</option>
-                    <option>Historical</option>
-                    <option>Public</option>
-                    <option>Industrial</option>
-                    <option>Other</option>
-                </select>
-            </section><!--form-group-->
-            <section class="row">
-                <section class="col-lg-12  form-group required ">
-                    <label for="message">Please provide a summary of your restoration project</label>
-                    <textarea class="form-control" rows="5" id="message" required></textarea>
-                </section> <!--form-group-->
+          </section> <!--row-->
+          <section class="custom-file">
+            <input type="File" class="custom-file-input" name="File">
+            <label class="custom-file-label" for="customFile">Choose your file</label>
+          </section> <!--custom-file-->
+          <section class="custom-file">
+            <input type="File" class="custom-file-input" name="File">
+            <label class="custom-file-label" for="customFile">Choose your file</label>
+          </section> <!--custom-file-->
+          <section class="custom-file">
+            <input type="File" class="custom-file-input" name="File">
+            <label class="custom-file-label" for="customFile">Choose your file</label>
+          </section> <!--custom-file-->
+          <section class="row">
+            <section class="col-sm-6 form-group required">
+              <label for="FiirstName">First name</label>
+              <input type="text" class="form-control " name="FirstName" required />
             </section> <!--row-->
-            <section class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile">
-                <label class="custom-file-label" for="customFile">Choose your file</label>
-            </section> <!--custom-file-->
-            <section class="row">
-                <section class="col-sm-6 form-group required">
-                    <label for="fiirst name">First name</label>
-                    <input type="text" class="form-control " id="first-name" required />
-                </section> <!--row-->
-                <section class="col-lg-6 form-group required">
-                    <label for="fiirst name">Last name</label>
-                    <input type="text" class="form-control" id="last-name" required />
-                </section> <!--form-group-->
-            </section><!--row-->
-            <section class="row">
-                <section class="col-lg-6 form-group required">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" required />
-                </section> <!--form-group-->
-                <section class="col-lg-6 form-group required">
-                    <label for="phone">Phone number</label>
-                    <input type="tel" class="form-control" id="phone" required />
-                </section> <!--form-group-->
-            </section> <!--row-->
-            <section class="row">
-                <section class="col-lg-6 form-group">
-                    <label for="adress">Adress</label>
-                    <input type="text" class="form-control" id="adress" />
-                </section><!--form-group-->
-                <section class="col-lg-6 form-group">
-                    <label for="Pastalcode">Pastal Code</label>
-                    <input type="text" class="form-control" id="Pastalcode" />
-                </section> <!--form-group-->
-            </section> <!--row-->
-            <button type="submit" class="btn  align-self-center ">Request an estimate</button>
+            <section class="col-lg-6 form-group required">
+              <label for="LastName">Last name</label>
+              <input type="text" class="form-control" id="LastName" required />
+            </section> <!--form-group-->
+          </section><!--row-->
+          <section class="row">
+            <section class="col-lg-6 form-group required">
+              <label for="Email">Email</label>
+              <input type="email" class="form-control" name="Email" required />
 
-            @Html.Hidden("ClientType", (string)ViewBag.ClientType)
+            </section> <!--form-group-->
+            <section class="col-lg-6 form-group required">
+              <label for="PhoneNumber">Phone number</label>
+              <input type="tel" class="form-control" name="PhoneNumber" required />
+              <p class="PhoneNumber"></p>
+            </section> <!--form-group-->
+          </section> <!--row-->
+          <section class="row">
+            <section class="col-lg-6 form-group">
+              <label for="Address">Address</label>
+              <input type="text" class="form-control" name="Address" />
+            </section><!--form-group-->
+            <section class="col-lg-6 form-group">
+              <label for="PostalCode">Pastal Code</label>
+              <input type="text" class="form-control" name="PostalCode" />
+            </section> <!--form-group-->
+          </section> <!--row-->
+          <button type="submit" class="btn  align-self-center ">Request an estimate</button>
+
+          @Html.Hidden("ClientType", (string)ViewBag.ClientType)
         </form>
     </section> <!--form-touch-->
 </section> <!--container-fluid-->

@@ -3,9 +3,11 @@ $(function () {
         url: '/home/getProjects',
         type: 'GET',
         success: function (data) {
-            data.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
+         
+            console.log(data)
+           /// project.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
             $.each(data, function (i, value) {
-
+         
                 populateProjectsImg(value)
                 populateProjectsTab(value)
             })

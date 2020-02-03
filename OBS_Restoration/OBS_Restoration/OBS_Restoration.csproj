@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OBS_Restoration</RootNamespace>
     <AssemblyName>OBS_Restoration</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -278,6 +278,7 @@
     <Content Include="Content\Js\Custom\index.js" />
     <Content Include="Content\Js\Custom\dropdown-menu.js" />
     <Content Include="Content\Js\Custom\form-file.js" />
+    <Content Include="Content\Js\Custom\validation.js" />
     <Content Include="Content\Js\Custom\jssor.slider-28.0.0.min.js" />
     <Content Include="Content\Js\Custom\projects.js" />
     <Content Include="Content\Js\Custom\services.js" />
@@ -291,21 +292,6 @@
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Gulp\app\css\style.min.css" />
-    <Content Include="Gulp\app\icons\craftsmans.svg" />
-    <Content Include="Gulp\app\icons\develop.svg" />
-    <Content Include="Gulp\app\icons\email.svg" />
-    <Content Include="Gulp\app\icons\growth.svg" />
-    <Content Include="Gulp\app\icons\house.svg" />
-    <Content Include="Gulp\app\icons\linked.svg" />
-    <Content Include="Gulp\app\icons\money-bag.svg" />
-    <Content Include="Gulp\app\icons\planning.svg" />
-    <Content Include="Gulp\app\icons\protection.svg" />
-    <Content Include="Gulp\app\icons\quality-materials.svg" />
-    <Content Include="Gulp\app\icons\quality.svg" />
-    <Content Include="Gulp\app\icons\respect.svg" />
-    <Content Include="Gulp\app\icons\team.svg" />
-    <Content Include="Gulp\app\icons\telephone.svg" />
-    <Content Include="Gulp\app\icons\value.svg" />
     <Content Include="Gulp\app\Images\Banner\banner-home-page.jpg" />
     <Content Include="Gulp\app\Images\Banner\hiring-banner.jpg" />
     <Content Include="Gulp\app\Images\Banner\offer-banner.jpg" />
@@ -376,13 +362,6 @@
     <Content Include="Gulp\app\Images\Suppliers\quick-fence.png" />
     <Content Include="Gulp\app\Images\Suppliers\scafom.png" />
     <Content Include="Gulp\app\Images\Suppliers\tremco.png" />
-    <Content Include="Gulp\app\js\Custom\index.js" />
-    <Content Include="Gulp\app\js\Custom\projects.js" />
-    <Content Include="Gulp\app\js\Custom\services.js" />
-    <Content Include="Gulp\app\js\bootstrap.min.js" />
-    <Content Include="Gulp\app\js\isotope-docs.min.js" />
-    <Content Include="Gulp\app\js\jquery.min.js" />
-    <Content Include="Gulp\app\js\popper.min.js" />
     <Content Include="Gulp\app\svg\analysis.svg" />
     <Content Include="Gulp\app\svg\construction-worker.svg" />
     <Content Include="Gulp\app\svg\email.svg" />
@@ -7370,18 +7349,6 @@
     <Content Include="Content\Fonts\RobotoRegular\RobotoRegular.eot" />
     <Content Include="Content\Fonts\RobotoRegular\RobotoRegular.ttf" />
     <Content Include="Content\Fonts\RobotoRegular\RobotoRegular.woff" />
-    <Content Include="Gulp\app\fonts\RobotoBold\RobotoBold.eot" />
-    <Content Include="Gulp\app\fonts\RobotoBold\RobotoBold.ttf" />
-    <Content Include="Gulp\app\fonts\RobotoBold\RobotoBold.woff" />
-    <Content Include="Gulp\app\fonts\RobotoLight\RobotoLight.eot" />
-    <Content Include="Gulp\app\fonts\RobotoLight\RobotoLight.ttf" />
-    <Content Include="Gulp\app\fonts\RobotoLight\RobotoLight.woff" />
-    <Content Include="Gulp\app\fonts\RobotoMedium\RobotoMedium.eot" />
-    <Content Include="Gulp\app\fonts\RobotoMedium\RobotoMedium.ttf" />
-    <Content Include="Gulp\app\fonts\RobotoMedium\RobotoMedium.woff" />
-    <Content Include="Gulp\app\fonts\RobotoRegular\RobotoRegular.eot" />
-    <Content Include="Gulp\app\fonts\RobotoRegular\RobotoRegular.ttf" />
-    <Content Include="Gulp\app\fonts\RobotoRegular\RobotoRegular.woff" />
     <Content Include="Gulp\app\scss\style.scss" />
     <Content Include="Gulp\app\scss\_fonts.scss" />
     <Content Include="Gulp\app\scss\_libs.scss" />
