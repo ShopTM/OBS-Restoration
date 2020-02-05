@@ -279,15 +279,14 @@
     <Content Include="Content\Js\Custom\dropdown-menu.js" />
     <Content Include="Content\Js\Custom\form-file.js" />
     <Content Include="Content\Js\Custom\validation.js" />
-    <Content Include="Content\Js\Custom\jssor.slider-28.0.0.min.js" />
     <Content Include="Content\Js\Custom\projects.js" />
     <Content Include="Content\Js\Custom\services.js" />
     <Content Include="Content\Js\bootstrap.min.js" />
-    <Content Include="Content\Js\Custom\valid.js" />
     <Content Include="Content\Js\isotope-docs.min.js" />
-    <Content Include="Content\Js\jquery.magnific-popup.min.js" />
     <Content Include="Content\Js\jquery.min.js" />
+    <Content Include="Content\Js\jssor.slider-28.0.0.min.js" />
     <Content Include="Content\Js\popper.min.js" />
+    <Content Include="Content\Js\valid.js" />
     <Content Include="Content\Svg\spites\symbol\sprite.svg" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />

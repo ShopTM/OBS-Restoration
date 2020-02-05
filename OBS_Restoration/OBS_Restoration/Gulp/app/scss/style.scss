@@ -982,6 +982,15 @@ input[type="password"] {
    }
 }
 
+/////FORM VALID
+.phone,
+.email,
+.invalidTextMassege,
+.invalidTextSize {
+    font-size: 0.75em;
+    color: #ec1515;
+    padding-top: 5px;
+}
 
 @import "media";
      
