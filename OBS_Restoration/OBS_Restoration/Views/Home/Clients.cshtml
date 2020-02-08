@@ -6,7 +6,9 @@
   <script src="~/Content/Js/Custom/clints.js"></script>
   <script src="~/Content/Js/Custom/validation.js"></script>
   <script src="~/Content/Js/valid.js"></script>
+
 }
+
 
 <section class="container-fluid">
   <section class="row">
@@ -69,12 +71,11 @@
         </section> <!--form-group-->
       </section> <!--row-->
       <section class="custom-file">
-        <input type="file" class="custom-file-input file" name="File[]" multiple>
-        <label class="custom-file-label" for="customFile">Choose your file</label>
+        <input type="file" class="custom-file-input file" name="File[]" multiple >
+        <label class="custom-file-label fileName" for="File">Choose your files</label>
+        <p class="invalidTextFile"></p>
+        <p class="invalidTextSize"></p>
       </section> <!--custom-file-->
-      <p class="listFiles"></p>
-      <p class="invalidTextMassege"></p>
-      <p class="invalidTextSize"></p>
       <section class="row">
         <section class="col-sm-6 form-group required">
           <label for="FiirstName">First name</label>
@@ -89,12 +90,12 @@
         <section class="col-lg-6 form-group required">
           <label for="Email">Email</label>
           <input type="email" class="form-control" name="Email" required />
-          <p class="email"></p>
+          <p class="emailTextMassege"></p>
         </section> <!--form-group-->
         <section class="col-lg-6 form-group required">
           <label for="PhoneNumber">Phone number</label>
           <input type="tel" class="form-control" name="PhoneNumber" required />
-          <p class="phone"></p>
+          <p class="phoneTextMassege"></p>
         </section> <!--form-group-->
       </section> <!--row-->
       <section class="row">

@@ -139,7 +139,6 @@
     <Content Include="Content\Css\Custom\project.css" />
     <Content Include="Content\Css\Custom\services.css" />
     <Content Include="Content\Css\Custom\style.min.css" />
-    <Content Include="Content\Css\magnific-popup.css" />
     <Content Include="Content\Icons\craftsmans.svg" />
     <Content Include="Content\Icons\develop.svg" />
     <Content Include="Content\Icons\pace.svg" />
