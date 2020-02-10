@@ -6,19 +6,18 @@
   <script src="~/Content/Js/Custom/clints.js"></script>
   <script src="~/Content/Js/Custom/validation.js"></script>
   <script src="~/Content/Js/valid.js"></script>
-
 }
-
-
 <section class="container-fluid">
   <section class="row">
     <section class="col-lg-12 clints-bg">
-      <h2>Our clints</h2>
-    </section> <!-- contacts-bg -->
-  </section> <!--row-->
+      <section class="slide-text">
+        <h2>Our clints</h2>
+      </section>
+      </section> <!-- contacts-bg -->
+    </section> <!--row-->
 
   <section class="container">
-    <h3 id="clints"></h3>
+   <h3 id="clints"></h3>
     <section class="hr-heading "></section>
     <p>
       OBS Restoration ltd is a specialized restoration contractor with expertise in a wide range of quality concrete restoration,
@@ -26,7 +25,6 @@
       We are a team of professional, restorations individuals with  experienced managers and craftsmans available to guide our
       clients through the flawless and timely execution of any, restoration works. Since day one, we have been delivering creative
       and technically thought out ideas to our clients.
-
     </p>
     <p class="estimate">Please fill out the form below to request a <span>free</span> estimate. </p>
   </section> <!--container-->
@@ -67,11 +65,11 @@
       <section class="row">
         <section class="col-lg-12  form-group required ">
           <label for="ProjectSummary">Please provide a summary of your restoration project</label>
-          <textarea class="form-control" rows="5" name="ProjectSummary" required></textarea>
+          <textarea class="form-control textarea" rows="5" name="ProjectSummary" required></textarea>
         </section> <!--form-group-->
       </section> <!--row-->
       <section class="custom-file">
-        <input type="file" class="custom-file-input file" name="File[]" multiple >
+        <input type="file" class="custom-file-input file" name="File[]" multiple accept=".doc,.docx,.pdf, .xlsx, .txt, image/*">
         <label class="custom-file-label fileName" for="File">Choose your files</label>
         <p class="invalidTextFile"></p>
         <p class="invalidTextSize"></p>
@@ -79,23 +77,23 @@
       <section class="row">
         <section class="col-sm-6 form-group required">
           <label for="FiirstName">First name</label>
-          <input type="text" class="form-control " name="FirstName" required />
+          <input type="text" class="form-control name" name="FirstName" required />
         </section> <!--row-->
         <section class="col-lg-6 form-group required">
           <label for="LastName">Last name</label>
-          <input type="text" class="form-control" name="LastName" required />
+          <input type="text" class="form-control name" name="LastName" required />
         </section> <!--form-group-->
       </section><!--row-->
       <section class="row">
         <section class="col-lg-6 form-group required">
           <label for="Email">Email</label>
           <input type="email" class="form-control" name="Email" required />
-          <p class="emailTextMassege"></p>
+          <p class="emailTextMessage"></p>
         </section> <!--form-group-->
         <section class="col-lg-6 form-group required">
           <label for="PhoneNumber">Phone number</label>
           <input type="tel" class="form-control" name="PhoneNumber" required />
-          <p class="phoneTextMassege"></p>
+          <p class="phoneTextMessage"></p>
         </section> <!--form-group-->
       </section> <!--row-->
       <section class="row">
@@ -111,6 +109,8 @@
       <button type="submit" class="btn  align-self-center ">Request an estimate</button>
 
       @Html.Hidden("ClientType", (string)ViewBag.ClientType)
+      <section class="result" role="alert">
+      </section>
     </form>
-  </section> <!--form-touch-->
+   </section> <!--form-touch-->
 </section> <!--container-fluid-->

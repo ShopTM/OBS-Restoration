@@ -1,18 +1,17 @@
 $(function () {
-    $.ajax({
+      $.ajax({
         url: '/home/getProjects',
-        type: 'GET',
-        success: function (data) {
-         
-            console.log(data)
-           /// project.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
-            $.each(data, function (i, value) {
+          type: 'GET',
+           success: function (data) {
+            let project = data.Data;
+            project.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
+            $.each(project, function (i, value) {
          
                 populateProjectsImg(value)
                 populateProjectsTab(value)
             })
             /////////////////////PROJECT ISOTOP
-            var $container = $(".project-container");
+            let $container = $(".project-container");
             $container.isotope({
                 filter: "*",
                 animationOptions: {

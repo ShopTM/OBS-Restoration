@@ -175,10 +175,11 @@ padding: 0;
 }
 .slide-text {
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    ///display: flex;
+    //flex-direction: column;
+    //align-items: center;
+    //justify-content: center;
+    @extend %base-setting-bg;
     @extend %size-block;
 
     h2 {
@@ -193,14 +194,14 @@ padding: 0;
         @extend %btn;
         text-transform: uppercase;
 
-       &:hover {
-          background: #065670;
+        &:hover {
+            background: #065670;
         }
     }
 
     p {
         @extend %slide-text-style;
-        font-size: 1.5em;
+        font-size: 1.1em;
     }
 }
 .curry {
@@ -383,7 +384,7 @@ padding: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../../../Content/Images/Bg/clints.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-    @extend %base-setting-bg;
+  ///  @extend %base-setting-bg;
     margin-bottom: 50px;
 
 }
@@ -407,12 +408,12 @@ padding: 0;
     background-size: cover;
     background-position: center;
     display: flex;
-    @extend %base-setting-bg;
+  ///  @extend %base-setting-bg;
     margin-bottom: 50px;
 
 
     p {
-        @extend %slide-text-style;
+     //   @extend %slide-text-style;
         width: 40%;
         margin: 0 auto;
     }
@@ -471,17 +472,17 @@ padding: 0;
     background-size: cover;
     background-position: center;
     display: flex;
-    @extend %base-setting-bg;
-    @extend %size-block;
+  ///  @extend %base-setting-bg;
+   // @extend %size-block;
     margin-bottom: 50px;
 }
     ////////////////////////////////////////////SUPPLIERS
 .suppliers-bg {
-    @extend %size-block;
+  //  @extend %size-block;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/suppliers.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-    @extend %base-setting-bg;
+   // @extend %base-setting-bg;
     margin-bottom: 50px;
 }
 
@@ -550,8 +551,9 @@ padding: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/careers.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-    @extend %base-setting-bg;
+  ///  @extend %base-setting-bg;
     margin-bottom: 50px;
+
 }
 
     .career-descption p {
@@ -652,10 +654,11 @@ padding: 0;
     background-size: cover;
     background-position: center;
     margin-bottom: 50px;
-    @extend %base-setting-bg;
+  ///  @extend %base-setting-bg;
+
 
     h2 {
-        @extend %slide-text-style;
+    ///    @extend %slide-text-style;
     }
 }
 
@@ -876,7 +879,7 @@ footer {
             transform: translateY(2%);
         }
     }
-    //////ADMIN
+    //////ADMIN PAGE
     .admin svg {
         fill: #ffffff;
         width: 16px;
@@ -982,15 +985,28 @@ input[type="password"] {
    }
 }
 
-/////FORM VALID
-.phone,
-.email,
-.invalidTextMassege,
+/////TEXT MESSAGE FORM VALIDATION
+.phoneTextMessage,
+.emailTextMessage,
+.invalidTextFile,
 .invalidTextSize {
     font-size: 0.75em;
     color: #ec1515;
     padding-top: 5px;
 }
 
+form {
+    position: relative;
+}
+.alert-success {
+  ////  display: none;
+    animation: anime 1s ease-in-out;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+.error {
+    color: red;
+}
 @import "media";
      

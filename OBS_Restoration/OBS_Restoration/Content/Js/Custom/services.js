@@ -3,7 +3,7 @@ $(function () {
         url: '/home/getServices',
         type: 'GET',
         success: function (data) {
-            let service = data.Data;
+          let service = data.Data;
             service.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
             $.each(service, function (i, item) {
             populateService(item)

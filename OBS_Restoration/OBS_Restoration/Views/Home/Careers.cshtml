@@ -3,16 +3,17 @@
   ViewBag.Title = "Careers";
 }
 @section Scripts {
-   <script src="~/Content/Js/Custom/validation.js"></script>
-  <script src="~/Content/Js/valid.js"></script>
+  <script src="~/Content/Js/Custom/contact.js"></script>
 }
 <section class="container-fluid">
   <!----------------------------BG CAREER------------------------------>
   <section class="row">
     <section class="col-lg-12 career-bg">
-      <h2>Your career starts <span> here!</span></h2>
-    </section> <!--career-bg-text-->
-  </section> <!-- career-bg -->
+      <section class="slide-text">
+        <h2>Your career starts <span> here!</span></h2>
+      </section>
+      </section> <!--career-bg-text-->
+    </section> <!-- career-bg -->
   <!----------------------------------CAREER MAIN----------------------------------------->
   <section class="container">
     <section class="row">
@@ -73,28 +74,28 @@
   <section class="container form-touch">
     <h5>Apply for job</h5>
 
-    <form class="needs-validation" novalidate>
+    <form class="needs-validation" novalidate >
       @Html.AntiForgeryToken()
       <section class="row">
         <section class="col-sm-6 form-group required">
           <label for="fiirst name">First name</label>
-          <input type="text" class="form-control" name="FirstName" required />
+          <input type="text" class="form-control require" name="FirstName" required/>
         </section>
-        <section class="col-lg-6 form-group required">
+        <section class="col-lg-6 form-group require">
           <label for="LastName">Last name</label>
-          <input type="text" class="form-control" name="LastName" required />
+          <input type="text" class="form-control required" name="LastName" required />
         </section>
       </section>
       <section class="row">
-        <section class="col-lg-6 form-group required">
+        <section class="col-lg-6 form-group require">
           <label for="Email">Email</label>
-          <input type="email" class="form-control" name="Email" required />
-          <p class="emailTextMassege"></p>
+          <input type="email" class="form-control required" name="Email" required  />
+          <p class="emailTextMessage"></p>
         </section>
-        <section class="col-lg-6 form-group required">
+        <section class="col-lg-6 form-group require">
           <label for="PhoneNumber">Phone number</label>
-          <input type="tel" class="form-control" name="PhoneNumber" required />
-          <p class="phoneTextMassege"></p>
+          <input type="tel" class="form-control required" name="PhoneNumber" required />
+          <p class="phoneTextMessage"></p>
         </section>
       </section>
       <section class="row">
@@ -103,13 +104,15 @@
           <textarea class="form-control" rows="5" name="Message"></textarea>
         </section>
       </section>
-      <section class="custom-file required ">
-        <input type="file" class="custom-file-input file" multiple name="Resume">
+      <section class="custom-file require ">
+        <input type="file" class="custom-file-input file required" multiple name="Resume"  accept=".doc,.docx,.pdf" >
         <label class="custom-file-label fileName" for="Resume">Choose your resume</label>
         <p class="invalidTextFile"></p>
         <p class="invalidTextSize"></p>
       </section> <!--custom-file-->
       <button type="submit" class="btn btnForm align-self-center ">Submit</button>
+      <section class="result" role="alert">
+      </section>
     </form>
   </section>
 </section>
