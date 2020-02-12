@@ -3,7 +3,7 @@
     $.validator.methods.email = function (value, element) {
         return this.optional(element) || /[a-z]+@[a-z]+\.[a-z]+/.test(value);
     }
-    $('.formcontact-form').validate({
+    $('.contact-form').validate({
         rules: {
             Email: {
                 required: true,
