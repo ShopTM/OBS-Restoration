@@ -835,7 +835,7 @@ footer {
             margin: 0;
         }
     }
-.required::before {
+.require::before {
     position: absolute;
     left: -10px;
     top: 0;
@@ -986,27 +986,22 @@ input[type="password"] {
 }
 
 /////TEXT MESSAGE FORM VALIDATION
-.phoneTextMessage,
-.emailTextMessage,
-.invalidTextFile,
-.invalidTextSize {
-    font-size: 0.75em;
-    color: #ec1515;
-    padding-top: 5px;
-}
 
 form {
     position: relative;
 }
 .alert-success {
-  ////  display: none;
+    display: none;
+    padding: 30px;
     animation: anime 1s ease-in-out;
     position: absolute;
     top: 15%;
-    left: 10%;
+    left: 25%;
 }
 .error {
     color: red;
+    font-size: 0.7em;
 }
+
 @import "media";
      

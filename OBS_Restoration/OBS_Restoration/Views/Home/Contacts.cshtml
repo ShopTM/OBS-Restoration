@@ -6,6 +6,8 @@
 @section Scripts {
   <script src="~/Content/Js/Custom/contact.js"></script>
   <script src="~/Content/Js/jquery.validate.min.js"></script>
+  <script src="~/Content/Js/additional-methods.min.js"></script>
+  <script src="~/Content/Js/jquery.form.min.js"></script>
 }
 
 <section class="container-fluid">
@@ -74,27 +76,27 @@
         <section class="row">
           <section class="col-lg-4 form-group require">
             <label for="fiirst name">First name</label>
-            <input type="text" class="form-control required" name="FirstName"  />
+            <input type="text" class="form-control required" name="FirstName" />
           </section> <!--form-group-->
-          <section class="col-lg-4 form-group require" required>
+          <section class="col-lg-4 form-group require">
             <label for="Email">Email</label>
-            <input type="email" class="form-control required" name="Email"/>
-            <p class="emailTextMessage"></p>
+            <input type="email" class="form-control required" name="Email" />
           </section><!--form-group-->
           <section class="col-lg-4 form-group ">
             <label for="phone">Phone number</label>
             <input type="tel" class="form-control " name="PhoneNumber" data-rule-required="false" data-rule-minlength="11" data-rule-maxlength="11" data-rule-digits="true" data-msg="Please enter a valid phone number">
-            <p class="phoneTextMessage"></p>
           </section><!--form-group-->
         </section> <!--row-->
         <section class="row">
           <section class="col-lg-12  form-group require">
             <label for="message">Message</label>
-            <textarea class="form-control textarea required" rows="5" name="Message" data-rule-required="true" data-rule-minlength="250" data-msg="Please enter message at least 255 characters"></textarea>
+            <textarea class="form-control textarea required" rows="5" name="Message" data-rule-required="true" data-rule-minlength="250" data-msg="Please enter message at least 250 characters"></textarea>
           </section> <!--form-group-->
         </section> <!--row-->
         <button type="submit" class="btn btnForm button align-self-center popup-modal">Submit</button>
-        <section class="result" role="alert">
+        <section class="alert-success" role="alert">
+          <h4>Thank you</h4>
+          <p>Your message has been successfully sent. We will contact you very soon!</p>
         </section>
       </form>
     </section> <!--form-touch-->

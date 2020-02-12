@@ -3,71 +3,43 @@
     $.validator.methods.email = function (value, element) {
         return this.optional(element) || /[a-z]+@[a-z]+\.[a-z]+/.test(value);
     }
-    $.validator.addMethod("checkMask", function (value, element) {
-        return /^\d{11}$/.test(value);
-    });
-
-    $("form").validate({
+    $('.formcontact-form').validate({
         rules: {
-            FirstName: {
-                required: true,
-            },
             Email: {
                 required: true,
                 email: true,
-                regexp: /^[\w-\.]+@[\w-]+[\./]+[a-z]{2,4}$/g,
             },
-            PhoneNumber: {
-                required: false,
-                checkMask: true,
-                digits: true,
-            },
-
             Message: {
                 required: true,
-                maxlength: 255,
-                minlength: 255,
+                minlength: 250,
             },
         },
-        messages: {
-            FirstName: {
-                required: "Please enter your first name",
-            },
+        message: {
             Email: {
                 email: "Please! Enter a valid email address",
-
-            },
-            PhoneNumber: {
-                checkMask: true,
-
             },
             Message: {
-                minlength: "Please enter message at least 255 characters"
+                minlength: "Please enter message at least 250 characters",
             },
-            PhoneNumber: {
-                checkMask: "Please! Enter a valid phone number"
-            }
-
+    
         },
+
         submitHandler: function (form) {
             $.ajax({
-                type: 'POST',
                 url: "/home/ContactUs",
+                type: 'POST',
                 data: $(form).serialize(),
                 success: function (response) {
-                    alert("coll")
+                    document.querySelector(".alert-success").style.display = "block";
+                   window.setTimeout(function () { location.reload() }, 2000);
                 }
             });
+               
         }
+     
+       });
 
-    });
-
-    });
-
- 
- 
-
-
+}); ////////// document.ready
 
 
 
