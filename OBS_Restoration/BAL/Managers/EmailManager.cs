@@ -2,8 +2,8 @@
 using System.Net;
 using System.Net.Mail;
 using Common;
-using System.ComponentModel.DataAnnotations;
 using Models.VM.RequestForm;
+using System.ComponentModel;
 
 namespace BAL.Managers
 {
@@ -16,7 +16,7 @@ namespace BAL.Managers
         public void SendJobEstimationEmail(JobEstimationRequestFormVM model)
         {
             Attachment attachment = null;
-            if (model.File!=null)
+            if (model.File != null)
                 attachment = new Attachment(model.File.InputStream, model.File.FileName);
             SendEmail(model, JOB_ESTIMATION_EMAIL_SUBJECT, attachment);
         }
@@ -31,7 +31,7 @@ namespace BAL.Managers
         {
             SendEmail(model, CONTACT_US_REQUEST_EMAIL_SUBJECT);
         }
-        private void SendEmail(object model,string subject, Attachment attachment = null)
+        private void SendEmail(object model, string subject, Attachment attachment = null)
         {
             var from = new MailAddress(ConfigHelper.SmtpFromEmail, subject);
             var to = new MailAddress(ConfigHelper.SmtpToEmail);
@@ -41,7 +41,7 @@ namespace BAL.Managers
                 Body = ToBodyMessage(model),
                 IsBodyHtml = false,
             };
-            if(attachment!=null)
+            if (attachment != null)
                 message.Attachments.Add(attachment);
 
             var smtpClient = new SmtpClient(ConfigHelper.SmtpHost, ConfigHelper.SmtpPort ?? 25);
@@ -55,12 +55,8 @@ namespace BAL.Managers
             var props = type.GetProperties();
             foreach (var prop in props)
             {
-                var attrName = (prop.GetCustomAttributes(typeof(DisplayAttribute), false).FirstOrDefault() as DisplayAttribute)?.GetName();
-                if (string.IsNullOrWhiteSpace(attrName))
-                {
-                    continue;
-                    //attrName += prop.Name;
-                }
+                var attrName = (prop.GetCustomAttributes(typeof(DisplayNameAttribute), false).FirstOrDefault() as DisplayNameAttribute)?.DisplayName;
+                if (string.IsNullOrWhiteSpace(attrName)) continue;
                 message += $"{attrName}: {prop.GetValue(obj)}\r\n";
             }
             return message;
