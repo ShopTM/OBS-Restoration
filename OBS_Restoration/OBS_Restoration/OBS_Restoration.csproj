@@ -272,8 +272,9 @@
     <Content Include="Content\Images\Suppliers\scafom.jpg" />
     <Content Include="Content\Images\Suppliers\tremco.png" />
     <Content Include="Content\Js\additional-methods.min.js" />
+    <Content Include="Content\Js\Custom\careersValidation.js" />
     <Content Include="Content\Js\Custom\clints.js" />
-    <Content Include="Content\Js\Custom\contact.js" />
+    <Content Include="Content\Js\Custom\contactValidation.js" />
     <Content Include="Content\Js\Custom\gallery.js" />
     <Content Include="Content\Js\Custom\index.js" />
     <Content Include="Content\Js\Custom\dropdown-menu.js" />
@@ -282,7 +283,6 @@
     <Content Include="Content\Js\Custom\services.js" />
     <Content Include="Content\Js\bootstrap.min.js" />
     <Content Include="Content\Js\isotope-docs.min.js" />
-    <Content Include="Content\Js\jquery.form.min.js" />
     <Content Include="Content\Js\jquery.min.js" />
     <Content Include="Content\Js\jquery.validate.min.js" />
     <Content Include="Content\Js\jssor.slider-28.0.0.min.js" />

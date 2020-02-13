@@ -3,7 +3,9 @@
   ViewBag.Title = "Careers";
 }
 @section Scripts {
-  <script src="~/Content/Js/Custom/contact.js"></script>
+  <script src="~/Content/Js/jquery.validate.min.js"></script>
+  <script src="~/Content/Js/Custom/careersValidation.js"></script>
+  <script src="~/Content/Js/additional-methods.min.js"></script>
 }
 <section class="container-fluid">
   <!----------------------------BG CAREER------------------------------>
@@ -12,8 +14,8 @@
       <section class="slide-text">
         <h2>Your career starts <span> here!</span></h2>
       </section>
-      </section> <!--career-bg-text-->
-    </section> <!-- career-bg -->
+    </section> <!--career-bg-text-->
+  </section> <!-- career-bg -->
   <!----------------------------------CAREER MAIN----------------------------------------->
   <section class="container">
     <section class="row">
@@ -74,28 +76,26 @@
   <section class="container form-touch">
     <h5>Apply for job</h5>
 
-    <form class="career-form" novalidate >
+    <form class="career-form сareers-form">
       @Html.AntiForgeryToken()
       <section class="row">
-        <section class="col-sm-6 form-group require">
-          <label for="fiirst name">First name</label>
-          <input type="text" class="form-control require" name="FirstName" required/>
+        <section class="col-sm-6 form-group">
+          <label for="fiirst name" class="require">First name</label>
+          <input type="text" class="form-control required" name="FirstName" />
         </section>
-        <section class="col-lg-6 form-group require">
-          <label for="LastName">Last name</label>
-          <input type="text" class="form-control required" name="LastName" required />
+        <section class="col-lg-6 form-group">
+          <label for="LastName" class="require">Last name</label>
+          <input type="text" class="form-control required" name="LastName" />
         </section>
       </section>
       <section class="row">
-        <section class="col-lg-6 form-group require">
-          <label for="Email">Email</label>
-          <input type="email" class="form-control required" name="Email" required  />
-          <p class="emailTextMessage"></p>
+        <section class="col-lg-6 form-group">
+          <label for="Email" class="require">Email</label>
+          <input type="email" class="form-control required" name="Email" />
         </section>
-        <section class="col-lg-6 form-group require">
-          <label for="PhoneNumber">Phone number</label>
-          <input type="tel" class="form-control required" name="PhoneNumber" required />
-          <p class="phoneTextMessage"></p>
+        <section class="col-lg-6 form-group ">
+          <label for="PhoneNumber" class="require">Phone number</label>
+          <input type="tel" class="form-control required" name="PhoneNumber" />
         </section>
       </section>
       <section class="row">
@@ -104,14 +104,14 @@
           <textarea class="form-control" rows="5" name="Message"></textarea>
         </section>
       </section>
-      <section class="custom-file require ">
-        <input type="file" class="custom-file-input file required" multiple name="Resume"  accept=".doc,.docx,.pdf" >
-        <label class="custom-file-label fileName" for="Resume">Choose your resume</label>
-        <p class="invalidTextFile"></p>
-        <p class="invalidTextSize"></p>
+      <section class="custom-file ">
+        <input type="file" class="custom-file-input fileName required" name="Resume" />
+        <label class="custom-file-label require" for="Resume">Choose your resume</label>
       </section> <!--custom-file-->
       <button type="submit" class="btn btnForm align-self-center ">Submit</button>
-      <section class="result" role="alert">
+      <section class="alert-success" role="alert">
+        <h4>Thank you</h4>
+        <p>Your message has been successfully sent. We will contact you very soon!</p>
       </section>
     </form>
   </section>

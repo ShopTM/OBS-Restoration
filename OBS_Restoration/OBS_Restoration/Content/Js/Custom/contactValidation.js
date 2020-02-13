@@ -1,27 +1,29 @@
 ﻿$(function () {
-
-    $.validator.methods.email = function (value, element) {
-        return this.optional(element) || /[a-z]+@[a-z]+\.[a-z]+/.test(value);
-    }
     $('.contact-form').validate({
         rules: {
             Email: {
                 required: true,
                 email: true,
             },
+            PhoneNumber: {
+                required: false,
+                digits: true,
+
+            },
             Message: {
                 required: true,
-                minlength: 250,
+
             },
         },
         message: {
             Email: {
                 email: "Please! Enter a valid email address",
             },
-            Message: {
-                minlength: "Please enter message at least 250 characters",
+            PhoneNumber: {
+
+                digits: "Please enter a valid phone number",
             },
-    
+
         },
 
         submitHandler: function (form) {
@@ -31,14 +33,11 @@
                 data: $(form).serialize(),
                 success: function (response) {
                     document.querySelector(".alert-success").style.display = "block";
-                   window.setTimeout(function () { location.reload() }, 2000);
+                    window.setTimeout(function () { location.reload() }, 2000);
                 }
             });
-               
         }
-     
-       });
-
+    });
 }); ////////// document.ready
 
 
