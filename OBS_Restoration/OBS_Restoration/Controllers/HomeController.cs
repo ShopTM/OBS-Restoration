@@ -73,21 +73,21 @@ namespace OBS_Restoration.Controllers
         public JsonResult ContactUs(ContactRequestFormVM model)
         {
             var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _emailManager.SendContactUsEmail(model); }, ModelState);
-            return Json(model, JsonRequestBehavior.AllowGet);
+            return Json(responce);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult Careers(CareerRequestFormVM model)
         {
             var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _emailManager.SendCareerEmail(model); }, ModelState);
-            return Json(model, JsonRequestBehavior.AllowGet);
+            return Json(responce);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult JobEstimation(JobEstimationRequestFormVM model)
         {
             var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _emailManager.SendJobEstimationEmail(model); }, ModelState);
-            return Json(model, JsonRequestBehavior.AllowGet);
+            return Json(responce);
         }
         #endregion
     }
