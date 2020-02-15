@@ -3,10 +3,9 @@
   ViewBag.Title = "Clients";
 }
 @section Scripts {
-  <script src="~/Content/Js/Custom/clients.js"></script>
   <script src="~/Content/Js/jquery.validate.min.js"></script>
   <script src="~/Content/Js/additional-methods.min.js"></script>
-  <script src="~/Content/Js/Custom/clientsValidation.js"></script>
+  <script src="~/Content/Js/Custom/clients.js"></script>
 }
 <section class="container-fluid">
   <section class="row">
@@ -31,8 +30,11 @@
   </section> <!--container-->
 
   <section class="container form-touch">
+    <section class="alertMessage">
+      <p class="errorMessage"></p>
+    </section>
     <h5>Request an Estimate</h5>
-    <form class="needs-validation">
+    <form id="сlients-form">
       @Html.AntiForgeryToken()
       <section class="form-group">
         <label for="ProjectType" class="require">Type of project</label>
@@ -70,7 +72,7 @@
         </section> <!--form-group-->
       </section> <!--row-->
       <section class="custom-file">
-        <input type="file" class="custom-file-input required" name="File[]" multiple accept="doc/docx/pdf"/>
+        <input type="file" class="custom-file-input required" name="File[]" multiple />
         <label class="custom-file-label require" for="File">Choose your files</label>
       </section> <!--custom-file-->
       <section class="row">
@@ -89,8 +91,8 @@
           <input type="email" class="form-control required" name="Email" />
         </section> <!--form-group-->
         <section class="col-lg-6 form-group">
-          <label for="PhoneNumber" class="require">Phone number</label>
-          <input type="tel" class="form-control required" name="PhoneNumber" />
+          <label for="PhoneNumber">Phone number</label>
+          <input type="tel" class="form-control" name="PhoneNumber" />
         </section> <!--form-group-->
       </section> <!--row-->
       <section class="row">
@@ -106,10 +108,11 @@
       <button type="submit" class="btn  align-self-center ">Request an estimate</button>
 
       @Html.Hidden("ClientType", (string)ViewBag.ClientType)
-      <section class="alert-success" role="alert">
-        <h4>Thank you</h4>
-        <p>Your message has been successfully sent. We will contact you very soon!</p>
-      </section>
     </form>
+    <section class="sentMessage">
+      <section class="boxMessage">
+        <img src="~/Content/Images/mesasge-sent.png" />
+      </section>
+    </section>
   </section> <!--form-touch-->
 </section> <!--container-fluid-->

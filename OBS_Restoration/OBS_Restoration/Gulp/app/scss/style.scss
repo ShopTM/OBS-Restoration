@@ -974,7 +974,7 @@ input[type="password"] {
 
 /////TEXT MESSAGE FORM VALIDATION
 
-form {
+.form-touch {
     position: relative;
 }
 //////////////////////FOR FORM
@@ -988,18 +988,28 @@ label.require:after {
     font-size: 0.7em;
 }
 
+.errorMessage {
+    color: red;
+ }
 .form-control {
     font-size: 1em;
 }
-.alert-success {
+.sentMessage {
     display: none;
-    padding: 30px;
-    animation: anime 1s ease-in-out;
     position: absolute;
-    top: 15%;
-    left: 25%;
+    top: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    width: 1150px;
+    right: 0;
+    height: 1200px;
+
+    img {
+        border-style: none;
+        width: 600px;
+        display: block;
+        margin: 200px auto;
+    }
 }
-
-
 @import "media";
      

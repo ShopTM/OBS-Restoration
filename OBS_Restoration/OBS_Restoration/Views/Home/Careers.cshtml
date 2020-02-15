@@ -4,7 +4,7 @@
 }
 @section Scripts {
   <script src="~/Content/Js/jquery.validate.min.js"></script>
-  <script src="~/Content/Js/Custom/careersValidation.js"></script>
+  <script src="~/Content/Js/Custom/careers.js"></script>
   <script src="~/Content/Js/additional-methods.min.js"></script>
 }
 <section class="container-fluid">
@@ -74,8 +74,14 @@
     </section> <!--row-->
   </section><!--container-hiring-process-->
   <section class="container form-touch">
+    <section class="alertMessage">
+      <p class="errorMessage"></p>
+    </section>
+    <section class="alert alert-success">
+      <p>Tnak you!</p>
+      <p>Your message has been sent seccessfully</p>
+    </section>
     <h5>Apply for job</h5>
-
     <form class="career-form " id="сareers-form">
       @Html.AntiForgeryToken()
       <section class="row">
@@ -105,15 +111,17 @@
         </section>
       </section>
       <section class="custom-file ">
-        <input type="file" class="custom-file-input fileName required" name="Resume" />
+        <input type="file" class="custom-file-input fileName required" name="Resume" data-rule-required="true"/>
         <label class="custom-file-label require" for="Resume">Choose your resume</label>
       </section> <!--custom-file-->
       <button type="submit" class="btn btnForm align-self-center ">Submit</button>
-      <section class="alert-success" role="alert">
-        <h4>Thank you</h4>
-        <p>Your message has been successfully sent. We will contact you very soon!</p>
-      </section>
+
     </form>
+    <section class="sentMessage">
+      <section class="boxMessage">
+        <img src="~/Content/Images/mesasge-sent.png" />
+      </section>
+    </section>
   </section>
 </section>
 

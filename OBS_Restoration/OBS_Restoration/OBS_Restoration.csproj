@@ -213,6 +213,7 @@
     <Content Include="Content\Images\Gallery\spin.svg" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\map.png" />
+    <Content Include="Content\Images\mesasge-sent.png" />
     <Content Include="Content\Images\Offer\commertcial-buildings.jpg" />
     <Content Include="Content\Images\Offer\historical-buildings.jpg" />
     <Content Include="Content\Images\Offer\Industrial-building.jpg" />
@@ -273,13 +274,12 @@
     <Content Include="Content\Images\Suppliers\tremco.png" />
     <Content Include="Content\Js\additional-methods.min.js" />
     <Content Include="Content\Js\amplify.js" />
-    <Content Include="Content\Js\Custom\careersValidation.js" />
-    <Content Include="Content\Js\Custom\clients.js" />
-    <Content Include="Content\Js\Custom\contactValidation.js" />
+    <Content Include="Content\Js\Custom\careers.js" />
+    <Content Include="Content\Js\Custom\contact.js" />
     <Content Include="Content\Js\Custom\gallery.js" />
     <Content Include="Content\Js\Custom\index.js" />
     <Content Include="Content\Js\Custom\dropdown-menu.js" />
-    <Content Include="Content\Js\Custom\clientsValidation.js" />
+    <Content Include="Content\Js\Custom\clients.js" />
     <Content Include="Content\Js\Custom\validation.js" />
     <Content Include="Content\Js\Custom\projects.js" />
     <Content Include="Content\Js\Custom\services.js" />
