@@ -16,11 +16,7 @@
                 digits: true,
 
             },
-            Message: {
-                required: true,
-
-            },
-        },
+         },
         message: {
             Email: {
                 email: "Please! Enter a valid email address",

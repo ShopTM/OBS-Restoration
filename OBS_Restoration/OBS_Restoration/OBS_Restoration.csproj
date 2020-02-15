@@ -274,12 +274,12 @@
     <Content Include="Content\Js\additional-methods.min.js" />
     <Content Include="Content\Js\amplify.js" />
     <Content Include="Content\Js\Custom\careersValidation.js" />
-    <Content Include="Content\Js\Custom\clints.js" />
+    <Content Include="Content\Js\Custom\clients.js" />
     <Content Include="Content\Js\Custom\contactValidation.js" />
     <Content Include="Content\Js\Custom\gallery.js" />
     <Content Include="Content\Js\Custom\index.js" />
     <Content Include="Content\Js\Custom\dropdown-menu.js" />
-    <Content Include="Content\Js\Custom\clintsValidation.js" />
+    <Content Include="Content\Js\Custom\clientsValidation.js" />
     <Content Include="Content\Js\Custom\validation.js" />
     <Content Include="Content\Js\Custom\projects.js" />
     <Content Include="Content\Js\Custom\services.js" />
