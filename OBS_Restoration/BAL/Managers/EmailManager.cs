@@ -16,7 +16,7 @@ namespace BAL.Managers
 
         public void SendJobEstimationEmail(JobEstimationRequestFormVM model)
         {
-            List<Attachment> attachments = null;
+            var attachments = new List<Attachment>();
             if (model.Files != null && model.Files.Any())
                 foreach (var file in model.Files)
                     attachments.Add(new Attachment(file.InputStream, file.FileName));
@@ -24,7 +24,7 @@ namespace BAL.Managers
         }
         public void SendCareerEmail(CareerRequestFormVM model)
         {
-            List<Attachment> attachments = null;
+            var attachments = new List<Attachment>();
             if (model.Resume != null)
                     attachments.Add(new Attachment(model.Resume.InputStream, model.Resume.FileName));
             SendEmail(model, CAREER_REQUEST_EMAIL_SUBJECT, attachments);
