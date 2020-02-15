@@ -4,18 +4,22 @@
 }
 @section Scripts {
   <script src="~/Content/Js/Custom/clints.js"></script>
-  }
+  <script src="~/Content/Js/jquery.validate.min.js"></script>
+  <script src="~/Content/Js/additional-methods.min.js"></script>
+  <script src="~/Content/Js/Custom/clintsValidation.js"></script>
+
+}
 <section class="container-fluid">
   <section class="row">
     <section class="col-lg-12 clints-bg">
       <section class="slide-text">
         <h2>Our clints</h2>
       </section>
-      </section> <!-- contacts-bg -->
-    </section> <!--row-->
+    </section> <!-- contacts-bg -->
+  </section> <!--row-->
 
   <section class="container">
-   <h3 id="clints"></h3>
+    <h3 id="clints"></h3>
     <section class="hr-heading "></section>
     <p>
       OBS Restoration ltd is a specialized restoration contractor with expertise in a wide range of quality concrete restoration,
@@ -29,11 +33,11 @@
 
   <section class="container form-touch">
     <h5>Request an Estimate</h5>
-    <form class="needs-validation" novalidate>
+    <form class="needs-validation">
       @Html.AntiForgeryToken()
-      <section class="form-group required">
-        <label for="ProjectType">Type of project</label>
-        <select required class="form-control" name="TypeOfProject">
+      <section class="form-group">
+        <label for="ProjectType" class="require">Type of project</label>
+        <select class="form-control  required" name="TypeOfProject">
           <option></option>
           <option>Building envelop restoration, including balcony slab repairs</option>
           <option>Masonry repairs (brick replacement, block, glass block, stone, tuck pointing)</option>
@@ -49,9 +53,9 @@
           <option>Other</option>
         </select>
       </section> <!--form-group-->
-      <section class="form-group  required">
-        <label for="BuildingType">Building type</label>
-        <select class="form-control " name="BuildingType" required>
+      <section class="form-group">
+        <label for="BuildingType" class="require">Building type</label>
+        <select class="form-control required " name="BuildingType">
           <option></option>
           <option>Commertcial</option>
           <option>Historical</option>
@@ -61,37 +65,33 @@
         </select>
       </section><!--form-group-->
       <section class="row">
-        <section class="col-lg-12  form-group required ">
-          <label for="ProjectSummary">Please provide a summary of your restoration project</label>
-          <textarea class="form-control textarea" rows="5" name="ProjectSummary" required></textarea>
+        <section class="col-lg-12  form-group">
+          <label for="ProjectSummary" class="require">Please provide a summary of your restoration project</label>
+          <textarea class="form-control required" rows="5" name="ProjectSummary"></textarea>
         </section> <!--form-group-->
       </section> <!--row-->
       <section class="custom-file">
-        <input type="file" class="custom-file-input file" name="File[]" multiple accept=".doc,.docx,.pdf, .xlsx, .txt, image/*">
-        <label class="custom-file-label fileName" for="File">Choose your files</label>
-        <p class="invalidTextFile"></p>
-        <p class="invalidTextSize"></p>
+        <input type="file" class="custom-file-input required" name="File[]" multiple>
+        <label class="custom-file-label require" for="File">Choose your files</label>
       </section> <!--custom-file-->
       <section class="row">
-        <section class="col-sm-6 form-group required">
-          <label for="FiirstName">First name</label>
-          <input type="text" class="form-control name" name="FirstName" required />
+        <section class="col-sm-6 form-group">
+          <label for="FiirstName" class="require">First name</label>
+          <input type="text" class="form-control required" name="FirstName"/>
         </section> <!--row-->
-        <section class="col-lg-6 form-group required">
-          <label for="LastName">Last name</label>
-          <input type="text" class="form-control name" name="LastName" required />
+        <section class="col-lg-6 form-group">
+          <label for="LastName" class="require">Last name</label>
+          <input type="text" class="form-control required" name="LastName"/>
         </section> <!--form-group-->
       </section><!--row-->
       <section class="row">
-        <section class="col-lg-6 form-group required">
-          <label for="Email">Email</label>
-          <input type="email" class="form-control" name="Email" required />
-          <p class="emailTextMessage"></p>
+        <section class="col-lg-6 form-group">
+          <label for="Email" class="require">Email</label>
+          <input type="email" class="form-control required" name="Email"/>
         </section> <!--form-group-->
-        <section class="col-lg-6 form-group required">
-          <label for="PhoneNumber">Phone number</label>
-          <input type="tel" class="form-control" name="PhoneNumber" required />
-          <p class="phoneTextMessage"></p>
+        <section class="col-lg-6 form-group">
+          <label for="PhoneNumber" class="require">Phone number</label>
+          <input type="tel" class="form-control required" name="PhoneNumber"/>
         </section> <!--form-group-->
       </section> <!--row-->
       <section class="row">
@@ -100,15 +100,17 @@
           <input type="text" class="form-control" name="Address" />
         </section><!--form-group-->
         <section class="col-lg-6 form-group">
-          <label for="PostalCode">Pastal Code</label>
-          <input type="text" class="form-control" name="PostalCode" />
+          <label for="PostalCode">Postal Code</label>
+          <input type="text" class="form-control " name="PostalCode" />
         </section> <!--form-group-->
       </section> <!--row-->
       <button type="submit" class="btn  align-self-center ">Request an estimate</button>
 
       @Html.Hidden("ClientType", (string)ViewBag.ClientType)
-      <section class="result" role="alert">
+      <section class="alert-success" role="alert">
+        <h4>Thank you</h4>
+        <p>Your message has been successfully sent. We will contact you very soon!</p>
       </section>
     </form>
-   </section> <!--form-touch-->
+  </section> <!--form-touch-->
 </section> <!--container-fluid-->

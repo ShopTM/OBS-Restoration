@@ -33,7 +33,7 @@
                 data: $(form).serialize(),
                 success: function (response) {
                     document.querySelector(".alert-success").style.display = "block";
-                    window.setTimeout(function () { location.reload() }, 2000);
+                    //  window.setTimeout(function () { location.reload() }, 2000);
                 }
             });
         }

@@ -2,13 +2,13 @@ $(function () {
       $.ajax({
         url: '/home/getProjects',
           type: 'GET',
-           success: function (data) {
+          success: function (data) {
             let project = data.Data;
             project.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
             $.each(project, function (i, value) {
-         
                 populateProjectsImg(value)
                 populateProjectsTab(value)
+
             })
             /////////////////////PROJECT ISOTOP
             let $container = $(".project-container");
@@ -25,7 +25,7 @@ $(function () {
                 $(".project-filter .current").removeClass("current");
                 $(this).addClass("current");
 
-                var selector = $(this).attr("data-filter");
+                let selector = $(this).attr("data-filter");
                 $container.isotope({
                     filter: selector,
                     animationOptions: {
