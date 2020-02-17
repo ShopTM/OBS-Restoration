@@ -1,10 +1,10 @@
-﻿$(function () {
+﻿const errorMessage = 'An error occurred while processing your request. Please try again later.'
+$(function () {
     // The name of the file appear on select
-    $(".custom-file-input").on("change", function () {
-        var fileName = $(this).val().split("\\").pop();
-        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    $('.custom-file-input').on('change', function () {
+        let fileName = $(this).val().split("\\").pop();
+        $(this).siblings('.custom-file-label').addClass('selected').html(fileName);
     });
-
     $('#сareers-form').validate({
         rules: {
             Email: {
@@ -18,41 +18,40 @@
             },
             Resume: {
                 required: true,
-                ///extension: "doc|docx|pdf",
-                accept: "doc/docx/pdf",
+                extension: 'docx|rtf|doc|pdf|',
+                filesize: 25,
             },
-         },
+        },
         message: {
             Email: {
-                email: "Please! Enter a valid email address",
+                email: 'Please! Enter a valid email address',
             },
             PhoneNumber: {
-                digits: "Please enter a valid phone number",
+                digits: 'Please enter a valid phone number',
             },
             Resume: {
-                //extension: "Please enter a value with a valid extension (doc, docx, pdf).",
-                accept: "Please enter a value with a valid extension (doc, docx, pdf).",
+                required: 'Please upload resume',
+                extension: 'Please upload valid file formats (docx, rtf, doc, pdf).',
+                filesize: 'Sorry! Maximum upload file size: 25 MB.',
             }
-
         },
-
         submitHandler: function (form) {
             let formData = new FormData($('#сareers-form')[0])
             $.ajax({
-                url: "/home/Careers",
+                url: '/home/Careers',
                 type: 'POST',
                 data: formData,
                 processData: false,
                 contentType: false,
                 success: function (response) {
                     if (response.Data && response.Success) {
-                        document.querySelector(".sentMessage").style.display = "block";
-                        window.setTimeout(function () { location.reload() }, 2000);
+                        $('#myModal').modal('show');
+                        $('#myModal').on('hidden.bs.modal', function (e) {
+                            window.setTimeout(function () { location.reload() }, 0);
+                        })
                     }
-                 
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    let errorMessage = "Error" + " " + xhr.status + ":" + " " + "An error occurred while processing your request. Please try again later.";
                     document.querySelector('.errorMessage').innerHTML = errorMessage;
                     scrollToUp();
                 }
@@ -60,29 +59,28 @@
             });
         }
     });
-    //validate file extension custom  method.
-   // $.validator.addMethod("extension", function (value, element, param) {
-     //   param = typeof param === "string" ? param.replace(/,/g, "|") : "doc|docx|pdf";
-       // return (this.optional(element) || value.match(new RegExp("\\.(" + param + ")$", "i"))
-        //);
-    //},
-      //  $.validator.format(
-        //    "Please enter a value with a valid extension (doc, docx, pdf)."
-        //)
-    //);
+    //// Method jquery validator sizefile
+    $.validator.addMethod('filesize', function (value, element, param) {
+        let size = element.files[0].size;
+        size = size / 1024;
+        size = Math.round(size);
+        return this.optional(element) || size <= param;
+
+    }, 'File size must be less than {0}');
+
 }); ////////// document.ready
 
 ///scrollToUp error
 function scrollToUp() {
     window.scrollTo(0, 1300);
-
     window.scrollTo({
         top: 1300,
-        behavior: "smooth"
+        behavior: 'smooth'
     });
     return false;
 }
 
+///////test function for form value 
 function testSeed() {
     $('[name="FirstName"]').val("Vasya");
     $('[name="LastName"]').val("Ivanov");

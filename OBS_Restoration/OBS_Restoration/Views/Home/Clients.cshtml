@@ -3,21 +3,20 @@
   ViewBag.Title = "Clients";
 }
 @section Scripts {
+  <script src="~/Content/Js/Custom/clients.js"></script>
   <script src="~/Content/Js/jquery.validate.min.js"></script>
   <script src="~/Content/Js/additional-methods.min.js"></script>
-  <script src="~/Content/Js/Custom/clients.js"></script>
+
 }
 <section class="container-fluid">
   <section class="row">
-    <section class="col-lg-12 clints-bg">
-      <section class="slide-text">
-        <h2>Our clints</h2>
-      </section>
+    <section class="col-lg-12 clients-bg">
+      <h2>Our clients</h2>
     </section> <!-- contacts-bg -->
   </section> <!--row-->
 
   <section class="container">
-    <h3 id="clints"></h3>
+    <h3 id="clients"></h3>
     <section class="hr-heading "></section>
     <p>
       OBS Restoration ltd is a specialized restoration contractor with expertise in a wide range of quality concrete restoration,
@@ -28,11 +27,10 @@
     </p>
     <p class="estimate">Please fill out the form below to request a <span>free</span> estimate. </p>
   </section> <!--container-->
-
   <section class="container form-touch">
-    <section class="alertMessage">
+    <section>
       <p class="errorMessage"></p>
-    </section>
+    </section>  <!--errorMessage-->
     <h5>Request an Estimate</h5>
     <form id="сlients-form">
       @Html.AntiForgeryToken()
@@ -72,7 +70,7 @@
         </section> <!--form-group-->
       </section> <!--row-->
       <section class="custom-file">
-        <input type="file" class="custom-file-input required" name="File[]" multiple />
+        <input type="file" class="custom-file-input file required" name="File" multiple />
         <label class="custom-file-label require" for="File">Choose your files</label>
       </section> <!--custom-file-->
       <section class="row">
@@ -105,14 +103,32 @@
           <input type="text" class="form-control " name="PostalCode" />
         </section> <!--form-group-->
       </section> <!--row-->
-      <button type="submit" class="btn  align-self-center ">Request an estimate</button>
-
+      <button type="submit" class="btn  align-self-center">Request an estimate</button>
       @Html.Hidden("ClientType", (string)ViewBag.ClientType)
     </form>
-    <section class="sentMessage">
-      <section class="boxMessage">
-        <img src="~/Content/Images/mesasge-sent.png" />
-      </section>
-    </section>
   </section> <!--form-touch-->
+  <!-- Modal -->
+  <section class="container" data-toggle="modal" data-target="#myModal">
+    <section class="modal fade" id="myModal" role="dialog">
+      <section class="modal-dialog modal-lg">
+        <section class="modal-content">
+          <section class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </section><!--modal header-->
+          <section class="modal-body text-center">
+            <svg class="success">
+              <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#success"></use>
+            </svg>
+            <p class="thanks">Thank you!</p>
+            <p>Your message has been sent successfully!</p>
+          </section><!--modal body-->
+          <section class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </section><!--modal-footer-->
+        </section><!--modal-content-->
+      </section><!--modal-dilog-->
+    </section><!--modal fade-->
+  </section><!--modal container-->
 </section> <!--container-fluid-->

@@ -298,17 +298,17 @@ padding: 0;
     }
 }
 
-///////////////// CLINTS HOME
-.clint-description p {
+///////////////// CLIENTS HOME
+.client-description p {
     margin-bottom: 100px;
 }
 
-.clint-card img {
+.client-card img {
     width: 100%;
     height: 250px;
 }
 
-.clint-card {
+.client-card {
     margin-bottom: 30px;
 
     h3 {
@@ -362,16 +362,16 @@ padding: 0;
         overflow: hidden;
     }
 
-    ////////////////////////////CLINTS
+    ////////////////////////////CLIENTS
 
-.clints-bg {
+.clients-bg {
     margin: 0 0 100px 0;
     width: 100%;
     height: 500px;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../../../Content/Images/Bg/clints.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../../../Content/Images/Bg/clients.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-  ///  @extend %base-setting-bg;
+   @extend %base-setting-bg;
     margin-bottom: 50px;
 
 }
@@ -382,7 +382,7 @@ padding: 0;
     span {
         color: #ec1515;
     }
-}
+ }
 .custom-file {
     margin: 20px 0 20px 0;
 }
@@ -401,6 +401,7 @@ padding: 0;
 
     p {
      //   @extend %slide-text-style;
+        width: 40%;
         width: 40%;
         margin: 0 auto;
     }
@@ -472,7 +473,6 @@ padding: 0;
    // @extend %base-setting-bg;
     margin-bottom: 50px;
 }
-
     .border-supplier {
         display: inline-block;
         position: relative;
@@ -974,9 +974,7 @@ input[type="password"] {
 
 /////TEXT MESSAGE FORM VALIDATION
 
-.form-touch {
-    position: relative;
-}
+
 //////////////////////FOR FORM
 label.require:after {
     content: " *";
@@ -988,28 +986,37 @@ label.require:after {
     font-size: 0.7em;
 }
 
-.errorMessage {
+.errorMessage { 
     color: red;
- }
+}
 .form-control {
     font-size: 1em;
 }
-.sentMessage {
-    display: none;
-    position: absolute;
-    top: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 100;
-    width: 1150px;
-    right: 0;
-    height: 1200px;
+////MODAL SUBMIT
+.modal-content {
+margin: 25% auto;
+}
+.modal-header {
+    border-bottom: none;
+}
+.modal-footer {
+    border-top: none;
+}
+.modal-body {
+    padding: 0;
+    svg {
+        fill: #22bb33;
+        margin-bottom: 25px;
+    }
 
-    img {
-        border-style: none;
-        width: 600px;
-        display: block;
-        margin: 200px auto;
+    p {
+        font-size: 1.5em;
+        line-height: 1;
     }
 }
+p.thanks {
+    font-weight: bold;
+    font-size: 1.8em;
+} 
 @import "media";
      

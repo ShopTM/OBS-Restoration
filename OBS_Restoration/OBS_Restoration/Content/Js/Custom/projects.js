@@ -3,8 +3,8 @@ $(function () {
         url: '/home/getProjects',
           type: 'GET',
           success: function (data) {
-            let project = data.Data;
-            project.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
+              let project = data.Data;
+              project.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
             $.each(project, function (i, value) {
                 populateProjectsImg(value)
                 populateProjectsTab(value)
