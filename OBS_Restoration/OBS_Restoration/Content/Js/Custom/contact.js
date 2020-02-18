@@ -32,14 +32,31 @@
                 type: 'POST',
                 data: $(form).serialize(),
                 success: function (response) {
-                    document.querySelector(".alert-success").style.display = "block";
-                    //  window.setTimeout(function () { location.reload() }, 2000);
+                    if (response.Data && response.Success) {
+                        $('#myModal').modal('show');
+                        $('#myModal').on('hidden.bs.modal', function (e) {
+                            window.setTimeout(function () { location.reload() }, 0);
+                        })
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    document.querySelector('.errorMessage').innerHTML = errorMessage;
+                    scrollToUp();
                 }
             });
         }
     });
 }); ////////// document.ready
 
+///scrollToUp error
+function scrollToUp() {
+    window.scrollTo(0, 1300);
+    window.scrollTo({
+        top: 1300,
+        behavior: 'smooth'
+    });
+    return false;
+}
 
 
 

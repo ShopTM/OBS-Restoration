@@ -3,8 +3,9 @@
   ViewBag.Title = "Careers";
 }
 @section Scripts {
+
+  <script src="~/Content/Js/Custom/careers.js"></script>
   <script src="~/Content/Js/jquery.validate.min.js"></script>
-  <script src="~/Content/Js/Custom/careersValidation.js"></script>
   <script src="~/Content/Js/additional-methods.min.js"></script>
 }
 <section class="container-fluid">
@@ -74,46 +75,67 @@
     </section> <!--row-->
   </section><!--container-hiring-process-->
   <section class="container form-touch">
+    <section>
+      <p class="errorMessage"></p>
+    </section>  <!--errorMessage-->
     <h5>Apply for job</h5>
-
     <form class="career-form " id="сareers-form">
       @Html.AntiForgeryToken()
       <section class="row">
         <section class="col-sm-6 form-group">
           <label for="fiirst name" class="require">First name</label>
           <input type="text" class="form-control required" name="FirstName" />
-        </section>
+        </section>  <!--col-6-12-->
         <section class="col-lg-6 form-group">
           <label for="LastName" class="require">Last name</label>
           <input type="text" class="form-control required" name="LastName" />
-        </section>
-      </section>
+        </section>  <!--col-lg-6-->
+      </section>  <!--row-->
       <section class="row">
         <section class="col-lg-6 form-group">
           <label for="Email" class="require">Email</label>
           <input type="email" class="form-control required" name="Email" />
-        </section>
+        </section>  <!--col-lg-6-->
         <section class="col-lg-6 form-group ">
           <label for="PhoneNumber" class="require">Phone number</label>
           <input type="tel" class="form-control required" name="PhoneNumber" />
-        </section>
-      </section>
+        </section>  <!--col-lg-6-->
+      </section> <!--row-->
       <section class="row">
         <section class="col-lg-12  form-group">
           <label for="message">Message</label>
           <textarea class="form-control" rows="5" name="Message"></textarea>
-        </section>
-      </section>
+        </section> <!--col-lg-12-->
+      </section><!--row-->
       <section class="custom-file ">
         <input type="file" class="custom-file-input fileName required" name="Resume" />
         <label class="custom-file-label require" for="Resume">Choose your resume</label>
       </section> <!--custom-file-->
-      <button type="submit" class="btn btnForm align-self-center ">Submit</button>
-      <section class="alert-success" role="alert">
-        <h4>Thank you</h4>
-        <p>Your message has been successfully sent. We will contact you very soon!</p>
-      </section>
+      <button type="submit" class="btn btnForm align-self-center">Submit</button>
     </form>
-  </section>
-</section>
-
+  </section><!--form-touch-->
+  <!-- Modal -->
+  <section class="container" data-toggle="modal" data-target="#myModal">
+    <section class="modal fade" id="myModal" role="dialog">
+      <section class="modal-dialog modal-lg">
+        <section class="modal-content">
+          <section class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </section><!--modal header-->
+          <section class="modal-body text-center">
+            <svg class="success">
+              <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#success"></use>
+            </svg>
+            <p class="thanks">Thank you!</p>
+            <p class="messageSuccessfully"></p>
+             </section><!--modal body-->
+          <section class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </section><!--modal-footer-->
+        </section><!--modal-content-->
+      </section><!--modal-dilog-->
+    </section><!--modal fade-->
+  </section><!--modal container-->
+</section><!--container-fluid-->

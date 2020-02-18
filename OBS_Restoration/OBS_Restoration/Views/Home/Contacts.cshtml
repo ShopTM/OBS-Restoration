@@ -5,7 +5,7 @@
 
 @section Scripts {
   <script src="~/Content/Js/jquery.validate.min.js"></script>
-  <script src="~/Content/Js/Custom/contactValidation.js"></script>
+  <script src="~/Content/Js/Custom/contact.js"></script>
 }
 <section class="container-fluid">
   <section class="row">
@@ -67,12 +67,15 @@
       </section> <!--col-lg-7 col-sm-12-->
     </section> <!--roe detail-->
     <section class="form-touch">
+      <section>
+        <p class="errorMessage"></p>
+      </section>  <!--errorMessage-->
       <h5>Get in touch with us</h5>
       <form class="needs-validation contact-form">
         @Html.AntiForgeryToken()
         <section class="row">
           <section class="col-lg-4 form-group">
-            <label for="fiirst name"  class="require">First name</label>
+            <label for="fiirst name" class="require">First name</label>
             <input type="text" class="form-control required" name="FirstName" />
           </section> <!--form-group-->
           <section class="col-lg-4 form-group ">
@@ -86,16 +89,36 @@
         </section> <!--row-->
         <section class="row">
           <section class="col-lg-12  form-group">
-            <label for="message"  class="require">Message</label>
+            <label for="message" class="require">Message</label>
             <textarea class="form-control textarea required" rows="5" name="Message"></textarea>
           </section> <!--form-group-->
         </section> <!--row-->
         <button type="submit" class="btn btnForm button align-self-center">Submit</button>
-        <section class="alert-success" role="alert">
-          <h4>Thank you</h4>
-          <p>Your message has been successfully sent. We will contact you very soon!</p>
-        </section>
-      </form>
+       </form>
     </section> <!--form-touch-->
   </section><!--container-->
+  <!-- Modal -->
+  <section class="container" data-toggle="modal" data-target="#myModal">
+    <section class="modal fade" id="myModal" role="dialog">
+      <section class="modal-dialog modal-lg">
+        <section class="modal-content">
+          <section class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </section><!--modal header-->
+          <section class="modal-body text-center">
+            <svg class="success">
+              <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#success"></use>
+            </svg>
+            <p class="thanks">Thank you!</p>
+            <p>Your message has been sent successfully!</p>
+          </section><!--modal body-->
+          <section class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </section><!--modal-footer-->
+        </section><!--modal-content-->
+      </section><!--modal-dilog-->
+    </section><!--modal fade-->
+  </section><!--modal container-->
 </section><!--container-fluid-->
