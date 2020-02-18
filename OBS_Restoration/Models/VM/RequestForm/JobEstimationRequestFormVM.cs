@@ -14,7 +14,6 @@ namespace Models.VM.RequestForm
         [DisplayName("Building type")]
         public string BuildingType { get; set; }
         
-        [Required]
         [DisplayName("Project summary")]
         public string ProjectSummary { get; set; }
 
@@ -38,6 +37,8 @@ namespace Models.VM.RequestForm
 
         [DisplayName("Type of client")]
         public string TypeOfClient { get; set; }
+
+        [Required]
         public List<HttpPostedFileBase> Files { get; set; }
 
     }

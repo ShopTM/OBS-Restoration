@@ -3,25 +3,30 @@ using Common.Log;
 using Models;
 using Models.Entities;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace OBS_Restoration.Controllers
 {
-    [Authorize]
-    public class TemporaryController : BaseController
+#if DEBUG
+    [AllowAnonymous]
+    public class LocalController : BaseController
     {
-        public TemporaryController()
+        public LocalController()
         {
         }
-        public TemporaryController(UsersManager userManager, UserSignInManager signInManager)
+        public LocalController(UsersManager userManager, UserSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
         }
+        public JsonResult Index()
+        {
+            return Json("Local controller is avilable",JsonRequestBehavior.AllowGet);
+        }
         [HttpGet]
-        [AllowAnonymous]
-        public async Task<ActionResult> CreateAdmin(string email, string password) // http://localhost:49195/Temporary/CreateAdmin?Email=email@email.com&Password=123456
+        public async Task<ActionResult> CreateAdmin(string email, string password) // http://localhost:49195/Local/CreateAdmin?Email=email@email.com&Password=123456
         {
             try
             {
@@ -45,4 +50,5 @@ namespace OBS_Restoration.Controllers
             return RedirectToAction("Login");
         }
     }
+#endif
 }

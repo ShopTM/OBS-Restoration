@@ -18,10 +18,10 @@ namespace Models.VM.RequestForm
         public string Email { get; set; }
         [DisplayName("Phone number")]
         public string PhoneNumber { get; set; }
-        [Required]
         [DisplayName("Message")]
         public string Message { get; set; }
-        
+
+        [Required]
         public HttpPostedFileBase Resume { get; set; }
     }
 }

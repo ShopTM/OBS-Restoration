@@ -3,14 +3,14 @@ $(function () {
         url: '/home/getServices',
         type: 'GET',
         success: function (data) {
-          let service = data.Data;
+            let service = data.Data;
             service.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
             $.each(service, function (i, item) {
-            populateService(item)
+                populateService(item)
 
-                });
-            }
-     });
+            });
+        }
+    });
 });
 function populateService(item) {
     var temp, col, row;
@@ -23,5 +23,5 @@ function populateService(item) {
     row = temp.content.querySelectorAll(".row");
     row = document.importNode(col, true);
     document.querySelectorAll('.row')[6].append(row);
-    
+
 }
