@@ -3,14 +3,23 @@ $(function () {
         url: '/home/getServices',
         type: 'GET',
         success: function (data) {
-          let service = data.Data;
-            service.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
-            $.each(service, function (i, item) {
-            populateService(item)
-
+            if (data.Data && data.Success) {
+                let services = data.Data;
+                sercvices.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
+                $.each(services, function (i, value) {
+                    populateService(item)
                 });
+
+            } else if
+                (data.Data === null || data.Success === false) {
+                let errorProjectMessage = data.ErrorMessage;
+                document.querySelector('.errorProjectMessage').innerHTML = errorProjectMessage;
+                document.querySelector('.errorProject').style.display = 'block';
+                document.querySelector('.project-filter-links').style.display = 'none';
+
             }
-     });
+        }
+    });
 });
 function populateService(item) {
     var temp, col, row;
@@ -23,5 +32,5 @@ function populateService(item) {
     row = temp.content.querySelectorAll(".row");
     row = document.importNode(col, true);
     document.querySelectorAll('.row')[6].append(row);
-    
-}
+
+};

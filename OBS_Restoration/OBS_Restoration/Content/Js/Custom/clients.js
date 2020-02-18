@@ -77,6 +77,7 @@ $(function () {
                 contentType: false,
                 success: function (response) {
                     if (response.Data && response.Success) {
+                        document.querySelector('.messageSuccessfully').innerHTML = dataMessage + '!';
                         $('#myModal').modal('show');
                         $('#myModal').on('hidden.bs.modal', function (e) {
                             window.setTimeout(function () { location.reload() }, 0);

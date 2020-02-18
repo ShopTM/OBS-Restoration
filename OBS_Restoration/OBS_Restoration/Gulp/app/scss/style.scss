@@ -8,15 +8,12 @@ $fz: 1.2em;
 .container {
     margin-bottom: 50px;
 }
-
-
 %slide-text-style {
     color: #ffffff;
     text-transform: uppercase;
     text-align: center;
     animation: slideUp 2s ease-in-out;
 }
-
 %base-setting-bg {
     display: flex;
     flex-direction: column;
@@ -975,7 +972,7 @@ input[type="password"] {
 /////TEXT MESSAGE FORM VALIDATION
 
 
-//////////////////////FOR FORM
+//////////////////////FOR FORM ERROR
 label.require:after {
     content: " *";
     color: red;
@@ -987,14 +984,30 @@ label.require:after {
 }
 
 .errorMessage { 
-    color: red;
+    color: #ff0000;
 }
 .form-control {
     font-size: 1em;
 }
+////error projecet
+.errorProject {
+    margin: 0 auto;
+    display: none;
+    svg {
+        display: block;
+        margin: 0 auto;
+        fill: #ff0000;
+        width: 100px;
+    }
+    p {
+        text-align: center;
+        font-size: 1.3em;
+        font-weight: 700;
+    }
+}
 ////MODAL SUBMIT
 .modal-content {
-margin: 25% auto;
+    margin: 25% auto;
 }
 .modal-header {
     border-bottom: none;

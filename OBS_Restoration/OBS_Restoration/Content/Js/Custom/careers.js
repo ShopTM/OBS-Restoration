@@ -45,6 +45,8 @@ $(function () {
                 contentType: false,
                 success: function (response) {
                     if (response.Data && response.Success) {
+                        let dataMessage = response.Data;
+                        document.querySelector('.messageSuccessfully').innerHTML = dataMessage + '!';
                         $('#myModal').modal('show');
                         $('#myModal').on('hidden.bs.modal', function (e) {
                             window.setTimeout(function () { location.reload() }, 0);
@@ -52,7 +54,7 @@ $(function () {
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    document.querySelector('.errorMessage').innerHTML = errorMessage;
+                    document.querySelector('.errorMessage').innerHTML = errorMessage + '!';
                     scrollToUp();
                 }
 

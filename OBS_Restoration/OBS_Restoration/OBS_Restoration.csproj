@@ -383,6 +383,7 @@
     <Content Include="Gulp\app\svg\telephone.svg" />
     <Content Include="Gulp\app\svg\value.svg" />
     <Content Include="Gulp\app\svg\verified.svg" />
+    <Content Include="Gulp\app\svg\warning.svg" />
     <Content Include="node_modules\%40nodelib\fs.scandir\out\adapters\fs.js" />
     <Content Include="node_modules\%40nodelib\fs.scandir\out\constants.js" />
     <Content Include="node_modules\%40nodelib\fs.scandir\out\index.js" />
