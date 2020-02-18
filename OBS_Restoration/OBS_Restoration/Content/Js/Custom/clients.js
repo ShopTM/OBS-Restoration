@@ -43,11 +43,7 @@ $(function () {
                 required: true,
                 email: true,
             },
-            PhoneNumber: {
-                required: false,
-                digits: true,
-
-            },
+         
             file: {
                 required: true,
                 extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|",
@@ -58,9 +54,7 @@ $(function () {
             Email: {
                 email: "Please! Enter a valid email address",
             },
-            PhoneNumber: {
-                digits: "Please enter a valid phone number",
-            },
+        
             file: {
                 required: "Please upload resume",
                 extension: "Please upload valid file formats (docx, rtf, doc, pdf).",
@@ -70,13 +64,14 @@ $(function () {
         submitHandler: function (form) {
             let formData = new FormData($('#сlients-form')[0])
             $.ajax({
-                url: "/home/Clients",
+                url: "/home/JobEstimation",
                 type: 'POST',
                 data: formData,
                 processData: false,
                 contentType: false,
                 success: function (response) {
                     if (response.Data && response.Success) {
+                        let dataMessage = response.Data;
                         document.querySelector('.messageSuccessfully').innerHTML = dataMessage + '!';
                         $('#myModal').modal('show');
                         $('#myModal').on('hidden.bs.modal', function (e) {

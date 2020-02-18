@@ -6,42 +6,44 @@ $(function () {
             if (data.Data && data.Success) {
                 let project = data.Data;
                 project.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
-                $.each(data, function (i, value) {
-                    populateProjectsImg(value)
-                    populateProjectsTab(value)
-                    /////////////////////PROJECT ISOTOP
-                    let $container = $(".project-container");
+                $.each(project, function (i, value) {
+                    populateProjectsTab(value);
+                    populateProjectsImg(value);
+                 
+
+                });
+                /////////////////////PROJECT ISOTOP
+                let $container = $(".project-container");
+                $container.isotope({
+                    filter: "*",
+                    animationOptions: {
+                        duration: 750,
+                        easing: "linear",
+                        queue: false
+                    }
+                });
+
+                $('.project-filter a').click(function () {
+                    $('project-filter .current').removeClass('current');
+                    $(this).addClass('current');
+
+                    let selector = $(this).attr('data-filter');
                     $container.isotope({
-                        filter: "*",
+                        filter: selector,
                         animationOptions: {
                             duration: 750,
-                            easing: "linear",
+                            easing: 'linear',
                             queue: false
                         }
                     });
-
-                    $(".project-filter a").click(function () {
-                        $(".project-filter .current").removeClass("current");
-                        $(this).addClass("current");
-
-                        let selector = $(this).attr("data-filter");
-                        $container.isotope({
-                            filter: selector,
-                            animationOptions: {
-                                duration: 750,
-                                easing: "linear",
-                                queue: false
-                            }
-                        });
-                        return false;
-                    });
-                })
+                    return false;
+                });
             } else if
                 (data.Data === null || data.Success === false) {
                 let errorProjectMessage = data.ErrorMessage;
                 document.querySelector('.errorProjectMessage').innerHTML = errorProjectMessage;
                 document.querySelector('.errorProject').style.display = 'block';
-                document.querySelector('.project-filter-links').style.display = 'none';
+                document.querySelector('.project-filter ').style.display = 'none';
                
             }
         },
@@ -57,7 +59,7 @@ function populateProjectsTab(value) {
     templ.content.querySelector(".tab").setAttribute("data-filter", 'section' + '[project=' + '"' + value.Name + '"' + ']');
     templ.content.querySelector("a.tab").setAttribute("href", value.Name);
     var clon = templ.content.cloneNode(true);
-    document.querySelector(".project-filter-links").append(clon);
+    document.querySelector(".project-filter ").append(clon);
 }
 
 

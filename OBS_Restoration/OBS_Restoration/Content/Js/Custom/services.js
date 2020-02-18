@@ -5,9 +5,9 @@ $(function () {
         success: function (data) {
             if (data.Data && data.Success) {
                 let services = data.Data;
-                sercvices.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
+                services.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
                 $.each(services, function (i, value) {
-                    populateService(item)
+                    populateService(value);
                 });
 
             } else if

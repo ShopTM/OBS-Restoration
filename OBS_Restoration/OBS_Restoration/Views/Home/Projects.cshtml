@@ -2,6 +2,7 @@
   ViewBag.Title = "Projects";
 }
 @section Scripts {
+
   <script src="~/Content/Js/Custom/projects.js"></script>
   <script src="~/Content/Js/isotope-docs.min.js"></script>
 }
@@ -24,8 +25,8 @@
          </svg>
          <p class="errorProjectMessage"></p>
        </section>
-       <section class="col-lg-12 project-filter-links">
-         <a href="#" data-filter="">All projects</a>
+       <section class="col-lg-12 project-filter ">
+         <a href="#" data-filter="*">All projects</a>
        </section>  <!--project-filter-links-->
      </section>  <!--row-->
   </section> <!--container-filter-->
@@ -38,7 +39,7 @@
 </template>
 <template id="templateImg">
   <section class="project-container-img">
-    <img src="" alt="Project" class="js-amplify"/>
+    <img src="" alt="Project"/>
   </section>
 </template>
 

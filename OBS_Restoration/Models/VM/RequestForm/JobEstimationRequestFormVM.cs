@@ -13,7 +13,7 @@ namespace Models.VM.RequestForm
         [Required]
         [DisplayName("Building type")]
         public string BuildingType { get; set; }
-        
+        [Required]
         [DisplayName("Project summary")]
         public string ProjectSummary { get; set; }
 
@@ -26,6 +26,7 @@ namespace Models.VM.RequestForm
         [Required]
         [DisplayName("Email")]
         public string Email { get; set; }
+
         [DisplayName("Phone number")]
         public string PhoneNumber { get; set; }
 
@@ -38,7 +39,6 @@ namespace Models.VM.RequestForm
         [DisplayName("Type of client")]
         public string TypeOfClient { get; set; }
 
-        [Required]
         public List<HttpPostedFileBase> Files { get; set; }
 
     }
