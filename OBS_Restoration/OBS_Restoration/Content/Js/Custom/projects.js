@@ -9,57 +9,36 @@ $(function () {
                 $.each(project, function (i, value) {
                     populateProjectsTab(value);
                     populateProjectsImg(value);
-                 
-
                 });
                 /////////////////////PROJECT ISOTOP
                 let $container = $(".project-container");
                 $container.isotope({
-                    filter: "*",
-                    animationOptions: {
-                        duration: 750,
-                        easing: "linear",
-                        queue: false
-                    }
+                    itemSelector: '.project-container-img',
+                    filter: "*"
                 });
-
-                $('.project-filter a').click(function () {
-                    $('project-filter .current').removeClass('current');
-                    $(this).addClass('current');
-
-                    let selector = $(this).attr('data-filter');
-                    $container.isotope({
-                        filter: selector,
-                        animationOptions: {
-                            duration: 750,
-                            easing: 'linear',
-                            queue: false
-                        }
-                    });
+                $('.project-filter').on('click', 'a', function () {
+                    var filterValue = $(this).attr('data-filter');
+                    $container.isotope({ filter: filterValue });
                     return false;
                 });
-            } else if
-                (data.Data === null || data.Success === false) {
+            }
+            else if (data.Data === null || data.Success === false) {
                 let errorProjectMessage = data.ErrorMessage;
                 document.querySelector('.errorProjectMessage').innerHTML = errorProjectMessage;
                 document.querySelector('.errorProject').style.display = 'block';
                 document.querySelector('.project-filter ').style.display = 'none';
-               
             }
         },
-
     });
-
 });
 
 function populateProjectsTab(value) {
     let templ;
     templ = document.getElementById('templateTab');
     templ.content.querySelector(".tab").innerHTML = (value.Name);
-    templ.content.querySelector(".tab").setAttribute("data-filter", 'section' + '[project=' + '"' + value.Name + '"' + ']');
-    templ.content.querySelector("a.tab").setAttribute("href", value.Name);
+    templ.content.querySelector(".tab").setAttribute("data-filter", 'section[project="' + value.Name + '"]');
     var clon = templ.content.cloneNode(true);
-    document.querySelector(".project-filter ").append(clon);
+    document.querySelector(".project-filter").append(clon);
 }
 
 
