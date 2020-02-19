@@ -47,7 +47,7 @@
             border-top: none;
         }
         .dropdown-menu a {
-            font-size: .5em;
+            font-size: .9em;
         }
         .admin-nav  {
             background: none;
@@ -95,15 +95,18 @@
             padding-left: 5px;
             width: 70%;
           }
-
-        .about-advantages span,
-        .navbar button {
-            display: block;
-            margin: 0 auto;
-            top: 0;
-            width: 40px;
-            height: 40px;
-        }
+    .navbar button {
+        display: block;
+        margin: 0 auto;
+        width: 40px;
+        height: 40px;
+    }
+    .about-advantages span {
+        display: block;
+        margin: 0 auto;
+        top: 0;
+    
+    }
 
         .about-advantages h4,
         .about-advantages p {
@@ -142,7 +145,7 @@
         }
 
         .dropdown-menu a {
-            font-size: .5rem;
+            font-size: .9rem;
         }
 
         .services-banner h4 {
@@ -174,5 +177,5 @@
         .other-supliers img {
             width: 50%;
         }
-      
+        
     }
