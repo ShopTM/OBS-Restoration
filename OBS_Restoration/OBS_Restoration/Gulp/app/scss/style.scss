@@ -159,10 +159,6 @@ padding: 0;
 }
 .slide-text {
     z-index: 1;
-    ///display: flex;
-    //flex-direction: column;
-    //align-items: center;
-    //justify-content: center;
     @extend %base-setting-bg;
     @extend %size-block;
 
@@ -392,13 +388,11 @@ padding: 0;
     background-size: cover;
     background-position: center;
     display: flex;
-  ///  @extend %base-setting-bg;
     margin-bottom: 50px;
 
 
     p {
-     //   @extend %slide-text-style;
-        width: 40%;
+         width: 40%;
         width: 40%;
         margin: 0 auto;
     }
@@ -457,17 +451,14 @@ padding: 0;
     background-size: cover;
     background-position: center;
     display: flex;
-  ///  @extend %base-setting-bg;
-   // @extend %size-block;
     margin-bottom: 50px;
+
 }
     ////////////////////////////////////////////SUPPLIERS
 .suppliers-bg {
-  //  @extend %size-block;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/suppliers.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-   // @extend %base-setting-bg;
     margin-bottom: 50px;
 }
     .border-supplier {
@@ -535,7 +526,6 @@ padding: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/careers.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-  ///  @extend %base-setting-bg;
     margin-bottom: 50px;
 
 }
@@ -638,12 +628,9 @@ padding: 0;
     background-size: cover;
     background-position: center;
     margin-bottom: 50px;
-  ///  @extend %base-setting-bg;
 
 
-    h2 {
-    ///    @extend %slide-text-style;
-    }
+    
 }
 
     .detail {
@@ -1030,6 +1017,7 @@ label.require:after {
 p.thanks {
     font-weight: bold;
     font-size: 1.8em;
-} 
+}
+
 @import "media";
      

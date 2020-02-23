@@ -1,61 +1,81 @@
-.project-filter {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 50px;
+* {
+    box-sizing: border-box;
 }
-.project-filter a:after {
-    content: "|";
+
+.button {
+    position: relative;
+    display: inline-block;
+    border: none;
+    padding-right: 6px;
+    height: 2.7rem;
+    background: rgba(0,0,0,0);
+    cursor: pointer;
+    font-size: 1rem;
     color: #188cb1;
-    padding: 0 15px 0 15px;
-}
-.project-filter a {
-    color: #188cb1;
-    font-weight: 700;
-    text-decoration: none;
     text-transform: uppercase;
-    margin: 15px 0 15px 0;
-    text-align: center;
-}
-.project-filter a:hover {
-   color: #1a6ca3;
+    transition: background 150ms;
+    outline: none;
+    font-weight: 700;
 }
 
-.project-container {
-    width: 90%;
+.button-group {
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.button:hover {
+    color: #18667f;
+}
+
+button:focus {
+    outline: none;
+}
+
+.button.is-checked {
+    color: #18667f;
+    border-bottom: 3px solid #18667f;
+}
+/* clear fix */
+.grid:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* ---- .element-item ---- */
+
+.element-item {
+    position: relative;
+    display: block;
     margin: 0 auto;
-    margin-bottom: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+    width: 20%;
+    color: #262524;
 }
 
-    .project-container > section {
-        margin: 0 auto;
-        padding: 10px;
+@media screen and (min-width: 320px) {
+    .element-item {
+        width: 50%;
+        height: 220px;
     }
-
-.isotope-item {
-    z-index: 2;
 }
 
-.isotope-hidden.isotope-item {
-    pointer-events: none;
-    z-index: 1;
-}
-
-.isotope,
-.isotope .isotope-item {
-    transition-duration: 0.8s;
-}
-
-.isotope {
-    transition-property: height, width;
-}
-
-    .isotope .isotope-item {
-        transition-property: transform, opacity;
+@media screen and (min-width: 520px) {
+    .element-item {
+        height: 300px;
     }
+}
+/* 4 Columns */
+@media screen and (min-width: 961px) {
+    .element-item {
+        width: 25%;
+        height: 230px;
+    }
+}
+/* 5 Columns */
+@media screen and (min-width: 1401px) {
+    .element-item {
+        width: 20%;
+        height: 335px;
+    }
+}

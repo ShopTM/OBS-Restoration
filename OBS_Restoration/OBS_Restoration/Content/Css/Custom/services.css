@@ -1,4 +1,13 @@
 /* Common style */
+.img_wrapper.loaded img {
+    opacity: 1;
+}
+
+
+.img_wrapper img {
+    opacity: 0;
+    transition: opacity 150ms;
+}
 .services-offer figure {
     position: relative;
     overflow: hidden;
