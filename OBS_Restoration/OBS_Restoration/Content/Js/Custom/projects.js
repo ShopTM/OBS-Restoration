@@ -5,8 +5,6 @@ $(function () {
         success: function (data) {
             if (data.Data && data.Success) {
                 let project = data.Data;
-                let img = project.Url;
-                console.log(project)
                 project.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
                 $.each(project, function (i, value) {
                     populateProjectsTab(value);
@@ -17,15 +15,13 @@ $(function () {
                     itemSelector: ".element-item",
                     layoutMode: "fitRows"
                 });
-
                 // filter functions
                 var filterFns = {
-                       filterProjects: function () {
+                    filterProjects: function () {
                         var filterValue = $(this).attr('data-filter');
                         $container.isotope({ filter: filterValue });
                         return false;
                     },
-                        
                 };
                 // bind filter button click
                 $(".filters-button-group").on("click", "button", function () {
@@ -42,7 +38,7 @@ $(function () {
                         $(this).addClass("is-checked");
                     });
                 });
-             }
+            }
             else if (data.Data === null || data.Success === false) {
                 let errorProjectMessage = data.ErrorMessage;
                 document.querySelector('.errorProjectMessage').innerHTML = errorProjectMessage;
@@ -61,8 +57,6 @@ function populateProjectsTab(value) {
     var clon = templ.content.cloneNode(true);
     document.querySelector(".button-group").append(clon);
 }
-
-
 function populateProjectsImg(value) {
     let temp;
     temp = document.getElementById("templateImg");
