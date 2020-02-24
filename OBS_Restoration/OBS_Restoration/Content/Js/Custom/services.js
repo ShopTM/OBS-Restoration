@@ -26,7 +26,8 @@ $(function () {
         }
     });
 });
-function populateService(item) {
+function  
+    (item) {
     var temp, col, row;
     temp = document.getElementsByTagName("template")[0];
     temp.content.querySelector('img').src = (item.ImgUrl);
