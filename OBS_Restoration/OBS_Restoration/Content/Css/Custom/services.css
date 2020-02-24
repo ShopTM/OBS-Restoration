@@ -3,17 +3,17 @@
     opacity: 1;
 }
 
-
 .img_wrapper img {
     opacity: 0;
     transition: opacity 150ms;
 }
+
 .services-offer figure {
     position: relative;
     overflow: hidden;
     background: #000000;
     text-align: center;
-
+    margin: 15px;
 }
 
     .services-offer figure img {
@@ -51,7 +51,7 @@
         font-weight: 300;
     }
 
-     .services-offer figure h2,
+    .services-offer figure h2,
     .services-offer figure p {
         margin: 0;
     }
@@ -76,10 +76,10 @@ figure.services-offer-efect img {
 }
 
 figure.services-offer-efect figcaption p,
-figure.services-offer-efect figcaption h2
-{
+figure.services-offer-efect figcaption h2 {
     text-align: left;
 }
+
 .services-offer figcaption h2 {
     font-size: 1.4rem;
 }

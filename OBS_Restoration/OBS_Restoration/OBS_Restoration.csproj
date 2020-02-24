@@ -138,6 +138,7 @@
     <Content Include="Content\Css\Custom\gallery.css" />
     <Content Include="Content\Css\Custom\project.css" />
     <Content Include="Content\Css\Custom\services.css" />
+    <Content Include="Content\Css\Custom\spinner.css" />
     <Content Include="Content\Css\Custom\style.min.css" />
     <Content Include="Content\Icons\craftsmans.svg" />
     <Content Include="Content\Icons\develop.svg" />
@@ -272,12 +273,14 @@
     <Content Include="Content\Images\Suppliers\scafom.jpg" />
     <Content Include="Content\Images\Suppliers\tremco.png" />
     <Content Include="Content\Js\additional-methods.min.js" />
+    <Content Include="Content\Js\bootstrap.bundle.min.js" />
     <Content Include="Content\Js\Custom\careers.js" />
     <Content Include="Content\Js\Custom\contact.js" />
     <Content Include="Content\Js\Custom\gallery.js" />
     <Content Include="Content\Js\Custom\index.js" />
     <Content Include="Content\Js\Custom\dropdown-menu.js" />
     <Content Include="Content\Js\Custom\clients.js" />
+    <Content Include="Content\Js\Custom\main.js" />
     <Content Include="Content\Js\Custom\projects.js" />
     <Content Include="Content\Js\Custom\services.js" />
     <Content Include="Content\Js\bootstrap.min.js" />

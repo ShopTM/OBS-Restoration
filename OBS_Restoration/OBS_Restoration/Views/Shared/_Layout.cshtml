@@ -4,30 +4,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@ViewBag.Title</title>
-
   <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
   <link href="~/Content/Css/Custom/style.min.css" rel="stylesheet" />
+  <link href="~/Content/Css/Custom/spinner.css" rel="stylesheet" />
   <script src="~/Content/Js/jquery.min.js"></script>
   <script src="~/Content/Js/popper.min.js"></script>
   <script src="~/Content/Js/bootstrap.min.js"></script>
   <script src="~/Content/Js/Custom/dropdown-menu.js"></script>
-   @RenderSection("Styles",required:false)
+  <script src="~/Content/Js/Custom/main.js"></script>
+
+
+
+  @RenderSection("Styles", required: false)
 </head>
 
 <body>
-    <header>
-        @Html.Partial("_Header")
-    </header>
-    <main>
+  <header>
+    @Html.Partial("_Header")
+  </header>
+  <main>
+    @RenderBody()
 
-        @RenderBody()
-
-    </main>
-    <footer>
-        @Html.Partial("_Footer")
-    </footer>
+  </main>
+  <footer>
+    @Html.Partial("_Footer")
+  </footer>
 
 
-     @RenderSection("Scripts",required:false)
+  @RenderSection("Scripts", required: false)
 </body>
 </html>

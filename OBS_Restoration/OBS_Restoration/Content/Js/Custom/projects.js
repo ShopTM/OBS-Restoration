@@ -3,7 +3,9 @@ $(function () {
         url: '/home/getProjects',
         type: 'GET',
         success: function (data) {
+            addLoading('.grid');
             if (data.Data && data.Success) {
+                addAllTab();
                 let project = data.Data;
                 project.sort((a, b) => (a.Order > b.Order) ? 1 : (a.Order < b.Order) ? -1 : 1);
                 $.each(project, function (i, value) {
@@ -35,6 +37,8 @@ $(function () {
             }
         },
     });
+ 
+
 });
 
 function populateProjectsTab(value) {
@@ -54,3 +58,12 @@ function populateProjectsImg(value) {
         document.querySelector(".images-group").append(clon);
     }
 };
+
+function addAllTab() {
+    let templ = document.getElementById('tabTemplate');
+    templ.content.querySelector(".button").innerHTML = 'All project';
+    templ.content.querySelector(".button").setAttribute("data-filter", '*');
+    templ.content.querySelector(".button").classList.add("is-checked");
+    let clon = templ.content.cloneNode(true);
+    document.querySelector(".button-group").append(clon);
+}
