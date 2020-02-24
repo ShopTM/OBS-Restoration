@@ -63,7 +63,7 @@ function addAllTab() {
     let templ = document.getElementById('tabTemplate');
     templ.content.querySelector(".button").innerHTML = 'All project';
     templ.content.querySelector(".button").setAttribute("data-filter", '*');
-    templ.content.querySelector(".button").classList.add("is-checked");
-    let clon = templ.content.cloneNode(true);
-    document.querySelector(".button-group").append(clon);
+    let clone = $(templ).clone();
+    $(clone).addClass("is-checked");
+    document.querySelector(".button-group").append(clone);
 }
