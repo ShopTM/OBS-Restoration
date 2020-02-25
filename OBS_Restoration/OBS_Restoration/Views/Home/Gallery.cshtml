@@ -3,8 +3,10 @@
   ViewBag.Title = "Gallery";
 }
 @section Scripts {
-  <script src="~/Content/Js/Custom/jssor.slider-28.0.0.min.js"></script>
+  <script src="~/Content/Js/jssor.slider-28.0.0.min.js"></script>
   <script src="~/Content/Js/Custom/gallery.js"></script>
+
+
 }
 @section Styles {
   <link href="~/Content/Css/Custom/gallery.css" rel="stylesheet" />
@@ -180,9 +182,7 @@
           <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#right-arrow" class="a"></use>
         </svg>
       </div>
-
     </div>
-
   </section>
 </section>
 
@@ -190,6 +190,5 @@
   $(function () {
     jssor_1_slider_init();
   })
-
 </script>
 <!-- #endregion Jssor Slider End -->

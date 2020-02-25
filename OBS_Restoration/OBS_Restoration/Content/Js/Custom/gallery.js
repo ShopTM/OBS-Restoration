@@ -1,6 +1,3 @@
-
-
-
 jssor_1_slider_init = function () {
 
     var jssor_1_SlideshowTransitions = [
