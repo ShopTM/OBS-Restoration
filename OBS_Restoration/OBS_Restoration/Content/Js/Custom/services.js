@@ -1,4 +1,5 @@
 $(function () {
+    addLoading('.services-img');
     $.ajax({
         url: '/home/getServices',
         type: 'GET',

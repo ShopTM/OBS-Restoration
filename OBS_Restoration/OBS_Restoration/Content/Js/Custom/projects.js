@@ -1,9 +1,9 @@
 $(function () {
+    addLoading('.grid');
     $.ajax({
         url: '/home/getProjects',
         type: 'GET',
         success: function (data) {
-            addLoading('.grid');
             if (data.Data && data.Success) {
                 addAllTab();
                 let project = data.Data;
@@ -37,7 +37,7 @@ $(function () {
             }
         },
     });
- 
+
 
 });
 
@@ -61,9 +61,11 @@ function populateProjectsImg(value) {
 
 function addAllTab() {
     let templ = document.getElementById('tabTemplate');
-    templ.content.querySelector(".button").innerHTML = 'All project';
-    templ.content.querySelector(".button").setAttribute("data-filter", '*');
-    let clone = $(templ).clone();
-    $(clone).addClass("is-checked");
+    let clone = templ.content.cloneNode(true);
+    let button = clone.querySelector(".button");
+    button.innerHTML = 'All project';
+    button.setAttribute("data-filter", '*');
+    button.classList.add('is-checked');
     document.querySelector(".button-group").append(clone);
 }
+
