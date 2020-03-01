@@ -32,8 +32,8 @@ namespace BAL.Managers
         public void SendContactUsEmail(ContactRequestFormVM model)
         {
             var attachments = new List<Attachment>();
-            if (model.Resume != null)
-                attachments.Add(new Attachment(model.Resume.InputStream, model.Resume.FileName));
+            if (model.File != null)
+                attachments.Add(new Attachment(model.File.InputStream, model.File.FileName));
             SendEmail(model, CONTACT_US_REQUEST_EMAIL_SUBJECT, attachments);
         }
         private void SendEmail(object model, string subject, List<Attachment> attachments = null)

@@ -22,6 +22,6 @@ namespace Models.VM.RequestForm
         [Required]
         [DisplayName("Message")]
         public string Message { get; set; }
-        public HttpPostedFileBase Resume { get; set; }
+        public HttpPostedFileBase File { get; set; }
     }
 }
