@@ -1,0 +1,37 @@
+﻿/////////////TABLE
+table {
+    svg
+
+{
+    width: 30px;
+    height: 30px;
+    margin: 0 10px 0 10px;
+    &:hover
+
+{
+}
+
+}
+
+a {
+    text-decoration: none;
+    &:hover
+
+{
+    text-decoration: none;
+}
+
+}
+}
+
+.edit {
+    fill: #ff8c00;
+}
+
+.plus {
+    fill: #4CAF50;
+}
+
+.delete {
+    fill: #f44336;
+}

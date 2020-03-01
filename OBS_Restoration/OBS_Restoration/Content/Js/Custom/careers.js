@@ -64,11 +64,11 @@ $(function () {
     //// Method jquery validator sizefile
     $.validator.addMethod('filesize', function (value, element, param) {
         let size = element.files[0].size;
-        size = size / 1024;
-        size = Math.round(size);
+        size = size / 1024 / 1024;
+        size = size.toFixed(2);
         return this.optional(element) || size <= param;
 
-    }, 'File size must be less than {0}');
+    }, 'Sorry! Maximum upload file size: {0}');
 
 }); ////////// document.ready
 
