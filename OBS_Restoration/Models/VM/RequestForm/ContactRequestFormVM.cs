@@ -1,22 +1,27 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace Models.VM.RequestForm
 {
     public class ContactRequestFormVM
     {
         [Required]
-        [DisplayName("First name")]
-        public string FirstName { get; set; }
+        [DisplayName("Full name")]
+        public string FullName { get; set; }
         [Required]
         [EmailAddress]
-        [DisplayName("Email")]
-        public string Email { get; set; }
+        [DisplayName("Email address")]
+        public string EmailAddress { get; set; }
+        [Phone]
+        [DisplayName("Company")]
+        public string Company { get; set; }
         [Phone]
         [DisplayName("Phone number")]
         public string PhoneNumber { get; set; }
         [Required]
         [DisplayName("Message")]
         public string Message { get; set; }
+        public HttpPostedFileBase Resume { get; set; }
     }
 }
