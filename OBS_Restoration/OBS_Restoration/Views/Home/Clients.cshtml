@@ -11,7 +11,6 @@
 <section class="container-fluid">
   <section class="row">
     <section class="col-lg-12 clients-bg">
-      <h2>Our clients</h2>
     </section> <!-- contacts-bg -->
   </section> <!--row-->
 
@@ -31,37 +30,16 @@
     <section>
       <p class="errorMessage"></p>
     </section>  <!--errorMessage-->
-    <h5>Request an Estimate</h5>
+ 
     <form id="сlients-form">
       @Html.AntiForgeryToken()
       <section class="form-group">
         <label for="ProjectType" class="require">Type of project</label>
-        <select class="form-control  required" name="TypeOfProject">
-          <option></option>
-          <option>Building envelop restoration, including balcony slab repairs</option>
-          <option>Masonry repairs (brick replacement, block, glass block, stone, tuck pointing)</option>
-          <option>Concrete repairs (precast panel, underground garage slab, ramps, columns, canopies, patching)</option>
-          <option>Caulking, glazing, sealants</option>
-          <option>Waterproofing (cold applied, penetrating sealers, hot robber application)</option>
-          <option>Metal railing replacement</option>
-          <option>Wall coating</option>
-          <option>Pressure washing</option>
-          <option>Flashing installation and replacement</option>
-          <option>Insulation installation</option>
-          <option>Metal siding installation</option>
-          <option>Other</option>
-        </select>
+        <input type="text" class="form-control required" name="TypeOfProject" />
       </section> <!--form-group-->
       <section class="form-group">
         <label for="BuildingType" class="require">Building type</label>
-        <select class="form-control required " name="BuildingType">
-          <option></option>
-          <option>Commertcial</option>
-          <option>Historical</option>
-          <option>Public</option>
-          <option>Industrial</option>
-          <option>Other</option>
-        </select>
+        <input type="text" class="form-control required" name="BuildingType" />
       </section><!--form-group-->
       <section class="row">
         <section class="col-lg-12  form-group">
@@ -69,9 +47,17 @@
           <textarea class="form-control required" rows="5" name="ProjectSummary"></textarea>
         </section> <!--form-group-->
       </section> <!--row-->
-      <section class="custom-file">
+       <section class="custom-file">
         <input type="file" class="custom-file-input file required" name="Files" multiple />
         <label class="custom-file-label require" for="File">Choose your files</label>
+      </section> <!--custom-file-->
+      <section class="custom-file">
+        <input type="file" class="custom-file-input file" name="Files"  multiple/>
+        <label class="custom-file-label" for="File">Choose your files</label>
+      </section> <!--custom-file-->
+      <section class="custom-file">
+        <input type="file" class="custom-file-input file" name="Files"  multiple/>
+        <label class="custom-file-label" for="File">Choose your files</label>
       </section> <!--custom-file-->
       <section class="row">
         <section class="col-sm-6 form-group">

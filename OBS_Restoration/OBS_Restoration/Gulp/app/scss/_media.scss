@@ -5,9 +5,7 @@
         .slide-text {
             margin-top: 100px;
         }
-          .other-supliers img {
-            width: 180px;
-        }
+          
         .admin-nav ul {
              justify-content: center;
         }
@@ -16,19 +14,9 @@
             background: #000;
         }
                 
-        .dropdown-menu {
-            margin-top: 0;
-            text-align: center;
-        }
-
-        .dropdown-menu a:hover {
-            background: none;
-            color: #188cb1;
-        }
-
-        .navbar-collapse {
-            background: #000;
-        }
+            //navbar-collapse {
+           // background: #000;
+        //}
 
         .container-fluid h2 {
             font-size: 2.5em;
@@ -43,53 +31,24 @@
         .navbar a {
             font-size: 1.2em;
         }
-        .dropdown-menu{
-            border-top: none;
-        }
-        .dropdown-menu a {
-            font-size: .9em;
-        }
-        .admin-nav  {
+       .admin-nav  {
             background: none;
         }
         .admin-nav a {
             font-size: .7em;
         }
-        .border-supplier img {
-            margin: 0 20px 0 0;
-            display: none;
-        }
-      
+    
     }
 
 @media screen and (max-width: 768px) {
-      .border-supplier {
-        border: none;
-        padding: 20px;
-        margin: 0;
-    }
-    .border-supplier p {
-        padding: 0;
-       
-    }
-   
-    .border-supplier span {
-        top: -30px;
-       left: 0;
-       right: 0;
-
-
-    }
-    .slide-text h2 {
+      .slide-text h2 {
         margin-left: 0;
     }
 
         .banner-craftsman h3 {
             margin-left: 30px;
         }
-
-
-        .logo img,
+       .logo img,
         h1.logo {
             display: block;
             padding-left: 5px;
@@ -126,11 +85,6 @@
         footer p {
             padding-right: 0;
         }
-
-        .other-supliers img {
-            width: 70%;
-        }
-
         .services-offer figure p {
             font-size: 40%;
         }
@@ -142,10 +96,6 @@
         .services-bg p {
             width: 80%;
             font-size: .7em;
-        }
-
-        .dropdown-menu a {
-            font-size: .9rem;
         }
 
         .services-banner h4 {
@@ -174,8 +124,5 @@
         .services-offer figure h2 {
             font-size: 2rem;
         }
-        .other-supliers img {
-            width: 50%;
-        }
-        
     }
+    

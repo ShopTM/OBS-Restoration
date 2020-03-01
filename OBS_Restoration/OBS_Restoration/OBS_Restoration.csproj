@@ -140,6 +140,7 @@
     <Content Include="Content\Css\Custom\services.css" />
     <Content Include="Content\Css\Custom\spinner.css" />
     <Content Include="Content\Css\Custom\style.min.css" />
+    <Content Include="Content\Css\Custom\table.css" />
     <Content Include="Content\Icons\craftsmans.svg" />
     <Content Include="Content\Icons\develop.svg" />
     <Content Include="Content\Icons\pace.svg" />
@@ -264,14 +265,6 @@
     <Content Include="Content\Images\Slider\img-slide-0.jpg" />
     <Content Include="Content\Images\Slider\img-slide-1.jpg" />
     <Content Include="Content\Images\Slider\img-slide-2.jpg" />
-    <Content Include="Content\Images\Suppliers\battlefield.jpg" />
-    <Content Include="Content\Images\Suppliers\cds.png" />
-    <Content Include="Content\Images\Suppliers\JamacSales.png" />
-    <Content Include="Content\Images\Suppliers\k.winter.png" />
-    <Content Include="Content\Images\Suppliers\masons.jpg" />
-    <Content Include="Content\Images\Suppliers\quick-fence.png" />
-    <Content Include="Content\Images\Suppliers\scafom.jpg" />
-    <Content Include="Content\Images\Suppliers\tremco.png" />
     <Content Include="Content\Js\additional-methods.min.js" />
     <Content Include="Content\Js\bootstrap.bundle.min.js" />
     <Content Include="Content\Js\Custom\careers.js" />
@@ -284,6 +277,7 @@
     <Content Include="Content\Js\Custom\projects.js" />
     <Content Include="Content\Js\Custom\services.js" />
     <Content Include="Content\Js\bootstrap.min.js" />
+    <Content Include="Content\Js\Custom\table.js" />
     <Content Include="Content\Js\isotope-docs.min.js" />
     <Content Include="Content\Js\jquery.min.js" />
     <Content Include="Content\Js\jquery.validate.min.js" />
@@ -365,6 +359,8 @@
     <Content Include="Gulp\app\Images\Suppliers\tremco.png" />
     <Content Include="Gulp\app\svg\analysis.svg" />
     <Content Include="Gulp\app\svg\construction-worker.svg" />
+    <Content Include="Gulp\app\svg\delete.svg" />
+    <Content Include="Gulp\app\svg\edit.svg" />
     <Content Include="Gulp\app\svg\email.svg" />
     <Content Include="Gulp\app\svg\firewall.svg" />
     <Content Include="Gulp\app\svg\goal.svg" />
@@ -375,6 +371,7 @@
     <Content Include="Gulp\app\svg\linkedin.svg" />
     <Content Include="Gulp\app\svg\money-bag.svg" />
     <Content Include="Gulp\app\svg\placeholder.svg" />
+    <Content Include="Gulp\app\svg\plus.svg" />
     <Content Include="Gulp\app\svg\quality.svg" />
     <Content Include="Gulp\app\svg\respect.svg" />
     <Content Include="Gulp\app\svg\resume.svg" />
@@ -9023,7 +9020,6 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Home\Services.cshtml" />
-    <Content Include="Views\Home\Suppliers.cshtml" />
     <Content Include="Views\Home\Projects.cshtml" />
     <Content Include="Views\Home\Careers.cshtml" />
     <Content Include="Views\Home\Contacts.cshtml" />
@@ -9034,6 +9030,8 @@
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_ServicesPartial.cshtml" />
+    <Content Include="Views\Admin\Project.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

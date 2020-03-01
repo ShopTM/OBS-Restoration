@@ -1,0 +1,85 @@
+﻿
+@{
+  ViewBag.Title = "Services";
+}
+<section class="container" >
+  <section class="modal fade" id="tableModal" role="dialog">
+    <section class="modal-dialog modal-lg">
+      <section class="modal-content pl-5 pr-5">
+        <section class="modal-header pl-0 pr-0">
+          <h4>Edit Your Detail</h4>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </section><!--modal header-->
+        <section class="modal-body text-center ">
+          <div class="form-group">
+            <input class="form-control madalInput " type="text" placeholder="Services name">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control textarea required" rows="5" name="Message" placeholder="Description"></textarea>
+          </div>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile" placeholder="Choose image" accept="image/*">
+            <label class="custom-file-label" for="customFile">Choose image</label>
+          </div>
+        </section><!--modal body-->
+        <section class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-info update w-25 btn-lg">Update</button>
+        </section><!--modal-footer-->
+      </section><!--modal-content-->
+    </section><!--modal-dilog-->
+  </section><!--modal fade-->
+</section><!--modal container-->
+
+<div class="tab-content">
+  <div class="container-fluid  p-5 " >
+    <h2>Services</h2>
+    <table data-toggle="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Select</th>
+          <th>Services name</th>
+          <th>Description</th>
+          <th>Images</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</div>
+<template id="tableServicesTemplate">
+  <tr>
+    <td class="text-center">
+      <label class="checkbox"><input type="checkbox" /><span class="primary"></span></label>
+    </td>
+    <td><h2>#</h2></td>
+    <td><p></p></td>
+    <td class="text-center"><img src="" alt="" /></td>
+    <td class="text-center">
+      <button type="button" class="btn btn-edit" data-toggle="modal" data-target="#tableModal">
+        <span data-toggle="tooltip" title="edit">
+          <svg class="edit">
+            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#edit"></use>
+          </svg>
+        </span>
+      </button>
+      <button type="button" class="btn " data-toggle="modal" data-target="#tableModal">
+        <span data-toggle="tooltip" title="add">
+          <svg class="plus">
+            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#plus"></use>
+          </svg>
+        </span>
+      </button>
+      <button type="button" class="btn">
+        <span data-toggle="tooltip" title="add">
+          <svg class="delete">
+            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#delete"></use>
+          </svg>
+        </span>
+      </button>
+    </td>
+  </tr>
+</template>

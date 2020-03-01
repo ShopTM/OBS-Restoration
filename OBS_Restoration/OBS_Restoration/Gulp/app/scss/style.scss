@@ -104,24 +104,6 @@ body {
      margin: 0 25px 0 25px;
 }
 
-///////////////// DROPDOWN
-.dropdown-menu {
-    background: $bg-mask;
-    border-radius: 0;
-    border-width: 0;
-    border-top: 3px solid $base-color;
-    margin: 0;
-    padding: 0;
-
-    a {
-        color: #ffffff;
-
-        &:hover {
-            background: $base-color;
-            color: #ffffff;
-        }
-    }
-}
 ////////////////////////// LOGO
 .logo img {
    max-width: 80%;
@@ -452,73 +434,7 @@ padding: 0;
     margin-bottom: 50px;
 
 }
-    ////////////////////////////////////////////SUPPLIERS
-.suppliers-bg {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/suppliers.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 50px;
-}
-    .border-supplier {
-        display: inline-block;
-        position: relative;
-        border: 10px solid #188cb1;
-        border-radius: 5px;
-        padding: 10px 50px;
-        margin: 50px;
-         p {
-            padding-top: 40px;
-        }
-
-        img {
-            display: block;
-            margin: 0 auto;
-            margin-top: 50px;
-            padding: 20px;
-            width: 200px;
-        }
-
-        span {
-            font-size: 1.2em;
-            color: #000;
-            background-color: #fff;
-            position: absolute;
-            text-align: center;
-            top: -30px;
-            right: 27%;
-            left: 27%;
-            padding: 10px 20px;
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-    }
-
-    .masons img {
-        width: 250px;
-    }
-
-    .other-supliers {
-        margin-bottom: 50px;
-        img{
-             width: 200px;
-             display: block;
-             margin: 0 auto;
-        }
-    }
-.cds{
-    img{
-        width: 300px;
-
-    }
-}
-.other{
-    h2{
-        text-align: center;
-        padding: 20px;
-    }
-}
-///////////////////////////////////////////////////CAREERS
+ ///////////////////////////////////////////////////CAREERS
 .career-bg {
     @extend %size-block;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../../Content/Images/Bg/careers.jpg) no-repeat;
@@ -527,8 +443,7 @@ padding: 0;
     margin-bottom: 50px;
 
 }
-
-    .career-descption p {
+   .career-descption p {
         text-align: center;
     }
 
@@ -626,12 +541,8 @@ padding: 0;
     background-size: cover;
     background-position: center;
     margin-bottom: 50px;
-
-
-    
 }
-
-    .detail {
+   .detail {
         margin: 40px 0 50px 0;
 
         h3 {
@@ -849,11 +760,17 @@ footer {
         }
     }
     //////ADMIN PAGE
-    .admin svg {
-        fill: #ffffff;
-        width: 16px;
-        height: 16px;
+.admin-page {
+    h2{
+        color: #000;
+        margin-top: 300px;
     }
+}
+.admin svg {
+    fill: #ffffff;
+    width: 16px;
+    height: 16px;
+}
 .admin-text {
     text-transform: uppercase;
 }
@@ -1016,6 +933,127 @@ p.thanks {
     font-weight: bold;
     font-size: 1.8em;
 }
+/////////////TABLE
+table {
+    svg {
+        width: 30px;
+        height: 30px;
+        margin: 0 10px 0 10px;
+        &:hover{
+
+        }
+    }
+
+    a {
+        text-decoration: none;
+
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    img {
+        width: 150px;
+        height: 100px;
+    }
+}
+.edit {fill: #ff8c00;}
+.plus {fill: #4CAF50;}
+.delete {fill: #f44336;}
+
+@keyframes check {
+    0% {
+        height: 0;
+        width: 0;
+    }
+
+    25% {
+        height: 0;
+        width: 10px;
+    }
+
+    50% {
+        height: 20px;
+        width: 10px;
+    }
+}
+
+.checkbox {
+    background-color: #fff;
+    display: inline-block;
+    height: 28px;
+    margin: 0 .25em;
+    width: 28px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+ }
+
+.checkbox span {
+    display: block;
+    height: 28px;
+    position: relative;
+    width: 28px;
+    padding: 0
+}
+
+.checkbox span:after {
+    -moz-transform: scaleX(-1) rotate(135deg);
+    -ms-transform: scaleX(-1) rotate(135deg);
+    -webkit-transform: scaleX(-1) rotate(135deg);
+    transform: scaleX(-1) rotate(135deg);
+    -moz-transform-origin: left top;
+    -ms-transform-origin: left top;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    border-right: 4px solid #fff;
+    border-top: 4px solid #fff;
+    content: '';
+    display: block;
+    height: 20px;
+    left: 3px;
+    position: absolute;
+    top: 15px;
+    width: 10px
+}
+
+.checkbox span:hover:after {
+    border-color: #999
+}
+.checkbox input {
+    display: none
+}
+.checkbox input:checked + span:after {
+    -webkit-animation: check .8s;
+    -moz-animation: check .8s;
+    -o-animation: check .8s;
+    animation: check .8s;
+    border-color: #555
+}
+
+.checkbox input:checked + .default:after {
+    border-color: #444
+}
+
+.checkbox input:checked + .primary:after {
+    border-color: #2196F3
+}
+
+.checkbox input:checked + .success:after {
+    border-color: #8bc34a
+}
+
+.checkbox input:checked + .info:after {
+    border-color: #3de0f5
+}
+
+.checkbox input:checked + .warning:after {
+    border-color: #FFC107
+}
+
+.checkbox input:checked + .danger:after {
+    border-color: #f44336
+}
+
 
 @import "media";
      
