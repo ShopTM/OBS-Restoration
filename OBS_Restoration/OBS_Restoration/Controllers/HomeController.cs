@@ -27,11 +27,6 @@ namespace OBS_Restoration.Controllers
             return View();
         }
 
-        public ActionResult Suppliers()
-        {
-            return View();
-        }
-
         public ActionResult Projects()
         {
             return View();
@@ -43,7 +38,7 @@ namespace OBS_Restoration.Controllers
             return View();
         }
 
-        public ActionResult Contacts()
+        public ActionResult ContactUs()
         {
             return View();
         }
