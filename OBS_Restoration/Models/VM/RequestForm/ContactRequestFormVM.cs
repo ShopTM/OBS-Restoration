@@ -13,7 +13,6 @@ namespace Models.VM.RequestForm
         [EmailAddress]
         [DisplayName("Email address")]
         public string EmailAddress { get; set; }
-        [Phone]
         [DisplayName("Company")]
         public string Company { get; set; }
         [Phone]

@@ -17,7 +17,7 @@ switch (val) {
 // The name of the file appear on select
 $(".custom-file-input").on("change", function () {
     var fileName = $(this).val().split("\\").pop();
-    inputFile = document.querySelector('.file');
+    inputFile = document.querySelector('.custom-file-input');
     let files = inputFile.files;
     let filesLength = files.length;
     if (filesLength === 1) {
@@ -28,24 +28,24 @@ $(".custom-file-input").on("change", function () {
 });
 ///////////Validation form
 $(function () {
-   //// addClass rule
+    //// addClass rule
     $.validator.addClassRules({
         file: {
             required: true,
             extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|",
             filesize: 25,
-            
+
         },
-     });
-       $('#сlients-form').validate({
+    });
+    $('#сlients-form').validate({
         rules: {
             Email: {
                 required: true,
                 email: true,
             },
-         
-            file: {
-                required: true,
+
+            Files: {
+                required: false,
                 extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|",
                 filesize: 25,
             },
@@ -54,10 +54,9 @@ $(function () {
             Email: {
                 email: "Please! Enter a valid email address",
             },
-        
-            file: {
-                required: "Please upload resume",
-                extension: "Please upload valid file formats (docx, rtf, doc, pdf).",
+
+            Files: {
+                extension: "Please upload valid file formats (docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|).",
                 filesize: "Sorry! Maximum upload file size: 25 MB.",
             }
         },
@@ -77,9 +76,13 @@ $(function () {
                         $('#myModal').on('hidden.bs.modal', function (e) {
                             window.setTimeout(function () { location.reload() }, 0);
                         })
+                    } else {
+                        document.querySelector('.errorMessage').innerHTML = errorMessage;
+                        scrollToUp();
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(ajaxOptions)
                     document.querySelector('.errorMessage').innerHTML = errorMessage;
                     scrollToUp();
                 }
@@ -89,10 +92,15 @@ $(function () {
     });
     //// Method jquery validator sizefile
     $.validator.addMethod('filesize', function (value, element, param) {
-        let size = element.files[0].size;
-        size = size / 1024 / 1024;
-        size = size.toFixed(2);
-        return this.optional(element) || size <= param;
+        let totalSize = 0;
+        $(".file").each(function () {
+            for (var i = 0; i < this.files.length; i++) {
+                totalSize += this.files[i].size;
+            }
+        });
+        totalSize = totalSize / 1024 / 1024;
+        totalSize = totalSize.toFixed(2);
+        return this.optional(element) || totalSize <= param;
 
     }, 'Sorry! Maximum upload file size: {0}');
 }); ///ready document
@@ -100,7 +108,6 @@ $(function () {
 ///scrollToUp error
 function scrollToUp() {
     window.scrollTo(0, 800);
-
     window.scrollTo({
         top: 800,
         behavior: "smooth"

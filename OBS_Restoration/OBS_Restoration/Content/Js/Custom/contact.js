@@ -1,4 +1,10 @@
-﻿$(function () {
+﻿const errorMessage = 'An error occurred while processing your request. Please try again later.'
+$(function () {
+    // The name of the file appear on select
+    $('.custom-file-input').on('change', function () {
+        let fileName = $(this).val().split("\\").pop();
+        $(this).siblings('.custom-file-label').addClass('selected').html(fileName);
+    });
     $('.contact-form').validate({
         rules: {
             Email: {
@@ -14,6 +20,12 @@
                 required: true,
 
             },
+            File: {
+                required: true,
+                extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|",
+                filesize: 25,
+            },
+
         },
         message: {
             Email: {
@@ -23,14 +35,22 @@
 
                 digits: "Please enter a valid phone number",
             },
+            File: {
+                required: "Please upload resume",
+                extension: "Please upload valid file formats (docx, rtf, doc, pdf).",
+                filesize: "Sorry! Maximum upload file size: 25 MB.",
+            }
 
         },
 
         submitHandler: function (form) {
+            let formData = new FormData($('#contactus-form')[0])
             $.ajax({
                 url: "/home/ContactUs",
                 type: 'POST',
-                data: $(form).serialize(),
+                data: formData,
+                processData: false,
+                contentType: false,
                 success: function (response) {
                     if (response.Data && response.Success) {
                         $('#myModal').modal('show');
@@ -46,13 +66,24 @@
             });
         }
     });
+    //// Method jquery validator sizefile
+    $.validator.addMethod('filesize', function (value, element, param) {
+        let size = element.files[0].size;
+        console.log(size)
+        size = size / 1024 / 1024;
+        size = size.toFixed(2);
+        return this.optional(element) || size <= param;
+
+    }, 'Sorry! Maximum upload file size: {0}');
 }); ////////// document.ready
+
+
 
 ///scrollToUp error
 function scrollToUp() {
     window.scrollTo(0, 1300);
     window.scrollTo({
-        top: 1300,
+        top: 800,
         behavior: 'smooth'
     });
     return false;
