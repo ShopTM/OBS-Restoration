@@ -76,9 +76,6 @@ $(function () {
 
     }, 'Sorry! Maximum upload file size: {0}');
 }); ////////// document.ready
-
-
-
 ///scrollToUp error
 function scrollToUp() {
     window.scrollTo(0, 1300);
