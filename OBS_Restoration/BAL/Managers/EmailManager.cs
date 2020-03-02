@@ -19,14 +19,15 @@ namespace BAL.Managers
             var attachments = new List<Attachment>();
             if (model.Files != null && model.Files.Any())
                 foreach (var file in model.Files)
-                    attachments.Add(new Attachment(file.InputStream, file.FileName));
+                    if (file != null)
+                        attachments.Add(new Attachment(file.InputStream, file.FileName));
             SendEmail(model, JOB_ESTIMATION_EMAIL_SUBJECT, attachments);
         }
         public void SendCareerEmail(CareerRequestFormVM model)
         {
             var attachments = new List<Attachment>();
             if (model.Resume != null)
-                    attachments.Add(new Attachment(model.Resume.InputStream, model.Resume.FileName));
+                attachments.Add(new Attachment(model.Resume.InputStream, model.Resume.FileName));
             SendEmail(model, CAREER_REQUEST_EMAIL_SUBJECT, attachments);
         }
         public void SendContactUsEmail(ContactRequestFormVM model)
