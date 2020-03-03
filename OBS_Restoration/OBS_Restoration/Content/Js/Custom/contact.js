@@ -22,7 +22,7 @@ $(function () {
             },
             File: {
                 required: true,
-                extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|",
+                extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages",
                 filesize: 25,
             },
 
@@ -37,7 +37,7 @@ $(function () {
             },
             File: {
                 required: "Please upload resume",
-                extension: "Please upload valid file formats (docx, rtf, doc, pdf).",
+                extension: "Please upload valid file formats (docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages).",
                 filesize: "Sorry! Maximum upload file size: 25 MB.",
             }
 

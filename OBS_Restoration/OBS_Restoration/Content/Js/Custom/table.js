@@ -36,14 +36,12 @@ function populateTableServices(value) {
     tbody[0].appendChild(clone);
 }
 
-
 let edit = document.querySelector('button');
-
 
 
 ////Open modal window by edit btn
 
-function showModal() {
+function showModal(value) {
     $('#tableModal').modal('show');
 }
 
@@ -52,15 +50,15 @@ function showModal() {
 let namSservices = $(".modal-body input").val();
 let descriptionServices = $(".modal-body textarea").val();
 let imageServices = $('input[type=file]').val();
-// Edit row on edit button click
 
+// Edit row on edit button click
 function getCurrentElementEdit() {
-  
+  $('tr')
 
 }
 
 
 edit.addEventListener("click", showModal); 
-edit.addEventListener("click", getElementEdit);
+edit.addEventListener("click", getCurrentElementEdit);
 
 

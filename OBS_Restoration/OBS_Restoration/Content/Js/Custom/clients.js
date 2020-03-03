@@ -32,7 +32,7 @@ $(function () {
     $.validator.addClassRules({
         file: {
             required: true,
-            extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|",
+            extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages",
             filesize: 25,
 
         },
@@ -46,7 +46,7 @@ $(function () {
 
             Files: {
                 required: false,
-                extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|",
+                extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages",
                 filesize: 25,
             },
         },
@@ -56,7 +56,7 @@ $(function () {
             },
 
             Files: {
-                extension: "Please upload valid file formats (docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|).",
+                extension: "Please upload valid file formats (docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages).",
                 filesize: "Sorry! Maximum upload file size: 25 MB.",
             }
         },

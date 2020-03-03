@@ -18,7 +18,7 @@ $(function () {
             },
             Resume: {
                 required: true,
-                extension: 'docx|rtf|doc|pdf|',
+                extension: 'docx|rtf|doc|pdf|aae|pages',
                 filesize: 25,
             },
         },
@@ -31,7 +31,7 @@ $(function () {
             },
             Resume: {
                 required: 'Please upload resume',
-                extension: 'Please upload valid file formats (docx, rtf, doc, pdf).',
+                extension: 'Please upload valid file formats (docx, rtf, doc, pdf, aae, pages).',
                 filesize: 'Sorry! Maximum upload file size: 25 MB.',
             }
         },
