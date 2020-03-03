@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
@@ -21,6 +22,6 @@ namespace Models.VM.RequestForm
         [Required]
         [DisplayName("Message")]
         public string Message { get; set; }
-        public HttpPostedFileBase File { get; set; }
+        public List<HttpPostedFileBase> Files { get; set; }
     }
 }
