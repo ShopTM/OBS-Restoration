@@ -68,11 +68,15 @@ $(function () {
     });
     //// Method jquery validator sizefile
     $.validator.addMethod('filesize', function (value, element, param) {
-        let size = element.files[0].size;
-        console.log(size)
-        size = size / 1024 / 1024;
-        size = size.toFixed(2);
-        return this.optional(element) || size <= param;
+        let totalSize = 0;
+        $(".file").each(function () {
+            for (var i = 0; i < this.files.length; i++) {
+                totalSize += this.files[i].size;
+            }
+        });
+        totalSize = totalSize / 1024 / 1024;
+        totalSize = totalSize.toFixed(2);
+        return this.optional(element) || totalSize <= param;
 
     }, 'Sorry! Maximum upload file size: {0}');
 }); ////////// document.ready
