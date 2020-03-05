@@ -939,8 +939,7 @@ table {
     svg {
         width: 30px;
         height: 30px;
-        margin: 0 10px 0 10px;
-        &:hover{
+         &:hover{
 
         }
     }
@@ -959,8 +958,30 @@ table {
     }
 }
 .edit {fill: #ff8c00;}
-.plus {fill: #4CAF50;}
+
 .delete {fill: #f44336;}
+
+.nameTable {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    button {
+        width: 150px;
+        height: 50px;
+        text-transform: uppercase;
+     }
+    span {
+        width: 30px;
+        height: 30px;
+    }
+}
+svg.plus {
+    fill: #fff;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
 
 @keyframes check {
     0% {
