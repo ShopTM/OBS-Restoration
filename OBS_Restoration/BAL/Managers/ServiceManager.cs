@@ -34,6 +34,7 @@ namespace BAL.Managers
             using (var db = DbFactory.GetNotTrackingInstance())
             {
                 db.ServiceRepository.Update(source);
+                db.Save();
             }
         }
         public void UploadServiceImage(int id, HttpPostedFileBase img)

@@ -22,10 +22,9 @@ $(function () {
     populateTableServices();
 });
 
-
 let templ = document.querySelector("template");
 let td = templ.content.querySelectorAll("td");
-let tbody = document.getElementsByTagName("tbody");
+let tbody = document.getElementsByTagName("tbody")[0];
 let urlImg = "../../Content/Images/Services/";
 
 function populateServiceRow(service) {
@@ -33,24 +32,31 @@ function populateServiceRow(service) {
     td[2].textContent = service.Description;
     td[3].querySelector('img').src = urlImg + service.ImgUrl;
     let clone = document.importNode(templ.content, true);
-    tbody[0].appendChild(clone);
+    tbody.appendChild(clone);
 }
 
 
 
 //Add Data Function  
-$('.add').on('click', function (form) {
-    var serializeFormData = $('form').serialize();
-    console.log(serializeFormData)
+$('.add').on('click', function () {
+    let formData = new FormData($('#form-service')[0])
     $.ajax({
-        data: serializeFormData,
+        type: "POST",
+        url: "/Admin/UpdateService",
+        data: formData,
         processData: false,
         contentType: false,
-         success: function (result) {
-            console.log(result)
+        success: function (data) {
+         ///   $('#form-service').html(data)
+          ///  $("input[name ='File']").val(data.File)
+           // $("input[name='Name']").val(data.Name)
+            ///$("textarea[name='Description']").val(data.Description)
+            tbody.innerHTML = "";
+            populateTableServices();
             
         }
     });
-  
+
 })
+
 

@@ -5,7 +5,7 @@
 <section class="container" >
   <section class="modal fade" id="tableModal" role="dialog">
     <section class="modal-dialog modal-lg">
-      <section class="modal-content pl-5 pr-5 form-service">
+      <form class="modal-content pl-5 pr-5 " id="form-service">
 
         <section class="modal-header pl-0 pr-0">
           <h4>Edit Your Detail</h4>
@@ -15,13 +15,13 @@
         </section><!--modal header-->
         <section class="modal-body text-center ">
           <div class="form-group">
-            <input class="form-control madalInput " type="text" placeholder="Services name">
+            <input class="form-control madalInput " type="text" placeholder="Services name" name="Name">
           </div>
           <div class="form-group">
-            <textarea class="form-control textarea required" rows="5" name="Message" placeholder="Description"></textarea>
+            <textarea class="form-control textarea required" rows="5" name="Description" placeholder="Description"></textarea>
           </div>
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" placeholder="Choose image" accept="image/*">
+            <input type="file" class="custom-file-input" id="customFile" name="File" placeholder="Choose image" accept="image/*">
             <label class="custom-file-label" for="customFile">Choose image</label>
           </div>
         </section><!--modal body-->
@@ -29,7 +29,7 @@
           <button type="button" class="btn btn-info add w-25 btn-lg">Add</button>
         </section><!--modal-footer-->
         @Html.AntiForgeryToken()
-      </section><!--modal-content-->
+      </form><!--modal-content-->
     </section><!--modal-dilog-->
   </section><!--modal fade-->
 </section><!--modal container-->
