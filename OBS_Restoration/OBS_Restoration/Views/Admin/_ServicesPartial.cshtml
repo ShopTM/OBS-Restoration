@@ -2,54 +2,84 @@
 @{
   ViewBag.Title = "Services";
 }
-<section class="container" >
-  <section class="modal fade" id="tableModal" role="dialog">
+<!--ADD MODAL-->
+<section class="container tableService">
+  <section class="modal fade" id="serviceModal" role="dialog">
     <section class="modal-dialog modal-lg">
-      <form class="modal-content pl-5 pr-5 " id="form-service">
-
+      <form class="modal-content pl-5 pr-5 form-service">
         <section class="modal-header pl-0 pr-0">
-          <h4>Edit Your Detail</h4>
-          <button type="button" class="close" data-dismiss="modal">
+          <h4 class="headerOfModal">Add your detail</h4>
+          <button type="button" class="close closed" data-dismiss="modal">
             &times;
           </button>
         </section><!--modal header-->
+        <p class="errorMessage"></p>
         <section class="modal-body text-center ">
           <div class="form-group">
-            <input class="form-control madalInput " type="text" placeholder="Services name" name="Name">
+            <input class="form-control madalInput " type="text" placeholder="Services name" autocomplete="off" name="nameServices">
           </div>
           <div class="form-group">
-            <textarea class="form-control textarea required" rows="5" name="Description" placeholder="Description"></textarea>
+            <textarea class="form-control textarea " rows="5" placeholder="Description" name="Description"></textarea>
           </div>
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" name="File" placeholder="Choose image" accept="image/*">
+            <input type="file" class="custom-file-input " id="customFile" placeholder="Choose image" accept="image/*" name="ImgServices">
             <label class="custom-file-label" for="customFile">Choose image</label>
           </div>
         </section><!--modal body-->
         <section class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-info add w-25 btn-lg">Add</button>
+          <button type="button" class="btn btn-info w-25 btn-lg" id="add">Add</button>
+          <button type="button" class="btn btn-info  w-25 btn-lg" id="update">Update</button>
         </section><!--modal-footer-->
         @Html.AntiForgeryToken()
       </form><!--modal-content-->
+      <section class="modal-content addServiceSuccsses d-none">
+        <section class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </section><!--modal header-->
+        <section class="modal-body text-center">
+          <svg class="success">
+            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#success"></use>
+          </svg>
+          <p class="thanks">Thank you!</p>
+          <p>Service successfully added to your table </p>
+        </section><!--modal body-->
+        <section class="modal-footer">
+          <button type="button" class="btn btn-default closed" data-dismiss="modal">Close</button>
+
+        </section><!--modal-footer-->
+      </section><!--modal-content-->
     </section><!--modal-dilog-->
   </section><!--modal fade-->
 </section><!--modal container-->
+
+<!--EDIT MODAL-->
+
 
 <div class="tab-content">
   <div class="container-fluid  p-5 ">
     <section class="nameTable jus">
       <h2>Services details</h2>
-      <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#tableModal">
-        <span data-toggle="tooltip" title="add">
-          <svg class="plus">
-            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#plus"></use>
-          </svg>
-
-        </span>
-     Add new
-      </button>
 
     </section>
-    <table data-toggle="table" id="table">
+    <button type="button" class="btn add-btn">
+      <span data-toggle="tooltip" title="add">
+        <svg class="plus">
+          <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#minus"></use>
+        </svg>
+      </span>
+      Delete
+    </button>
+    <button type="button" class="btn add-btn" data-toggle="modal" data-target="#serviceModal">
+      <span data-toggle="tooltip" title="add">
+        <svg class="plus">
+          <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#plus"></use>
+        </svg>
+      </span>
+      Add new 
+    </button>
+    <table data-toggle="table" id="table" data-search="true" >
       <thead class="thead-dark">
         <tr>
           <th>Select</th>
@@ -70,22 +100,24 @@
       <label class="checkbox"><input type="checkbox" /><span class="primary"></span></label>
     </td>
     <td><h2>#</h2></td>
-    <td><p></p></td>
-    <td class="text-center"><img src="" alt="" /></td>
+    <td><p class="name-services"></p></td>
+    <td class="text-center"><img src="" alt="" class="img-edit" /></td>
     <td class="text-center">
-      <button type="button" class="btn btn-edit" data-toggle="modal" data-target="#tableModal">
-         <span data-toggle="tooltip" title="edit">
-          <svg class="edit">
-            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#edit"></use>
-          </svg>
-        </span>
-      </button>
-       <button type="button" class="btn " >
+      <button type="button" class="btn delete">
         <span data-toggle="tooltip" title="add">
           <svg class="delete">
             <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#delete"></use>
           </svg>
         </span>
+        Delete
+      </button>
+      <button type="button" class="btn edit-btn editBtn" data-toggle="modal" data-target="#serviceModal">
+        <span data-toggle="tooltip" title="edit">
+          <svg class="edit">
+            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#edit"></use>
+          </svg>
+        </span>
+        Edit
       </button>
     </td>
   </tr>

@@ -267,6 +267,7 @@
     <Content Include="Content\Images\Slider\img-slide-2.jpg" />
     <Content Include="Content\Js\additional-methods.min.js" />
     <Content Include="Content\Js\bootstrap.bundle.min.js" />
+    <Content Include="Content\Js\Custom\adminProject.js" />
     <Content Include="Content\Js\Custom\careers.js" />
     <Content Include="Content\Js\Custom\contact.js" />
     <Content Include="Content\Js\Custom\gallery.js" />
@@ -369,6 +370,7 @@
     <Content Include="Gulp\app\svg\interview.svg" />
     <Content Include="Gulp\app\svg\left-arrow.svg" />
     <Content Include="Gulp\app\svg\linkedin.svg" />
+    <Content Include="Gulp\app\svg\minus.svg" />
     <Content Include="Gulp\app\svg\money-bag.svg" />
     <Content Include="Gulp\app\svg\placeholder.svg" />
     <Content Include="Gulp\app\svg\plus.svg" />
@@ -9032,6 +9034,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\_ServicesPartial.cshtml" />
     <Content Include="Views\Admin\Project.cshtml" />
+    <Content Include="Views\Admin\_ProjectPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

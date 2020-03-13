@@ -82,8 +82,7 @@ $(function () {
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    console.log(ajaxOptions)
-                    document.querySelector('.errorMessage').innerHTML = errorMessage;
+                   document.querySelector('.errorMessage').innerHTML = errorMessage;
                     scrollToUp();
                 }
 

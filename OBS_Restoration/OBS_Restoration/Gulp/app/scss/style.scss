@@ -937,39 +937,56 @@ p.thanks {
 /////////////TABLE
 table {
     svg {
-        width: 30px;
-        height: 30px;
-         &:hover{
-
-        }
+        width: 18px;
+        height: 18px;
     }
 
     a {
         text-decoration: none;
 
-
         &:hover {
             text-decoration: none;
         }
     }
+
     img {
         width: 150px;
         height: 100px;
     }
+
+    .btn {
+        background: #212529;
+        text-transform: uppercase;
+        color: #fff;
+        margin: 5px;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+.add-btn {
+    background: $base-color;
+    color: #ffffff;
+    text-transform: uppercase;
+     &:hover {
+        color: #fff;
+    }
 }
 .edit {fill: #ff8c00;}
-
 .delete {fill: #f44336;}
 
 .nameTable {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
+
     button {
         width: 150px;
         height: 50px;
         text-transform: uppercase;
-     }
+    }
+
     span {
         width: 30px;
         height: 30px;
