@@ -17,6 +17,7 @@ function populateTableServices() {
             }
         }
     });
+    // Activate tooltip
     $("[data-toggle=tooltip]").tooltip();
 }
 $(function () {
@@ -37,22 +38,8 @@ function populateServiceRow(service) {
 }
 
 
-///d-none btn edit
-$('.add-btn').on('click', function () {
-    $('#edit').addClass('d-none');
-})
-
-$('#add').on('click', function () {
-    UpdateService()
-});
-
-$('#update').on('click', function () {
-    UpdateService()
-});
-
-
-//Add  Function  
-function UpdateService() {
+//Ajax request Add and edit  function
+function updateService() {
     let formData = new FormData($('.form-service')[0]);
     $.ajax({
         type: 'POST',
@@ -79,8 +66,23 @@ function UpdateService() {
     });
 };
 
+///d-none btn edit
+$('.add-new').on('click', function () {
+    $('.update').addClass('d-none');
+})
+//Add new service
+$('.add').on('click', function () {
+    updateService()
+});
+
+//Update new service
+$('.update').on('click', function () {
+    updateService()
+});
+
+/// Ajax request to display in edit form modal (input value) to edit details.
 $(document).on('click', '.edit-btn', function (e) {
-    $('#add').addClass('d-none');
+    $('.add').addClass('d-none');
     $('h4').text('Edit services');
     let name = $("input[name='nameServices']").val();
     let description = $("textarea[name='Description']").val();
@@ -95,6 +97,7 @@ $(document).on('click', '.edit-btn', function (e) {
                     if ($('.edit-btn').index(e.target) === i) {
                         $("input[name='nameServices']").val(services.Name);
                         $("textarea[name='Description']").val(services.Description);
+                        populateTableServices();
                         return false;
                     }
                 });
@@ -102,6 +105,54 @@ $(document).on('click', '.edit-btn', function (e) {
         },
     });
 });
+
+//Check if checkboks is checked for button delete all
+$(document).on('click', '.delete-all', function (e) {
+    var checkbox = $('table tbody input[type="checkbox"]');
+    if ($(checkbox).is(":checked")) {
+        $('#deleteServicesModal').modal('show')
+    }
+});
+
+$(document).on('click', '.delete-one', function (e) {
+    var checkbox = $('table tbody input[type="checkbox"]');
+    $.each(checkbox, function (i, checkbox) {
+        if ($('.delete-one').index(e.target) === i) {
+            $('#deleteServicesModal').modal('show')
+        }
+    });
+});
+
+// Ajax request function Delete services
+function deleteServices() {
+    $.ajax({
+        type: 'POST',
+        url: '/Admin/DeleteServiceImage',
+        success: function (response) {
+            if (response.Data && response.Success) {
+                $('.modal-dialog').addClass('d-none');
+                $('.addServiceSuccsses').addClass('d-block');
+                setInterval(function () {
+                    $('#addModal').modal('hide');
+                }, 1200);
+                populateTableServices();
+            } if (response.Data == false || response.Success == false) {
+                document.querySelector('.errorMessage').innerHTML = errorMessage;
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            document.querySelector('.errorMessage').innerHTML = errorMessage;
+        }
+    });
+}
+
+//Delete all checkbox wich is checked
+$('.delete-all-modal').on('click', function () {
+    deleteServices();
+})
+
+
+
 
 
 

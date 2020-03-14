@@ -762,9 +762,12 @@ footer {
     }
     //////ADMIN PAGE
 .admin-page {
-    h2{
+    margin-top: 300px;
+    padding: 40px;
+    h2 {
         color: #000;
-        margin-top: 300px;
+        text-align: center;
+        text-transform: uppercase;
     }
 }
 .admin svg {
@@ -872,8 +875,6 @@ input[type="password"] {
    }
 }
 
-/////TEXT MESSAGE FORM VALIDATION
-
 
 //////////////////////FOR FORM ERROR
 label.require:after {
@@ -965,11 +966,25 @@ table {
         }
     }
 }
-.add-btn {
+.no-records-found {
+    display: none;
+}
+.delete-add {
+    position: absolute;
+    margin-top: 5px;
+}
+.fixed-table-toolbar {
+    margin-bottom: 25px;
+}
+
+.add-new,
+.delete-all {
     background: $base-color;
     color: #ffffff;
     text-transform: uppercase;
-     &:hover {
+
+
+    &:hover {
         color: #fff;
     }
 }
@@ -986,7 +1001,6 @@ table {
         height: 50px;
         text-transform: uppercase;
     }
-
     span {
         width: 30px;
         height: 30px;
@@ -998,8 +1012,32 @@ svg.plus {
     height: 30px;
     padding: 5px;
 }
+//Modal delete
+.modal-sure {
+    p {
+        font-size: 0.8em;
+        padding: 10px 60px 0 60px;
+    }
+    h4{
+        font-size: 1.2em;
+    }
+}
+.delete-modal-footer {
+background: #F8F8F8;
+}
+.btn-default {
+    background: #fff;
+    border: 1px solid #686868;
+}
+.delete-all-modal {
+    background: #212529;
+    color: #fff;
 
-
+    &:hover {
+        background: #212529;
+        color: #fff;
+    }
+}
 @keyframes check {
     0% {
         height: 0;
