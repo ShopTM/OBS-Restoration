@@ -89,7 +89,7 @@ $(document).on('click', '.edit-btn', function (e) {
     $.ajax({
         type: 'POST',
         url: '/Admin/getServices',
-        data: { name: name, description: description },
+        data: {name: name, description: description },
         success: function (response) {
             if (response.Data && response.Success) {
                 let services = response.Data;
@@ -145,14 +145,6 @@ function deleteServices() {
         }
     });
 }
-
-//Delete all checkbox wich is checked
-$('.delete-all-modal').on('click', function () {
-    deleteServices();
-})
-
-
-
 
 
 
