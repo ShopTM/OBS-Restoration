@@ -762,14 +762,13 @@ footer {
     }
     //////ADMIN PAGE
 .admin-page {
-    margin-top: 300px;
-    padding: 40px;
-    h2 {
+    margin-top: 250px;
+     h2 {
         color: #000;
         text-align: center;
         text-transform: uppercase;
     }
-}
+ }
 .admin svg {
     fill: #ffffff;
     width: 16px;
@@ -823,7 +822,7 @@ a.bord:after {
         background: rgba(0,0,0, 0.4);
         margin: 50% auto;
         width: 350px;
-        height: 200px;
+        height: 100%;
         padding: 20px;
 
 
@@ -857,6 +856,11 @@ input[type="text"] {
 }
 input[type="password"] {
     padding: 10px;
+}
+.validation-summary-errors {
+    li {
+        color: #FF0000;
+     }
 }
 //////////////////////MANAGE ACCOUNT
 .manage {
@@ -936,10 +940,14 @@ p.thanks {
     font-size: 1.8em;
 }
 /////////////TABLE
+.teble-mb {
+    margin-bottom: 100px;
+}
 table {
     svg {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
+        margin-top: -5px;
     }
 
     a {
@@ -969,16 +977,13 @@ table {
 .no-records-found {
     display: none;
 }
-.delete-add {
-    position: absolute;
-    margin-top: 5px;
-}
 .fixed-table-toolbar {
     margin-bottom: 25px;
 }
 
-.add-new,
-.delete-all {
+.add-new {
+    position: absolute;
+    margin-top: 5px;
     background: $base-color;
     color: #ffffff;
     text-transform: uppercase;
@@ -1011,6 +1016,7 @@ svg.plus {
     width: 30px;
     height: 30px;
     padding: 5px;
+    margin-top: -5px;
 }
 //Modal delete
 .modal-sure {
@@ -1029,7 +1035,7 @@ background: #F8F8F8;
     background: #fff;
     border: 1px solid #686868;
 }
-.delete-all-modal {
+.delete-service-modal {
     background: #212529;
     color: #fff;
 

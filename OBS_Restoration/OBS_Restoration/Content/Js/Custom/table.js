@@ -30,17 +30,17 @@ let tbody = document.getElementsByTagName("tbody")[0];
 let urlImg = "../../Content/Images/Services/";
 
 function populateServiceRow(service) {
-    td[1].textContent = service.Name;
-    td[2].textContent = service.Description;
-    td[3].querySelector('img').src = urlImg + service.ImgUrl;
+    td[0].textContent = service.Id;
+    td[2].textContent = service.Name;
+    td[3].textContent = service.Description;
+    td[4].querySelector('img').src = urlImg + service.ImgUrl;
     clone = document.importNode(templ.content, true);
     tbody.appendChild(clone);
 }
 
-
-//Ajax request Add and edit  function
-function updateService() {
-    let formData = new FormData($('.form-service')[0]);
+//Add new service
+$('.add').on('click', function () {
+    let formData = new FormData($('.form-add-service')[0]);
     $.ajax({
         type: 'POST',
         url: '/Admin/UpdateService',
@@ -51,8 +51,8 @@ function updateService() {
             if (response.Data && response.Success) {
                 tbody.innerHTML = "";
                 populateTableServices();
-                $('.modal-dialog form').addClass('d-none');
-                $('.addServiceSuccsses').addClass('d-block');
+                //$('.modal-dialog form').addClass('d-none');
+                //$('.addServiceSuccsses').addClass('d-block');
                 setInterval(function () {
                     $('#addModal').modal('hide');
                 }, 1200);
@@ -64,32 +64,46 @@ function updateService() {
             document.querySelector('.errorMessage').innerHTML = errorMessage;
         }
     });
-};
-
-///d-none btn edit
-$('.add-new').on('click', function () {
-    $('.update').addClass('d-none');
-})
-//Add new service
-$('.add').on('click', function () {
-    updateService()
 });
 
 //Update new service
 $('.update').on('click', function () {
-    updateService()
+    let formData = new FormData($('.form-edit-service')[0]);
+    $.ajax({
+        type: 'POST',
+        url: '/Admin/UpdateService',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            if (response.Data && response.Success) {
+                populateTableServices();
+                //$('.modal-dialog form').addClass('d-none');
+                //$('.addServiceSuccsses').addClass('d-block');
+                setInterval(function () {
+                    $('#editModal').modal('hide');
+                }, 1200);
+            } if (response.Data == false || response.Success == false) {
+                document.querySelector('.errorMessage').innerHTML = errorMessage;
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            document.querySelector('.errorMessage').innerHTML = errorMessage;
+        }
+    });
+
+
 });
+
 
 /// Ajax request to display in edit form modal (input value) to edit details.
 $(document).on('click', '.edit-btn', function (e) {
-    $('.add').addClass('d-none');
-    $('h4').text('Edit services');
-    let name = $("input[name='nameServices']").val();
+    let name = $("input[name='Name']").val();
     let description = $("textarea[name='Description']").val();
     $.ajax({
         type: 'POST',
         url: '/Admin/getServices',
-        data: {name: name, description: description },
+        data: { name: name, description: description },
         success: function (response) {
             if (response.Data && response.Success) {
                 let services = response.Data;
@@ -106,18 +120,13 @@ $(document).on('click', '.edit-btn', function (e) {
     });
 });
 
-//Check if checkboks is checked for button delete all
-$(document).on('click', '.delete-all', function (e) {
-    var checkbox = $('table tbody input[type="checkbox"]');
-    if ($(checkbox).is(":checked")) {
-        $('#deleteServicesModal').modal('show')
-    }
-});
 
-$(document).on('click', '.delete-one', function (e) {
-    var checkbox = $('table tbody input[type="checkbox"]');
+
+
+$(document).on('click', '.delete-services', function (e) {
+    let checkbox = $('input[type="checkbox"]');
     $.each(checkbox, function (i, checkbox) {
-        if ($('.delete-one').index(e.target) === i) {
+        if ($(checkbox).is(":checked") && ($('.delete-services').index(e.target)) === i) {
             $('#deleteServicesModal').modal('show')
         }
     });
@@ -125,15 +134,17 @@ $(document).on('click', '.delete-one', function (e) {
 
 // Ajax request function Delete services
 function deleteServices() {
+    let token = $('input[name="__RequestVerificationToken"]').val();
+    let id = $('.id');
+    console.log(id)
     $.ajax({
-        type: 'POST',
-        url: '/Admin/DeleteServiceImage',
+        type: 'DELETE',
+        url: '/Admin/DeleteService/' + id,
+        data: { __RequestVerificationToken: token },
         success: function (response) {
             if (response.Data && response.Success) {
-                $('.modal-dialog').addClass('d-none');
-                $('.addServiceSuccsses').addClass('d-block');
                 setInterval(function () {
-                    $('#addModal').modal('hide');
+                    $('#deleteServicesModal').modal('hide');
                 }, 1200);
                 populateTableServices();
             } if (response.Data == false || response.Success == false) {
@@ -145,9 +156,9 @@ function deleteServices() {
         }
     });
 }
-
-
-
+$('.delete-service-modal').on('click', function () {
+    deleteServices();
+})
 
 
 
