@@ -1,5 +1,6 @@
 ﻿using BAL.Managers;
 using Models.Entities;
+using Models.VM.Service;
 using OBS_Restoration.Helpers;
 using System.Web;
 using System.Web.Mvc;
@@ -7,7 +8,7 @@ using System.Web.Mvc;
 namespace OBS_Restoration.Controllers
 {
     [Authorize]
-    public class AdminController : Controller
+    public class AdminController : BaseAjaxController
     {
         private readonly ServiceManager _serviceManager;
         private readonly ProjectManager _projectManager;
@@ -30,71 +31,65 @@ namespace OBS_Restoration.Controllers
         {
             return View();
         }
-        #region Ajax methods
-        //Services
+        #region Service Ajax Methods
         public JsonResult GetServices()
         {
-            var responce = AjaxResponseHelper.AjaxGetMethodWrapper(() => { return _serviceManager.All(); });
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecGetAjax(() => { return _serviceManager.All(); });
         }
         public JsonResult GetService(int id)
         {
-            var responce = AjaxResponseHelper.AjaxGetMethodWrapper(() => { return _serviceManager.GetService(id); });
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecGetAjax(() => { return _serviceManager.GetService(id); });
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult UpdateService(Service source)
+        public JsonResult UpdateService(ServiceVM source)
         {
-            var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _serviceManager.UpdateService(source); }, ModelState);
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecPostAjax(() => { _serviceManager.UpdateService(source); });
         }
-        [HttpPost]
+        [HttpDelete]
         [ValidateAntiForgeryToken]
-        public JsonResult UploadServiceImage(int id, HttpPostedFileBase img)
+        public JsonResult DeleteService(int id)
         {
-            //todo: add validation for file
-            var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _serviceManager.UploadServiceImage(id, img); }, ModelState);
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecDeleteAjax(() => { _serviceManager.DeleteService(id); });
         }
-        [HttpPost]
+        [HttpDelete]
         [ValidateAntiForgeryToken]
-        public JsonResult DeleteServiceImage(int id)
+        public JsonResult DeleteBatchServices(int[] ids)
         {
-            var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _serviceManager.DeleteServiceImage(id); }, ModelState);
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecDeleteAjax(() => { _serviceManager.DeleteBatchServices(ids); });
         }
-        //Projects
+        #endregion
+        #region Project Ajax Methods
         public JsonResult GetProjects()
         {
-            var responce = AjaxResponseHelper.AjaxGetMethodWrapper(() => { return _projectManager.All(); });
+            var responce = AjaxResponseHelper.AjaxGetWrapper(() => { return _projectManager.All(); });
             return Json(responce, JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetProject(int id)
         {
-            var responce = AjaxResponseHelper.AjaxGetMethodWrapper(() => { return _projectManager.GetProject(id); });
+            var responce = AjaxResponseHelper.AjaxGetWrapper(() => { return _projectManager.GetProject(id); });
             return Json(responce, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult UpdateProject(Project source)
         {
-            var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _projectManager.UpdateProject(source); }, ModelState);
+            var responce = AjaxResponseHelper.AjaxPostWrapper(() => { _projectManager.UpdateProject(source); }, ModelState);
             return Json(responce, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult UploadProjectImage(int id,int order, HttpPostedFileBase img)
+        public JsonResult UploadProjectImage(int id, int order, HttpPostedFileBase img)
         {
             //todo: add validation for file
-            var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _projectManager.UploadProjectImage(id, order, img); }, ModelState);
+            var responce = AjaxResponseHelper.AjaxPostWrapper(() => { _projectManager.UploadProjectImage(id, order, img); }, ModelState);
             return Json(responce, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult DeleteProjectImage(int id)
         {
-            var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _projectManager.DeleteProjectImage(id); }, ModelState);
+            var responce = AjaxResponseHelper.AjaxPostWrapper(() => { _projectManager.DeleteProjectImage(id); }, ModelState);
             return Json(responce, JsonRequestBehavior.AllowGet);
         }
         #endregion

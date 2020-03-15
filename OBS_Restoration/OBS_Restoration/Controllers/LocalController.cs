@@ -11,7 +11,7 @@ namespace OBS_Restoration.Controllers
 {
 #if DEBUG
     [AllowAnonymous]
-    public class LocalController : BaseController
+    public class LocalController : BaseUserController
     {
         public LocalController()
         {

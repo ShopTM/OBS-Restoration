@@ -10,7 +10,7 @@ using Models.VM.Account;
 namespace OBS_Restoration.Controllers
 {
     [Authorize]
-    public class AccountController : BaseController
+    public class AccountController : BaseUserController
     {
 
         public AccountController()

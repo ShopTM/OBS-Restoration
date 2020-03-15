@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace OBS_Restoration.Controllers
 {
     [AllowAnonymous]
-    public class HomeController : Controller
+    public class HomeController : BaseAjaxController
     {
         private readonly EmailManager _emailManager;
         private readonly ServiceManager _serviceManager;
@@ -55,34 +55,29 @@ namespace OBS_Restoration.Controllers
         #region Ajax methods
         public JsonResult GetServices()
         {
-            var responce = AjaxResponseHelper.AjaxGetMethodWrapper(() => { return _serviceManager.All(true); });
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecGetAjax(() => { return _serviceManager.All(true); });
         }
         public JsonResult GetProjects()
         {
-            var responce = AjaxResponseHelper.AjaxGetMethodWrapper(() => { return _projectManager.All(true); });
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecGetAjax(() => { return _projectManager.All(true); });
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult ContactUs(ContactRequestFormVM model)
         {
-            var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _emailManager.SendContactUsEmail(model); }, ModelState);
-            return Json(responce);
+            return ExecPostAjax(() => { _emailManager.SendContactUsEmail(model); });
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult Careers(CareerRequestFormVM model)
         {
-            var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _emailManager.SendCareerEmail(model); }, ModelState);
-            return Json(responce);
+            return ExecPostAjax(() => { _emailManager.SendCareerEmail(model); });
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult JobEstimation(JobEstimationRequestFormVM model)
         {
-            var responce = AjaxResponseHelper.AjaxUpdateMethodWrapper(() => { _emailManager.SendJobEstimationEmail(model); }, ModelState);
-            return Json(responce);
+            return ExecPostAjax(() => { _emailManager.SendJobEstimationEmail(model); });
         }
         #endregion
     }
