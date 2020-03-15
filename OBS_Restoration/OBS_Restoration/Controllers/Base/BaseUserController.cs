@@ -8,7 +8,7 @@ using BAL.Managers;
 using OBS_Restoration.Models;
 using Common.Log;
 
-namespace OBS_Restoration.Controllers
+namespace OBS_Restoration.Controllers.Base
 {
     [SessionState(System.Web.SessionState.SessionStateBehavior.ReadOnly)]
     public class BaseUserController : Controller

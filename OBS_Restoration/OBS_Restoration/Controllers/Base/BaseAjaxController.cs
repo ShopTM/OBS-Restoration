@@ -2,7 +2,7 @@
 using System;
 using System.Web.Mvc;
 
-namespace OBS_Restoration.Controllers
+namespace OBS_Restoration.Controllers.Base
 {
     public class BaseAjaxController : Controller
     {

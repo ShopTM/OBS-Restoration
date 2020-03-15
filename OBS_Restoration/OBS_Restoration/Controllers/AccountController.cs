@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BAL.Managers;
 using Models.VM.Account;
+using OBS_Restoration.Controllers.Base;
 
 namespace OBS_Restoration.Controllers
 {
