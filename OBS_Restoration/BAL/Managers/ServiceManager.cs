@@ -84,7 +84,8 @@ namespace BAL.Managers
             var imgJob = new ImageJob(fullPathImage, fullPathImage, new Instructions
             {
                 Mode = FitMode.Max,
-                Width = 600
+                Width = 600,
+                Height = 600
             });
             ImageBuilder.Current.Build(imgJob);
         }
