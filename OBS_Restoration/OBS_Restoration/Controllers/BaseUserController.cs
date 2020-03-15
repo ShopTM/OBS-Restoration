@@ -11,7 +11,7 @@ using Common.Log;
 namespace OBS_Restoration.Controllers
 {
     [SessionState(System.Web.SessionState.SessionStateBehavior.ReadOnly)]
-    public class BaseController : Controller
+    public class BaseUserController : Controller
     {
         private UserSignInManager _signInManager;
         private UsersManager _userManager;

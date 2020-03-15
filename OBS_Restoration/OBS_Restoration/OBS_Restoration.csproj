@@ -5818,7 +5818,8 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BaseUserController.cs" />
+    <Compile Include="Controllers\BaseAjaxController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\LocalController.cs" />
@@ -9044,6 +9045,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Basic\" />
     <Folder Include="Views\Temporary\" />
   </ItemGroup>
   <ItemGroup>

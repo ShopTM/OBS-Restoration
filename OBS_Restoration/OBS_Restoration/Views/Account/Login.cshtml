@@ -1,25 +1,25 @@
 ﻿@model Models.VM.Account.LoginVM
 @{
-  ViewBag.Title = "Log in";
+    ViewBag.Title = "Log in";
 }
-  <div class="container-fluid login-bg">
+<div class="container-fluid login-bg">
     <div class="col-md-12 input-form">
-      @using (Html.BeginForm("Login", "Account", null, FormMethod.Post, new { role = "form" }))
-      {
-        @Html.AntiForgeryToken()
-        <div class="login-form">
-          <div>
-            <h5>Admin </h5>
-            <div>@Html.TextBoxFor(m => m.Email, new { @class = "login-input user-input", placeholder = "Username" })</div>
-            <div class="error-valid">@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })</div>
-          </div>
-          <div>
-            <div>@Html.PasswordFor(m => m.Password, new { @class = "login-input", placeholder = "Password" })</div>
-            <div class="error-valid">@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</div>
-          </div>
-          @Html.ValidationSummary(true)
-          <div><button class="btn-job-default btn-login" type="submit">LOGIN</button></div>
-        </div>
-      }
+        @using (Html.BeginForm("Login", "Account", null, FormMethod.Post, new { role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="login-form">
+                @Html.ValidationSummary()
+                <h5>Admin</h5>
+                <div>
+                    <div>@Html.TextBoxFor(m => m.Email, new { @class = "login-input user-input", placeholder = "Username" })</div>
+                    <div class="error-valid">@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })</div>
+                </div>
+                <div>
+                    <div>@Html.PasswordFor(m => m.Password, new { @class = "login-input", placeholder = "Password" })</div>
+                    <div class="error-valid">@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</div>
+                </div>
+                <div><button class="btn-job-default btn-login" type="submit">LOGIN</button></div>
+            </div>
+        }
     </div>
-  </div>
+</div>

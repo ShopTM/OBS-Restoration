@@ -9,7 +9,7 @@ using Models.VM.UserManagment;
 namespace OBS_Restoration.Controllers
 {
     [Authorize]
-    public class ManageController : BaseController
+    public class ManageController : BaseUserController
     {
         public ManageController()
         {
