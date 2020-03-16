@@ -13,6 +13,7 @@ function populateTableServices() {
                 let services = response.Data;
                 $.each(services, function (i, service) {
                     populateServiceRow(service)
+                    console.log(service.Order)
                 });
             }
         }
@@ -28,15 +29,17 @@ let templ = document.querySelector("template");
 let td = templ.content.querySelectorAll("td");
 let tbody = document.getElementsByTagName("tbody")[0];
 let urlImg = "../../Content/Images/Services/";
-
+console.log(td)
 function populateServiceRow(service) {
-    td[0].textContent = service.Id;
-    td[2].textContent = service.Name;
-    td[3].textContent = service.Description;
-    td[4].querySelector('img').src = urlImg + service.ImgUrl;
+    td[0].textContent = service.Order;
+    td[1].textContent = service.Id;
+    td[3].textContent = service.Name;
+    td[4].textContent = service.Description;
+    td[5].querySelector('img').src = urlImg + service.ImgUrl;
     clone = document.importNode(templ.content, true);
     tbody.appendChild(clone);
 }
+console.log(td[0])
 
 //Add new service
 $('.add').on('click', function () {
@@ -65,6 +68,12 @@ $('.add').on('click', function () {
         }
     });
 });
+
+let name = $("input[name='Name']").val();
+let description = $("textarea[name='Description']").val();
+
+
+
 
 //Update new service
 $('.update').on('click', function () {
@@ -98,8 +107,7 @@ $('.update').on('click', function () {
 
 /// Ajax request to display in edit form modal (input value) to edit details.
 $(document).on('click', '.edit-btn', function (e) {
-    let name = $("input[name='Name']").val();
-    let description = $("textarea[name='Description']").val();
+  
     $.ajax({
         type: 'POST',
         url: '/Admin/getServices',
