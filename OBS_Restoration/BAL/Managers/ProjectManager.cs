@@ -1,5 +1,7 @@
-﻿using DAL;
+﻿using BAL.Helpers;
+using DAL;
 using Models.Entities;
+using Models.VM.Project;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
@@ -10,7 +12,7 @@ namespace BAL.Managers
 {
     public class ProjectManager
     {
-        private const string IMAGE_FULL_URL = "../../Content/Images/Projects/";
+        private const string IMAGE_FULL_URL = "/Content/Images/Projects/";
         public List<Project> All(bool isFullImgUrl = false)
         {
             using (var db = DbFactory.GetNotTrackingInstance())
@@ -31,24 +33,30 @@ namespace BAL.Managers
                 return proj;
             }
         }
-        public void UpdateProject(Project source)
+        public void UpdateProject(ProjectVM source)
         {
             using (var db = DbFactory.GetNotTrackingInstance())
             {
-                db.ProjectRepository.Update(source);
+                var entityProject = source.ToEntity();
+                foreach (var img in source.Images)
+                {
+                    var projectImageEntity = img.ToEntity();
+                    projectImageEntity.Url = ImageSaveHelper.SaveImage(img.Image, IMAGE_FULL_URL);
+                    entityProject.Images.Add(projectImageEntity);
+                }
+                if (entityProject.Id == 0)
+                    db.ProjectRepository.Add(entityProject);
+                else
+                    db.ProjectRepository.Update(entityProject);
+                db.Save();
             }
         }
-        public void UploadProjectImage(int id, int order, HttpPostedFileBase img)
+        public void UploadProjectImage(ProjectImageVM projectImage)
         {
+            projectImage.Url = ImageSaveHelper.SaveImage(projectImage.Image, IMAGE_FULL_URL);
             using (var db = DbFactory.GetInstance())
             {
-                db.ProjectImageRepository.Add(new ProjectImage
-                {
-                    ProjectId = id,
-                    Url = img.FileName,
-                    Ordrer = order
-                });
-                img.SaveAs(IMAGE_FULL_URL + img.FileName);
+                db.ProjectImageRepository.Add(projectImage.ToEntity());
                 db.Save();
             }
         }
@@ -58,7 +66,6 @@ namespace BAL.Managers
             {
                 var img = db.ProjectImageRepository.Get(id);
                 File.Delete(IMAGE_FULL_URL + img.Url);
-                //todo: update order
                 db.ProjectImageRepository.Remove(img);
                 db.Save();
             }

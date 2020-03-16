@@ -4,6 +4,8 @@ using Models.VM.Service;
 using OBS_Restoration.Helpers;
 using System.Web;
 using System.Web.Mvc;
+using OBS_Restoration.Controllers.Base;
+using Models.VM.Project;
 
 namespace OBS_Restoration.Controllers
 {
@@ -62,35 +64,29 @@ namespace OBS_Restoration.Controllers
         #region Project Ajax Methods
         public JsonResult GetProjects()
         {
-            var responce = AjaxResponseHelper.AjaxGetWrapper(() => { return _projectManager.All(); });
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecGetAjax(() => { return _projectManager.All(); });
         }
         public JsonResult GetProject(int id)
         {
-            var responce = AjaxResponseHelper.AjaxGetWrapper(() => { return _projectManager.GetProject(id); });
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecGetAjax(() => { return _projectManager.GetProject(id); });
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult UpdateProject(Project source)
+        public JsonResult UpdateProject(ProjectVM source)
         {
-            var responce = AjaxResponseHelper.AjaxPostWrapper(() => { _projectManager.UpdateProject(source); }, ModelState);
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecPostAjax(() => { _projectManager.UpdateProject(source); });
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult UploadProjectImage(int id, int order, HttpPostedFileBase img)
+        public JsonResult UploadProjectImage(ProjectImageVM image)
         {
-            //todo: add validation for file
-            var responce = AjaxResponseHelper.AjaxPostWrapper(() => { _projectManager.UploadProjectImage(id, order, img); }, ModelState);
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecPostAjax(() => { _projectManager.UploadProjectImage(image); });
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult DeleteProjectImage(int id)
         {
-            var responce = AjaxResponseHelper.AjaxPostWrapper(() => { _projectManager.DeleteProjectImage(id); }, ModelState);
-            return Json(responce, JsonRequestBehavior.AllowGet);
+            return ExecDeleteAjax(() => { _projectManager.DeleteProjectImage(id); });
         }
         #endregion
     }

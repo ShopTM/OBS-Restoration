@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using BAL.Helpers;
+using DAL;
 using ImageResizer;
 using Models.Entities;
 using Models.VM.Service;
@@ -35,7 +36,7 @@ namespace BAL.Managers
         }
         public void UpdateService(ServiceVM source)
         {
-            SaveImage(source);
+            source.ImgUrl = ImageSaveHelper.SaveImage(source.Image, IMAGE_FULL_URL);
             using (var db = DbFactory.GetNotTrackingInstance())
             {
                 if (source.Id == 0)
@@ -72,22 +73,6 @@ namespace BAL.Managers
             var service = db.ServiceRepository.Get(id);
             File.Delete(IMAGE_FULL_URL + service.ImgUrl);
             db.ServiceRepository.Remove(service);
-        }
-        private void SaveImage(ServiceVM source)
-        {
-            if (source.Image == null) return;
-            var imgName = DateTime.UtcNow.Ticks.ToString() + "_" + source.Image.FileName;
-            var fullPathImage = HttpContext.Current.Server.MapPath(IMAGE_FULL_URL) + imgName;
-            source.ImgUrl = imgName;
-            source.Image.SaveAs(fullPathImage);
-
-            var imgJob = new ImageJob(fullPathImage, fullPathImage, new Instructions
-            {
-                Mode = FitMode.Max,
-                Width = 600,
-                Height = 600
-            });
-            ImageBuilder.Current.Build(imgJob);
         }
     }
 }

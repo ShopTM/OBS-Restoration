@@ -3,9 +3,9 @@ using Common.Log;
 using Models;
 using Models.Entities;
 using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using OBS_Restoration.Controllers.Base;
 
 namespace OBS_Restoration.Controllers
 {

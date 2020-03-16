@@ -107,6 +107,7 @@
     <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VM\Account\LoginVM.cs" />
+    <Compile Include="VM\Project\ProjectVM.cs" />
     <Compile Include="VM\RequestForm\CareerRequestFormVM.cs" />
     <Compile Include="VM\RequestForm\ContactRequestFormVM.cs" />
     <Compile Include="VM\RequestForm\JobEstimationRequestFormVM.cs" />
