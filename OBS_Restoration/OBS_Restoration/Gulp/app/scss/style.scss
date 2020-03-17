@@ -103,11 +103,13 @@ body {
 .navbar-nav {
      margin: 0 25px 0 25px;
 }
-
+.navbar-collapse {
+    padding: 30px 0 30px 0;
+}
 ////////////////////////// LOGO
 .logo img {
-   max-width: 80%;
-   margin: 35px 0 15px 35px;
+    max-width: 80%;
+    margin: 35px 0 15px 35px;
 }
 h1.logo {
 margin: 0;
@@ -913,6 +915,7 @@ label.require:after {
         font-weight: 700;
     }
 }
+.modal {height: auto;}
 ////MODAL SUBMIT
 .modal-content {
     margin: 25% auto;
@@ -982,8 +985,6 @@ table {
 }
 
 .add-new {
-    position: absolute;
-    margin-top: 5px;
     background: $base-color;
     color: #ffffff;
     text-transform: uppercase;
@@ -992,6 +993,9 @@ table {
     &:hover {
         color: #fff;
     }
+}
+#searchService {
+    width: 15%;
 }
 p.update-validation {
     text-align: left;
