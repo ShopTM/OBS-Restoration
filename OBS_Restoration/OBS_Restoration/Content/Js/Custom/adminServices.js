@@ -97,7 +97,7 @@ $(document).on('click', '.edit-btn', function () {
 //UPDATE SERVICES
 $('.update').on('click', function () {
     let formData = new FormData($('.form-update-service')[0]);
-     $.ajax({
+    $.ajax({
         type: 'post',
         url: '/Admin/Updateservice',
         data: {
@@ -105,7 +105,7 @@ $('.update').on('click', function () {
             'Description': description,
             'Id': id,
             'Order': order,
-             formData,
+            formData,
         },
         processData: false,
         contentType: false,
@@ -118,6 +118,8 @@ $('.update').on('click', function () {
 
     });
 });
+
+///////////DELETE
 $(document).on('click', '.delete-services', function (e) {
     let checkbox = $('input[type="checkbox"]');
     $.each(checkbox, function (i, checkbox) {
@@ -157,3 +159,11 @@ $('.delete-service-modal').on('click', function () {
 
     });
 })
+
+///SEARCH
+$("#searchService").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#tableServices tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+});
