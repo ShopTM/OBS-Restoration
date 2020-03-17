@@ -3,20 +3,27 @@
   ViewBag.Title = "Services";
 }
 <!--ADD MODAL-->
-<section class="container tab-pane active tab-content" id="tableService">
+<section class="container ">
   <section class="modal fade" id="addModal" role="dialog">
     <section class="modal-dialog modal-lg">
       <form class="modal-content pl-5 pr-5 form-add-service">
         <section class="modal-header pl-0 pr-0">
-          <h4 class="headerOfModal">Add your detail</h4>
-          <button type="button" class="close closed" data-dismiss="modal">
+          <h4>Add your details</h4>
+          <button type="button" class="close" data-dismiss="modal">
             &times;
           </button>
         </section><!--modal header-->
         <p class="errorMessage"></p>
         <section class="modal-body text-center ">
           <div class="form-group">
+            <input class="form-control madalInput"  name="Order">
+          </div>
+          <div class="form-group">
+            <input class="form-control madalInput" name="Id">
+          </div>
+          <div class="form-group">
             <input class="form-control madalInput " type="text" placeholder="Services name" autocomplete="off" name="Name">
+            <p class="text-left update-validation nameRequired"></p>
           </div>
           <div class="form-group">
             <textarea class="form-control textarea " rows="5" placeholder="Description" name="Description"></textarea>
@@ -24,14 +31,15 @@
           <div class="custom-file">
             <input type="file" class="custom-file-input " placeholder="Choose image" accept="image/*" name="Image">
             <label class="custom-file-label" for="customFile">Choose image</label>
+            <p class="text-left update-validation imgRequired"></p>
           </div>
         </section><!--modal body-->
         <section class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-info w-25 btn-lg add">Add</button>
+          <button type="button" class="btn btn-info w-25 btn-lg update">Update</button>
         </section><!--modal-footer-->
         @Html.AntiForgeryToken()
       </form><!--modal-content-->
-      <section class="modal-content addServiceSuccsses d-none">
+      <section class="modal-content updateServiceSuccsses d-none">
         <section class="modal-header">
           <button type="button" class="close" data-dismiss="modal">
             &times;
@@ -42,7 +50,7 @@
             <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#success"></use>
           </svg>
           <p class="thanks">Thank you!</p>
-          <p>Services successfully added to your table </p>
+          <p>Successfully services updating</p>
         </section><!--modal body-->
         <section class="modal-footer">
           <button type="button" class="btn btn-default closed" data-dismiss="modal">Close</button>
@@ -52,39 +60,7 @@
   </section><!--modal fade-->
 </section><!--modal container-->
 
-<!--EDIT MODAL-->
-
-  <section class="modal fade" id="editModal" role="dialog">
-    <section class="modal-dialog modal-lg">
-      <form class="modal-content pl-5 pr-5 form-edit-service">
-        <section class="modal-header pl-0 pr-0">
-          <h4 class="headerOfModal">Edit your detail</h4>
-          <button type="button" class="close closed" data-dismiss="modal">
-            &times;
-          </button>
-        </section><!--modal header-->
-        <p class="errorMessage"></p>
-        <section class="modal-body text-center ">
-          <div class="form-group">
-            <input class="form-control madalInput " type="text" placeholder="Services name" autocomplete="off" name="Name">
-          </div>
-          <div class="form-group">
-            <textarea class="form-control textarea " rows="5" placeholder="Description" name="Description"></textarea>
-          </div>
-          <div class="custom-file">
-            <input type="file" class="custom-file-input " placeholder="Choose image" accept="image/*" name="Image">
-            <label class="custom-file-label" for="customFile">Choose image</label>
-          </div>
-        </section><!--modal body-->
-        <section class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-info  w-25 btn-lg update">Update</button>
-        </section><!--modal-footer-->
-        @Html.AntiForgeryToken()
-      </form><!--modal-content-->
-     </section><!--modal-dilog-->
-  </section><!--modal fade-->
-
-<!-- Delete Modal HTML -->
+<!--Delete Modal HTML-->
 <section id="deleteServicesModal" class="modal fade">
   <section class="modal-dialog">
     <section class="modal-content">
@@ -124,7 +100,7 @@
     <thead class="thead-dark">
       <tr>
         <th class="d-none">Order</th>
-        <th>Id</th>
+        <th class="d-none">Id</th>
         <th>Select</th>
         <th>Services name</th>
         <th>Description</th>
@@ -140,7 +116,7 @@
 <template id="tableServicesTemplate">
   <tr>
     <td class="order d-none"></td>
-    <td class="id"></td>
+    <td class="id d-none"></td>
     <td class="text-center">
       <label class="checkbox"><input type="checkbox" /><span class="primary"></span></label>
     </td>
@@ -148,7 +124,7 @@
     <td><p class="name-services"></p></td>
     <td class="text-center"><img src="" alt="" class="img-edit" /></td>
     <td class="text-center">
-      <button type="button" class="btn delete-services">
+      <button type="button" class="btn delete-services"  data-toggle="modal" data-target="#deleteServicesModal">
         <span data-toggle="tooltip" title="delete">
           <svg class="delete">
             <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#delete"></use>
@@ -162,7 +138,7 @@
             <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#edit"></use>
           </svg>
         </span>
-        <span class="ml-1">Edit</span>
+        Edit
       </button>
     </td>
   </tr>

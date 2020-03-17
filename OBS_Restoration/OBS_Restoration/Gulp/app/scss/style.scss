@@ -993,7 +993,15 @@ table {
         color: #fff;
     }
 }
-.edit {fill: #ff8c00;}
+p.update-validation {
+    text-align: left;
+    font-size: 0.7em;
+    padding-top: 5px;
+    color: #ff0000;
+}
+.edit {
+    fill: #ff8c00;
+}
 .delete {fill: #f44336;}
 
 .nameTable {
