@@ -48,13 +48,13 @@ namespace OBS_Restoration.Controllers
         {
             return ExecPostAjax(() => { _serviceManager.UpdateService(source); });
         }
-        [HttpDelete]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult DeleteService(int id)
         {
             return ExecDeleteAjax(() => { _serviceManager.DeleteService(id); });
         }
-        [HttpDelete]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult DeleteBatchServices(int[] ids)
         {
