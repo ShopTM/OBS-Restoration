@@ -40,7 +40,7 @@ function populateServiceRow(service) {
 }
 /////////////////////////ADD NEW SERVICES
 //$('.update').on('click', function () {
-//    let formData = new FormData($('.form-add-service')[0]);
+//    let formData = new FormData($('.form-update-service')[0]);
 //    $.ajax({
 //        type: 'POST',
 //        url: '/Admin/UpdateService',
@@ -66,45 +66,58 @@ function populateServiceRow(service) {
 //    });
 //});
 
+
 ///////////////////EDIT SERVICES
 
 //DECLARED VARIABLES FOR EDITING AND DELETE 
+let name = $("input[name='Name']").val();
+let description = $("textarea[name='Description']").val();
+let id = $("input[name='Id']").val();
+let order = $("input[name='Order']").val();
 
+// Ajax request to display data into input value
+$(document).on('click', '.edit-btn', function () {
 
-////Update new service
-//$('.update').on('click', function () {
+    $.ajax({
+        type: 'POST',
+        url: '/Admin/getServices',
+        success: function (response) {
+            if (response.Data && response.Success) {
+                let services = response.Data;
+                $.each(services, function (i, service) {
+                    $("input[name='Name']").val(service.Name);
+                    $("textarea[name='Description']").val(service.Description);
+                    $("input[name='Id']").val(service.Id);
+                    $("input[name='Order']").val(service.Order);
+                });
+            }
+        },
+    });
+});
+//UPDATE SERVICES
+$('.update').on('click', function () {
+    let formData = new FormData($('.form-update-service')[0]);
+     $.ajax({
+        type: 'post',
+        url: '/Admin/Updateservice',
+        data: {
+            'Name': name,
+            'Description': description,
+            'Id': id,
+            'Order': order,
+             formData,
+        },
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            if (response.data && response.success) {
+                tbody.innerhtml = "";
+                populateTableServices();
+            }
+        },
 
-//    $.ajax({
-//        type: 'POST',
-//        url: '/Admin/UpdateService',
-//        data: formData,
-//        processData: false,
-//        contentType: false,
-//        success: function (response) {
-//            if (response.Data && response.Success) {
-//                populateTableServices();
-//                //$('.modal-dialog form').addClass('d-none');
-//                //$('.addServiceSuccsses').addClass('d-block');
-//                setInterval(function () {
-//                    $('#editModal').modal('hide');
-//                }, 1200);
-//            } if (response.Data == false || response.Success == false) {
-//                document.querySelector('.errorMessage').innerHTML = errorMessage;
-//            }
-//        },
-//        error: function (xhr, ajaxOptions, thrownError) {
-//            document.querySelector('.errorMessage').innerHTML = errorMessage;
-//        }
-//    });
-
-
-//});
-
-
-
-
-
-
+    });
+});
 $(document).on('click', '.delete-services', function (e) {
     let checkbox = $('input[type="checkbox"]');
     $.each(checkbox, function (i, checkbox) {
@@ -127,11 +140,11 @@ $('.delete-service-modal').on('click', function () {
         type: 'DELETE',
         url: '/Admin/DeleteService/' + id,
         data: {
-            __RequestVerificationToken: token,
-            Name: name,
-            Description: description,
-            Id: id,
-            Order: order,
+            '__RequestVerificationToken': token,
+            'Name': name,
+            'Description': description,
+            'Id': id,
+            'Order': order,
             FormData: formData
         },
         processData: false,
