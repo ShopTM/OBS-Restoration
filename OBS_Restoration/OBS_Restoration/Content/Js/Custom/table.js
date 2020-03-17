@@ -130,25 +130,14 @@ $(document).on('click', '.delete-services', function (e) {
 
 ///Ajax request function Delete services
 $('.delete-service-modal').on('click', function () {
-    let formData = new FormData($('.form-add-service')[0]);
-    let name = $("input[name='Name']").val();
-    let description = $("textarea[name='Description']").val();
     let id = $("input[name='Id']").val();
-    let order = $("input[name='Order']").val();
     let token = $('input[name="__RequestVerificationToken"]').val();
     $.ajax({
-        type: 'DELETE',
+        type: 'Post',
         url: '/Admin/DeleteService/' + id,
         data: {
             '__RequestVerificationToken': token,
-            'Name': name,
-            'Description': description,
-            'Id': id,
-            'Order': order,
-            FormData: formData
         },
-        processData: false,
-        contentType: false,
         success: function (response) {
             if (response.Data && response.Success) {
                 populateTableServices();

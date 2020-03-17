@@ -71,7 +71,7 @@ namespace BAL.Managers
         private void DeleteService(IUnitOfWork db, int id)
         {
             var service = db.ServiceRepository.Get(id);
-            File.Delete(IMAGE_FULL_URL + service.ImgUrl);
+            File.Delete(HttpContext.Current.Server.MapPath(IMAGE_FULL_URL) + service.ImgUrl);
             db.ServiceRepository.Remove(service);
         }
     }
