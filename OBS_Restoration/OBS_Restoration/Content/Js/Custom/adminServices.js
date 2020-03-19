@@ -24,9 +24,9 @@ $(function () {
     populateTableServices();
 });
 
-let templ = document.querySelector("template");
+let templ = document.querySelector("#tableServicesTemplate");
 let td = templ.content.querySelectorAll("td");
-let tbody = document.getElementsByTagName("tbody")[0];
+let tbody = document.querySelector(".tableServicesBody");
 let urlImg = "../../Content/Images/Services/";
 let btnDelete = templ.content.querySelector(".delete-services");
 

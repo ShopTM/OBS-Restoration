@@ -2,3 +2,52 @@
   ViewBag.Title = "Projects";
 }
 
+<section class=" container-fluid tab-pane fade   pl-5 pr-5 " id="tableProjects">
+  <table data-toggle="table">
+    <thead class="thead-dark">
+      <tr>
+        <th class="d-none">Order</th>
+        <th class="d-none">Id</th>
+        <th>Select</th>
+        <th>Projects name</th>
+        <th>Images</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody class="tableProjectsBody">
+    </tbody>
+  </table>
+</section>
+
+<template id="tableProjectsTemplate">
+  <tr>
+    <td class="order d-none"></td>
+    <td class="id d-none"></td>
+    <td class="text-center">
+      <label class="checkbox"><input type="checkbox" /><span class="primary"></span></label>
+    </td>
+    <td><p class="name-services"></p></td>
+    <td class="text-center td-img">
+    <img src="" alt="" class="img-proj" />
+    </td>
+    <td class="text-center">
+      <button type="button" class="btn delete-services">
+        <span data-toggle="tooltip" title="delete">
+          <svg class="delete">
+            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#delete"></use>
+          </svg>
+        </span>
+        Delete
+      </button>
+      <button type="button" class="btn edit-btn editBtn" data-toggle="modal" data-target="#addModal">
+        <span data-toggle="tooltip" title="edit">
+          <svg class="edit">
+            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#edit"></use>
+          </svg>
+        </span>
+        Edit
+      </button>
+    </td>
+  </tr>
+</template>
+

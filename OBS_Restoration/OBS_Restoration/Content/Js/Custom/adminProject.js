@@ -1,67 +1,52 @@
 ﻿
-
-  // your custom ajax request here
-//  function ajaxRequest() {
-//    var url = '/Admin/getProjects'
-//      $.get(url + '?' + $.param(params.data))
-      
-//}
-//$.ajax({
-//    url: '/Admin/getProjects',
-//    type: 'GET',
-//    success: function (data) {
-
-//    }
-
-
-//});
-
-//$('.add').('click', function () {
-//    var obj = { url: '/Admin/getProjects', type: 'GET', data: { name: name }}
-//    $.ajax(obj);
-//    $.ajax({
-//        url: '/Admin/getProjects',
-//        type: 'GET',
-//        data: { name: name, surname: surname },
-//        success: function () {
-
-//        }, error: function () {
-
-//        }
-//    })
-//});
-
-//var obj = { val1: 1, val2: 2, val3: 3};
-//function test(a, b, c) {
-//    console.log(a);
-//    console.log(b);
-//    console.log(c);
-//}
-
-//console.log('firts try');
-////test(obj);
-//console.log('second try');
-//test({ val1: 1, val2: 2, val3: 3 });
-
-
-//function test2(a, b, c) {
-//    a.val1 = 1;
-//    a.val2 = 2;
-//    a.val3 = 3;
-//    console.log(a.val1);
-//    console.log(a.val2);
-//    console.log(a.val3);
-//    a = 5;
+// Add the name of the file appear on select
+$(".custom-file-input").on("change", function () {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+function populateTableProjects() {
+    $.ajax({
+        url: '/Admin/getProjects',
+        type: 'GET',
+        success: function (response) {
+            if (response.Data && response.Success) {
+                let projects = response.Data;
+                $.each(projects, function (i, projects) {
+                    populateProjectseRow(projects)
+                    populateProjectsImg(projects) 
+          
+                });
+            }
+        }
+    });
+    // Activate tooltip
+    $("[data-toggle=tooltip]").tooltip();
+}
+$(function () {
+    populateTableProjects();
+});
+let templProj = document.querySelector("#tableProjectsTemplate");
+let tdProj = templProj.content.querySelectorAll("td");
+let tbodyProj = document.querySelector(".tableProjectsBody");
+let urlImgProj = "../../Content/Images/Projects/";
+let tdImg = templProj.content.querySelector("td")[4];
  
-//}
+function populateProjectseRow(projects) {
+    tdProj[3].textContent = projects.Name;
+    cloneProj = document.importNode(templProj.content, true);
+    tbodyProj.appendChild(cloneProj);
+}
 
-//console.log('third try');
-////test2(obj);
-//console.log('fourth try');
-//test2({ val1: 5, val2: 6, val3: 7 });
 
-//var a = {
-//    val1 : 1
-//}
-//var b = a;
-//b.val1
+function populateProjectsImg(projects) {
+    templProj.content.querySelector(".img-proj").setAttribute("projectId", projects.projectId);
+        for (let i = 0, l = projects.Images.length; i < l; i++) {
+            let projectsImg = projects.Images[i];
+            templProj.content.querySelector('img').src = (projectsImg.Url);
+            var clon = templProj.content.cloneNode(true);
+            tdImg.appendChild(clon);
+
+          
+        }
+    }
+
