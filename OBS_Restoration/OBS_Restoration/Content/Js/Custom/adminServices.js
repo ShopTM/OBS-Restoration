@@ -28,6 +28,8 @@ let templ = document.querySelector("template");
 let td = templ.content.querySelectorAll("td");
 let tbody = document.getElementsByTagName("tbody")[0];
 let urlImg = "../../Content/Images/Services/";
+let btnDelete = templ.content.querySelector(".delete-services");
+
 
 function populateServiceRow(service) {
     td[0].textContent = service.Order;
@@ -35,119 +37,96 @@ function populateServiceRow(service) {
     td[3].textContent = service.Name;
     td[4].textContent = service.Description;
     td[5].querySelector('img').src = urlImg + service.ImgUrl;
+    btnDelete.setAttribute("id", service.Id);
     clone = document.importNode(templ.content, true);
     tbody.appendChild(clone);
 }
-/////////////////////////ADD NEW SERVICES
-//$('.update').on('click', function () {
-//    let formData = new FormData($('.form-update-service')[0]);
-//    $.ajax({
-//        type: 'POST',
-//        url: '/Admin/UpdateService',
-//        data: formData,
-//        processData: false,
-//        contentType: false,
-//        success: function (response) {
-//            if (response.Data && response.Success) {
-//                tbody.innerHTML = "";
-//                populateTableServices();
-//                  $('.modal-dialog form').addClass('d-none');
-//                $('.updateServiceSuccsses').addClass('d-block');
-//                //need to add modal hide after msg succsses
-//             } if (response.Data == false || response.Success == false) {
-//                document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
-//                document.queryselector('.namerequired').innerhtml = response.validationmessages.name;
-//                document.queryselector('.imgrequired').innerhtml = response.validationmessages.image;
-//            }
-//        },
-//        error: function (xhr, ajaxOptions, thrownError) {
-//            document.querySelector('.errorMessage').innerHTML = errorMessage;
-//        }
-//    });
-//});
 
-
-///////////////////EDIT SERVICES
-
-//DECLARED VARIABLES FOR EDITING AND DELETE 
-let name = $("input[name='Name']").val();
-let description = $("textarea[name='Description']").val();
-let id = $("input[name='Id']").val();
-let order = $("input[name='Order']").val();
-
-// Ajax request to display data into input value
-$(document).on('click', '.edit-btn', function () {
+///////////////////////ADD NEW SERVICES
+$('.update').on('click', function () {
+    let formData = new FormData($('.form-update-service')[0]);
+    $.ajax({
+        type: 'POST',
+        url: '/Admin/UpdateService',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            if (response.Success && response.Success) {
+                tbody.innerHTML = "";
+                populateTableServices();
+                $('.modal-dialog form').addClass('d-none');
+                $('.succsses-content').addClass('d-block');
+                locationReload();
+            } if (response.Success == false || response.Success == false) {
+                document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
+                document.queryselector('.nameRequired').innerHTML = response.ValidationMessages.Name;
+                document.queryselector('.imgRequired').innerHTML = response.ValidationMessages.Image;
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            document.querySelector('.thrownerror').innerHTML = thrownerror;
+            document.querySelector('.errorMessage').innerHTML = errorMessage;
+        }
+    });
+});
+/////////////////EDIT SERVICES
+/// Ajax request to display in edit form modal (input value) to edit details.
+$(document).on('click', '.edit-btn', function (e) {
     $.ajax({
         type: 'POST',
         url: '/Admin/getServices',
         success: function (response) {
             if (response.Data && response.Success) {
                 let services = response.Data;
-                $.each(services, function (i, service) {
-                    $("input[name='Name']").val(service.Name);
-                    $("textarea[name='Description']").val(service.Description);
-                    $("input[name='Id']").val(service.Id);
-                    $("input[name='Order']").val(service.Order);
+                $.each(services, function (i, services) {
+                    if ($('.edit-btn').index(e.target) === i) {
+                        $("input[name='Name']").val(services.Name);
+                        $("textarea[name='Description']").val(services.Description);
+                        $("input[name='Id']").val(services.Id);
+                        $("input[name='Order']").val(services.Order);
+                        return false;
+                    }
                 });
             }
         },
     });
 });
-//UPDATE SERVICES
-$('.update').on('click', function () {
-    let formData = new FormData($('.form-update-service')[0]);
-    $.ajax({
-        type: 'POST',
-        url: '/Admin/Updateservice',
-        data: {
-            'Name': name,
-            'Description': description,
-            'Id': id,
-            'Order': order,
-            formData,
-        },
-        processData: false,
-        contentType: false,
-        success: function (response) {
-            if (response.data && response.success) {
-                tbody.innerhtml = "";
-                populateTableServices();
-            }
-        },
-
-    });
-});
-
-///////////DELETE
+/////////////////////DELETE SERVICES
 $(document).on('click', '.delete-services', function (e) {
+    let idDelete = this.id;
+    $('.delete-service-modal').data('id', idDelete);
     let checkbox = $('input[type="checkbox"]');
     $.each(checkbox, function (i, checkbox) {
         if ($(checkbox).is(":checked") && ($('.delete-services').index(e.target)) === i) {
             $('#deleteServicesModal').modal('show')
         }
     });
-
 });
-
-///Ajax request function Delete services
+//Ajax request function Delete services
 $('.delete-service-modal').on('click', function () {
-    let id = $("input[name='Id']").val();
     let token = $('input[name="__RequestVerificationToken"]').val();
-    console.log(id)
+    let id = $(this).data('id');
     $.ajax({
-        type: 'Post',
+        type: 'POST',
         url: '/Admin/DeleteService/' + id,
         data: {
             '__RequestVerificationToken': token,
+            id: id,
         },
         success: function (response) {
             if (response.Data && response.Success) {
-                populateTableServices();
+                $('.delete-content-modal').addClass('d-none')
+                $('.succsses-content').addClass('d-block');
+                locationReload();
             }
         },
+        error: function (xhr, ajaxoptions, thrownerror) {
+            document.querySelector('.thrownerror').innerHTML = thrownerror;
+            document.querySelector('.errorMessage').innerHTML = errorMessage;
+        }
     });
-})
-
+});
 ///SEARCH
 $("#searchService").on("keyup", function () {
     var value = $(this).val().toLowerCase();
@@ -155,3 +134,15 @@ $("#searchService").on("keyup", function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
 });
+
+function locationReload() {
+    if ($('.modal').on('hidden.bs.modal')) {
+        window.setTimeout(function () {
+            location.reload()
+        }, 1200);
+    }
+}
+//REST INPUT 
+$('.add-new').on('click', function () {
+    $('.form-update-service input, textarea').val();
+})

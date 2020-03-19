@@ -19,7 +19,6 @@ $fz: 1.2em;
     flex-direction: column;
     justify-content: center;
     animation: anime 1.3s ease-in-out;
-
     span {
         color: $base-color;
     }
@@ -893,7 +892,8 @@ label.require:after {
     font-size: 0.7em;
 }
 
-.errorMessage { 
+.errorMessage,
+.thrownerror {
     color: #ff0000;
 }
 .form-control {
@@ -916,32 +916,51 @@ label.require:after {
     }
 }
 .modal {height: auto;}
-////MODAL SUBMIT
+
+//////////////MODAL
 .modal-content {
-    margin: 25% auto;
+    margin: 10% auto;
 }
-.modal-header {
-    border-bottom: none;
+.modal-header-form {
+    margin: 15px 0 15px 0;
+    h4 {
+        text-transform: uppercase;
+    }
 }
 .modal-footer {
     border-top: none;
 }
 .modal-body {
     padding: 0;
+}
+////////////////MODAL SUCCSSES
+.succsses-content {
+    width: 500px;
+    margin: 25% auto;
+
     svg {
         fill: #22bb33;
         margin-bottom: 25px;
+        width: 80px;
+        height: 80px;
     }
-
     p {
         font-size: 1.5em;
         line-height: 1;
     }
 }
+.succsses-header {
+    border-bottom: none;
+}
+.succsses-body {
+    padding-bottom: 30px;
+}
+
 p.thanks {
     font-weight: bold;
     font-size: 1.8em;
 }
+
 /////////////TABLE
 .teble-mb {
     margin-bottom: 100px;

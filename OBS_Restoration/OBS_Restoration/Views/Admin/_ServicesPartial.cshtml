@@ -3,25 +3,27 @@
   ViewBag.Title = "Services";
 }
 <!--ADD MODAL-->
-<section class="container ">
+<section class="container">
   <section class="modal fade" id="addModal" role="dialog">
     <section class="modal-dialog modal-lg">
       <form class="modal-content pl-5 pr-5 form-update-service">
-        <section class="modal-header pl-0 pr-0">
-          <h4>Add your details</h4>
+        <section class="modal-header modal-header-form">
+          <h4>Enter your details</h4>
           <button type="button" class="close" data-dismiss="modal">
             &times;
           </button>
         </section><!--modal header-->
-        <p class="errorMessage"></p>
+        <!--Error msg-->
+        <section>
+          <p class="errorMessage m-0"></p>
+          <p class="thrownerror m-0"></p>
+        </section>
         <section class="modal-body text-center ">
           <div class="form-group">
-            <input class="form-control madalInput"  name="Order">
+            <input type="hidden" class="form-control madalInput" value="0" name="Order">
+            <input type="hidden" class="form-control madalInput" value="0" name="Id">
           </div>
-          <div class="form-group">
-            <input class="form-control madalInput" name="Id">
-          </div>
-          <div class="form-group">
+           <div class="form-group">
             <input class="form-control madalInput " type="text" placeholder="Services name" autocomplete="off" name="Name">
             <p class="text-left update-validation nameRequired"></p>
           </div>
@@ -39,23 +41,21 @@
         </section><!--modal-footer-->
         @Html.AntiForgeryToken()
       </form><!--modal-content-->
-      <section class="modal-content updateServiceSuccsses d-none">
-        <section class="modal-header">
+      <!--Modal succses-->
+      <section class="modal-content succsses-content d-none">
+        <section class="modal-header succsses-header">
           <button type="button" class="close" data-dismiss="modal">
             &times;
           </button>
         </section><!--modal header-->
-        <section class="modal-body text-center">
+        <section class="modal-body text-center succsses-body">
           <svg class="success">
             <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#success"></use>
           </svg>
           <p class="thanks">Thank you!</p>
           <p>Successfully services updating</p>
         </section><!--modal body-->
-        <section class="modal-footer">
-          <button type="button" class="btn btn-default closed" data-dismiss="modal">Close</button>
-        </section><!--modal-footer-->
-      </section><!--modal-content-->
+       </section><!--modal-content-->
     </section><!--modal-dilog-->
   </section><!--modal fade-->
 </section><!--modal container-->
@@ -63,7 +63,7 @@
 <!--Delete Modal HTML-->
 <section id="deleteServicesModal" class="modal fade">
   <section class="modal-dialog">
-    <section class="modal-content">
+    <section class="modal-content delete-content-modal">
       <form class="delete-form">
         <section class="modal-header">
           <h4 class="modal-title">Delete Services</h4>
@@ -81,10 +81,24 @@
         @Html.AntiForgeryToken()
       </form>
     </section>
+    <section class="modal-content succsses-content d-none w-100">
+      <section class="modal-header succsses-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </section><!--modal header-->
+      <section class="modal-body succsses-body text-center">
+        <svg class="success">
+          <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#success"></use>
+        </svg>
+        <p class="thanks">Thank you!</p>
+        <p>Successfully service deleting</p>
+      </section><!--modal body-->
+     </section><!--modal-content-->
   </section>
 </section>
 
-<div class="container-fluid teble-mb  pl-5 pr-5 ">
+@*<div class="container-fluid  tab-pane active teble-mb  pl-5 pr-5"  id="tableServices">
   <section class="nameTable jus">
     <h2>Services details</h2>
   </section>
@@ -100,7 +114,7 @@
         <input class="form-control" id="searchService" type="text" placeholder="Search..">
     </section>
   
-  <table data-toggle="table" id="tableServices">
+  <table data-toggle="table"  >
     <thead class="thead-dark">
       <tr>
         <th class="d-none">Order</th>
@@ -115,7 +129,7 @@
     <tbody class="tableBody">
     </tbody>
   </table>
-</div>
+</div>*@
 
 <template id="tableServicesTemplate">
   <tr>
@@ -128,7 +142,7 @@
     <td><p class="name-services"></p></td>
     <td class="text-center"><img src="" alt="" class="img-edit" /></td>
     <td class="text-center">
-      <button type="button" class="btn delete-services"  data-toggle="modal" data-target="#deleteServicesModal">
+      <button type="button" class="btn delete-services"  >
         <span data-toggle="tooltip" title="delete">
           <svg class="delete">
             <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#delete"></use>

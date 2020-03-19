@@ -129,7 +129,7 @@ namespace DAL.Migrations
                    new Service
                 {
                     Id = 11,
-                    Name = "Insulation installation",
+                    Name = " Metal siding installation",
                     Description = " ",
                     ImgUrl = "metal-siding.jpg",
                     Order = 11
