@@ -144,5 +144,6 @@ function locationReload() {
 }
 //REST INPUT 
 $('.add-new').on('click', function () {
+    $('#addModal').modal('show');
     $('.form-update-service input, textarea').val();
 })
