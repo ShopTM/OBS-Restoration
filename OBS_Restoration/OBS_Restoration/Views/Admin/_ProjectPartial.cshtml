@@ -23,10 +23,19 @@
             <input type="hidden" class="form-control madalInput" value="0" name="Id">
           </div>
           <div class="form-group">
-            <input class="form-control madalInput " type="text" placeholder="Services name" autocomplete="off" name="Name">
+            <input class="form-control madalInput " type="text" placeholder="Project name" autocomplete="off" name="Name">
             <p class="text-left update-validation nameRequired"></p>
           </div>
-        
+          <div class="custom-file">
+            <input type="file" class="custom-file-input " placeholder="Choose image" accept="image/*" name="Image">
+            <label class="custom-file-label" for="customFile">Choose image</label>
+            <p class="text-left update-validation imgRequired"></p>
+          </div>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input " placeholder="Choose image" accept="image/*" name="Image">
+            <label class="custom-file-label" for="customFile">Choose image</label>
+            <p class="text-left update-validation imgRequired"></p>
+          </div>
           <div class="custom-file">
             <input type="file" class="custom-file-input " placeholder="Choose image" accept="image/*" name="Image">
             <label class="custom-file-label" for="customFile">Choose image</label>
@@ -34,7 +43,7 @@
           </div>
         </section><!--modal body-->
         <section class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-info w-25 btn-lg update">Update</button>
+          <button type="button" class="btn btn-info w-25 btn-lg updateProject">Update</button>
         </section><!--modal-footer-->
         @Html.AntiForgeryToken()
       </form><!--modal-content-->
@@ -56,15 +65,59 @@
     </section><!--modal-dilog-->
   </section><!--modal fade-->
 </section><!--modal container-->
-
-
-
-
-
-
-
+<!--Delete Modal HTML-->
+<section id="deleteProjectModal" class="modal">
+  <section class="modal-dialog">
+    <section class="modal-content delete-content-modal">
+      <form class="delete-form">
+        <section class="modal-header">
+          <h4 class="modal-title">Delete Project</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </section>
+        <p class="errorMessage"></p>
+        <section class="modal-body modal-sure">
+          <h4 class="text-center">Are you sure you want to delete these Records?</h4>
+          <p class="text-center">Do you really want to delete these records? This process cannot be undone.</p>
+        </section>
+        <section class="modal-footer delete-modal-footer ">
+          <button type="button" class="btn  delete-project-modal">Delete</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </section>
+        @Html.AntiForgeryToken()
+      </form>
+    </section>
+    <section class="modal-content succsses-content d-none w-100">
+      <section class="modal-header succsses-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </section><!--modal header-->
+      <section class="modal-body succsses-body text-center">
+        <svg class="success">
+          <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#success"></use>
+        </svg>
+        <p class="thanks">Thank you!</p>
+        <p>Successfully service deleting</p>
+      </section><!--modal body-->
+    </section><!--modal-content-->
+  </section>
+</section>
 
 <section class=" container-fluid tab-pane active   pl-5 pr-5 " id="tableProjects">
+  <section class="nameTable jus">
+    <h2>Project details</h2>
+  </section>
+  <section class="d-flex justify-content-between">
+    <button type="button" class="btn  add-new-project" data-toggle="modal" data-target="#addProjectModal">
+      <span data-toggle="tooltip" title="add">
+        <svg class="plus">
+          <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#plus"></use>
+        </svg>
+      </span>
+      <span>Add new</span>
+    </button>
+    <input class="form-control" id="searchProject" type="text" placeholder="Search..">
+  </section>
   <table data-toggle="table">
     <thead class="thead-dark">
       <tr>
@@ -93,7 +146,7 @@
       <img src="" alt="" class="img-proj" />
     </td>
     <td class="text-center">
-      <button type="button" class="btn delete-services">
+      <button type="button" class="btn delete-project" data-toggle="modal">
         <span data-toggle="tooltip" title="delete">
           <svg class="delete">
             <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#delete"></use>

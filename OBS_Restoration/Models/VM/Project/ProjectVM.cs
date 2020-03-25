@@ -11,7 +11,6 @@ namespace Models.VM.Project
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public string Description { get; set; }
         public int Order { get; set; }
         [Required]
         public List<ProjectImageVM> Images { get; set; } = new List<ProjectImageVM>();
@@ -21,7 +20,6 @@ namespace Models.VM.Project
             {
                 Id = Id,
                 Name = Name,
-                Description = Description,
                 Order = Order,
             };
         }

@@ -13,7 +13,7 @@ function populateTableProjects() {
                 let projects = response.Data;
                 $.each(projects, function (i, projects) {
                     populateProjectseRow(projects);
-                });
+                 });
             }
         }
     });
@@ -46,7 +46,72 @@ function populateProjectseRow(projects) {
 }
 
 
+///////////////////////ADD NEW PROJECT
+$('.updateProject').on('click', function () {
+    let image = { ProjectId: ProjectId, Ordrer: Ordrer, Url: Url, };
+    console.log(images)
+    let formData = new FormData($('.form-update-project')[0]);
+    console.log(formData)
+    $.ajax({
+        type: 'POST',
+        url: '/Admin/UpdateProject',
+        data: formData, image,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            if (response.Success && response.Success) {
+                tbody.innerHTML = "";
+                populateTableProjects();
+              //  $('.modal-dialog form').addClass('d-none');
+               // $('.succsses-content').addClass('d-block');
+                ///locationReload();
+            } if (response.Success == false || response.Success == false) {
+                document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
+                document.queryselector('.nameRequired').innerHTML = response.ValidationMessages.Name;
+                document.queryselector('.imgRequired').innerHTML = response.ValidationMessages.Image;
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            document.querySelector('.thrownerror').innerHTML = thrownerror;
+            document.querySelector('.errorMessage').innerHTML = errorMessage;
+        }
+    });
+});
 
-
+/////////////////////DELETE SERVICES
+$(document).on('click', '.delete-project', function (e) {
+    let idDelete = this.id;
+    $('.delete-project-modal').data('id', idDelete);
+    let checkbox = $('input[type="checkbox"]');
+    $.each(checkbox, function (i, checkbox) {
+        if ($(checkbox).is(":checked") && ($('.delete-project').index(e.target)) === i) {
+            $('#deleteProjectModal').modal('show')
+        }
+    });
+});
+//Ajax request function Delete services
+$('.delete-project-modal').on('click', function () {
+    let token = $('input[name="__RequestVerificationToken"]').val();
+    let id = $(this).data('id');
+    $.ajax({
+        type: 'POST',
+        url: '/Admin/DeleteProjectImage/' + id,
+        data: {
+            '__RequestVerificationToken': token,
+            id: id,
+        },
+        success: function (response) {
+            if (response.Data && response.Success) {
+               // $('.delete-content-modal').addClass('d-none')
+               // $('.succsses-content').addClass('d-block');
+               
+            }
+        },
+        error: function (xhr, ajaxoptions, thrownerror) {
+            document.querySelector('.thrownerror').innerHTML = thrownerror;
+            document.querySelector('.errorMessage').innerHTML = errorMessage;
+        }
+    });
+});
 
 

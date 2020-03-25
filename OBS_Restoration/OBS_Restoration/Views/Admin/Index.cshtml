@@ -11,65 +11,6 @@
 @section Styles {
   <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
 }
-<!--ADD MODAL-->
-<section class="container">
-  <section class="modal fade" id="addModal" role="dialog">
-    <section class="modal-dialog modal-lg">
-      <form class="modal-content pl-5 pr-5 form-update-service">
-        <section class="modal-header modal-header-form">
-          <h4>Enter your details</h4>
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
-        </section><!--modal header-->
-        <!--Error msg-->
-        <section>
-          <p class="errorMessage m-0"></p>
-          <p class="thrownerror m-0"></p>
-        </section>
-        <section class="modal-body text-center ">
-          <div class="form-group">
-            <input type="hidden" class="form-control madalInput" value="0" name="Order">
-            <input type="hidden" class="form-control madalInput" value="0" name="Id">
-          </div>
-          <div class="form-group">
-            <input class="form-control madalInput " type="text" placeholder="Services name" autocomplete="off" name="Name">
-            <p class="text-left update-validation nameRequired"></p>
-          </div>
-          <div class="form-group">
-            <textarea class="form-control textarea " rows="5" placeholder="Description" name="Description"></textarea>
-          </div>
-          <div class="custom-file">
-            <input type="file" class="custom-file-input " placeholder="Choose image" accept="image/*" name="Image">
-            <label class="custom-file-label" for="customFile">Choose image</label>
-            <p class="text-left update-validation imgRequired"></p>
-          </div>
-        </section><!--modal body-->
-        <section class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-info w-25 btn-lg update">Update</button>
-        </section><!--modal-footer-->
-        @Html.AntiForgeryToken()
-      </form><!--modal-content-->
-      <!--Modal succses-->
-      <section class="modal-content succsses-content d-none">
-        <section class="modal-header succsses-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
-        </section><!--modal header-->
-        <section class="modal-body text-center succsses-body">
-          <svg class="success">
-            <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#success"></use>
-          </svg>
-          <p class="thanks">Thank you!</p>
-          <p>Successfully services updating</p>
-        </section><!--modal body-->
-      </section><!--modal-content-->
-    </section><!--modal-dilog-->
-  </section><!--modal fade-->
-</section><!--modal container-->
-
-
 <div class="container-fluid admin-page pl-5 pr-5 mb-5 ">
   <h2>Admin page</h2>
   <section class="hr-heading "></section>
@@ -83,22 +24,7 @@
   </ul>
 </div>
 
-<section class="container-fluid  pl-5 pr-5  ">
-  <section class="nameTable jus">
-    <h2>Table details</h2>
-  </section>
-  <section class="d-flex justify-content-between">
-    <button type="button" class="btn add-new " data-toggle="modal">
-      <span data-toggle="tooltip" title="add">
-        <svg class="plus">
-          <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#plus"></use>
-        </svg>
-      </span>
-      <span>Add new</span>
-    </button>
-    <input class="form-control" id="searchService" type="text" placeholder="Search..">
-  </section>
-</section>
+
 <section class="container-fluid  tab-content ">
   @Html.Partial("_ProjectPartial")
 

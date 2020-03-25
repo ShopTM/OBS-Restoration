@@ -93,7 +93,7 @@ $(document).on('click', '.edit-btn', function (e) {
     });
 });
 /////////////////////DELETE SERVICES
-$(document).on('click', '.delete-services', function (e) {
+$(document).on('click', '.delete-project', function (e) {
     let idDelete = this.id;
     $('.delete-service-modal').data('id', idDelete);
     let checkbox = $('input[type="checkbox"]');
@@ -142,8 +142,3 @@ function locationReload() {
         }, 1200);
     }
 }
-//REST INPUT 
-$('.add-new').on('click', function () {
-    $('#addModal').modal('show');
-    $('.form-update-service input, textarea').val();
-})

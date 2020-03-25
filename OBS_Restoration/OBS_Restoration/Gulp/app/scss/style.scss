@@ -1003,7 +1003,8 @@ table {
     margin-bottom: 25px;
 }
 
-.add-new {
+.add-new,
+.add-new-project {
     background: $base-color;
     color: #ffffff;
     text-transform: uppercase;
@@ -1013,7 +1014,8 @@ table {
         color: #fff;
     }
 }
-#searchService {
+#searchService,
+#searchProject {
     width: 15%;
 }
 p.update-validation {
