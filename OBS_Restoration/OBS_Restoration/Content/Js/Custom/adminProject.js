@@ -45,17 +45,17 @@ function populateProjectseRow(projects) {
      tbodyProject.appendChild(clone);
 }
 
-
 ///////////////////////ADD NEW PROJECT
+
 $('.updateProject').on('click', function () {
-    let image = { ProjectId: ProjectId, Ordrer: Ordrer, Url: Url, };
-    console.log(images)
     let formData = new FormData($('.form-update-project')[0]);
-    console.log(formData)
+    formData.append('ProjectId', 'ProjectId');
+    formData.append('Ordrer', 'Ordrer');
+    formData.append('Url', files);
     $.ajax({
         type: 'POST',
         url: '/Admin/UpdateProject',
-        data: formData, image,
+        data: formData,
         processData: false,
         contentType: false,
         success: function (response) {
