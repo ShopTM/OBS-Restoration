@@ -76,18 +76,8 @@ namespace OBS_Restoration.Controllers
         {
             return ExecPostAjax(() => { _projectManager.UpdateProject(source); });
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public JsonResult UploadProjectImage(ProjectImageVM image)
-        {
-            return ExecPostAjax(() => { _projectManager.UploadProjectImage(image); });
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public JsonResult DeleteProjectImage(int id)
-        {
-            return ExecDeleteAjax(() => { _projectManager.DeleteProjectImage(id); });
-        }
+       
+        
         #endregion
     }
 }
