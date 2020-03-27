@@ -13,7 +13,7 @@ function populateTableProjects() {
                 let projects = response.Data;
                 $.each(projects, function (i, projects) {
                     populateProjectseRow(projects);
-                 });
+                });
             }
         }
     });
@@ -32,7 +32,7 @@ function populateProjectseRow(projects) {
     let clone = templProject.content.cloneNode(true);
     let td = clone.querySelectorAll('td');
     td[3].textContent = projects.Name;
-   
+
 
     for (let i = 0; i < projects.Images.length; i++) {
         let projectImage = projects.Images[i];
@@ -42,38 +42,49 @@ function populateProjectseRow(projects) {
         img.setAttribute('src', urlImgProject + projectImage.Url);
         td[4].appendChild(img);
     }
-     tbodyProject.appendChild(clone);
+    tbodyProject.appendChild(clone);
 }
-
-///////////////////////ADD NEW PROJECT
+//ADD and EDIT 
 
 $('.updateProject').on('click', function () {
-    let formData = new FormData($('.form-update-project')[0]);
-    formData.append('ProjectId', 'ProjectId');
-    formData.append('Ordrer', 'Ordrer');
-    formData.append('Url', files);
+    let projectName = $('[name="Name"]').val();
+    let projectId = $('[name="Id"]').val();
+    let projectOrder = $('[name="Order"]').val();
+    let token = $('input[name="__RequestVerificationToken"]').val();
+    let formData = new FormData();
+    formData.append('Name', projectName);
+    formData.append('Id', projectId);
+    formData.append('Order', projectOrder);
+    formData.append('__RequestVerificationToken', token);
+    formData.append('Images', [{
+        'ProjectId': 1,
+        'Order': 1,
+        'Url': "Url",
+        'Image': $(".projectFile")[0].files[0],
+    }]);
     $.ajax({
         type: 'POST',
         url: '/Admin/UpdateProject',
         data: formData,
+        dataType: "json",
         processData: false,
         contentType: false,
         success: function (response) {
             if (response.Success && response.Success) {
                 tbody.innerHTML = "";
                 populateTableProjects();
-              //  $('.modal-dialog form').addClass('d-none');
-               // $('.succsses-content').addClass('d-block');
+                //  $('.modal-dialog form').addClass('d-none');
+                // $('.succsses-content').addClass('d-block');
                 ///locationReload();
             } if (response.Success == false || response.Success == false) {
-                document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
-                document.queryselector('.nameRequired').innerHTML = response.ValidationMessages.Name;
-                document.queryselector('.imgRequired').innerHTML = response.ValidationMessages.Image;
+                //document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
+                //document.queryselector('.nameRequired').innerHTML = response.ValidationMessages.Name;
+                //document.queryselector('.imgRequired').innerHTML = response.ValidationMessages.Image;
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            document.querySelector('.thrownerror').innerHTML = thrownerror;
             document.querySelector('.errorMessage').innerHTML = errorMessage;
+            document.querySelector('.thrownerror').innerHTML = thrownError;
         }
     });
 });
@@ -102,9 +113,9 @@ $('.delete-project-modal').on('click', function () {
         },
         success: function (response) {
             if (response.Data && response.Success) {
-               // $('.delete-content-modal').addClass('d-none')
-               // $('.succsses-content').addClass('d-block');
-               
+                // $('.delete-content-modal').addClass('d-none')
+                // $('.succsses-content').addClass('d-block');
+
             }
         },
         error: function (xhr, ajaxoptions, thrownerror) {
