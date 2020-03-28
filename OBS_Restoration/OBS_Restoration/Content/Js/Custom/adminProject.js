@@ -44,6 +44,40 @@ function populateProjectseRow(projects) {
     }
     tbodyProject.appendChild(clone);
 }
+
+$(document).on('click', '.editProject', function (e) {
+    $.ajax({
+        type: 'POST',
+        url: '/Admin/getProjects',
+        success: function (response) {
+            if (response.Data && response.Success) {
+                let project = response.Data;
+                $.each(project, function (i, project) {
+                    if ($('.editProject').index(e.target) === i) {
+                        $("input[name='Name']").val(project.Name);
+                        $("input[name='Id']").val(project.Id);
+                        $("input[name='Order']").val(project.Order);
+                        for (let i = 0; i < project.Images.length; i++) {
+                            let projectImage = project.Images[i];
+                            let img = document.createElement('img');
+                            img.setAttribute('alt', 'ProjectImg');
+                            img.setAttribute('class', 'preview-img');
+                            img.setAttribute('src', urlImgProject + projectImage.Url);
+                            document.querySelector('.img-preview').appendChild(img);
+                        }
+                        
+                        return false;
+                    }
+                });
+            }
+        },
+    });
+});
+
+$('input.projectFile').on('change', function () {
+    let img = document.createElement('img');
+
+})
 //ADD and EDIT 
 
 $('.updateProject').on('click', function () {
@@ -71,6 +105,7 @@ $('.updateProject').on('click', function () {
         contentType: false,
         success: function (response) {
             if (response.Success && response.Success) {
+                
                 tbody.innerHTML = "";
                 populateTableProjects();
                 //  $('.modal-dialog form').addClass('d-none');
@@ -115,6 +150,8 @@ $('.delete-project-modal').on('click', function () {
             if (response.Data && response.Success) {
                 // $('.delete-content-modal').addClass('d-none')
                 // $('.succsses-content').addClass('d-block');
+               
+                
 
             }
         },
