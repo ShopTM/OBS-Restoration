@@ -36,7 +36,7 @@ namespace BAL.Managers
         }
         public void UpdateService(ServiceVM source)
         {
-            source.ImgUrl = ImageSaveHelper.SaveImage(source.Image, IMAGE_FULL_URL);
+            source.ImgUrl = ImageHelper.SaveImage(source.Image, IMAGE_FULL_URL);
             using (var db = DbFactory.GetNotTrackingInstance())
             {
                 if (source.Id == 0)
@@ -71,7 +71,7 @@ namespace BAL.Managers
         private void DeleteService(IUnitOfWork db, int id)
         {
             var service = db.ServiceRepository.Get(id);
-            File.Delete(HttpContext.Current.Server.MapPath(IMAGE_FULL_URL) + service.ImgUrl);
+            ImageHelper.DeleteImage(service.ImgUrl, IMAGE_FULL_URL);
             db.ServiceRepository.Remove(service);
         }
     }

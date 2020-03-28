@@ -37,17 +37,59 @@ namespace BAL.Managers
         {
             using (var db = DbFactory.GetNotTrackingInstance())
             {
-                var entityProject = source.ToEntity();
-                foreach (var img in source.Images)
+                var target = db.ProjectRepository.Get(source.Id);
+                if (target == null)
                 {
-                    var projectImageEntity = img.ToEntity();
-                    projectImageEntity.Url = ImageSaveHelper.SaveImage(img.Image, IMAGE_FULL_URL);
-                    entityProject.Images.Add(projectImageEntity);
-                }
-                if (entityProject.Id == 0)
+                    var entityProject = source.ToEntity();
+                    var imgCount = 0;
+                    foreach (var img in source.Images)
+                    {
+                        entityProject.Images.Add(new ProjectImage
+                        {
+                            Ordrer = imgCount++,
+                            Url = ImageHelper.SaveImage(img.Image, IMAGE_FULL_URL)
+                        });
+                    }
                     db.ProjectRepository.Add(entityProject);
+                }
                 else
-                    db.ProjectRepository.Update(entityProject);
+                {
+                    target.Name = source.Name;
+                    foreach (var sourceImg in source.Images)
+                    {
+                        var dbImage = db.ProjectImageRepository.Get(sourceImg.Id);
+                        if(dbImage == null)
+                        {
+                            //create new image
+                            target.Images.Add(new ProjectImage
+                            {
+                                Ordrer = target.Images.Max(x=>x.Ordrer) +1,
+                                Url = ImageHelper.SaveImage(sourceImg.Image, IMAGE_FULL_URL)
+                            });
+                        }
+                        else
+                        {
+                            //update old image
+                            var targetImage = target.Images.FirstOrDefault(x=>x.Id == sourceImg.Id);
+                            if (targetImage == null) continue;
+
+                            ImageHelper.DeleteImage(sourceImg.Url, IMAGE_FULL_URL);
+                            targetImage.Url = ImageHelper.SaveImage(sourceImg.Image, IMAGE_FULL_URL);
+                        }
+                        
+                    }
+                    //delete images
+                    foreach(var targetImage in target.Images)
+                    {
+                        if(!source.Images.Any(x=>x.Id == targetImage.Id))
+                        {
+                            ImageHelper.DeleteImage(targetImage.Url, IMAGE_FULL_URL);
+                            db.ProjectImageRepository.Remove(targetImage);
+                        }
+                    }
+                    db.ProjectRepository.Update(target);
+                }
+
                 db.Save();
             }
         }
@@ -74,7 +116,7 @@ namespace BAL.Managers
             var project = db.ProjectRepository.Get(id);
             foreach (var img in project.Images)
             {
-                File.Delete(IMAGE_FULL_URL + img.Url);
+                ImageHelper.DeleteImage(img.Url, IMAGE_FULL_URL);
                 db.ProjectImageRepository.Remove(img);
                 db.Save();
             }
