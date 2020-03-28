@@ -1,10 +1,11 @@
 ﻿using ImageResizer;
 using System;
+using System.IO;
 using System.Web;
 
 namespace BAL.Helpers
 {
-    public static class ImageSaveHelper
+    public static class ImageHelper
     {
         public static string SaveImage(HttpPostedFileBase image, string imgPath)
         {
@@ -21,6 +22,10 @@ namespace BAL.Helpers
             });
             ImageBuilder.Current.Build(imgJob);
             return imgName;
+        }
+        public static void DeleteImage(string imgName, string imgPath)
+        {
+            File.Delete(HttpContext.Current.Server.MapPath(imgPath) + imgName);
         }
     }
 }

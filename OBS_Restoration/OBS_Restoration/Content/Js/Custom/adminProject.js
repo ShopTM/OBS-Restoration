@@ -87,20 +87,17 @@ $('.updateProject').on('click', function () {
     let token = $('input[name="__RequestVerificationToken"]').val();
     let formData = new FormData();
     formData.append('Name', projectName);
-    formData.append('Id', projectId);
-    formData.append('Order', projectOrder);
+    formData.append('Id', 16);
+    formData.append('Order', +projectOrder);
     formData.append('__RequestVerificationToken', token);
-    formData.append('Images', [{
-        'ProjectId': 1,
-        'Order': 1,
-        'Url': "Url",
-        'Image': $(".projectFile")[0].files[0],
-    }]);
+    formData.append('Images[0].ProjectId', 1);
+    formData.append('Images[0].Order', 1);
+    formData.append('Images[0].Url', "url");
+    formData.append('Images[0].Image', $(".projectFile")[0].files[0]);
     $.ajax({
         type: 'POST',
         url: '/Admin/UpdateProject',
         data: formData,
-        dataType: "json",
         processData: false,
         contentType: false,
         success: function (response) {
@@ -122,6 +119,7 @@ $('.updateProject').on('click', function () {
             document.querySelector('.thrownerror').innerHTML = thrownError;
         }
     });
+    
 });
 
 /////////////////////DELETE SERVICES

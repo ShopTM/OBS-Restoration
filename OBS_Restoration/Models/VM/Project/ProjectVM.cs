@@ -11,7 +11,6 @@ namespace Models.VM.Project
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public int Order { get; set; }
         [Required]
         public List<ProjectImageVM> Images { get; set; } = new List<ProjectImageVM>();
         public ProjectEntity ToEntity()
@@ -20,15 +19,14 @@ namespace Models.VM.Project
             {
                 Id = Id,
                 Name = Name,
-                Order = Order,
+                Images = new List<ProjectImageEntity>()
             };
         }
 
     }
     public class ProjectImageVM
     {
-        public int ProjectId { get; set; }
-        public int Ordrer { get; set; }
+        public int Id { get; set; }
         public HttpPostedFileBase Image { get; set; }
         public string Url { get; set; }
 
@@ -36,8 +34,7 @@ namespace Models.VM.Project
         {
             return new ProjectImageEntity
             {
-                ProjectId = ProjectId,
-                Ordrer = Ordrer,
+                Id = Id,
                 Url = Url,
             };
         }

@@ -94,7 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\ImageSaveHelper.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Identity\IdentityRoleManager.cs" />
     <Compile Include="Identity\IdentityRoleStore.cs" />
     <Compile Include="Identity\IdentityUserManager.cs" />

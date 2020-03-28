@@ -37,38 +37,89 @@ namespace BAL.Managers
         {
             using (var db = DbFactory.GetNotTrackingInstance())
             {
-                var entityProject = source.ToEntity();
-                foreach (var img in source.Images)
+                var target = db.ProjectRepository.Get(x => x.Id == source.Id, "Images");
+                if (target == null) //Create new Project
                 {
-                    var projectImageEntity = img.ToEntity();
-                    projectImageEntity.Url = ImageSaveHelper.SaveImage(img.Image, IMAGE_FULL_URL);
-                    entityProject.Images.Add(projectImageEntity);
-                }
-                if (entityProject.Id == 0)
+                    var entityProject = source.ToEntity();
+                    foreach (var img in source.Images)
+                    {
+                        entityProject.Images.Add(new ProjectImage
+                        {
+                            Url = ImageHelper.SaveImage(img.Image, IMAGE_FULL_URL)
+                        });
+                    }
                     db.ProjectRepository.Add(entityProject);
-                else
-                    db.ProjectRepository.Update(entityProject);
+                }
+                else  //Update old Project
+                {
+                    target.Name = source.Name;
+                    foreach (var sourceImg in source.Images)
+                    {
+                        var dbImage = db.ProjectImageRepository.Get(sourceImg.Id);
+                        if (dbImage == null)
+                        {
+                            //create new image
+                            db.ProjectImageRepository.Add(new ProjectImage
+                            {
+                                ProjectId = target.Id,
+                                Url = ImageHelper.SaveImage(sourceImg.Image, IMAGE_FULL_URL)
+                            });
+                        }
+                        else
+                        {
+                            //update old image
+                            var targetImage = target.Images.FirstOrDefault(x => x.Id == sourceImg.Id);
+                            if (targetImage == null) continue;
+
+                            ImageHelper.DeleteImage(sourceImg.Url, IMAGE_FULL_URL);
+                            targetImage.Url = ImageHelper.SaveImage(sourceImg.Image, IMAGE_FULL_URL);
+                            db.ProjectImageRepository.Update(targetImage);
+                        }
+
+                    }
+                    //delete images
+                    foreach (var targetImage in target.Images)
+                    {
+                        if (!source.Images.Any(x => x.Id == targetImage.Id))
+                        {
+                            ImageHelper.DeleteImage(targetImage.Url, IMAGE_FULL_URL);
+                        }
+                    }
+                    db.ProjectImageRepository.RemoveRange(target.Images.Where(x => source.Images.All(y => y.Id != x.Id)));
+                    db.ProjectRepository.Update(target);
+                }
+
                 db.Save();
             }
         }
-        public void UploadProjectImage(ProjectImageVM projectImage)
-        {
-            projectImage.Url = ImageSaveHelper.SaveImage(projectImage.Image, IMAGE_FULL_URL);
-            using (var db = DbFactory.GetInstance())
-            {
-                db.ProjectImageRepository.Add(projectImage.ToEntity());
-                db.Save();
-            }
-        }
-        public void DeleteProjectImage(int id)
+        public void DeleteProject(int projectId)
         {
             using (var db = DbFactory.GetNotTrackingInstance())
             {
-                var img = db.ProjectImageRepository.Get(id);
-                File.Delete(IMAGE_FULL_URL + img.Url);
-                db.ProjectImageRepository.Remove(img);
+                DeleteProject(db, projectId);
+            }
+        }
+        public void DeleteBatchProjects(int[] ids)
+        {
+            using (var db = DbFactory.GetNotTrackingInstance())
+            {
+                foreach (var id in ids)
+                {
+                    DeleteProject(db, id);
+                }
                 db.Save();
             }
+        }
+        private void DeleteProject(IUnitOfWork db, int id)
+        {
+            var project = db.ProjectRepository.Get(x => x.Id == id, "Images");
+            foreach (var img in project.Images)
+            {
+                ImageHelper.DeleteImage(img.Url, IMAGE_FULL_URL);
+            }
+            db.ProjectImageRepository.RemoveRange(project.Images);
+            db.ProjectRepository.Remove(project);
+            db.Save();
         }
     }
 }
