@@ -51,24 +51,35 @@ namespace BAL.Managers
                 db.Save();
             }
         }
-        public void UploadProjectImage(ProjectImageVM projectImage)
-        {
-            projectImage.Url = ImageSaveHelper.SaveImage(projectImage.Image, IMAGE_FULL_URL);
-            using (var db = DbFactory.GetInstance())
-            {
-                db.ProjectImageRepository.Add(projectImage.ToEntity());
-                db.Save();
-            }
-        }
-        public void DeleteProjectImage(int id)
+        public void DeleteProject(int projectId)
         {
             using (var db = DbFactory.GetNotTrackingInstance())
             {
-                var img = db.ProjectImageRepository.Get(id);
+                DeleteProject(db, projectId);
+            }
+        }
+        public void DeleteBatchProjects(int[] ids)
+        {
+            using (var db = DbFactory.GetNotTrackingInstance())
+            {
+                foreach (var id in ids)
+                {
+                    DeleteProject(db, id);
+                }
+                db.Save();
+            }
+        }
+        private void DeleteProject(IUnitOfWork db, int id)
+        {
+            var project = db.ProjectRepository.Get(id);
+            foreach (var img in project.Images)
+            {
                 File.Delete(IMAGE_FULL_URL + img.Url);
                 db.ProjectImageRepository.Remove(img);
                 db.Save();
             }
+            db.ProjectRepository.Remove(project);
+            db.Save();
         }
     }
 }

@@ -76,8 +76,18 @@ namespace OBS_Restoration.Controllers
         {
             return ExecPostAjax(() => { _projectManager.UpdateProject(source); });
         }
-       
-        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult DeleteProject(int projectId)
+        {
+            return ExecDeleteAjax(() => { _projectManager.DeleteProject(projectId); });
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult DeleteBatchProjects(int[] ids)
+        {
+            return ExecDeleteAjax(() => { _projectManager.DeleteBatchProjects(ids); });
+        }
         #endregion
     }
 }
