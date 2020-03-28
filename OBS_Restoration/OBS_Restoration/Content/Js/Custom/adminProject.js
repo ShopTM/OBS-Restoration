@@ -53,7 +53,7 @@ $('.updateProject').on('click', function () {
     let token = $('input[name="__RequestVerificationToken"]').val();
     let formData = new FormData();
     formData.append('Name', projectName);
-    formData.append('Id', +projectId);
+    formData.append('Id', 16);
     formData.append('Order', +projectOrder);
     formData.append('__RequestVerificationToken', token);
     formData.append('Images[0].ProjectId', 1);
@@ -64,7 +64,6 @@ $('.updateProject').on('click', function () {
         type: 'POST',
         url: '/Admin/UpdateProject',
         data: formData,
-        dataType: "json",
         processData: false,
         contentType: false,
         success: function (response) {
@@ -85,6 +84,7 @@ $('.updateProject').on('click', function () {
             document.querySelector('.thrownerror').innerHTML = thrownError;
         }
     });
+    
 });
 
 /////////////////////DELETE SERVICES
