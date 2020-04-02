@@ -27,12 +27,14 @@ let templProject = document.querySelector("#tableProjectsTemplate");
 let tdProject = templProject.content.querySelectorAll("td");
 let tbodyProject = document.querySelector(".tableProjectsBody");
 let urlImgProject = "../../Content/Images/Projects/";
+let projectId = templProject.content.querySelector(".delete-project");
 
 function populateProjectseRow(projects) {
     let clone = templProject.content.cloneNode(true);
     let td = clone.querySelectorAll('td');
-    td[3].textContent = projects.Name;
-
+    let deleteBtn = clone.querySelector('.delete-project')
+    td[2].textContent = projects.Name;
+    deleteBtn.setAttribute('id', projects.Id);
 
     for (let i = 0; i < projects.Images.length; i++) {
         let projectImage = projects.Images[i];
@@ -40,7 +42,8 @@ function populateProjectseRow(projects) {
         img.setAttribute('alt', 'ProjectImg');
         img.setAttribute('class', 'img-proj');
         img.setAttribute('src', urlImgProject + projectImage.Url);
-        td[4].appendChild(img);
+        td[3].appendChild(img);
+
     }
     tbodyProject.appendChild(clone);
 }
@@ -56,45 +59,42 @@ $(document).on('click', '.editProject', function (e) {
                     if ($('.editProject').index(e.target) === i) {
                         $("input[name='Name']").val(project.Name);
                         $("input[name='Id']").val(project.Id);
-                        $("input[name='Order']").val(project.Order);
                         for (let i = 0; i < project.Images.length; i++) {
                             let projectImage = project.Images[i];
-                            let img = document.createElement('img');
-                            img.setAttribute('alt', 'ProjectImg');
-                            img.setAttribute('class', 'preview-img');
-                            img.setAttribute('src', urlImgProject + projectImage.Url);
-                            document.querySelector('.img-preview').appendChild(img);
+                            let section = document.createElement('section');
+                            section.setAttribute('class', 'img-container');
+                            section.setAttribute('data-id', projectImage.Id);
+                            section.innerHTML = '<img src ="' + urlImgProject + projectImage.Url + '" class = "preview-img" alt="project" > <input type="button" value = "x" class="deletePriview"> <input type="hidden" value=" ' + projectImage.Id + ' ">';
+                            document.querySelector('.img-preview').append(section);
                         }
-                        
-                        return false;
                     }
+                });
+                $('.deletePriview').on('click', function (e) {
+                    $(this).closest('.img-container').remove();
                 });
             }
         },
-    });
+    }); 
 });
-
-$('input.projectFile').on('change', function () {
-    let img = document.createElement('img');
-
-})
 //ADD and EDIT 
-
 $('.updateProject').on('click', function () {
     let projectName = $('[name="Name"]').val();
     let projectId = $('[name="Id"]').val();
-    let projectOrder = $('[name="Order"]').val();
     let token = $('input[name="__RequestVerificationToken"]').val();
     let formData = new FormData();
     formData.append('Name', projectName);
-    formData.append('Id', 16);
-    formData.append('Order', +projectOrder);
+    formData.append('Id', 0);
     formData.append('__RequestVerificationToken', token);
-    formData.append('Images[0].ProjectId', 1);
-    formData.append('Images[0].Order', 1);
-    formData.append('Images[0].Url', "url");
-    formData.append('Images[0].Image', $(".projectFile")[0].files[0]);
-    $.ajax({
+    let count = 0;
+    $('.form-update-project').find("input.projectFile").each(function (i, field) {
+        let file = field.files[0];
+        if (file) {
+            formData.append('Images[' + count + '].Id', 0);
+            formData.append('Images[' + count + '].Image', file);
+            count += 1;
+        }
+    });
+     $.ajax({
         type: 'POST',
         url: '/Admin/UpdateProject',
         data: formData,
@@ -102,16 +102,15 @@ $('.updateProject').on('click', function () {
         contentType: false,
         success: function (response) {
             if (response.Success && response.Success) {
-                
                 tbody.innerHTML = "";
                 populateTableProjects();
-                //  $('.modal-dialog form').addClass('d-none');
-                // $('.succsses-content').addClass('d-block');
-                ///locationReload();
+                $('.modal-dialog form').addClass('d-none');
+                $('.succsses-content').addClass('d-block');
+             //   locationReload();
             } if (response.Success == false || response.Success == false) {
-                //document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
-                //document.queryselector('.nameRequired').innerHTML = response.ValidationMessages.Name;
-                //document.queryselector('.imgRequired').innerHTML = response.ValidationMessages.Image;
+                document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
+                let nameRequired = response.ValidationMessages.Name[0];
+                document.querySelector('.nameRequiredProj').innerHTML = nameRequired;
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -119,19 +118,13 @@ $('.updateProject').on('click', function () {
             document.querySelector('.thrownerror').innerHTML = thrownError;
         }
     });
-    
 });
 
-/////////////////////DELETE SERVICES
+///////////////////DELETE SERVICES
 $(document).on('click', '.delete-project', function (e) {
-    let idDelete = this.id;
-    $('.delete-project-modal').data('id', idDelete);
-    let checkbox = $('input[type="checkbox"]');
-    $.each(checkbox, function (i, checkbox) {
-        if ($(checkbox).is(":checked") && ($('.delete-project').index(e.target)) === i) {
-            $('#deleteProjectModal').modal('show')
-        }
-    });
+    let idDeleteProj = this.id;
+    $('.delete-project-modal').data('id', idDeleteProj);
+    $('#deleteProjectModal').modal('show')
 });
 //Ajax request function Delete services
 $('.delete-project-modal').on('click', function () {
@@ -139,18 +132,15 @@ $('.delete-project-modal').on('click', function () {
     let id = $(this).data('id');
     $.ajax({
         type: 'POST',
-        url: '/Admin/DeleteProjectImage/' + id,
+        url: '/Admin/DeleteProject/' + id,
         data: {
             '__RequestVerificationToken': token,
-            id: id,
+            'projectId': id,
         },
         success: function (response) {
             if (response.Data && response.Success) {
-                // $('.delete-content-modal').addClass('d-none')
-                // $('.succsses-content').addClass('d-block');
-               
-                
-
+                $('.delete-content-modal').addClass('d-none')
+                $('.succsses-content').addClass('d-block');
             }
         },
         error: function (xhr, ajaxoptions, thrownerror) {

@@ -32,13 +32,13 @@ let btnDelete = templ.content.querySelector(".delete-services");
 
 
 function populateServiceRow(service) {
+    clone = document.importNode(templ.content, true);
+    btnDelete.setAttribute("id", service.Id);
     td[0].textContent = service.Order;
     td[1].textContent = service.Id;
-    td[3].textContent = service.Name;
-    td[4].textContent = service.Description;
-    td[5].querySelector('img').src = urlImg + service.ImgUrl;
-    btnDelete.setAttribute("id", service.Id);
-    clone = document.importNode(templ.content, true);
+    td[2].textContent = service.Name;
+    td[3].textContent = service.Description;
+    td[4].querySelector('img').src = urlImg + service.ImgUrl;
     tbody.appendChild(clone);
 }
 
@@ -92,16 +92,10 @@ $(document).on('click', '.edit-btn', function (e) {
         },
     });
 });
-/////////////////////DELETE SERVICES
-$(document).on('click', '.delete-project', function (e) {
+$(document).on('click', '.delete-services', function (e) {
     let idDelete = this.id;
     $('.delete-service-modal').data('id', idDelete);
-    let checkbox = $('input[type="checkbox"]');
-    $.each(checkbox, function (i, checkbox) {
-        if ($(checkbox).is(":checked") && ($('.delete-services').index(e.target)) === i) {
-            $('#deleteServicesModal').modal('show')
-        }
-    });
+    $('#deleteServicesModal').modal('show');
 });
 //Ajax request function Delete services
 $('.delete-service-modal').on('click', function () {
@@ -142,3 +136,7 @@ function locationReload() {
         }, 1200);
     }
 }
+//REST INPUT 
+$('.add-new').on('click', function () {
+    $('.form-update-service input, textarea').val();
+})
