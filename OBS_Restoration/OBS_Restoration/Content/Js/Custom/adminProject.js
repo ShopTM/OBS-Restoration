@@ -47,10 +47,9 @@ function populateProjectseRow(projects) {
     }
     tbodyProject.appendChild(clone);
 }
-
 $(document).on('click', '.editProject', function (e) {
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: '/Admin/getProjects',
         success: function (response) {
             if (response.Data && response.Success) {
@@ -63,8 +62,7 @@ $(document).on('click', '.editProject', function (e) {
                             let projectImage = project.Images[i];
                             let section = document.createElement('section');
                             section.setAttribute('class', 'img-container');
-                            section.setAttribute('data-id', projectImage.Id);
-                            section.innerHTML = '<img src ="' + urlImgProject + projectImage.Url + '" class = "preview-img" alt="project" > <input type="button" value = "x" class="deletePriview"> <input type="hidden" value=" ' + projectImage.Id + ' ">';
+                            section.innerHTML = '<img src ="' + urlImgProject + projectImage.Url + '" class = "preview-img" alt="project" > <input type="button" value = "x" class="deletePriview"> <input type="hidden" value="' + projectImage.Id + '"name="ImgId">';
                             document.querySelector('.img-preview').append(section);
                         }
                     }
@@ -74,18 +72,23 @@ $(document).on('click', '.editProject', function (e) {
                 });
             }
         },
-    }); 
+    });
 });
 //ADD and EDIT 
 $('.updateProject').on('click', function () {
     let projectName = $('[name="Name"]').val();
     let projectId = $('[name="Id"]').val();
     let token = $('input[name="__RequestVerificationToken"]').val();
+    let idImg = $('[name="ImgId"]');
     let formData = new FormData();
     formData.append('Name', projectName);
-    formData.append('Id', 0);
+    formData.append('Id', projectId);
     formData.append('__RequestVerificationToken', token);
     let count = 0;
+    for (i = 0; i < idImg.length; i++) {
+        let id = idImg[i].value;
+        formData.append('Images[' + count++ + '].Id', id);
+      }
     $('.form-update-project').find("input.projectFile").each(function (i, field) {
         let file = field.files[0];
         if (file) {
@@ -94,7 +97,7 @@ $('.updateProject').on('click', function () {
             count += 1;
         }
     });
-     $.ajax({
+    $.ajax({
         type: 'POST',
         url: '/Admin/UpdateProject',
         data: formData,
@@ -106,7 +109,7 @@ $('.updateProject').on('click', function () {
                 populateTableProjects();
                 $('.modal-dialog form').addClass('d-none');
                 $('.succsses-content').addClass('d-block');
-             //   locationReload();
+                //   locationReload();
             } if (response.Success == false || response.Success == false) {
                 document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
                 let nameRequired = response.ValidationMessages.Name[0];

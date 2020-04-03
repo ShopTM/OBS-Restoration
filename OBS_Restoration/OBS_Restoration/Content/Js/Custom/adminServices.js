@@ -29,17 +29,17 @@ let td = templ.content.querySelectorAll("td");
 let tbody = document.querySelector(".tableServicesBody");
 let urlImg = "../../Content/Images/Services/";
 let btnDelete = templ.content.querySelector(".delete-services");
-
+ 
 
 function populateServiceRow(service) {
-    clone = document.importNode(templ.content, true);
     btnDelete.setAttribute("id", service.Id);
     td[0].textContent = service.Order;
     td[1].textContent = service.Id;
     td[2].textContent = service.Name;
     td[3].textContent = service.Description;
     td[4].querySelector('img').src = urlImg + service.ImgUrl;
-    tbody.appendChild(clone);
+    let clon = templ.content.cloneNode(true); 
+    tbody.appendChild(clon);
 }
 
 ///////////////////////ADD NEW SERVICES

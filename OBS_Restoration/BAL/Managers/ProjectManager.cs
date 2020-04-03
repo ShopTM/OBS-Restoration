@@ -65,17 +65,6 @@ namespace BAL.Managers
                                 Url = ImageHelper.SaveImage(sourceImg.Image, IMAGE_FULL_URL)
                             });
                         }
-                        else
-                        {
-                            //update old image
-                            var targetImage = target.Images.FirstOrDefault(x => x.Id == sourceImg.Id);
-                            if (targetImage == null) continue;
-
-                            ImageHelper.DeleteImage(sourceImg.Url, IMAGE_FULL_URL);
-                            targetImage.Url = ImageHelper.SaveImage(sourceImg.Image, IMAGE_FULL_URL);
-                            db.ProjectImageRepository.Update(targetImage);
-                        }
-
                     }
                     //delete images
                     foreach (var targetImage in target.Images)
