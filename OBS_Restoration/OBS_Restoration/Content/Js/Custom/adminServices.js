@@ -57,11 +57,12 @@ $('.update').on('click', function () {
                 populateTableServices();
                 $('.modal-dialog form').addClass('d-none');
                 $('.succsses-content').addClass('d-block');
-                locationReload();
             } if (response.Success == false || response.Success == false) {
                 document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
-                document.queryselector('.nameRequired').innerHTML = response.ValidationMessages.Name;
-                document.queryselector('.imgRequired').innerHTML = response.ValidationMessages.Image;
+ 
+
+                console.log(document.queryselector('.requireName')) ;
+                //document.queryselector('.imgRequired').innerHTML = response.ValidationMessages.Image;
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -129,14 +130,3 @@ $("#searchService").on("keyup", function () {
     });
 });
 
-function locationReload() {
-    if ($('.modal').on('hidden.bs.modal')) {
-        window.setTimeout(function () {
-            location.reload()
-        }, 1200);
-    }
-}
-//REST INPUT 
-$('.add-new').on('click', function () {
-    $('.form-update-service input, textarea').val();
-})

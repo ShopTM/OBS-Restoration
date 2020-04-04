@@ -20,12 +20,11 @@
         </section>
         <section class="modal-body text-center ">
           <div class="form-group">
-            <input type="hidden" class="form-control madalInput" value="0" name="Order">
-            <input type="hidden" class="form-control madalInput" value="0" name="Id">
+             <input type="hidden" value="0" name="Id">
           </div>
           <div class="form-group">
             <input class="form-control madalInput " type="text" placeholder="Services name" autocomplete="off" name="Name">
-            <p class="text-left update-validation nameRequired"></p>
+            <p class="text-left update-validation requireName"></p>
           </div>
           <div class="form-group">
             <textarea class="form-control textarea " rows="5" placeholder="Description" name="Description"></textarea>
@@ -96,13 +95,12 @@
     </section><!--modal-content-->
   </section>
 </section>
-
-<section class="container-fluid  tab-pane  pl-5 pr-5" id="tableServices">
+<section class="container-fluid search tab-pane  pl-5 pr-5" id="tableServices">
   <section class="nameTable jus">
       <h2>Services details</h2>
     </section>
     <section class="d-flex justify-content-between">
-      <button type="button" class="btn add-new " data-toggle="modal" data-target="#addModal">
+      <button type="button" class="btn add-new add" data-toggle="modal" data-target="#addModal">
         <span data-toggle="tooltip" title="add">
           <svg class="plus">
             <use xlink:href="../../Content/Svg/spites/symbol/sprite.svg#plus"></use>
@@ -110,7 +108,7 @@
         </span>
         <span>Add new</span>
       </button>
-          <input class="form-control" id="searchService" type="text" placeholder="Search..">
+          <input class="form-control searchField" type="text" placeholder="Search..">
       </section>
 
   <table data-toggle="table">

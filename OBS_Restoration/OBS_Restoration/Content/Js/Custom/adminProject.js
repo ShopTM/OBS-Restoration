@@ -88,7 +88,7 @@ $('.updateProject').on('click', function () {
     for (i = 0; i < idImg.length; i++) {
         let id = idImg[i].value;
         formData.append('Images[' + count++ + '].Id', id);
-      }
+    }
     $('.form-update-project').find("input.projectFile").each(function (i, field) {
         let file = field.files[0];
         if (file) {
@@ -104,16 +104,16 @@ $('.updateProject').on('click', function () {
         processData: false,
         contentType: false,
         success: function (response) {
+            tbodyProject.innerHTML = "";
+            populateTableProjects();
             if (response.Success && response.Success) {
-                tbody.innerHTML = "";
-                populateTableProjects();
                 $('.modal-dialog form').addClass('d-none');
                 $('.succsses-content').addClass('d-block');
-                //   locationReload();
+                locationReload();
             } if (response.Success == false || response.Success == false) {
-                document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
-                let nameRequired = response.ValidationMessages.Name[0];
-                document.querySelector('.nameRequiredProj').innerHTML = nameRequired;
+                //document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
+                //let nameRequired = response.ValidationMessages.Name[0];
+                //document.querySelector('.nameRequiredProj').innerHTML = nameRequired;
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -144,6 +144,7 @@ $('.delete-project-modal').on('click', function () {
             if (response.Data && response.Success) {
                 $('.delete-content-modal').addClass('d-none')
                 $('.succsses-content').addClass('d-block');
+                locationReload();
             }
         },
         error: function (xhr, ajaxoptions, thrownerror) {
@@ -153,4 +154,10 @@ $('.delete-project-modal').on('click', function () {
     });
 });
 
-
+function locationReload() {
+    if ($('.modal').on('hidden.bs.modal')) {
+        window.setTimeout(function () {
+            location.reload()
+        }, 1200);
+    }
+}
