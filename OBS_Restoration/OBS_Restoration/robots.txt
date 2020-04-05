@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://obsrestoration.com/sitemap.xml

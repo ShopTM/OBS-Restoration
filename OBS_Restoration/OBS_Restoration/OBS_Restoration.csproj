@@ -286,6 +286,7 @@
     <Content Include="Content\Js\popper.min.js" />
     <Content Include="Content\Svg\spites\symbol\sprite.svg" />
     <Content Include="Global.asax" />
+    <Content Include="googlea658255cc4be2637.html" />
     <Content Include="gulpfile.js" />
     <Content Include="Gulp\app\css\style.min.css" />
     <Content Include="Gulp\app\Images\Banner\banner-home-page.jpg" />
@@ -5809,6 +5810,8 @@
     <Content Include="node_modules\yargs\lib\validation.js" />
     <Content Include="node_modules\yargs\yargs.js" />
     <Content Include="node_modules\yeast\index.js" />
+    <Content Include="robots.txt" />
+    <Content Include="sitemap.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
