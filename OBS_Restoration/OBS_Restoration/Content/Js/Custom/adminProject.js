@@ -24,10 +24,8 @@ $(function () {
     populateTableProjects();
 });
 let templProject = document.querySelector("#tableProjectsTemplate");
-let tdProject = templProject.content.querySelectorAll("td");
 let tbodyProject = document.querySelector(".tableProjectsBody");
 let urlImgProject = "../../Content/Images/Projects/";
-let projectId = templProject.content.querySelector(".delete-project");
 
 function populateProjectseRow(projects) {
     let clone = templProject.content.cloneNode(true);
@@ -111,9 +109,8 @@ $('.updateProject').on('click', function () {
                 $('.succsses-content').addClass('d-block');
                 locationReload();
             } if (response.Success == false || response.Success == false) {
-                //document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
-                //let nameRequired = response.ValidationMessages.Name[0];
-                //document.querySelector('.nameRequiredProj').innerHTML = nameRequired;
+                document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
+                document.querySelector('.nameRequire').innerHTML = response.ValidationMessages.Name;
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {

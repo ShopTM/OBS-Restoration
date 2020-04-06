@@ -23,7 +23,8 @@
           </div>
           <div class="form-group">
             <input class="form-control madalInput " type="text" placeholder="Project name" autocomplete="off" name="Name">
-           </div>
+           <p class="text-left update-validation nameRequire"></p>
+          </div>
           <div class="custom-file">
             <input type="file" class="custom-file-input projfile projectFile " placeholder="Choose image" accept="image/*" name="Image">
             <label class="custom-file-label" for="customFile">Choose image</label>
@@ -35,7 +36,7 @@
           <div class="custom-file">
             <input type="file" class="custom-file-input projectFile" placeholder="Choose image" accept="image/*" name="Image">
             <label class="custom-file-label" for="customFile">Choose image</label>
-          </div>
+           </div>
         </section><!--modal body-->
         <section class="img-preview"></section>
         <section class="modal-footer justify-content-center">
@@ -98,7 +99,7 @@
     </section><!--modal-content-->
   </section>
 </section>
-<section class=" container-fluid search tab-pane active pl-5 pr-5 " id="tableProjects">
+<section class=" container-fluid search tab-pane fade pl-5 pr-5 " id="tableProjects">
   <section class="nameTable jus">
     <h2>Project details</h2>
   </section>
@@ -127,7 +128,6 @@
     </tbody>
   </table>
 </section>
-
 <template id="tableProjectsTemplate">
   <tr>
     <td class="order d-none"></td>
@@ -135,7 +135,6 @@
     <td><p class="name-services"></p></td>
     <td class=" td-img">
     </td>
-
     <td class="text-center">
       <button type="button" class="btn delete-project" data-toggle="modal">
         <span data-toggle="tooltip" title="delete">

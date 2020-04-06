@@ -20,14 +20,16 @@ function locationReload() {
 }
 //REST INPUT 
 $('.add').on('click', function () {
-    let valueAdd = $('.form-update-service input, textarea');
-    valueAdd.value = " ";
-})
+    $('form').trigger('reset');
+});
 
-///SEARCH
-$(".searchField").on("keyup", function () {
-    var value = $(this).val().toLowerCase();
-    $(".search tr").filter(function () {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+
+$(document).ready(function () {
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+        localStorage.setItem('activeTab', $(e.target).attr('href'));
     });
+    var activeTab = localStorage.getItem('activeTab');
+    if (activeTab) {
+        $('#tableTabs a[href="' + activeTab + '"]').tab('show');
+    }
 });

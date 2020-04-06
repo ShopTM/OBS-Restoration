@@ -998,6 +998,9 @@ table {
 }
 .no-records-found {
     display: none;
+    tr {
+        display: none;
+    }
 }
 .fixed-table-toolbar {
     margin-bottom: 25px;
@@ -1101,7 +1104,9 @@ input.deletePriview {
         outline: none;
     }
 }
-
+.table-container {
+    margin-bottom: 50px;
+}
 
 @import "media";
      

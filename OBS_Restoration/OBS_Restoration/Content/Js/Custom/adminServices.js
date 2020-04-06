@@ -25,20 +25,19 @@ $(function () {
 });
 
 let templ = document.querySelector("#tableServicesTemplate");
-let td = templ.content.querySelectorAll("td");
 let tbody = document.querySelector(".tableServicesBody");
 let urlImg = "../../Content/Images/Services/";
-let btnDelete = templ.content.querySelector(".delete-services");
- 
 
 function populateServiceRow(service) {
+    let clon = templ.content.cloneNode(true);
+    let td = clon.querySelectorAll("td");
+    let btnDelete = clon.querySelector(".delete-services");
     btnDelete.setAttribute("id", service.Id);
     td[0].textContent = service.Order;
     td[1].textContent = service.Id;
     td[2].textContent = service.Name;
     td[3].textContent = service.Description;
     td[4].querySelector('img').src = urlImg + service.ImgUrl;
-    let clon = templ.content.cloneNode(true); 
     tbody.appendChild(clon);
 }
 
@@ -57,12 +56,11 @@ $('.update').on('click', function () {
                 populateTableServices();
                 $('.modal-dialog form').addClass('d-none');
                 $('.succsses-content').addClass('d-block');
+                locationReload();
             } if (response.Success == false || response.Success == false) {
                 document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
- 
-
-                console.log(document.queryselector('.requireName')) ;
-                //document.queryselector('.imgRequired').innerHTML = response.ValidationMessages.Image;
+                document.querySelector('.requireName').innerHTML = response.ValidationMessages.Name;
+                document.querySelector('.imgRequired').innerHTML = response.ValidationMessages.Image;
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -122,11 +120,12 @@ $('.delete-service-modal').on('click', function () {
         }
     });
 });
+
+
 ///SEARCH
-$("#searchService").on("keyup", function () {
+$(".searchField").on("keyup", function () {
     var value = $(this).val().toLowerCase();
-    $("#tableServices tr").filter(function () {
+    $(".search tr").filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
 });
-
