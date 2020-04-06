@@ -287,7 +287,6 @@
     <Content Include="Content\Svg\spites\symbol\sprite.svg" />
     <Content Include="Global.asax" />
     <Content Include="googlea658255cc4be2637.html" />
-    <Content Include="gulpfile.js" />
     <Content Include="robots.txt" />
     <Content Include="sitemap.xml" />
     <Content Include="Web.config" />
