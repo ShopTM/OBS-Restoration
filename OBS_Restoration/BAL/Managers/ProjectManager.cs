@@ -53,6 +53,7 @@ namespace BAL.Managers
                 else  //Update old Project
                 {
                     target.Name = source.Name;
+                    target.Description = source.Description;
                     foreach (var sourceImg in source.Images)
                     {
                         var dbImage = db.ProjectImageRepository.Get(sourceImg.Id);
