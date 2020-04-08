@@ -11,9 +11,10 @@ $(function () {
                 $.each(project, function (i, value) {
                     populateProjectsTab(value);
                     populateProjectsImg(value);
+                    populateProjectsDescription(value);
                 });
                 // init Isotope
-                var $grid = $(".images-group");
+                var $grid = $(".filterSection");
                 $grid.isotope({
                     itemSelector: ".element-item",
                     layoutMode: "fitRows"
@@ -41,31 +42,52 @@ $(function () {
 
 });
 
+
 function populateProjectsTab(value) {
     let templ = document.getElementById('tabTemplate');
-    templ.content.querySelector(".button").innerHTML = (value.Name);
-    templ.content.querySelector(".button").setAttribute("data-filter", 'img[project="' + value.Name + '"]');
-    var clon = templ.content.cloneNode(true);
+    let clon = templ.content.cloneNode(true);
+    let button = clon.querySelector('.button');
+    button.classList.add('active-text');
+    clon.querySelector(".button").innerHTML = (value.Name);
+    clon.querySelector(".button").setAttribute("data-filter", '[project="' + value.Name + '"]');
     document.querySelector(".button-group").append(clon);
+}
+function populateProjectsDescription(value) {
+    let templ = document.getElementById('descriptionTemplate');
+    let clon = templ.content.cloneNode(true);
+    clon.querySelector(".description-proj").innerHTML = value.Description;
+    clon.querySelector(".description-proj").setAttribute("project", value.Name);
+    document.querySelector(".description-container").append(clon);
 }
 function populateProjectsImg(value) {
     let temp = document.getElementById("imgTemplate");
     temp.content.querySelector(".element-item").setAttribute("project", value.Name);
     for (let i = 0, l = value.Images.length; i < l; i++) {
-        let obj = value.Images[i];
-        temp.content.querySelector('img').src = (obj.Url);
-        var clon = temp.content.cloneNode(true);
+        let img = value.Images[i];
+        temp.content.querySelector('img').src = (img.Url);
+        let clon = temp.content.cloneNode(true);
         document.querySelector(".images-group").append(clon);
     }
 };
-
+let textDescript = document.querySelector(".description-container");
 function addAllTab() {
     let templ = document.getElementById('tabTemplate');
     let clone = templ.content.cloneNode(true);
     let button = clone.querySelector(".button");
     button.innerHTML = 'All project';
     button.setAttribute("data-filter", '*');
+    button.setAttribute("id", 'all-proj')
     button.classList.add('is-checked');
+    if ('#all-proj') {
+        textDescript.style.display = 'none';
+    }
     document.querySelector(".button-group").append(clone);
 }
 
+$(document).on('click', '.active-text', function () {
+    textDescript.style.display = 'block';
+});
+
+$(document).on('click', '#all-proj', function () {
+    textDescript.style.display = 'none';
+})

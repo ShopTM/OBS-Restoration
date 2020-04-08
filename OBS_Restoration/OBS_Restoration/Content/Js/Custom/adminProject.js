@@ -40,7 +40,7 @@ function populateProjectseRow(projects) {
         img.setAttribute('alt', 'ProjectImg');
         img.setAttribute('class', 'img-proj');
         img.setAttribute('src', urlImgProject + projectImage.Url);
-        td[3].appendChild(img);
+        td[4].appendChild(img);
 
     }
     tbodyProject.appendChild(clone);
@@ -107,7 +107,7 @@ $('.updateProject').on('click', function () {
             if (response.Success && response.Success) {
                 $('.modal-dialog form').addClass('d-none');
                 $('.succsses-content').addClass('d-block');
-                locationReload();
+          ///      locationReload();
             } if (response.Success == false || response.Success == false) {
                 document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
                 document.querySelector('.nameRequire').innerHTML = response.ValidationMessages.Name;
