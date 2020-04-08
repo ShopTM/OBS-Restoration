@@ -32,6 +32,7 @@ function populateProjectseRow(projects) {
     let td = clone.querySelectorAll('td');
     let deleteBtn = clone.querySelector('.delete-project')
     td[2].textContent = projects.Name;
+    td[3].textContent = projects.Description;
     deleteBtn.setAttribute('id', projects.Id);
 
     for (let i = 0; i < projects.Images.length; i++) {
@@ -56,6 +57,7 @@ $(document).on('click', '.editProject', function (e) {
                     if ($('.editProject').index(e.target) === i) {
                         $("input[name='Name']").val(project.Name);
                         $("input[name='Id']").val(project.Id);
+                        $("textarea[name='Description']").val(project.Description);
                         for (let i = 0; i < project.Images.length; i++) {
                             let projectImage = project.Images[i];
                             let section = document.createElement('section');
@@ -78,9 +80,11 @@ $('.updateProject').on('click', function () {
     let projectId = $('[name="Id"]').val();
     let token = $('input[name="__RequestVerificationToken"]').val();
     let idImg = $('[name="ImgId"]');
+    let description = $('[name="Description"]').val();
     let formData = new FormData();
     formData.append('Name', projectName);
     formData.append('Id', projectId);
+    formData.append('Description', description);
     formData.append('__RequestVerificationToken', token);
     let count = 0;
     for (i = 0; i < idImg.length; i++) {

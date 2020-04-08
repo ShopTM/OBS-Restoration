@@ -41,8 +41,6 @@ $(function () {
 
 
 });
-
-
 function populateProjectsTab(value) {
     let templ = document.getElementById('tabTemplate');
     let clon = templ.content.cloneNode(true);

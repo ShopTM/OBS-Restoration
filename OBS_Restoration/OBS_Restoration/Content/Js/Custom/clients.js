@@ -5,10 +5,10 @@ const h3 = document.querySelector("h3#clients");
 const val = input.value;
 switch (val) {
     case "Enginner":
-        h3.innerHTML = "Enginners / Architecs";
+        h3.innerHTML = "Enginners & Architecs";
         break;
     case "Manager":
-        h3.innerHTML = "Propperty / Managers";
+        h3.innerHTML = "Propperty Managers";
         break;
     case "Owner":
         h3.innerHTML = "Owner";
