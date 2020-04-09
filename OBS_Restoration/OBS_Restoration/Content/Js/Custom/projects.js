@@ -29,6 +29,8 @@ $(function () {
                     $('.button-group').find("button.is-checked").removeClass("is-checked");
                     $(this).addClass("is-checked");
                 });
+                $grid.isotope({ filter: '.isotope-image' });
+
             }
             else if (data.Data === null || data.Success === false) {
                 let errorProjectMessage = data.ErrorMessage;
@@ -38,7 +40,6 @@ $(function () {
             }
         },
     });
-
 
 });
 function populateProjectsTab(value) {
@@ -67,25 +68,12 @@ function populateProjectsImg(value) {
         document.querySelector(".images-group").append(clon);
     }
 };
-let textDescript = document.querySelector(".description-container");
 function addAllTab() {
     let templ = document.getElementById('tabTemplate');
     let clone = templ.content.cloneNode(true);
     let button = clone.querySelector(".button");
     button.innerHTML = 'All project';
-    button.setAttribute("data-filter", '*');
-    button.setAttribute("id", 'all-proj')
+    button.setAttribute("data-filter", '.isotope-image');
     button.classList.add('is-checked');
-    if ('#all-proj') {
-        textDescript.style.display = 'none';
-    }
     document.querySelector(".button-group").append(clone);
 }
-
-$(document).on('click', '.active-text', function () {
-    textDescript.style.display = 'block';
-});
-
-$(document).on('click', '#all-proj', function () {
-    textDescript.style.display = 'none';
-})
