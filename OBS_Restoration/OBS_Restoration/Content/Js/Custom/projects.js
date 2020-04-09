@@ -16,7 +16,7 @@ $(function () {
                 // init Isotope
                 var $grid = $(".filterSection");
                 $grid.isotope({
-                    itemSelector: ".element-item",
+                    itemSelector: ".filter-item",
                     layoutMode: "fitRows"
                 });
                 // bind filter button click
@@ -59,7 +59,7 @@ function populateProjectsDescription(value) {
 }
 function populateProjectsImg(value) {
     let temp = document.getElementById("imgTemplate");
-    temp.content.querySelector(".element-item").setAttribute("project", value.Name);
+    temp.content.querySelector(".filter-item").setAttribute("project", value.Name);
     for (let i = 0, l = value.Images.length; i < l; i++) {
         let img = value.Images[i];
         temp.content.querySelector('img').src = (img.Url);
