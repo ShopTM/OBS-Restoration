@@ -111,7 +111,7 @@ $('.updateProject').on('click', function () {
             if (response.Success && response.Success) {
                 $('.modal-dialog form').addClass('d-none');
                 $('.succsses-content').addClass('d-block');
-          ///      locationReload();
+                locationReload();
             } if (response.Success == false || response.Success == false) {
                 document.querySelector('.errorMessage').innerHTML = response.ErrorMessage;
                 document.querySelector('.nameRequire').innerHTML = response.ValidationMessages.Name;

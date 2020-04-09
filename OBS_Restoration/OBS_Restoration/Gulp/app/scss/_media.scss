@@ -20,14 +20,7 @@
         .services-offer h2 {
             font-size: 1.4em;
         }
-        .description-container {
-            width: 100% !important;
-            height: 100%!important;
-            padding: 0;
-            margin: 0 0 40px 0;
-         }
-     }
-
+    }
     @media (min-width: 320px) and (max-width: 992px){
         .navbar a {
             font-size: 1.2em;
@@ -46,20 +39,7 @@
         margin-left: 0;
     }
 
-    .description-container {
-        width: 100% !important;
-        height: 100% auto !important;
-        padding: 0;
-        margin: 0 0 40px 0;
-    }
-
-    p.description-proj {
-        width: 100% !important;
-        height: 100% auto !important;
-        left: 0 !important;
-    }
-
-    .banner-craftsman h3 {
+     .banner-craftsman h3 {
         margin-left: 30px;
     }
 
