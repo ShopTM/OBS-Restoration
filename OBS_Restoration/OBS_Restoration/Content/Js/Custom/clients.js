@@ -32,7 +32,7 @@ $(function () {
     $.validator.addClassRules({
         file: {
             required: true,
-            extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages",
+          ///  extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages",
             filesize: 25,
 
         },
@@ -46,7 +46,7 @@ $(function () {
 
             Files: {
                 required: false,
-                extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages",
+              ///  extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages",
                 filesize: 25,
             },
         },
@@ -56,7 +56,7 @@ $(function () {
             },
 
             Files: {
-                extension: "Please upload valid file formats (docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages).",
+             //   extension: "Please upload valid file formats (docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages).",
                 filesize: "Sorry! Maximum upload file size: 25 MB.",
             }
         },
@@ -82,7 +82,7 @@ $(function () {
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                   document.querySelector('.errorMessage').innerHTML = errorMessage;
+                    document.querySelector('.errorMessage').innerHTML = errorMessage;
                     scrollToUp();
                 }
 
@@ -113,8 +113,3 @@ function scrollToUp() {
     });
     return false;
 }
-
-
-
-
-

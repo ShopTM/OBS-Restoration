@@ -20,9 +20,9 @@ $(function () {
                 required: true,
 
             },
-            File: {
+            Files: {
                 required: true,
-                extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages",
+                extension: "docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages|ogg|ogv|avi|mpe?g|mov|wmv|flv|mp4",
                 filesize: 25,
             },
 
@@ -35,15 +35,15 @@ $(function () {
 
                 digits: "Please enter a valid phone number",
             },
-            File: {
+            Files: {
                 required: "Please upload resume",
-                extension: "Please upload valid file formats (docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages).",
+                extension: "Please upload valid file formats (docx|rtf|doc|txt|xlsx|pdf|rar|zip|jpg|jpeg|png|aae|pages|ogg|ogv|avi|mpe?g|mov|wmv|flv|mp4).",
                 filesize: "Sorry! Maximum upload file size: 25 MB.",
             }
 
         },
 
-        submitHandler: function (form) {
+        submitHandler: function () {
             let formData = new FormData($('#contactus-form')[0])
             $.ajax({
                 url: "/home/ContactUs",
@@ -60,7 +60,8 @@ $(function () {
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    document.querySelector('.errorMessage').innerHTML = errorMessage;
+                    document.querySelector('.errorMassege').innerHTML = Data.ErrorMessage;
+                    console.log(response.ErrorMessage)
                     scrollToUp();
                 }
             });

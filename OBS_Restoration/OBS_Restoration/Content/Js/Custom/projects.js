@@ -78,10 +78,4 @@ function addAllTab() {
     document.querySelector(".button-group").append(clone);
 }
 
-$(document).on('click', '.active-text', function () {
-    textDescript.style.display = 'block';
-});
 
-$(document).on('click', '#all-proj', function () {
-    textDescript.style.display = 'none';
-})
